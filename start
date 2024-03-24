@@ -1,0 +1,5 @@
+#!/bin/bash
+
+source bootstrap
+
+npm run dev -- --open
