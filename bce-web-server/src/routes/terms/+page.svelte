@@ -1,1 +1,1 @@
-<h1>Terms for using BCE Services</h1>
+<h1>BCE Terms of Service</h1>
