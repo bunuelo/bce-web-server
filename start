@@ -3,5 +3,6 @@
 source bootstrap
 
 cd bce-web-server
-npm run dev -- --host --https
+npm run dev -- --https
+
 
