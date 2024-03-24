@@ -1,6 +1,7 @@
 #!/bin/bash
 
 echo "Bootstrapping BCE Web Server."
-rm -Rf bce-web-server
-npm create svelte@latest bce-web-server
+#npm create svelte@latest bce-web-server
 
+cd bce-web-server
+npm install

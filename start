@@ -2,4 +2,5 @@
 
 source bootstrap
 
+cd bce-web-server
 npm run dev -- --open
