@@ -1,5 +1,5 @@
 <script>
-  let counter = 1;
+  let ipd = 1;
 </script>
 
 <h1>BCE</h1>
@@ -7,5 +7,8 @@
 <p>See the <a href="/docs">developer documentation on this server</a> for a developer reference.</p>
 <p>See the <a href="http://64.23.144.229:8000/docs">BCE REST API OpenAPI documentation</a>.</p>
 
-<input type="number" bind:value="{counter}" min="50" max="80" />
-<input type="range" bind:value="{counter}" min="50" max="80" />
+<p>
+  Interpupilary Distance in mm:
+  <input type="range" bind:value="{ipd}" min="50" max="80" />
+  <input type="number" bind:value="{ipd}" min="50" max="80" />
+</p>
