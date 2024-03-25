@@ -4,12 +4,12 @@
   // 61.7 average female.  64 average male. https://en.wikipedia.org/wiki/Pupillary_distance
   let ipd = 62;
 
-  let continents = "none";
+  let hello_response = "none";
 
   const apiURL = "http://64.23.144.229:8000/";
   onMount(async function() {
     const response = await fetch(apiURL);
-    continents = await response.json();
+    hello_response = await response.json();
   });
   
 </script>
@@ -26,5 +26,5 @@
   <input type="text" value="{ipd} mm" style="width: 50px;" disabled />
 </p>
 
-<p>Continents: {continents}</p>
+<p>Continents: {hello_response.message}</p>
   
