@@ -11,5 +11,5 @@
   Interpupilary Distance in mm:
   <input type="range" bind:value="{ipd}" min="50" max="80" />
   <input type="number" bind:value="{ipd}" min="50" max="80" />
-  <input type="text" bind:value="{ipd} mm" disabled="true" />
+  <input type="text" value="{ipd} mm" disabled="true" />
 </p>
