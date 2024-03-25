@@ -5,14 +5,13 @@
   let ipd = 62;
 
   let continents = "none";
+
+  const apiURL = "http://64.23.144.229:8000/";
+  onMount(async function() {
+    const response = await fetch(apiURL);
+    continents = await response.json();
+  });
   
-  onMount(async () => {
-    await fetch(`http://64.23.144.229:8000/`)
-      .then(r => r.json())
-      .then(data => {
-        continents = data;
-      });
-  })
 </script>
 
 <h1>BCE</h1>
@@ -27,9 +26,5 @@
   <input type="text" value="{ipd} mm" style="width: 50px;" disabled />
 </p>
 
-{#if continents}
-  <p>Continents: {continents}</p>
-{:else}
-  <p class="loading">loading...</p>
-{/if}
+<p>Continents: {continents}</p>
   
