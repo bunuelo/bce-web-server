@@ -1,5 +1,5 @@
 <script>
-  <!-- 61.7 average female.  64 average male. https://en.wikipedia.org/wiki/Pupillary_distance -->
+  // 61.7 average female.  64 average male. https://en.wikipedia.org/wiki/Pupillary_distance
   let ipd = 62;
 </script>
 
