@@ -27,4 +27,9 @@
   <input type="text" value="{ipd} mm" style="width: 50px;" disabled />
 </p>
 
-<p>Continents: {continents}</p>
+{#if continents}
+  <p>Continents: {continents}</p>
+{:else}
+  <p class="loading">loading...</p>
+{/if}
+  
