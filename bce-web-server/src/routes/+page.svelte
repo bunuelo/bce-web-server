@@ -26,5 +26,16 @@
   <input type="text" value="{ipd} mm" style="width: 50px;" disabled />
 </p>
 
-<p>Continents: {hello_response.message}</p>
+<table>
+  <tr>
+    <td>
+      BCE REST API message
+    </td>
+  </tr>
+  <tr>
+    <td>
+      {hello_response.message}
+    </td>
+  </tr>
+</table>
   
