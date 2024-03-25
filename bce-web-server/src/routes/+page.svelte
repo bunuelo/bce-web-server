@@ -1,6 +1,18 @@
 <script>
+  import { onMount } from "svelte";
+  
   // 61.7 average female.  64 average male. https://en.wikipedia.org/wiki/Pupillary_distance
   let ipd = 62;
+
+  let continents = "none";
+  
+  onMount(async () => {
+    await fetch(`http://64.23.144.229:8000/`)
+      .then(r => r.json())
+      .then(data => {
+        continents = data;
+      });
+  })
 </script>
 
 <h1>BCE</h1>
@@ -14,3 +26,5 @@
   <input type="number" bind:value="{ipd}" min="50" max="80" style="width: 50px;" />
   <input type="text" value="{ipd} mm" style="width: 50px;" disabled />
 </p>
+
+<p>Continents: {continents}</p>
