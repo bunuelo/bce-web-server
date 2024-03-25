@@ -10,7 +10,7 @@
 
 <p>
   Interpupilary Distance:
-  <input type="range" bind:value="{ipd}" min="50" max="80" width="50px"/>
-  <input type="number" bind:value="{ipd}" min="50" max="80" width="50px" />
-  <input type="text" value="{ipd} mm" width="50px" disabled />
+  <input type="range" bind:value="{ipd}" min="50" max="80" style="width: 50px;" />
+  <input type="number" bind:value="{ipd}" min="50" max="80" style="width: 50px;" />
+  <input type="text" value="{ipd} mm" style="width: 50px;" disabled />
 </p>
