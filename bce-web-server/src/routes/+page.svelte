@@ -11,14 +11,6 @@
     const response = await fetch(apiURL);
     hello_response = await response.json();
   });
-  
-
-
-
-
-
-
-
 </script>
 
 <img src="/BCE-web.png" style="width: 150px;" alt="BCE Logo">
