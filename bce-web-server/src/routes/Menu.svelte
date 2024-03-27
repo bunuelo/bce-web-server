@@ -33,5 +33,5 @@
       </table>
     </td>
   </tr>
-</div>
+</table>
 
