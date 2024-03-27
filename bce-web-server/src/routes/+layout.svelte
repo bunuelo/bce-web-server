@@ -7,7 +7,8 @@
   const menu = createMenu({ label: 'Actions' })
 
   function onSelect(e: Event) {
-    console.log("select", (e as CustomEvent).detail)
+  console.log("select", (e as CustomEvent).detail)
+    menu.expanded = !menu.expanded
   }
 
   // prettier-ignore
