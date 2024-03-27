@@ -1,10 +1,11 @@
 <script lang="ts">
   import { createMenu } from 'svelte-headlessui'
   import Transition from 'svelte-transition'
+  import Logo from './Logo.svelte'
   import Edit from './Edit.svelte'
   
   const menu = createMenu({ label: 'Actions' })
-
+  
   function onSelect(e: Event) {
     console.log("select", (e as CustomEvent).detail)
   }
@@ -23,6 +24,8 @@
   ]
   
 </script>
+
+<Logo>
 
 <div class="flex w-full flex-col items-center justify-center">
   <div class="relative top-16 w-56 text-right">
