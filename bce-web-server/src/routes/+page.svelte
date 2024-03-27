@@ -34,7 +34,7 @@
   </tr>
   <tr>
     <td>
-      {hello_response.message}
+      {@html hello_response.message}
     </td>
   </tr>
 </table>
