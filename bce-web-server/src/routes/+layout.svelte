@@ -7,13 +7,19 @@
 <table width="100%">
   <tr>
     <td>
-      <Logo />
-      <Menu />
-      <nav>
-	<a href="/">home</a>
-	<a href="/terms">terms</a>
-	<a href="/contact">contact</a>
-      </nav>
+      <table>
+	<tr>
+	  <td>
+	    <Logo />
+	  </td>
+	<tr>
+	</tr>
+	<tr>
+	  <td>
+	    <Menu />
+	  </td>
+	</tr>
+      </table>
     </td>
     <td>
       <slot />

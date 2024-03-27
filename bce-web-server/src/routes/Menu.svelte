@@ -17,17 +17,17 @@
       <table>
 	<tr>
 	  <td>
-	    Option 1
+	    <a href="/">home</a>
 	  </td>
 	</tr>
 	<tr>
 	  <td>
-	    Option 2
+	    <a href="/terms">terms</a>
 	  </td>
 	</tr>
 	<tr>
 	  <td>
-	    Option 3
+	    <a href="/contact">contact</a>
 	  </td>
 	</tr>
       </table>
