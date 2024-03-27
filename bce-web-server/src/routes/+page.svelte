@@ -14,7 +14,7 @@
   
 </script>
 
-<img src="/BCE-web.png">
+<img src="/BCE-web.png" style="width: 150px;">
 
 <h1>BCE</h1>
 <p>The BCE website is an example web-based client application that accesses the BCE REST API.</p>
