@@ -1,7 +1,6 @@
 <script lang="ts">
   import { createMenu } from 'svelte-headlessui'
   import Transition from 'svelte-transition'
-  import Event from 'svelte'
   import Edit from './Edit.svelte'
   
   const menu = createMenu({ label: 'Actions' })
