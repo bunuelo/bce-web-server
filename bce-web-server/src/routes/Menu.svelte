@@ -8,26 +8,30 @@
 
 <table>
   <tr>
-    Menu
+    <td>
+      Menu
+    </td>
   </tr>
   <tr>
-    <table>
-      <tr>
-	<td>
-	  Option 1
-	</td>
-      </tr>
-      <tr>
-	<td>
-	  Option 2
-	</td>
-      </tr>
-      <tr>
-	<td>
-	  Option 3
-	</td>
-      </tr>
-    </table>
+    <td>
+      <table>
+	<tr>
+	  <td>
+	    Option 1
+	  </td>
+	</tr>
+	<tr>
+	  <td>
+	    Option 2
+	  </td>
+	</tr>
+	<tr>
+	  <td>
+	    Option 3
+	  </td>
+	</tr>
+      </table>
+    </td>
   </tr>
 </div>
 
