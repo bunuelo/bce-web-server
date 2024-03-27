@@ -6,11 +6,8 @@
   const menu = createMenu({ label: 'Actions' })
 
   function onSelect(e: Event) {
+    console.log("select", (e as CustomEvent).detail)
   }
-  
-  //function onSelect(e: Event) {
-  //  console.log("select", (e as CustomEvent).detail)
-  //}
   
 </script>
 
