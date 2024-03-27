@@ -25,7 +25,7 @@
   
 </script>
 
-<Logo>
+<Logo />
 
 <div class="flex w-full flex-col items-center justify-center">
   <div class="relative top-16 w-56 text-right">
