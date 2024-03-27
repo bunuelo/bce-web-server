@@ -22,6 +22,11 @@
 	</tr>
 	<tr>
 	  <td>
+	    <a href="/docs">docs</a>
+	  </td>
+	</tr>
+	<tr>
+	  <td>
 	    <a href="/terms">terms</a>
 	  </td>
 	</tr>
