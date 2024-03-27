@@ -4,22 +4,19 @@
   
 </script>
 
-<Logo />
-
-<Menu />
 
 <table width="100%">
   <tr>
-    <td width="100%">
+    <td>
+      <Logo />
+      <Menu />
       <nav>
 	<a href="/">home</a>
 	<a href="/terms">terms</a>
 	<a href="/contact">contact</a>
       </nav>
     </td>
-  </tr>
-  <tr>
-    <td width="100%">
+    <td>
       <slot />
     </td>
   </tr>
