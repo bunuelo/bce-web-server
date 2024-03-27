@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { onMount } from "svelte";
   
   // 61.7 average female.  64 average male. https://en.wikipedia.org/wiki/Pupillary_distance
@@ -12,6 +12,13 @@
     hello_response = await response.json();
   });
   
+
+
+
+
+
+
+
 </script>
 
 <img src="/BCE-web.png" style="width: 150px;" alt="BCE Logo">
