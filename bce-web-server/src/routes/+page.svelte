@@ -6,16 +6,25 @@
 
   let bce_rest_api_response = "";
 
-  const apiURL = "http://64.23.144.229:8000/";
+  const apiURL = "http://64.23.144.229:8000";
   
   async function rest_api__root() {
     const response = await fetch(apiURL);
     bce_rest_api_response = await response.json();
   }
   
+  async function rest_api__generate() {
+    const response = await fetch(apiURL + "/generate");
+    bce_rest_api_response = await response.json();
+  }
+  
   onMount(async function() {
     await rest_api__root()
   });
+
+  async function onclickGenerate() {
+    await rest_api__generate()
+  }
 </script>
 
 <p>The BCE website is an example web-based client application that accesses the BCE REST API.</p>
@@ -33,7 +42,7 @@
   </tr>
   <tr>
     <td>
-      <button type="button">Generate!</button>
+      <button on:click={onclickGenerate}>Generate!</button>
     </td>
   </tr>
 </table>
