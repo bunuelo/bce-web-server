@@ -9,6 +9,7 @@
 
   let bce_rest_api_message = "";
   let current_image_url = "";
+  let image_reload_count = 0
   
   const apiURL = "http://64.23.144.229:8000";
   const apiHeaders = {
@@ -34,7 +35,8 @@
     }));
     const response_json = await response.json();
     bce_rest_api_message = response_json.message
-    current_image_url = response_json.image_url + "?v=2"
+    current_image_url = response_json.image_url + "?v=" + image_reload_count
+    image_reload_count += 1
     return response_json;
   }
   
