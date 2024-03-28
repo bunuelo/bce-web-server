@@ -75,14 +75,6 @@
       {/if}
     </td>
   </tr>
-</table>
-
-<table>
-  <tr>
-    <td>
-      BCE REST API message
-    </td>
-  </tr>
   <tr>
     <td>
       {bce_rest_api_message}
