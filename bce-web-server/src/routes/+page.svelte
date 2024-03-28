@@ -4,12 +4,17 @@
   // 61.7 average female.  64 average male. https://en.wikipedia.org/wiki/Pupillary_distance
   let ipd = 62;
 
-  let hello_response = "none";
+  let bce_rest_api_response = "";
 
   const apiURL = "http://64.23.144.229:8000/";
-  onMount(async function() {
+  
+  function rest_api__root() {
     const response = await fetch(apiURL);
-    hello_response = await response.json();
+    bce_rest_api_response = await response.json();
+  }
+  
+  onMount(async function() {
+    rest_api__root()
   });
 </script>
 
@@ -32,8 +37,8 @@
   </tr>
   <tr>
     <td>
-      {hello_response.message}
+      {bce_rest_api_response.message}
     </td>
   </tr>
 </table>
-  
+
