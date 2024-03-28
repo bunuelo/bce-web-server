@@ -1,4 +1,4 @@
-<h1>BCE Docs</h1>
+<h1>Docs</h1>
 
 <p>The BCE website is an example web-based client application that accesses the BCE REST API.</p>
 <p>See the <a href="/docs">developer documentation on this server</a> for a developer reference.</p>
