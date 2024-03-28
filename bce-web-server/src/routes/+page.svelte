@@ -28,12 +28,10 @@
       width: 512,
       height: 512 * 9 / 16
     }
-    const response = await fetch(apiURL + "/generate", {
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(body)
-    });
+    const response = await fetch(apiURL + "/generate" + new URLSearchParams({
+      width: image_width,
+      height: image_height,
+    }));
     const response_json = await response.json();
     bce_rest_api_message = response_json.message
     current_image_url = response_json.image_url
