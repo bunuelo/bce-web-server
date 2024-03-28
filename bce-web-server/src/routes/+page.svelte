@@ -57,7 +57,7 @@
   </tr>
   <tr>
     <td>
-      <img src={current_image_url} style="width: 150px;">
+      <enhanced:img src={current_image_url} style="width: 150px;" />
     </td>
   </tr>
 </table>
