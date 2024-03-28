@@ -28,7 +28,7 @@
       width: 512,
       height: 512 * 9 / 16
     }
-    const response = await fetch(apiURL + "/generate" + new URLSearchParams({
+    const response = await fetch(apiURL + "/generate?" + new URLSearchParams({
       width: image_width,
       height: image_height,
     }));
