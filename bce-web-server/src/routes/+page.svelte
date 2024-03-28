@@ -63,8 +63,8 @@
   <tr>
     <td>
       Interpupilary Distance:
-      <input type="range" bind:value="{ipd}" min="50" max="80" style="width: 150px;" on:change={on_input_change}/>
-      <input type="number" bind:value="{ipd}" min="50" max="80" style="width: 50px;" />
+      <input type="range" bind:value="{ipd}" min="50" max="80" style="width: 150px;" on:change={on_input_change} />
+      <input type="number" bind:value="{ipd}" min="50" max="80" style="width: 50px;" on:change={on_input_change} />
       <input type="text" value="{ipd} mm" style="width: 50px;" disabled />
     </td>
   </tr>
