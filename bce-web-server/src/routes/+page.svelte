@@ -58,7 +58,7 @@
   <tr>
     <td>
       {#if current_image_url != ""}
-        <img src="{current_image_url}" style="width: 128px; height: 128px;" />
+        <img "{current_image_url}" style="width: 128px; height: 128px;" />
       {/if}
     </td>
   </tr>
