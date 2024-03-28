@@ -62,6 +62,13 @@
       {/if}
     </td>
   </tr>
+  <tr>
+    <td>
+      {#if current_image_url != ""}
+        <a href="{current_image_url}">{current_image_url}</a>
+      {/if}
+    </td>
+  </tr>
 </table>
 
 <table>
