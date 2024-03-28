@@ -57,7 +57,9 @@
   </tr>
   <tr>
     <td>
-      <img src="{current_image_url}" style="width: 150px;" />
+      {#if current_image_url != ""}
+        <img src="{current_image_url}" style="width: 150px;" />
+      {/if}
     </td>
   </tr>
 </table>
