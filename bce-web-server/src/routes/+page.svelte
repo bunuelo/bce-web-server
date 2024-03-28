@@ -48,6 +48,10 @@
   async function onclickGenerate() {
     await rest_api__generate()
   }
+
+  async function on_input_change() {
+    await rest_api__generate()
+  }
 </script>
 
 <p>The BCE website is an example web-based client application that accesses the BCE REST API.</p>
@@ -58,7 +62,7 @@
   <tr>
     <td>
       Interpupilary Distance:
-      <input type="range" bind:value="{ipd}" min="50" max="80" style="width: 150px;" />
+      <input type="range" bind:value="{ipd}" min="50" max="80" style="width: 150px;" on:change={on_input_change}/>
       <input type="number" bind:value="{ipd}" min="50" max="80" style="width: 50px;" />
       <input type="text" value="{ipd} mm" style="width: 50px;" disabled />
     </td>
