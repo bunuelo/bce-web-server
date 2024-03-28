@@ -8,13 +8,13 @@
 
   const apiURL = "http://64.23.144.229:8000/";
   
-  function rest_api__root() {
+  async function rest_api__root() {
     const response = await fetch(apiURL);
     bce_rest_api_response = await response.json();
   }
   
   onMount(async function() {
-    rest_api__root()
+    await rest_api__root()
   });
 </script>
 
