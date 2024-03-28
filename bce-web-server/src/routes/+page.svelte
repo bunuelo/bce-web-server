@@ -5,7 +5,8 @@
   let ipd = 62;
 
   let bce_rest_api_message = "";
-
+  let current_image_url = "";
+  
   const apiURL = "http://64.23.144.229:8000";
   const apiHeaders = {
     "Access-Control-Allow-Origin": "*"
@@ -23,6 +24,7 @@
     const response = await fetch(apiURL + "/generate");
     const response_json = await response.json();
     bce_rest_api_message = response_json.message
+    current_image_url = bce_rest_api_message.image
     return response_json;
   }
   
@@ -51,6 +53,11 @@
   <tr>
     <td>
       <button on:click={onclickGenerate}>Generate!</button>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src={current_image_url} style="width: 150px;">
     </td>
   </tr>
 </table>
