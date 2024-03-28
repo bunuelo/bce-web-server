@@ -34,7 +34,7 @@
     }));
     const response_json = await response.json();
     bce_rest_api_message = response_json.message
-    current_image_url = response_json.image_url + "?"
+    current_image_url = response_json.image_url + "?v=2"
     return response_json;
   }
   
