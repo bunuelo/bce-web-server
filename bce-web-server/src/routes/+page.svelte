@@ -5,7 +5,7 @@
   let ipd = 62;
 
   let bce_rest_api_message = "";
-  let current_image_url = "";
+  let current_image_url = "http://64.23.144.229:8000/static/image.png";
   
   const apiURL = "http://64.23.144.229:8000";
   const apiHeaders = {
