@@ -1,5 +1,8 @@
 <script lang="ts">
   import { onMount } from "svelte";
+
+  let image_width = 512;
+  let image_height = image_width * 9 / 16;
   
   // 61.7 average female.  64 average male. https://en.wikipedia.org/wiki/Pupillary_distance
   let ipd = 62;
@@ -21,7 +24,16 @@
   }
   
   async function rest_api__generate() {
-    const response = await fetch(apiURL + "/generate");
+    const body = {
+      width: 512,
+      height: 512 * 9 / 16
+    }
+    const response = await fetch(apiURL + "/generate", {
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(body)
+    });
     const response_json = await response.json();
     bce_rest_api_message = response_json.message
     current_image_url = response_json.image_url
@@ -58,7 +70,7 @@
   <tr>
     <td>
       {#if current_image_url != ""}
-        <img src="{current_image_url}" style="width: 512px; height: 512px;" alt="Generated Image"/>
+        <img src="{current_image_url}" style="width: {image_width}px; height: {image_height}px;" alt="Generated Image"/>
       {/if}
     </td>
   </tr>
