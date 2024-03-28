@@ -24,7 +24,7 @@
     const response = await fetch(apiURL + "/generate");
     const response_json = await response.json();
     bce_rest_api_message = response_json.message
-    current_image_url = bce_rest_api_message.image_url
+    current_image_url = response.image_url
     return response_json;
   }
   
