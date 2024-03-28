@@ -1,8 +1,8 @@
 <script lang="ts">
   import { onMount } from "svelte";
 
-  let image_width = window.innerWidth / 3;
-  let image_height = image_width * 9 / 16;
+  let image_width = Math.round(window.innerWidth / 3);
+  let image_height = Math.round(image_width * 9 / 16);
   
   // 61.7 average female.  64 average male. https://en.wikipedia.org/wiki/Pupillary_distance
   let ipd = 62;
