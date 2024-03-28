@@ -55,7 +55,7 @@
   }
 </script>
 
-<h1>BCE Design</h1>
+<h1>Design</h1>
 
 <table>
   <tr>
