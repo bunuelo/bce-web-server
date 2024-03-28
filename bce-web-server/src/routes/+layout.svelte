@@ -3,6 +3,7 @@
   import Menu from './Menu.svelte'
 </script>
 
+<link rel="icon" href="/favicon.png?v=2" />
 
 <table width="100%">
   <tr>
