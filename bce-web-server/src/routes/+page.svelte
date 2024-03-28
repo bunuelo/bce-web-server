@@ -22,12 +22,21 @@
 <p>See the <a href="/docs">developer documentation on this server</a> for a developer reference.</p>
 <p>See the <a href="http://64.23.144.229:8000/docs">BCE REST API OpenAPI documentation</a>.</p>
 
-<p>
-  Interpupilary Distance:
-  <input type="range" bind:value="{ipd}" min="50" max="80" style="width: 150px;" />
-  <input type="number" bind:value="{ipd}" min="50" max="80" style="width: 50px;" />
-  <input type="text" value="{ipd} mm" style="width: 50px;" disabled />
-</p>
+<table>
+  <tr>
+    <td>
+      Interpupilary Distance:
+      <input type="range" bind:value="{ipd}" min="50" max="80" style="width: 150px;" />
+      <input type="number" bind:value="{ipd}" min="50" max="80" style="width: 50px;" />
+      <input type="text" value="{ipd} mm" style="width: 50px;" disabled />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <button type="button">Generate!</button>
+    </td>
+  </tr>
+</table>
 
 <table>
   <tr>
