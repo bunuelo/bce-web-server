@@ -7,6 +7,10 @@
   let bce_rest_api_message = "";
 
   const apiURL = "http://64.23.144.229:8000";
+  const apiHeaders = {
+    "Access-Control-Allow-Origin": "*"
+
+  }
   
   async function rest_api__root() {
     const response = await fetch(apiURL + "/");
