@@ -43,6 +43,7 @@
   
   onMount(async function() {
     await rest_api__root()
+    await rest_api__generate()
   });
 
   async function onclickGenerate() {
@@ -65,11 +66,6 @@
       <input type="range" bind:value="{ipd}" min="50" max="80" style="width: 150px;" on:change={on_input_change}/>
       <input type="number" bind:value="{ipd}" min="50" max="80" style="width: 50px;" />
       <input type="text" value="{ipd} mm" style="width: 50px;" disabled />
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <button on:click={onclickGenerate}>Generate!</button>
     </td>
   </tr>
   <tr>
