@@ -5,8 +5,8 @@
     BoxGeometry,
     DirectionalLight,
     HemisphereLight,
-    Mesh,
-    MeshStandardMaterial,
+    //Mesh,
+    //MeshStandardMaterial,
     PerspectiveCamera,
     Scene,
     WebGLRenderer
@@ -20,14 +20,14 @@
   const scene = new Scene();
 
   const camera = new PerspectiveCamera(75, innerWidth / innerHeight, 0.1, 1000);
-  camera.position.z = 5;
+  //camera.position.z = 5;
   
-  const geometry = new BoxGeometry();
+  //const geometry = new BoxGeometry();
 
-  const material = new MeshStandardMaterial({
-	color: 0x00ff00,
-	metalness: 0.13
-  });
+  //const material = new MeshStandardMaterial({
+//	color: 0x00ff00,
+//	metalness: 0.13
+  //});
 
   //const cube = new Mesh(geometry, material);
   //scene.add(cube);
@@ -46,9 +46,10 @@
   
   const animate = () => {
 	requestAnimationFrame(animate);
-        camera.position.z = 5 * Math.cos(camera_angle);
-        camera.position.x = 5 * Math.sin(camera_angle);
-        camera.lookAt((0, 0, 0));
+        camera.position.z = 5;
+        //camera.position.z = 5 * Math.cos(camera_angle);
+        //camera.position.x = 5 * Math.sin(camera_angle);
+        //camera.lookAt((0, 0, 0));
         camera_angle += 0.01;
         //cube.rotation.x += 0.01;
 	//cube.rotation.y += 0.01;
