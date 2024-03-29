@@ -129,6 +129,7 @@
     await rest_api__root();
     await rest_api__generate();
     await load_3d_model();
+    createScene(three_canvas_element);
   });
 
   async function onclickGenerate() {
@@ -139,8 +140,6 @@
     await rest_api__generate()
   }
 
-  createScene(three_canvas_element);
-  
 </script>
 
 <svelte:window bind:innerWidth bind:outerWidth bind:innerHeight bind:outerHeight />
