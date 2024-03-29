@@ -12,10 +12,10 @@
     WebGLRenderer
   } from 'three';
 
-  $: outerWidth = 0
-  $: innerWidth = 0
-  $: outerHeight = 0
-  $: innerHeight = 0
+  $: outerWidth = 1024
+  $: innerWidth = 1024
+  $: outerHeight = 768
+  $: innerHeight = 768
 
   const scene = new Scene();
 
