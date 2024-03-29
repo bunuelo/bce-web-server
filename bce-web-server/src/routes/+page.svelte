@@ -61,6 +61,7 @@
   const gltf_loader = new GLTFLoader();
 
   //let three_canvas_element:HTMLCanvasElement;
+  let three_canvas_element;
   
   // optional for compressed meshes
   //const dracoLoader = new DRACOLoader();
