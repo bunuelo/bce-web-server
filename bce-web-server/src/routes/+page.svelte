@@ -9,12 +9,6 @@
   //dracoLoader.setDecoderPath( '/examples/jsm/libs/draco/' );
   //loader.setDRACOLoader( dracoLoader );
 
-  gltf_loader.load("http://64.23.144.229:8000/static/Box.glb", function (gltf) {
-    scene.add(gltf.scene);
-  }, undefined, function (error) {
-    console.error(error);
-  });
-  
   let image_width = Math.round(window.innerWidth / 3);
   let image_height = Math.round(image_width * 9 / 16);
   
@@ -54,10 +48,19 @@
     image_reload_count += 1
     return response_json;
   }
+
+  async function load_3d_model() {
+    await gltf_loader.loadAsync("http://64.23.144.229:8000/static/Box.glb", function (gltf) {
+      scene.add(gltf.scene);
+    }, undefined, function (error) {
+      console.error(error);
+    });
+  }
   
   onMount(async function() {
     await rest_api__root()
     await rest_api__generate()
+    awaot load_3d_model()
   });
 
   async function onclickGenerate() {
