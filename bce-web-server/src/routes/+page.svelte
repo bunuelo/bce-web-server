@@ -55,7 +55,7 @@
 	camera.updateProjectionMatrix();
   };
 
-  export const createScene = (el:HTMLCanvasElement) => {
+  const createScene = (el:HTMLCanvasElement) => {
 	renderer = new WebGLRenderer({ antialias: true, canvas: el });
 	resize();
 	animate();
@@ -65,7 +65,7 @@
 
   //let three_canvas_element:HTMLCanvasElement;
   let three_canvas_element;
-  
+
   // optional for compressed meshes
   //const dracoLoader = new DRACOLoader();
   //dracoLoader.setDecoderPath( '/examples/jsm/libs/draco/' );
@@ -74,6 +74,7 @@
   function get_image_width() {
     return Math.round(innerWidth / 3);
   }
+
   function get_image_height() {
     return Math.round(get_image_width() * 9 / 16);
   }
@@ -137,6 +138,9 @@
   async function on_input_change() {
     await rest_api__generate()
   }
+
+  createScene(three_canvas_element);
+  
 </script>
 
 <svelte:window bind:innerWidth bind:outerWidth bind:innerHeight bind:outerHeight />
