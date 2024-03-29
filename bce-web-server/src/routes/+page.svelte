@@ -75,7 +75,7 @@
     return Math.round(innerWidth / 3);
   }
   function get_image_height() {
-    return Math.round(image_width * 9 / 16);
+    return Math.round(get_image_width() * 9 / 16);
   }
   
   // 61.7 average female.  64 average male. https://en.wikipedia.org/wiki/Pupillary_distance
