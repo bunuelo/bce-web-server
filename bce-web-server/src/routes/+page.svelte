@@ -155,7 +155,7 @@
   <tr>
     <td>
       {#if current_image_url != ""}
-        <img src="{current_image_url}" style="width: {innerWidth; get_image_width()}px; height: {innerHeight; get_image_height()}px;" alt="Generated"/>
+        <img src="{current_image_url}" style="width: {get_image_width()}px; height: {get_image_height()}px;" alt="Generated"/>
       {/if}
     </td>
   </tr>
