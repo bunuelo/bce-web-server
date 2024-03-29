@@ -47,6 +47,7 @@
   const animate = () => {
 	requestAnimationFrame(animate);
         camera.position.z = 5;
+	camera.rotation.y += 0.01;
         //camera.position.z = 5 * Math.cos(camera_angle);
         //camera.position.x = 5 * Math.sin(camera_angle);
         //camera.lookAt((0, 0, 0));
