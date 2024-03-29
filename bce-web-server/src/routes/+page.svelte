@@ -71,8 +71,12 @@
   //dracoLoader.setDecoderPath( '/examples/jsm/libs/draco/' );
   //loader.setDRACOLoader( dracoLoader );
 
-  let image_width = Math.round(innerWidth / 3);
-  let image_height = Math.round(image_width * 9 / 16);
+  function get_image_width() {
+    return Math.round(innerWidth / 3);
+  }
+  function get_image_height() {
+    return Math.round(image_width * 9 / 16);
+  }
   
   // 61.7 average female.  64 average male. https://en.wikipedia.org/wiki/Pupillary_distance
   let ipd = 62;
@@ -100,8 +104,8 @@
       height: 512 * 9 / 16
     }
     const response = await fetch(apiURL + "/generate?" + new URLSearchParams({
-      width: image_width,
-      height: image_height,
+      width: get_image_width(),
+      height: get_image_height(),
       ipd: ipd
     }));
     const response_json = await response.json();
@@ -151,7 +155,7 @@
   <tr>
     <td>
       {#if current_image_url != ""}
-        <img src="{current_image_url}" style="width: {image_width}px; height: {image_height}px;" alt="Generated"/>
+        <img src="{current_image_url}" style="width: {get_image_width()}px; height: {get_image_height()}px;" alt="Generated"/>
       {/if}
     </td>
   </tr>
