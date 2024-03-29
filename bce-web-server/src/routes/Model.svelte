@@ -21,7 +21,7 @@
 
   const camera = new PerspectiveCamera(75, innerWidth / innerHeight, 0.1, 1000);
   camera.position.z = 5;
-
+  
   const geometry = new BoxGeometry();
 
   const material = new MeshStandardMaterial({
@@ -42,9 +42,15 @@
 
   let renderer:WebGLRenderer;
 
+  var camera_angle = 0;
+  
   const animate = () => {
 	requestAnimationFrame(animate);
-	//cube.rotation.x += 0.01;
+        camera.position.z = 5 * Math.cos(camera_angle);
+        camera.position.x = 5 * Math.sin(camera_angle);
+        camera.lookAt((0, 0, 0));
+        camera_angle += 0.01;
+        //cube.rotation.x += 0.01;
 	//cube.rotation.y += 0.01;
 	renderer.render(scene, camera);
   };
