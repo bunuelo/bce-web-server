@@ -12,9 +12,14 @@
     WebGLRenderer
   } from 'three';
 
+  $: outerWidth = 0
+  $: innerWidth = 0
+  $: outerHeight = 0
+  $: innerHeight = 0
+
   const scene = new Scene();
 
-  const camera = new PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+  const camera = new PerspectiveCamera(75, innerWidth / innerHeight, 0.1, 1000);
   camera.position.z = 5;
 
   const geometry = new BoxGeometry();
@@ -45,8 +50,8 @@
   };
 
   const resize = () => {
-	renderer.setSize(window.innerWidth, window.innerHeight);
-	camera.aspect = window.innerWidth / window.innerHeight;
+	renderer.setSize(innerWidth, innerHeight);
+	camera.aspect = innerWidth / innerHeight;
 	camera.updateProjectionMatrix();
   };
 
@@ -56,8 +61,6 @@
 	animate();
   };
 
-  window.addEventListener("resize", resize);
-  
   const gltf_loader = new GLTFLoader();
 
   //let three_canvas_element:HTMLCanvasElement;
@@ -68,7 +71,7 @@
   //dracoLoader.setDecoderPath( '/examples/jsm/libs/draco/' );
   //loader.setDRACOLoader( dracoLoader );
 
-  let image_width = Math.round(window.innerWidth / 3);
+  let image_width = Math.round(innerWidth / 3);
   let image_height = Math.round(image_width * 9 / 16);
   
   // 61.7 average female.  64 average male. https://en.wikipedia.org/wiki/Pupillary_distance
@@ -131,6 +134,8 @@
     await rest_api__generate()
   }
 </script>
+
+<svelte:window bind:innerWidth bind:outerWidth bind:innerHeight bind:outerHeight />
 
 <h1>Design</h1>
 
