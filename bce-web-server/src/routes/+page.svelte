@@ -3,6 +3,8 @@
   import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
   
   const gltf_loader = new GLTFLoader();
+
+  let three_canvas:HTMLCanvasElement;
   
   // optional for compressed meshes
   //const dracoLoader = new DRACOLoader();
@@ -88,6 +90,11 @@
       {#if current_image_url != ""}
         <img src="{current_image_url}" style="width: {image_width}px; height: {image_height}px;" alt="Generated"/>
       {/if}
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <canvas bind:this={three_canvas} />
     </td>
   </tr>
   <tr>
