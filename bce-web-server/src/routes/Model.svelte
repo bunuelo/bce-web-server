@@ -50,8 +50,8 @@
   };
 
   const resize = () => {
-    renderer.setSize(get_image_width(), get_image_height());
-    camera.aspect = get_image_width() / get_image_height();
+    renderer.setSize(get_model_width(), get_model_height());
+    camera.aspect = get_model_width() / get_model_height();
     camera.updateProjectionMatrix();
   };
 
@@ -76,7 +76,7 @@
   }
 
   function get_model_height() {
-    return Math.round(get_image_width() * 9 / 16);
+    return Math.round(get_model_width() * 9 / 16);
   }
 
   async function load_3d_model() {
