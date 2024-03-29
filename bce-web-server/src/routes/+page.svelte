@@ -56,11 +56,11 @@
 	animate();
   };
 
-  window.addEventListener('resize', resize);
+  window.addEventListener("resize", resize);
   
   const gltf_loader = new GLTFLoader();
 
-  let three_canvas:HTMLCanvasElement;
+  let three_canvas_element:HTMLCanvasElement;
   
   // optional for compressed meshes
   //const dracoLoader = new DRACOLoader();
@@ -150,7 +150,7 @@
   </tr>
   <tr>
     <td>
-      <canvas bind:this={three_canvas} />
+      <canvas bind:this={three_canvas_element} />
     </td>
   </tr>
   <tr>
