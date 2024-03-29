@@ -86,8 +86,8 @@
   }
   
   onMount(async function() {
-    await load_3d_model("http://64.23.144.229:8000/static/Box.glb");
     createScene(three_canvas_element);
+    await load_3d_model("http://64.23.144.229:8000/static/Box.glb");
   });
 
 </script>
