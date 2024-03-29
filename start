@@ -4,7 +4,7 @@ source bootstrap
 
 cd ~/bce-web-server/bce-web-server/
 npm run build
-npm run preview -- --host
-#npm run dev -- --host
+#npm run preview -- --host
+npm run dev -- --host
 
 
