@@ -24,9 +24,9 @@
   const directionalLight = new DirectionalLight(0x9090aa);
   scene.add(directionalLight);
 
-  const hemisphereLight = new HemisphereLight(0xffffff, 0x444444);
-  hemisphereLight.position.set(1, 1, 1);
-  scene.add(hemisphereLight);
+  //const hemisphereLight = new HemisphereLight(0xffffff, 0x444444);
+  //hemisphereLight.position.set(1, 1, 1);
+  //scene.add(hemisphereLight);
 
   let renderer:WebGLRenderer;
 
