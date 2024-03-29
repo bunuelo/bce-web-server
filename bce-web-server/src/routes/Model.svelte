@@ -21,7 +21,7 @@
 
   const camera = new PerspectiveCamera(75, innerWidth / innerHeight, 0.1, 1000);
   const camera_distance = 5;
-  camera.rotation.x = -0.25 * Math.PI;
+  camera.rotation.x = -0.125 * Math.PI;
   camera.position.z =  camera_distance * Math.cos(camera.rotation.x);
   camera.position.y = -camera_distance * Math.sin(camera.rotation.x);
   
