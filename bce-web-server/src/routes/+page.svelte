@@ -9,7 +9,7 @@
   //dracoLoader.setDecoderPath( '/examples/jsm/libs/draco/' );
   //loader.setDRACOLoader( dracoLoader );
 
-  loader.load("http://64.23.144.229:8000/static/Box.glb", function (gltf) {
+  gltf_loader.load("http://64.23.144.229:8000/static/Box.glb", function (gltf) {
     scene.add(gltf.scene);
   }, undefined, function (error) {
     console.error(error);
