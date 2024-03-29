@@ -22,7 +22,7 @@
   const camera = new PerspectiveCamera(75, innerWidth / innerHeight, 0.1, 1000);
   camera.position.z = 5;
   camera.position.y = 5;
-  camera.rotation.x = 0.25 * Math.PI;
+  camera.rotation.x = -0.25 * Math.PI;
   
   const directionalLight = new DirectionalLight(0x9090aa);
   directionalLight.position.set(1, 1, 1).normalize();
