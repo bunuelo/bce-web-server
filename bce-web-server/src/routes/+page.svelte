@@ -1,16 +1,19 @@
 <script lang="ts">
   import { onMount } from "svelte";
-
+  import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
+  
+  const gltf_loader = new GLTFLoader();
+  
   let image_width = Math.round(window.innerWidth / 3);
   let image_height = Math.round(image_width * 9 / 16);
   
   // 61.7 average female.  64 average male. https://en.wikipedia.org/wiki/Pupillary_distance
   let ipd = 62;
-
+  
   let bce_rest_api_message = "";
   let current_image_url = "";
   let image_reload_count = 0
-  
+
   const apiURL = "http://64.23.144.229:8000";
   const apiHeaders = {
     "Access-Control-Allow-Origin": "*"
