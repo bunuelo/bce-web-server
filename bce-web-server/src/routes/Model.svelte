@@ -20,20 +20,8 @@
   const scene = new Scene();
 
   const camera = new PerspectiveCamera(75, innerWidth / innerHeight, 0.1, 1000);
-  //camera.position.z = 5;
   
-  //const geometry = new BoxGeometry();
-
-  //const material = new MeshStandardMaterial({
-//	color: 0x00ff00,
-//	metalness: 0.13
-  //});
-
-  //const cube = new Mesh(geometry, material);
-  //scene.add(cube);
-
   const directionalLight = new DirectionalLight(0x9090aa);
-  directionalLight.position.set(-10, 10, -10).normalize();
   scene.add(directionalLight);
 
   const hemisphereLight = new HemisphereLight(0xffffff, 0x444444);
@@ -45,16 +33,14 @@
   var camera_angle = 0;
   
   const animate = () => {
-	requestAnimationFrame(animate);
-        camera.position.z = 5;
-	camera.rotation.y = camera_angle;
-        camera.position.z = 5 * Math.cos(camera_angle);
-        camera.position.x = 5 * Math.sin(camera_angle);
-        //camera.lookAt((0, 0, 0));
-        camera_angle += 0.01;
-        //cube.rotation.x += 0.01;
-	//cube.rotation.y += 0.01;
-	renderer.render(scene, camera);
+    requestAnimationFrame(animate);
+    camera.position.z = 5;
+    camera.rotation.y = camera_angle;
+    camera.position.z = 5 * Math.cos(camera_angle);
+    camera.position.x = 5 * Math.sin(camera_angle);
+    directionalLight.position.set(camera.position.x, camera.position.y, camera.position.z).normalize();
+    camera_angle += 0.01;
+    renderer.render(scene, camera);
   };
 
   const resize = () => {
