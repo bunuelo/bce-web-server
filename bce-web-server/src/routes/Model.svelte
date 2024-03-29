@@ -20,8 +20,10 @@
   const scene = new Scene();
 
   const camera = new PerspectiveCamera(75, innerWidth / innerHeight, 0.1, 1000);
+  camera.position.z = 5;
   
   const directionalLight = new DirectionalLight(0x9090aa);
+  directionalLight.position.set(1, 1, 1).normalize();
   scene.add(directionalLight);
 
   let renderer:WebGLRenderer;
@@ -31,11 +33,9 @@
   
   const animate = () => {
     requestAnimationFrame(animate);
-    camera.position.z = 5;
-    camera.rotation.y = camera_angle;
-    camera.position.z = 5 * Math.cos(camera_angle);
-    camera.position.x = 5 * Math.sin(camera_angle);
-    directionalLight.position.set(camera.position.x, camera.position.y, camera.position.z).normalize();
+    if (model != null) {
+      model.rotation.y = camera_angle;
+    }
     camera_angle += 0.01;
     renderer.render(scene, camera);
   };
@@ -45,7 +45,7 @@
     camera.aspect = get_model_width() / get_model_height();
     camera.updateProjectionMatrix();
   };
-
+  
   const createScene = (el:HTMLCanvasElement) => {
     renderer = new WebGLRenderer({ antialias: true, canvas: el });
     resize();
