@@ -110,6 +110,7 @@
   
   async function load_3d_model() {
     await gltf_loader.loadAsync("http://64.23.144.229:8000/static/Box.glb", function (gltf) {
+      console.log("Supposedly we loaded Box.glb.")
       scene.add(gltf.scene);
     }, undefined, function (error) {
       console.error(error);
