@@ -66,10 +66,10 @@
   //let three_canvas_element:HTMLCanvasElement;
   let three_canvas_element;
 
-  // optional for compressed meshes
-  //const dracoLoader = new DRACOLoader();
-  //dracoLoader.setDecoderPath( '/examples/jsm/libs/draco/' );
-  //loader.setDRACOLoader( dracoLoader );
+  // Optional: Provide a DRACOLoader instance to decode compressed mesh data
+  const dracoLoader = new DRACOLoader();
+  dracoLoader.setDecoderPath( '/examples/jsm/libs/draco/' );
+  gltf_loader.setDRACOLoader( dracoLoader );
 
   function get_image_width() {
     return Math.round(innerWidth / 3);
