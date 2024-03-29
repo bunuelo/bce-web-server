@@ -24,12 +24,9 @@
   const directionalLight = new DirectionalLight(0x9090aa);
   scene.add(directionalLight);
 
-  //const hemisphereLight = new HemisphereLight(0xffffff, 0x444444);
-  //hemisphereLight.position.set(1, 1, 1);
-  //scene.add(hemisphereLight);
-
   let renderer:WebGLRenderer;
 
+  var model = null;
   var camera_angle = 0;
   
   const animate = () => {
@@ -57,13 +54,7 @@
 
   const gltf_loader = new GLTFLoader();
 
-  //let three_canvas_element:HTMLCanvasElement;
   let three_canvas_element;
-
-  // Optional: Provide a DRACOLoader instance to decode compressed mesh data
-  //const dracoLoader = new DRACOLoader();
-  //dracoLoader.setDecoderPath( '/examples/jsm/libs/draco/' );
-  //gltf_loader.setDRACOLoader( dracoLoader );
 
   function get_model_width() {
     return Math.round(innerWidth / 3);
@@ -75,7 +66,8 @@
 
   async function load_3d_model(model_url) {
     gltf_loader.load(model_url, function(gltf) {
-      scene.add(gltf.scene);
+      model = gltf.scene
+      scene.add(model);
     });
   }
   
