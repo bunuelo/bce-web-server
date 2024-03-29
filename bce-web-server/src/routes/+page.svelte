@@ -4,6 +4,11 @@
   
   const gltf_loader = new GLTFLoader();
   
+  // optional for compressed meshes
+  const dracoLoader = new DRACOLoader();
+  dracoLoader.setDecoderPath( '/examples/jsm/libs/draco/' );
+  loader.setDRACOLoader( dracoLoader );
+  
   let image_width = Math.round(window.innerWidth / 3);
   let image_height = Math.round(image_width * 9 / 16);
   
