@@ -4,7 +4,7 @@
 
 {#if page.status == 404}
 <h1>Page does not exist</h1>
-{+else}
+{:else}
 <h1>Something went wrong</h1>
 {/if}
 
