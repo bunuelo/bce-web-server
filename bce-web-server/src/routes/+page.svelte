@@ -50,15 +50,15 @@
   };
 
   const resize = () => {
-	renderer.setSize(innerWidth, innerHeight);
-	camera.aspect = innerWidth / innerHeight;
-	camera.updateProjectionMatrix();
+    renderer.setSize(get_image_width(), get_image_height());
+    camera.aspect = get_image_width() / get_image_height();
+    camera.updateProjectionMatrix();
   };
 
   const createScene = (el:HTMLCanvasElement) => {
-	renderer = new WebGLRenderer({ antialias: true, canvas: el });
-	resize();
-	animate();
+    renderer = new WebGLRenderer({ antialias: true, canvas: el });
+    resize();
+    animate();
   };
 
   const gltf_loader = new GLTFLoader();
@@ -120,12 +120,6 @@
     gltf_loader.load("http://64.23.144.229:8000/static/Box.glb", function(gltf) {
       scene.add(gltf.scene);
     });
-    //await gltf_loader.loadAsync("http://64.23.144.229:8000/static/Box.glb", function (gltf) {
-    //  console.log("Supposedly we loaded Box.glb.  gltf=" + gltf)
-    //  scene.add(gltf.scene);
-    //}, undefined, function (error) {
-    //  console.error(error);
-    //});
   }
   
   onMount(async function() {
