@@ -29,8 +29,8 @@
 	metalness: 0.13
   });
 
-  const cube = new Mesh(geometry, material);
-  scene.add(cube);
+  //const cube = new Mesh(geometry, material);
+  //scene.add(cube);
 
   const directionalLight = new DirectionalLight(0x9090aa);
   directionalLight.position.set(-10, 10, -10).normalize();
@@ -44,8 +44,8 @@
 
   const animate = () => {
 	requestAnimationFrame(animate);
-	cube.rotation.x += 0.01;
-	cube.rotation.y += 0.01;
+	//cube.rotation.x += 0.01;
+	//cube.rotation.y += 0.01;
 	renderer.render(scene, camera);
   };
 
