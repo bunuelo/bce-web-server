@@ -8,6 +8,12 @@
   //const dracoLoader = new DRACOLoader();
   //dracoLoader.setDecoderPath( '/examples/jsm/libs/draco/' );
   //loader.setDRACOLoader( dracoLoader );
+
+  loader.load("http://64.23.144.229:8000/static/Box.glb", function (gltf) {
+    scene.add(gltf.scene);
+  }, undefined, function (error) {
+    console.error(error);
+  });
   
   let image_width = Math.round(window.innerWidth / 3);
   let image_height = Math.round(image_width * 9 / 16);
