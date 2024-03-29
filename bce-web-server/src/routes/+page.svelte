@@ -58,9 +58,9 @@
   }
   
   onMount(async function() {
-    await rest_api__root()
-    await rest_api__generate()
-    awaot load_3d_model()
+    await rest_api__root();
+    await rest_api__generate();
+    await load_3d_model();
   });
 
   async function onclickGenerate() {
