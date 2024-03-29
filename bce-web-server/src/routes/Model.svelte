@@ -79,14 +79,14 @@
     return Math.round(get_model_width() * 9 / 16);
   }
 
-  async function load_3d_model() {
-    gltf_loader.load("http://64.23.144.229:8000/static/Box.glb", function(gltf) {
+  async function load_3d_model(model_url) {
+    gltf_loader.load(model_url, function(gltf) {
       scene.add(gltf.scene);
     });
   }
   
   onMount(async function() {
-    await load_3d_model();
+    await load_3d_model("http://64.23.144.229:8000/static/Box.glb");
     createScene(three_canvas_element);
   });
 
