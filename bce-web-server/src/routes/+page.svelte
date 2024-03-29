@@ -167,7 +167,7 @@
   </tr>
   <tr>
     <td>
-      <canvas bind:this={three_canvas_element} />
+      <canvas bind:this={three_canvas_element} style="width: {get_image_width()}px; height: {get_image_height()}px;" />
     </td>
   </tr>
   <tr>
