@@ -81,11 +81,7 @@
     await load_3d_model(model_url);
   });
 
-  let transformed_model_url;
-  
 </script>
-
-<input bind:value={model_url}>
 
 <svelte:window bind:innerWidth bind:outerWidth bind:innerHeight bind:outerHeight />
 
