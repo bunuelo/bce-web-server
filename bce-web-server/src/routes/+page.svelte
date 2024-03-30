@@ -86,13 +86,6 @@
   </tr>
   <tr>
     <td>
-      {#if current_image_url != ""}
-        <img src="{current_image_url}" style="width: {get_image_width()}px; height: {get_image_height()}px;" alt="Generated"/>
-      {/if}
-    </td>
-  </tr>
-  <tr>
-    <td>
       {#key current_model_url}
         <Model model_url={current_model_url} />
       {/key}
