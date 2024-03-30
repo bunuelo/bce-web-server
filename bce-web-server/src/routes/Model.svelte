@@ -81,7 +81,17 @@
     await load_3d_model(model_url);
   });
 
+  let transformed;
+  
+  // This anonymous function is defined and executes as part of a reactive statement
+  $: (() => {
+    // the svelte compiler will infer that this anonymous function needs to run every time input changes
+    transformed = "${model_url}"
+  }) ()
+  
 </script>
+
+<input bind:value={input}>
 
 <svelte:window bind:innerWidth bind:outerWidth bind:innerHeight bind:outerHeight />
 

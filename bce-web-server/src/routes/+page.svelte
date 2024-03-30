@@ -68,7 +68,7 @@
   async function on_input_change() {
     await rest_api__generate()
   }
-
+  
 </script>
 
 <svelte:window bind:innerWidth bind:outerWidth bind:innerHeight bind:outerHeight />
@@ -93,9 +93,9 @@
   </tr>
   <tr>
     <td>
-      {#if current_model_url != ""}
+      {#key current_model_url}
         <Model model_url={current_model_url} />
-      {/if}
+      {/key}
     </td>
   </tr>
   <tr>
