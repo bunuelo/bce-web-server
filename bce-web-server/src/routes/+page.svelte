@@ -2,25 +2,10 @@
   import { onMount } from "svelte";
   import Model from "./Model.svelte"
   
-  let outerWidth = 1024
-  let innerWidth = 1024
-  let outerHeight = 768
-  let innerHeight = 768
-
-  function get_image_width() {
-    return Math.round(innerWidth / 3);
-  }
-
-  function get_image_height() {
-    return Math.round(get_image_width() * 9 / 16);
-  }
-  
   // 61.7 average female.  64 average male. https://en.wikipedia.org/wiki/Pupillary_distance
   let ipd = 62;
   
   let bce_rest_api_message = "";
-  let current_image_url = "";
-  let image_reload_count = 0
   let current_model_url = "";
   let model_reload_count = 0
   
@@ -38,19 +23,11 @@
   }
   
   async function rest_api__generate() {
-    const body = {
-      width: 512,
-      height: 512 * 9 / 16
-    }
     const response = await fetch(apiURL + "/generate?" + new URLSearchParams({
-      width: get_image_width(),
-      height: get_image_height(),
       ipd: ipd
     }));
     const response_json = await response.json();
     bce_rest_api_message = response_json.message + "  (sent ipd=" + ipd + ")"
-    current_image_url = response_json.image_url + "?v=" + image_reload_count
-    image_reload_count += 1
     current_model_url = response_json.model_url + "?v=" + model_reload_count
     model_reload_count += 1
     return response_json;
@@ -70,8 +47,6 @@
   }
   
 </script>
-
-<svelte:window bind:innerWidth bind:outerWidth bind:innerHeight bind:outerHeight />
 
 <h1>Design</h1>
 
