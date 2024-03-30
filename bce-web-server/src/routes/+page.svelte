@@ -93,7 +93,9 @@
   </tr>
   <tr>
     <td>
-      <Model model_url={current_model_url} />
+      {#if current_model_url != ""}
+        <Model model_url={current_model_url} />
+      {/if}
     </td>
   </tr>
   <tr>
