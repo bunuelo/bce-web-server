@@ -38,7 +38,7 @@
   
   const animate = () => {
     requestAnimationFrame(animate);
-    camera_angle = Math.PI * (0.001 * Date.now());
+    camera_angle = 0.1 * 2 * Math.PI * (0.001 * Date.now());
     if (model != null) {
       model.rotation.y = camera_angle;
     }
