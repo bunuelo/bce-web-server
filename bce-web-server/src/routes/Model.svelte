@@ -12,11 +12,13 @@
     WebGLRenderer
   } from 'three';
 
+  export let model_url = "";
+  
   let outerWidth = 1024
   let innerWidth = 1024
   let outerHeight = 768
   let innerHeight = 768
-
+  
   const scene = new Scene();
 
   const camera = new PerspectiveCamera(75, innerWidth / innerHeight, 0.1, 1000);
@@ -76,7 +78,7 @@
   
   onMount(async function() {
     createScene(three_canvas_element);
-    await load_3d_model("http://64.23.144.229:8000/static/Box.glb");
+    await load_3d_model(model_url);
   });
 
 </script>

@@ -21,7 +21,9 @@
   let bce_rest_api_message = "";
   let current_image_url = "";
   let image_reload_count = 0
-
+  let current_model_url = "";
+  let model_reload_count = 0
+  
   const apiURL = "http://64.23.144.229:8000";
   const apiHeaders = {
     "Access-Control-Allow-Origin": "*"
@@ -49,6 +51,8 @@
     bce_rest_api_message = response_json.message + "  (sent ipd=" + ipd + ")"
     current_image_url = response_json.image_url + "?v=" + image_reload_count
     image_reload_count += 1
+    current_model_url = response_json.model_url + "?v=" + model_reload_count
+    model_reload_count += 1
     return response_json;
   }
   
@@ -89,7 +93,7 @@
   </tr>
   <tr>
     <td>
-      <Model />
+      <Model model_url={model_url} />
     </td>
   </tr>
   <tr>
