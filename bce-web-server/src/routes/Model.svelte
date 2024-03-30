@@ -38,10 +38,10 @@
   
   const animate = () => {
     requestAnimationFrame(animate);
+    camera_angle = Math.PI * (0.001 * Date.now());
     if (model != null) {
       model.rotation.y = camera_angle;
     }
-    camera_angle += 0.01;
     renderer.render(scene, camera);
   };
 
@@ -56,19 +56,19 @@
     resize();
     animate();
   };
-
+  
   const gltf_loader = new GLTFLoader();
-
+  
   let three_canvas_element;
-
+  
   function get_model_width() {
     return Math.round(innerWidth / 3);
   }
-
+  
   function get_model_height() {
     return Math.round(get_model_width() * 9 / 16);
   }
-
+  
   async function load_3d_model(model_url) {
     gltf_loader.load(model_url, function(gltf) {
       model = gltf.scene
@@ -80,7 +80,7 @@
     createScene(three_canvas_element);
     await load_3d_model(model_url);
   });
-
+  
 </script>
 
 <svelte:window bind:innerWidth bind:outerWidth bind:innerHeight bind:outerHeight />
