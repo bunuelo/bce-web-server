@@ -93,7 +93,7 @@
   </tr>
   <tr>
     <td>
-      <Model model_url={model_url} />
+      <Model model_url={current_model_url} />
     </td>
   </tr>
   <tr>
