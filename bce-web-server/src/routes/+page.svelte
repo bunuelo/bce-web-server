@@ -53,6 +53,18 @@
 <table>
   <tr>
     <td>
+      {#key current_model_url}
+        <Model model_url={current_model_url} />
+      {/key}
+    </td>
+  </tr>
+  <tr>
+    <td>
+      {bce_rest_api_message}
+    </td>
+  </tr>
+  <tr>
+    <td>
       <table>
 	<tr>
 	  <td>
@@ -94,18 +106,6 @@
 	  </td>
 	</tr>
       </table>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      {#key current_model_url}
-        <Model model_url={current_model_url} />
-      {/key}
-    </td>
-  </tr>
-  <tr>
-    <td>
-      {bce_rest_api_message}
     </td>
   </tr>
 </table>
