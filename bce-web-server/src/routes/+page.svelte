@@ -39,6 +39,7 @@
     const response = await fetch(apiURL + "/options");
     const response_json = await response.json();
     bce_rest_api_message = response_json.message;
+    ipd = response_json.options.ipd.default;
     options = response_json.options;
     return response_json;
   }
