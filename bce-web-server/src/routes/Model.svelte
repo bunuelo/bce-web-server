@@ -34,16 +34,28 @@
   let renderer:WebGLRenderer;
   
   var model = null;
+  var last_animate_time = null;
   var camera_angle_x = 0;
   var camera_angle_y = 0;
   
+  const gltf_loader = new GLTFLoader();
+  
+  let three_canvas_element;
+  
+  var mouse_mode = "";
+  var mouse_original_x = 0;
+  var mouse_original_y = 0;
+
   const animate = () => {
     requestAnimationFrame(animate);
-    camera_angle_y = (1.0 / 60) * 2 * Math.PI * (0.001 * Date.now());
+    if (last_animate_time != null) {
+      camera_angle_y += (1.0 / 60) * 2 * Math.PI * ((0.001 * Date.now()) - last_animate_time);
+    }
     if (model != null) {
       model.rotation.x = camera_angle_x;
       model.rotation.y = camera_angle_y;
     }
+    last_animate_time = 0.001 * Date.now();
     renderer.render(scene, camera);
   };
 
@@ -58,14 +70,6 @@
     resize();
     animate();
   };
-  
-  const gltf_loader = new GLTFLoader();
-  
-  let three_canvas_element;
-
-  var mouse_mode = "";
-  var mouse_original_x = 0;
-  var mouse_original_y = 0;
   
   function get_model_width() {
     return Math.round(innerWidth / 3);
@@ -86,7 +90,7 @@
     createScene(three_canvas_element);
     await load_3d_model(model_url);
   });
-
+  
   function handleMouseDown(e) {
     mouse_mode = "down"
     let x = e.offsetX;
