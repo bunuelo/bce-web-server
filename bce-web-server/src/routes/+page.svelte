@@ -43,11 +43,18 @@
     options = response_json.options;
     return response_json;
   }
+
+
   
   onMount(async function() {
     await rest_api__root();
     await rest_api__options();
     await rest_api__generate();
+    const inputs = document.querySelectorAll("input");
+    const hasChecked = Array.from(inputs).some((input) => input.checked);
+    if (!hasChecked) {
+      inputs[0].checked = true;
+    }
   });
 
   async function onclickGenerate() {
