@@ -107,6 +107,12 @@
       //console.log("handleMouseMove: (dx,dy) = (" + dx + ", " + dy + ")");
       camera_angle_x += (0.01) * dy;
       camera_angle_y += (0.01) * dx;
+      if (camera_angle_x > 0.25 * Math.PI) {
+        camera_angle_x = 0.25 * Math.PI;
+      }
+      if (camera_angle_x < -0.25 * Math.PI) {
+        camera_angle_x = -0.25 * Math.PI;
+      }
     }
   }
   
