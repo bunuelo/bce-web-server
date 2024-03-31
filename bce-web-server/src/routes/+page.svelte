@@ -42,6 +42,8 @@
     return response_json;
   }
 
+  let interval = null;
+  
   onMount(async function() {
     await rest_api__root();
     await rest_api__options();
