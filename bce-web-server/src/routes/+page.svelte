@@ -50,7 +50,7 @@
     await rest_api__root();
     await rest_api__options();
     await rest_api__generate();
-    const inputs = document.querySelectorAll("input");
+    const inputs = document.querySelectorAll("sbc");
     const hasChecked = Array.from(inputs).some((input) => input.checked);
     if (!hasChecked) {
       inputs[0].checked = true;
