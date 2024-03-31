@@ -86,20 +86,20 @@
   function handleMouseDown(e) {
     let x = e.target.offsetLeft;
     let y = e.target.offsetTop;
-    console.log("handleMouseDown: (x,y) = (" + x + ", " + x + ")");
+    console.log("handleMouseDown: (x,y) = (" + x + ", " + y + ")");
   }
   
   function handleMouseMove(e) {
     let x = e.target.offsetLeft;
     let y = e.target.offsetTop;
-    console.log("handleMouseMove: (x,y) = (" + x + ", " + x + ")");
+    console.log("handleMouseMove: (x,y) = (" + x + ", " + y + ")");
   }
   
   function handleMouseUp(e) {
     e.preventDefault();
     let x = e.target.offsetLeft;
     let y = e.target.offsetTop;
-    console.log("handleMouseUp: (x,y) = (" + x + ", " + x + ")");
+    console.log("handleMouseUp: (x,y) = (" + x + ", " + y + ")");
   }
   
 </script>
