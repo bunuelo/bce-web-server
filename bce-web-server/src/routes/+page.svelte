@@ -68,7 +68,7 @@
       <table>
 	<tr>
 	  <td>
-	    Interpupilary Distance:
+	    <h2>Interpupilary Distance</h2>
 	  </td>
 	</tr>
 	<tr>
@@ -86,7 +86,7 @@
       <table>
 	<tr>
 	  <td>
-	    Single Board Computer:
+	    <h2>Single Board Computer</h2>
 	  </td>
 	</tr>
 	<tr>
