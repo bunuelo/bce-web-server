@@ -43,7 +43,7 @@
     //}
     ipd = raw_options.ipd.default;
     // triggers options update
-    options = raw_options;
+    options = response_json.options;
     return response_json;
   }
 
