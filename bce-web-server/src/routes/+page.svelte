@@ -3,7 +3,7 @@
   import Model from "./Model.svelte"
   
   // 61.7 average female.  64 average male. https://en.wikipedia.org/wiki/Pupillary_distance
-  let ipd = 62;
+  let ipd = 0;
   
   let bce_rest_api_message = "";
   let current_model_url = "";
@@ -86,8 +86,8 @@
 	<tr>
 	  <td>
 	    {#key options}
-  	      <input type="range" bind:value="{ipd}" min="{options ? options.ipd.minimum : 50}" max="{options ? options.ipd.maximum : 80}" style="width: 150px;" on:change={on_input_change} />
-	      <input type="number" bind:value="{ipd}" min="{options ? options.ipd.minimum : 50}" max="{options ? options.ipd.maximum : 80}" style="width: 50px;" on:change={on_input_change} />
+  	      <input type="range" bind:value="{ipd}" min="{options ? options.ipd.minimum : 0}" max="{options ? options.ipd.maximum : 0}" style="width: 150px;" on:change={on_input_change} />
+	      <input type="number" bind:value="{ipd}" min="{options ? options.ipd.minimum : 0}" max="{options ? options.ipd.maximum : 0}" style="width: 50px;" on:change={on_input_change} />
 	      <input type="text" value="{ipd} mm" style="width: 50px;" disabled />
 	    {/key}
 	  </td>
