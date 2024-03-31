@@ -102,12 +102,11 @@
   
   function handleMouseMove(e) {
     if (mouse_mode == "down") {
-      let x = e.offsetX;
-      let y = e.offsetY;
-      let dx = x - mouse_original_x;
-      let dy = y - mouse_original_y;
+      let dx = e.movementX;
+      let dy = e.movementY;
       //console.log("handleMouseMove: (dx,dy) = (" + dx + ", " + dy + ")");
       camera_angle_x += (0.01) * dx;
+      camera_angle_y += (0.01) * dy;
     }
   }
   
