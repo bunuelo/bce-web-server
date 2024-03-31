@@ -111,6 +111,7 @@
 <svelte:window bind:innerWidth bind:outerWidth bind:innerHeight bind:outerHeight />
 
 <div
+  draggable=true
   on:touchstart={handleTouchStart}
   on:touchmove={handleTouchMove}
   on:touchend={handleTouchEnd}>
