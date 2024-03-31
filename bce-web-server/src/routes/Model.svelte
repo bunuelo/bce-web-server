@@ -80,10 +80,37 @@
     createScene(three_canvas_element);
     await load_3d_model(model_url);
   });
+
+
+  
+  function handleTouchStart(e) {
+    status = "Touch start with element " + e
+      .target
+      .getAttribute('id');
+    originalX = (e.target.offsetLeft - 10) + "px";
+    originalY = (e.target.offsetTop - 10) + "px";
+  }
+  
+  function handleTouchMove(e) {
+    let touchLocation = e.targetTouches[0];
+    let pageX = Math.floor((touchLocation.pageX - 50)) + "px";
+    let pageY = Math.floor((touchLocation.pageY - 50)) + "px";
+  }
+  
+  function handleTouchEnd(e) {
+    e.preventDefault();
+    if (activeEvent === 'move') {
+    let pageX = (parseInt(e.target.style.left) - 50);
+    let pageY = (parseInt(e.target.style.top) - 50);
+  }
   
 </script>
 
 <svelte:window bind:innerWidth bind:outerWidth bind:innerHeight bind:outerHeight />
 
-<canvas bind:this={three_canvas_element} style="width: {get_model_width()}px; height: {get_model_height()}px;" />
-
+<div
+  on:touchstart={handleTouchStart}
+  on:touchmove={handleTouchMove}
+  on:touchend={handleTouchEnd}>
+  <canvas bind:this={three_canvas_element} style="width: {get_model_width()}px; height: {get_model_height()}px;" />
+</div>
