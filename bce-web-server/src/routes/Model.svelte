@@ -118,16 +118,37 @@
     mouse_mode = "up"
     e.preventDefault();
   }
-  
+
+  var touch_start_x = 0;
+  var touch_start_y = 0;
+			   
   function handleTouchStart(e) {
+    mouse_mode = "down"
     console.log("handleTouchStart: here.");
+    touch_start_x = e.touches[0].screenX
+    touch_start_y = e.touches[0].screenY
   }
 
   function handleTouchMove(e) {
     console.log("handleTouchMove: here.");
+    if (mouse_mode == "down") {
+      
+      let dx = e.touches[0].screenX - touch_start_x;
+      let dy = e.touches[0].screenY - touch_start_y;
+      //console.log("handleTouchMove: (dx,dy) = (" + dx + ", " + dy + ")");
+      camera_angle_x += (0.01) * dy;
+      camera_angle_y += (0.01) * dx;
+      if (camera_angle_x > 0.25 * Math.PI) {
+        camera_angle_x = 0.25 * Math.PI;
+      }
+      if (camera_angle_x < -0.25 * Math.PI) {
+        camera_angle_x = -0.25 * Math.PI;
+      }
+    }
   }
 
   function handleTouchEnd(e) {
+    mouse_mode = "up"
     console.log("handleTouchEnd: here.");
   }
 
