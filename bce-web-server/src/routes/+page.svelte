@@ -106,22 +106,16 @@
 	<tr>
 	  <td>
 	    <table>
+	      {#each (options ? options.sbc.options : []) as sbc_option}
 	      <tr>
 		<td>
-		  <input type="radio" id="sbc_raspberry_pi_5" name="sbc" value="raspberry_pi_5" checked="checked"/><label for="sbc_raspberry_pi_5">Raspberry Pi 5</label>
+		  <input type="radio" id="sbc_{sbc_option.name}" name="sbc" value="{sbc_option.name}"/><label for="sbc_{sbc_option.name}">{sbc_option.display_name}</label>
 		</td>
 		<td align="right">
-		  $99.00
+		  ${sbc_option.price}
 		</td>
 	      </tr>
-	      <tr>
-		<td>
-		  <input type="radio" id="sbc_nvidia_jetson_orin_nano" name="sbc" value="nvidia_jetson_orin_nano" /><label for="sbc_nvidia_jetson_orin_nano">Nvidia Jetson Orin Nano</label>
-		</td>
-		<td align="right">
-		  $499.00
-		</td>
-	      </tr>
+	      {/each}
 	    </table>
 	  </td>
 	</tr>
