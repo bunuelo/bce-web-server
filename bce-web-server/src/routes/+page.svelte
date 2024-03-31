@@ -43,22 +43,25 @@
   }
 
   let interval = null;
+
+  function update_default_radio_buttons() {
+    console.log("[bce] setInterval: here.");
+    // the svelte compiler will infer that this anonymous function needs to run every time input changes
+    transformed = `transformed input: ${options}`
+    const inputs = document.querySelectorAll("input");
+    const hasChecked = Array.from(inputs).some((input) => input.checked);
+    if (!hasChecked) {
+      inputs[0].checked = true;
+    }
+    interval = setInterval(update_default_radio_buttons, 1000);
+  }
   
   onMount(async function() {
     await rest_api__root();
     await rest_api__options();
     await rest_api__generate();
     
-    interval = setInterval(() => {
-      console.log("[bce] setInterval: here.");
-      // the svelte compiler will infer that this anonymous function needs to run every time input changes
-      transformed = `transformed input: ${options}`
-      const inputs = document.querySelectorAll("input");
-      const hasChecked = Array.from(inputs).some((input) => input.checked);
-      if (!hasChecked) {
-        inputs[0].checked = true;
-      }
-    }, 1000);
+    interval = setInterval(update_default_radio_buttons, 1000);
   });
 
   async function onclickGenerate() {
