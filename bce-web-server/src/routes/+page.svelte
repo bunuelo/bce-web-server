@@ -82,12 +82,12 @@
 	    <table>
 	      <tr>
 		<td>
-		  <input type="radio" name="sbc" value="raspberry_pi" /> Raspberry Pi
+		  <input type="radio" name="sbc" value="raspberry_pi">Raspberry Pi</input>
 		</td>
 	      </tr>
 	      <tr>
 		<td>
-		  <input type="radio" name="sbc" value="nvidia_jetson_nano" /> Nvidia Jetson Nano
+		  <input type="radio" name="sbc" value="nvidia_jetson_nano">Nvidia Jetson Nano</input>
 		</td>
 	      </tr>
 	    </table>
