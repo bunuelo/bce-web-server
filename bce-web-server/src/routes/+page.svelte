@@ -61,6 +61,13 @@
   </tr>
   <tr>
     <td>
+      Single Board Computer:
+      <input type="radio" name="sbc" value="Raspberry Pi")
+      <input type="radio" name="sbc" value="Nvidia Jetson Nano")
+    </td>
+  </tr>
+  <tr>
+    <td>
       {#key current_model_url}
         <Model model_url={current_model_url} />
       {/key}
