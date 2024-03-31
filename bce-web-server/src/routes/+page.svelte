@@ -14,10 +14,6 @@
   let options = null;
   
   const apiURL = "http://64.23.144.229:8000";
-  const apiHeaders = {
-    "Access-Control-Allow-Origin": "*"
-
-  }
   
   async function rest_api__root() {
     const response = await fetch(apiURL + "/");
@@ -46,17 +42,11 @@
     return response_json;
   }
 
-
-  
   onMount(async function() {
     await rest_api__root();
     await rest_api__options();
     await rest_api__generate();
-    const inputs = document.querySelectorAll("input");
-    const hasChecked = Array.from(inputs).some((input) => input.checked);
-    if (!hasChecked) {
-      inputs[0].checked = true;
-    }
+    
   });
 
   async function onclickGenerate() {
@@ -66,6 +56,19 @@
   async function on_input_change() {
     await rest_api__generate()
   }
+
+  var transformed = null
+  
+  $: (() => {
+    // the svelte compiler will infer that this anonymous function needs to run every time input changes
+    transformed = `transformed input: ${options}`
+
+    const inputs = document.querySelectorAll("input");
+    const hasChecked = Array.from(inputs).some((input) => input.checked);
+    if (!hasChecked) {
+      inputs[0].checked = true;
+    }
+  }) ()
   
 </script>
 
