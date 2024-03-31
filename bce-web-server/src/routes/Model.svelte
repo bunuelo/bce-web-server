@@ -119,6 +119,18 @@
     e.preventDefault();
   }
   
+  function handleTouchStart(e) {
+    console.log("handleTouchStart: here.");
+  }
+
+  function handleTouchMove(e) {
+    console.log("handleTouchMove: here.");
+  }
+
+  function handleTouchEnd(e) {
+    console.log("handleTouchEnd: here.");
+  }
+
 </script>
 
 <svelte:window bind:innerWidth bind:outerWidth bind:innerHeight bind:outerHeight />
@@ -127,5 +139,8 @@
   on:mousedown={handleMouseDown}
   on:mousemove={handleMouseMove}
   on:mouseup={handleMouseUp}>
+  on:touchstart={handleTouchStart}
+  on:touchmove={handleTouchMove}
+  on:touchend={handleTouchEnd}>
   <canvas bind:this={three_canvas_element} style="width: {get_model_width()}px; height: {get_model_height()}px;" />
 </div>
