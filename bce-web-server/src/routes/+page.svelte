@@ -109,7 +109,7 @@
 	      {#each (options ? options.sbc.options : []) as sbc_option}
 	      <tr>
 		<td>
-		  <input type="radio" id="sbc_{sbc_option.name}" name="sbc" value="{sbc_option.name}"/><label for="sbc_{sbc_option.name}">{sbc_option.display_name}</label>
+		  <input type="radio" id="sbc_{sbc_option.name}" name="sbc" value="{sbc_option.name}" checked="{sbc_option.default ? "checked" : ""}"/><label for="sbc_{sbc_option.name}">{sbc_option.display_name}</label>
 		</td>
 		<td align="right">
 		  ${sbc_option.price.toFixed(2)}
