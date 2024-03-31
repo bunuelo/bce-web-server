@@ -119,22 +119,25 @@
     e.preventDefault();
   }
 
-  var touch_start_x = 0;
-  var touch_start_y = 0;
+  var previous_touch_x = 0;
+  var previous_touch_y = 0;
 			   
   function handleTouchStart(e) {
     mouse_mode = "down"
     console.log("handleTouchStart: here.");
-    touch_start_x = e.touches[0].screenX
-    touch_start_y = e.touches[0].screenY
+    previous_touch_x = e.touches[0].screenX
+    previous_touch_y = e.touches[0].screenY
   }
 
   function handleTouchMove(e) {
     console.log("handleTouchMove: here.");
     if (mouse_mode == "down") {
-      
-      let dx = e.touches[0].screenX - touch_start_x;
-      let dy = e.touches[0].screenY - touch_start_y;
+      let x = e.touches[0].screenX;
+      let y = e.touches[0].screenY;
+      let dx = x - previous_touch_x;
+      let dy = y - previous_touch_y;
+      previous_touch_x = x;
+      previous_touch_y = y;
       //console.log("handleTouchMove: (dx,dy) = (" + dx + ", " + dy + ")");
       camera_angle_x += (0.01) * dy;
       camera_angle_y += (0.01) * dx;
