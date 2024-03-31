@@ -99,9 +99,9 @@
   
   function handleTouchEnd(e) {
     e.preventDefault();
-    if (activeEvent === 'move') {
     let pageX = (parseInt(e.target.style.left) - 50);
     let pageY = (parseInt(e.target.style.top) - 50);
+  
   }
   
 </script>
