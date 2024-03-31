@@ -60,6 +60,9 @@
   const gltf_loader = new GLTFLoader();
   
   let three_canvas_element;
+
+  var original_mouse_x = 0;
+  var original_mouse_y = 0;
   
   function get_model_width() {
     return Math.round(innerWidth / 3);
