@@ -89,19 +89,21 @@
       .getAttribute('id');
     originalX = (e.target.offsetLeft - 10) + "px";
     originalY = (e.target.offsetTop - 10) + "px";
+    console.log("original(X,Y) = (" + originalX + ", " + originalY + ")");
   }
   
   function handleTouchMove(e) {
     let touchLocation = e.targetTouches[0];
     let pageX = Math.floor((touchLocation.pageX - 50)) + "px";
     let pageY = Math.floor((touchLocation.pageY - 50)) + "px";
+    console.log("page(X,Y) = (" + pageX + ", " + pageY + ")");
   }
   
   function handleTouchEnd(e) {
     e.preventDefault();
     let pageX = (parseInt(e.target.style.left) - 50);
     let pageY = (parseInt(e.target.style.top) - 50);
-  
+    console.log("page(X,Y) = (" + pageX + ", " + pageY + ")");
   }
   
 </script>
