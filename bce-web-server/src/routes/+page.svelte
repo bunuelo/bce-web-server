@@ -53,7 +53,6 @@
     if (!hasChecked) {
       inputs[0].checked = true;
     }
-    interval = setInterval(update_default_radio_buttons, 1000);
   }
   
   onMount(async function() {
