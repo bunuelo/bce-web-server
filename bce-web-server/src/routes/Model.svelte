@@ -159,7 +159,7 @@
 <div
   on:mousedown={handleMouseDown}
   on:mousemove={handleMouseMove}
-  on:mouseup={handleMouseUp}>
+  on:mouseup={handleMouseUp}
   on:touchstart={handleTouchStart}
   on:touchmove={handleTouchMove}
   on:touchend={handleTouchEnd}>
