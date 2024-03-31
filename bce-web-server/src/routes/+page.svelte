@@ -94,7 +94,7 @@
 	    <table>
 	      <tr>
 		<td>
-		  <input type="radio" id="sbc_raspberry_pi_5" name="sbc" value="raspberry_pi_5" /><label for="sbc_raspberry_pi_5">Raspberry Pi 5</label>
+		  <input type="radio" id="sbc_raspberry_pi_5" name="sbc" value="raspberry_pi_5" checked="checked"/><label for="sbc_raspberry_pi_5">Raspberry Pi 5</label>
 		</td>
 		<td align="right">
 		  $99.00
