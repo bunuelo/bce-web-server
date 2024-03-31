@@ -34,13 +34,15 @@
   let renderer:WebGLRenderer;
   
   var model = null;
-  var camera_angle = 0;
+  var camera_angle_x = 0;
+  var camera_angle_y = 0;
   
   const animate = () => {
     requestAnimationFrame(animate);
-    camera_angle = (1.0 / 60) * 2 * Math.PI * (0.001 * Date.now());
+    camera_angle_y = (1.0 / 60) * 2 * Math.PI * (0.001 * Date.now());
     if (model != null) {
-      model.rotation.y = camera_angle;
+      model.rotation.x = camera_angle_x;
+      model.rotation.y = camera_angle_y;
     }
     renderer.render(scene, camera);
   };
@@ -97,7 +99,8 @@
     let y = e.offsetY;
     let dx = x - mouse_original_x;
     let dy = y - mouse_original_y;
-    console.log("handleMouseMove: (dx,dy) = (" + dx + ", " + dy + ")");
+    //console.log("handleMouseMove: (dx,dy) = (" + dx + ", " + dy + ")");
+    camera_angle_x += (0.01) * dx;
   }
   
   function handleMouseUp(e) {
