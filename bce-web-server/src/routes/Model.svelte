@@ -63,6 +63,7 @@
   
   let three_canvas_element;
 
+  var mouse_mode = "";
   var mouse_original_x = 0;
   var mouse_original_y = 0;
   
@@ -87,6 +88,7 @@
   });
 
   function handleMouseDown(e) {
+    mouse_mode = "down"
     let x = e.offsetX;
     let y = e.offsetY;
     //console.log("handleMouseDown: (x,y) = (" + x + ", " + y + ")");
@@ -95,15 +97,18 @@
   }
   
   function handleMouseMove(e) {
-    let x = e.offsetX;
-    let y = e.offsetY;
-    let dx = x - mouse_original_x;
-    let dy = y - mouse_original_y;
-    //console.log("handleMouseMove: (dx,dy) = (" + dx + ", " + dy + ")");
-    camera_angle_x += (0.01) * dx;
+    if (mouse_mode == "down") {
+      let x = e.offsetX;
+      let y = e.offsetY;
+      let dx = x - mouse_original_x;
+      let dy = y - mouse_original_y;
+      //console.log("handleMouseMove: (dx,dy) = (" + dx + ", " + dy + ")");
+      camera_angle_x += (0.01) * dx;
+    }
   }
   
   function handleMouseUp(e) {
+    mouse_mode = "up"
     e.preventDefault();
   }
   
