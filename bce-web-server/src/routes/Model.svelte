@@ -81,25 +81,24 @@
     await load_3d_model(model_url);
   });
 
-
-  
   function handleMouseDown(e) {
     let x = e.offsetX;
     let y = e.offsetY;
-    console.log("handleMouseDown: (x,y) = (" + x + ", " + y + ")");
+    //console.log("handleMouseDown: (x,y) = (" + x + ", " + y + ")");
+    mouse_original_x = x;
+    mouse_original_y = y;
   }
   
   function handleMouseMove(e) {
     let x = e.offsetX;
     let y = e.offsetY;
-    console.log("handleMouseMove: (x,y) = (" + x + ", " + y + ")");
+    let dx = x - mouse_original_x;
+    let dy = y - mouse_original_y;
+    console.log("handleMouseMove: (dx,dy) = (" + dx + ", " + dy + ")");
   }
   
   function handleMouseUp(e) {
     e.preventDefault();
-    let x = e.offsetX;
-    let y = e.offsetY;
-    console.log("handleMouseUp: (x,y) = (" + x + ", " + y + ")");
   }
   
 </script>
