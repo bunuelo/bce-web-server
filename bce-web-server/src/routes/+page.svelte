@@ -7,7 +7,9 @@
   
   let bce_rest_api_message = "";
   let current_model_url = "";
-  let model_reload_count = 0
+  let model_reload_count = 0;
+
+  let options = null;
   
   const apiURL = "http://64.23.144.229:8000";
   const apiHeaders = {
@@ -33,8 +35,17 @@
     return response_json;
   }
   
+  async function rest_api__options() {
+    const response = await fetch(apiURL + "/options");
+    const response_json = await response.json();
+    bce_rest_api_message = response_json.message;
+    options = response_json.options;
+    return response_json;
+  }
+  
   onMount(async function() {
     await rest_api__root();
+    await rest_api__options();
     await rest_api__generate();
   });
 
