@@ -53,17 +53,47 @@
 <table>
   <tr>
     <td>
-      Interpupilary Distance:
-      <input type="range" bind:value="{ipd}" min="50" max="80" style="width: 150px;" on:change={on_input_change} />
-      <input type="number" bind:value="{ipd}" min="50" max="80" style="width: 50px;" on:change={on_input_change} />
-      <input type="text" value="{ipd} mm" style="width: 50px;" disabled />
+      <table>
+	<tr>
+	  <td>
+	    Interpupilary Distance:
+	  </td>
+	</tr>
+	<tr>
+	  <td>
+	    <input type="range" bind:value="{ipd}" min="50" max="80" style="width: 150px;" on:change={on_input_change} />
+	    <input type="number" bind:value="{ipd}" min="50" max="80" style="width: 50px;" on:change={on_input_change} />
+	    <input type="text" value="{ipd} mm" style="width: 50px;" disabled />
+	  </td>
+	</tr>
+      </table>
     </td>
   </tr>
   <tr>
     <td>
-      Single Board Computer:
-      <input type="radio" name="sbc" value="Raspberry Pi" />
-      <input type="radio" name="sbc" value="Nvidia Jetson Nano" />
+      <table>
+	<tr>
+	  <td>
+	    Single Board Computer:
+	  </td>
+	</tr>
+	<tr>
+	  <td>
+	    <table>
+	      <tr>
+		<td>
+		  <input type="radio" name="sbc" value="raspberry_pi" /> Raspberry Pi
+		</td>
+	      </tr>
+	      <tr>
+		<td>
+		  <input type="radio" name="sbc" value="nvidia_jetson_nano" /> Nvidia Jetson Nano
+		</td>
+	      </tr>
+	    </table>
+	  </td>
+	</tr>
+      </table>
     </td>
   </tr>
   <tr>
