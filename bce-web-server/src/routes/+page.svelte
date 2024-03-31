@@ -38,9 +38,9 @@
     const response_json = await response.json();
     bce_rest_api_message = response_json.message;
     raw_options = response_json.options;
-    for (sbc_option in raw_options.sbc.options) {
-      sbc_option["component"] = null;
-    }
+    //for (sbc_option in raw_options.sbc.options) {
+    //  sbc_option["component"] = null;
+    //}
     ipd = raw_options.ipd.default;
     // triggers options update
     options = raw_options;
