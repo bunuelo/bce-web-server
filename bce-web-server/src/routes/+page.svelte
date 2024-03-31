@@ -46,8 +46,6 @@
 
   function update_default_radio_buttons() {
     console.log("[bce] update_default_radio_buttons: here.");
-    // the svelte compiler will infer that this anonymous function needs to run every time input changes
-    transformed = `transformed input: ${options}`
     const inputs = document.querySelectorAll("input");
     const hasChecked = Array.from(inputs).some((input) => input.checked);
     if (!hasChecked) {
@@ -71,8 +69,6 @@
     await rest_api__generate()
   }
 
-  var transformed = null
-  
 </script>
 
 <h1>Design</h1>
