@@ -33,7 +33,7 @@
   
   var model = null;
   var last_animate_time = null;
-  var camera_angle_x = -0.125 * Math.PI;
+  var camera_angle_x = 0.125 * Math.PI;
   var camera_angle_y = 0;
   
   const gltf_loader = new GLTFLoader();
