@@ -94,8 +94,8 @@
   
   function handleMouseMove(e) {
     let touchLocation = e.targetTouches[0];
-    let pageX = Math.floor((touchLocation.pageX - 50)) + "px";
-    let pageY = Math.floor((touchLocation.pageY - 50)) + "px";
+    let pageX = Math.floor((e.target.offsetLeft - 10)) + "px";
+    let pageY = Math.floor((e.target.offsetTop - 10)) + "px";
     console.log("page(X,Y) = (" + pageX + ", " + pageY + ")");
   }
   
