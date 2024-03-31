@@ -84,21 +84,21 @@
 
   
   function handleMouseDown(e) {
-    x = e.target.offsetLeft;
-    y = e.target.offsetTop;
+    let x = e.target.offsetLeft;
+    let y = e.target.offsetTop;
     console.log("handleMouseDown: (x,y) = (" + x + ", " + x + ")");
   }
   
   function handleMouseMove(e) {
-    x = e.target.offsetLeft;
-    y = e.target.offsetTop;
+    let x = e.target.offsetLeft;
+    let y = e.target.offsetTop;
     console.log("handleMouseMove: (x,y) = (" + x + ", " + x + ")");
   }
   
   function handleMouseUp(e) {
     e.preventDefault();
-    x = e.target.offsetLeft;
-    y = e.target.offsetTop;
+    let x = e.target.offsetLeft;
+    let y = e.target.offsetTop;
     console.log("handleMouseUp: (x,y) = (" + x + ", " + x + ")");
   }
   
