@@ -41,9 +41,10 @@
   let three_canvas_element;
   
   var mouse_mode = "";
-  var mouse_original_x = 0;
-  var mouse_original_y = 0;
 
+  var previous_touch_x = 0;
+  var previous_touch_y = 0;
+			   
   const animate = () => {
     requestAnimationFrame(animate);
     if (last_animate_time != null) {
@@ -91,18 +92,12 @@
   
   function handleMouseDown(e) {
     mouse_mode = "down"
-    let x = e.offsetX;
-    let y = e.offsetY;
-    //console.log("handleMouseDown: (x,y) = (" + x + ", " + y + ")");
-    mouse_original_x = x;
-    mouse_original_y = y;
   }
   
   function handleMouseMove(e) {
     if (mouse_mode == "down") {
       let dx = e.movementX;
       let dy = e.movementY;
-      //console.log("handleMouseMove: (dx,dy) = (" + dx + ", " + dy + ")");
       camera_angle_x += (0.01) * dy;
       camera_angle_y += (0.01) * dx;
       if (camera_angle_x > 0.25 * Math.PI) {
@@ -119,18 +114,13 @@
     e.preventDefault();
   }
 
-  var previous_touch_x = 0;
-  var previous_touch_y = 0;
-			   
   function handleTouchStart(e) {
     mouse_mode = "down"
-    console.log("handleTouchStart: here.");
     previous_touch_x = e.touches[0].screenX
     previous_touch_y = e.touches[0].screenY
   }
 
   function handleTouchMove(e) {
-    console.log("handleTouchMove: here.");
     if (mouse_mode == "down") {
       let x = e.touches[0].screenX;
       let y = e.touches[0].screenY;
@@ -138,7 +128,6 @@
       let dy = y - previous_touch_y;
       previous_touch_x = x;
       previous_touch_y = y;
-      //console.log("handleTouchMove: (dx,dy) = (" + dx + ", " + dy + ")");
       camera_angle_x += (0.01) * dy;
       camera_angle_y += (0.01) * dx;
       if (camera_angle_x > 0.25 * Math.PI) {
@@ -152,7 +141,6 @@
 
   function handleTouchEnd(e) {
     mouse_mode = "up"
-    console.log("handleTouchEnd: here.");
   }
 
 </script>
