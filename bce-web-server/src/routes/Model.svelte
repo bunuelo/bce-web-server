@@ -84,26 +84,22 @@
 
   
   function handleMouseDown(e) {
-    status = "Mouse down with element " + e
-      .target
-      .getAttribute('id');
-    originalX = (e.target.offsetLeft - 10) + "px";
-    originalY = (e.target.offsetTop - 10) + "px";
-    console.log("original(X,Y) = (" + originalX + ", " + originalY + ")");
+    x = e.target.offsetLeft;
+    y = e.target.offsetTop;
+    console.log("handleMouseDown: (x,y) = (" + x + ", " + x + ")");
   }
   
   function handleMouseMove(e) {
-    let touchLocation = e.targetTouches[0];
-    let pageX = Math.floor((e.target.offsetLeft - 10)) + "px";
-    let pageY = Math.floor((e.target.offsetTop - 10)) + "px";
-    console.log("page(X,Y) = (" + pageX + ", " + pageY + ")");
+    x = e.target.offsetLeft;
+    y = e.target.offsetTop;
+    console.log("handleMouseMove: (x,y) = (" + x + ", " + x + ")");
   }
   
   function handleMouseUp(e) {
     e.preventDefault();
-    let pageX = (parseInt(e.target.style.left) - 50);
-    let pageY = (parseInt(e.target.style.top) - 50);
-    console.log("page(X,Y) = (" + pageX + ", " + pageY + ")");
+    x = e.target.offsetLeft;
+    y = e.target.offsetTop;
+    console.log("handleMouseUp: (x,y) = (" + x + ", " + x + ")");
   }
   
 </script>
