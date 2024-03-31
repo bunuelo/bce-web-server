@@ -5,7 +5,7 @@
   // 61.7 average female.  64 average male. https://en.wikipedia.org/wiki/Pupillary_distance
   let ipd = 0;
 
-  let sbc = null;
+  let sbc = "raspberry_pi_5"
   
   let bce_rest_api_message = "";
   let current_model_url = "";
