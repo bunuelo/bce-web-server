@@ -46,11 +46,8 @@
 
   function update_default_radio_buttons() {
     console.log("[bce] update_default_radio_buttons: here.");
-    const inputs = document.querySelectorAll("input");
-    //const hasChecked = Array.from(inputs).some((input) => input.checked);
-    //if (!hasChecked) {
-    inputs[0].checked = true;
-    //}
+    console.log("[bce] sbc=" + sbc);
+  
   }
   
   onMount(async function() {
