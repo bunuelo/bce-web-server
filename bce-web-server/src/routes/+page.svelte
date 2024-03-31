@@ -50,6 +50,7 @@
     await rest_api__generate();
     
     interval = setInterval(() => {
+      console.log("[bce] setInterval: here.");
       // the svelte compiler will infer that this anonymous function needs to run every time input changes
       transformed = `transformed input: ${options}`
       const inputs = document.querySelectorAll("input");
@@ -69,9 +70,6 @@
   }
 
   var transformed = null
-  
-  //$: (() => {
-  //}) ()
   
 </script>
 
