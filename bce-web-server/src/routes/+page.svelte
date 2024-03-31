@@ -45,7 +45,7 @@
   let interval = null;
 
   function update_default_radio_buttons() {
-    console.log("[bce] setInterval: here.");
+    console.log("[bce] update_default_radio_buttons: here.");
     // the svelte compiler will infer that this anonymous function needs to run every time input changes
     transformed = `transformed input: ${options}`
     const inputs = document.querySelectorAll("input");
