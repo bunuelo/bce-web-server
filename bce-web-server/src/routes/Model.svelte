@@ -22,10 +22,8 @@
   const scene = new Scene();
 
   const camera = new PerspectiveCamera(75, innerWidth / innerHeight, 0.1, 1000);
-  const camera_distance = 5;
-  camera.rotation.x = -0.125 * Math.PI;
-  camera.position.z =  camera_distance * Math.cos(camera.rotation.x);
-  camera.position.y = -camera_distance * Math.sin(camera.rotation.x);
+  camera.position.z = 5;
+  camera.position.y = 0;
   
   const directionalLight = new DirectionalLight(0x9090aa);
   directionalLight.position.set(1, 1, 1).normalize();
@@ -35,7 +33,7 @@
   
   var model = null;
   var last_animate_time = null;
-  var camera_angle_x = 0;
+  var camera_angle_x = -0.125 * Math.PI;
   var camera_angle_y = 0;
   
   const gltf_loader = new GLTFLoader();
