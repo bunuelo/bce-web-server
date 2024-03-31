@@ -37,8 +37,13 @@
     const response = await fetch(apiURL + "/options");
     const response_json = await response.json();
     bce_rest_api_message = response_json.message;
-    ipd = response_json.options.ipd.default;
-    options = response_json.options;
+    raw_options = response_json.options;
+    for sbc_option in raw_options.sbc.options {
+      sbc_option.component = null;
+    }
+    ipd = raw_options.ipd.default;
+    // triggers options update
+    options = raw_options;
     return response_json;
   }
 
@@ -117,7 +122,7 @@
 	      {#each (options ? options.sbc.options : []) as sbc_option}
 	      <tr>
 		<td>
-		  <input type="radio" id="sbc_{sbc_option.name}" bind:group={sbc} name="sbc" value="{sbc_option.name}" /><label for="sbc_{sbc_option.name}">{sbc_option.display_name}</label>
+		  <input type="radio" id="sbc_{sbc_option.name}" bind:this={sbc_option.component} bind:group={sbc} name="sbc" value="{sbc_option.name}" /><label for="sbc_{sbc_option.name}">{sbc_option.display_name}</label>
 		</td>
 		<td align="right">
 		  ${sbc_option.price.toFixed(2)}
