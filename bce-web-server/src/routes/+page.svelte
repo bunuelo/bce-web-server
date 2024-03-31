@@ -38,8 +38,8 @@
     const response_json = await response.json();
     bce_rest_api_message = response_json.message;
     ipd = response_json.options.ipd.default;
-    sbc = response_json.options.sbc.default;
     options = response_json.options;
+    sbc = options.sbc.default;
     return response_json;
   }
 
