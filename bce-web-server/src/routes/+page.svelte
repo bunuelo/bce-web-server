@@ -60,8 +60,11 @@
     await rest_api__generate()
   }
 
+  let bobbly_var = "";
+  
   $: (function () {
        console.log("Recalculating price.")
+       bobbly_var = "bobbly " + sbc
        sbc_cost = 0;
        if (options != null) {
          for (var o in options.sbc.options) {
