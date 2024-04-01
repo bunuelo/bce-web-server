@@ -65,6 +65,7 @@
        sbc_cost = 0;
        if (options != null) {
          for (var o in options.sbc.options) {
+           console.log("  o = " + o)
            console.log("  " + o.name + " == " + sbc)
            if (o.name == sbc) {
              sbc_cost = o.price;
