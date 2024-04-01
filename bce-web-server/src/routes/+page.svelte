@@ -12,6 +12,8 @@
   let model_reload_count = 0;
 
   let options = null;
+
+  let total_cost = 0;
   
   const apiURL = "http://64.23.144.229:8000";
   
@@ -50,7 +52,6 @@
   }
   
   onMount(async function() {
-    await rest_api__root();
     await rest_api__options();
     await rest_api__generate();
   });
@@ -78,6 +79,11 @@
   <tr>
     <td>
       {bce_rest_api_message}
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h3>${total_cost.toFixed(2)}</h3>
     </td>
   </tr>
   <tr>
