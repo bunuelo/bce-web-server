@@ -44,7 +44,6 @@
     ipd = response_json.options.ipd.default;
     options = response_json.options;
     sbc = options.sbc.default;
-    sbc_cost = options.sbc.options[sbc].price
     return response_json;
   }
 
@@ -62,7 +61,13 @@
   }
 
   $: (function () {
-       total_cost = model_cost + sbc_cost
+       sbc_cost = 0;
+       for (o in options.sbc.options) {
+         if (o.name == sbc) {
+           sbc_cost = o.price;
+         }
+       }
+       total_cost = model_cost + sbc_cost;
      })()
 </script>
 
