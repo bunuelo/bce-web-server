@@ -8,6 +8,7 @@
   let sbc = null;
   let lens = null;
   let front_camera = null;
+  let eye_camera = null;
   
   let bce_rest_api_message = "";
   let current_model_url = "";
@@ -19,6 +20,7 @@
   let sbc_cost = 0;
   let lens_cost = 0;
   let front_camera_cost = 0;
+  let eye_camera_cost = 0;
   let total_cost = 0;
   
   const apiURL = "http://64.23.144.229:8000";
@@ -50,6 +52,7 @@
     sbc = options.sbc.default;
     lens = options.lens.default;
     front_camera = options.front_camera.default;
+    eye_camera = options.eye_camera.default;
     return response_json;
   }
 
@@ -71,6 +74,7 @@
        sbc_cost = 0;
        lens_cost = 0;
        front_camera_cost = 0;
+       eye_camera_cost = 0;
        if (options != null) {
          for (var oi in options.sbc.options) {
            let o = options.sbc.options[oi]
@@ -90,8 +94,14 @@
              front_camera_cost = o.price;
            }
          }
+         for (var oi in options.eye_camera.options) {
+           let o = options.eye_camera.options[oi]
+           if (o.name == eye_camera) {
+             eye_camera_cost = o.price;
+           }
+         }
        }
-       total_cost = model_cost + sbc_cost + lens_cost + front_camera_cost;
+       total_cost = model_cost + sbc_cost + lens_cost + front_camera_cost + eye_camera_cost;
      })()
   
 </script>
@@ -209,6 +219,34 @@
 		</td>
 		<td align="right">
 		  ${front_camera_option.price.toFixed(2)}
+		</td>
+	      </tr>
+	      {/each}
+	    </table>
+	  </td>
+	</tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table>
+	<tr>
+	  <td>
+	    <h2>Eye Cameras</h2>
+	  </td>
+	</tr>
+	<tr>
+	  <td>
+	    <table>
+	      {#each (options ? options.eye_camera.options : []) as eye_camera_option}
+	      <tr>
+		<td>
+		  <input type="radio" id="eye_camera_{eye_camera_option.name}" bind:group={eye_camera} name="eye_camera" value="{eye_camera_option.name}" />
+		  <label for="eye_camera_{eye_camera_option.name}">{eye_camera_option.display_name}</label>
+		</td>
+		<td align="right">
+		  ${eye_camera_option.price.toFixed(2)}
 		</td>
 	      </tr>
 	      {/each}
