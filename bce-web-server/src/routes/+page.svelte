@@ -13,6 +13,8 @@
 
   let options = null;
 
+  let model_cost = 50;
+  let sbc_cost = 0;
   let total_cost = 0;
   
   const apiURL = "http://64.23.144.229:8000";
@@ -42,15 +44,10 @@
     ipd = response_json.options.ipd.default;
     options = response_json.options;
     sbc = options.sbc.default;
+    sbc_cost = options.sbc.options[sbc].price
     return response_json;
   }
 
-  function update_default_radio_buttons() {
-    console.log("[bce] update_default_radio_buttons: here.");
-    console.log("[bce] sbc=" + sbc);
-  
-  }
-  
   onMount(async function() {
     await rest_api__options();
     await rest_api__generate();
@@ -64,6 +61,9 @@
     await rest_api__generate()
   }
 
+  $: (function () {
+       total_cost = model_cost + sbc_cost
+     })()
 </script>
 
 <h1>Design</h1>
