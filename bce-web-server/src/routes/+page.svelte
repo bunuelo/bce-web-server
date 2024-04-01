@@ -7,6 +7,7 @@
 
   let sbc = null;
   let lens = null;
+  let front_camera = null;
   
   let bce_rest_api_message = "";
   let current_model_url = "";
@@ -17,6 +18,7 @@
   let model_cost = 50;
   let sbc_cost = 0;
   let lens_cost = 0;
+  let front_camera_cost = 0;
   let total_cost = 0;
   
   const apiURL = "http://64.23.144.229:8000";
@@ -47,6 +49,7 @@
     options = response_json.options;
     sbc = options.sbc.default;
     lens = options.lens.default;
+    front_camera = options.front_camera.default;
     return response_json;
   }
 
@@ -67,6 +70,7 @@
        console.log("Recalculating price.")
        sbc_cost = 0;
        lens_cost = 0;
+       front_camera_cost = 0;
        if (options != null) {
          for (var oi in options.sbc.options) {
            let o = options.sbc.options[oi]
@@ -80,8 +84,14 @@
              lens_cost = o.price;
            }
          }
+         for (var oi in options.front_camera.options) {
+           let o = options.front_camera.options[oi]
+           if (o.name == front_camera) {
+             front_camera_cost = o.price;
+           }
+         }
        }
-       total_cost = model_cost + sbc_cost + lens_cost;
+       total_cost = model_cost + sbc_cost + lens_cost + front_camera_cost;
      })()
   
 </script>
@@ -171,6 +181,34 @@
 		</td>
 		<td align="right">
 		  ${lens_option.price.toFixed(2)}
+		</td>
+	      </tr>
+	      {/each}
+	    </table>
+	  </td>
+	</tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table>
+	<tr>
+	  <td>
+	    <h2>Front Cameras</h2>
+	  </td>
+	</tr>
+	<tr>
+	  <td>
+	    <table>
+	      {#each (options ? options.front_camera.options : []) as front_camera_option}
+	      <tr>
+		<td>
+		  <input type="radio" id="front_camera_{front_camera_option.name}" bind:group={front_camera} name="front_camera" value="{front_camera_option.name}" />
+		  <label for="front_camera_{front_camera_option.name}">{front_camera_option.display_name}</label>
+		</td>
+		<td align="right">
+		  ${front_camera_option.price.toFixed(2)}
 		</td>
 	      </tr>
 	      {/each}
