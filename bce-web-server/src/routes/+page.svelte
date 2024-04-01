@@ -6,6 +6,7 @@
   let ipd = 0;
 
   let sbc = null;
+  let lens = null;
   
   let bce_rest_api_message = "";
   let current_model_url = "";
@@ -15,6 +16,7 @@
 
   let model_cost = 50;
   let sbc_cost = 0;
+  let lens_cost = 0;
   let total_cost = 0;
   
   const apiURL = "http://64.23.144.229:8000";
@@ -44,6 +46,7 @@
     ipd = response_json.options.ipd.default;
     options = response_json.options;
     sbc = options.sbc.default;
+    lens = options.lens.default;
     return response_json;
   }
 
@@ -63,6 +66,7 @@
   $: (function () {
        console.log("Recalculating price.")
        sbc_cost = 0;
+       lens_cost = 0;
        if (options != null) {
          for (var oi in options.sbc.options) {
            let o = options.sbc.options[oi]
@@ -70,8 +74,14 @@
              sbc_cost = o.price;
            }
          }
+         for (var oi in options.lens.options) {
+           let o = options.lens.options[oi]
+           if (o.name == lens) {
+             lens_cost = o.price;
+           }
+         }
        }
-       total_cost = model_cost + sbc_cost;
+       total_cost = model_cost + sbc_cost + lens_cost;
      })()
   
 </script>
@@ -134,6 +144,33 @@
 		</td>
 		<td align="right">
 		  ${sbc_option.price.toFixed(2)}
+		</td>
+	      </tr>
+	      {/each}
+	    </table>
+	  </td>
+	</tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table>
+	<tr>
+	  <td>
+	    <h2>Lenses</h2>
+	  </td>
+	</tr>
+	<tr>
+	  <td>
+	    <table>
+	      {#each (options ? options.lens.options : []) as lens_option}
+	      <tr>
+		<td>
+		  <input type="radio" id="lens_{lens_option.name}" bind:group={lens} name="lens" value="{lens_option.name}" /><label for="lens_{lens_option.name}">{lens_option.display_name}</label>
+		</td>
+		<td align="right">
+		  ${lens_option.price.toFixed(2)}
 		</td>
 	      </tr>
 	      {/each}
