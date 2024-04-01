@@ -61,6 +61,7 @@
   }
 
   $: (function () {
+       console.log("Recalculating price.")
        sbc_cost = 0;
        if (options != null) {
          for (var o in options.sbc.options) {
@@ -71,6 +72,7 @@
        }
        total_cost = model_cost + sbc_cost;
      })()
+  
 </script>
 
 <h1>Design</h1>
