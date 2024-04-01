@@ -92,7 +92,7 @@
     </td>
   </tr>
   <tr>
-    <td>
+    <td align="right">
       <h3>${total_cost.toFixed(2)}</h3>
     </td>
   </tr>
