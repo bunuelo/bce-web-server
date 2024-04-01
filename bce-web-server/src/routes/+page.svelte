@@ -5,7 +5,7 @@
   // 61.7 average female.  64 average male. https://en.wikipedia.org/wiki/Pupillary_distance
   let ipd = 0;
 
-  let sbc = "";
+  let sbc = null;
   
   let bce_rest_api_message = "";
   let current_model_url = "";
@@ -62,9 +62,11 @@
 
   $: (function () {
        sbc_cost = 0;
-       for (o in options.sbc.options) {
-         if (o.name == sbc) {
-           sbc_cost = o.price;
+       if (options != null) {
+         for (o in options.sbc.options) {
+           if (o.name == sbc) {
+             sbc_cost = o.price;
+           }
          }
        }
        total_cost = model_cost + sbc_cost;
