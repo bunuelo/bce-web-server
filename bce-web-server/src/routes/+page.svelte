@@ -63,7 +63,7 @@
   $: (function () {
        sbc_cost = 0;
        if (options != null) {
-         for (o in options.sbc.options) {
+         for (var o in options.sbc.options) {
            if (o.name == sbc) {
              sbc_cost = o.price;
            }
