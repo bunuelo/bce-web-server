@@ -87,7 +87,9 @@
   
   onMount(async function() {
     createScene(three_canvas_element);
-    await load_3d_model(model_url);
+    if (model_url != "") {
+      await load_3d_model(model_url);
+    }
   });
   
   function handleMouseDown(e) {

@@ -43,8 +43,6 @@
     return response_json;
   }
 
-  let interval = null;
-
   function update_default_radio_buttons() {
     console.log("[bce] update_default_radio_buttons: here.");
     console.log("[bce] sbc=" + sbc);
@@ -55,8 +53,6 @@
     await rest_api__root();
     await rest_api__options();
     await rest_api__generate();
-    
-    interval = setInterval(update_default_radio_buttons, 1000);
   });
 
   async function onclickGenerate() {
