@@ -190,17 +190,15 @@
 	  <td>
 	    <table>
 	      {#each (options ? options.sbc.options : []) as sbc_option}
-	      <label for="sbc_{sbc_option.name}">
-		<tr>
-		  <td>
-		    <input type="radio" id="sbc_{sbc_option.name}" bind:group={sbc} name="sbc" value="{sbc_option.name}" />
-		    {sbc_option.display_name}
-		  </td>
-		  <td align="right">
-		    {display_cost_difference(sbc_cost != null ? sbc_option.price - sbc_cost : 0)}
-		  </td>
-		</tr>
-		</label>
+	      <tr>
+		<td>
+		  <input type="radio" id="sbc_{sbc_option.name}" bind:group={sbc} name="sbc" value="{sbc_option.name}" />
+		  <label for="sbc_{sbc_option.name}">{sbc_option.display_name}</label>
+		</td>
+		<td align="right">
+		  {display_cost_difference(sbc_cost != null ? sbc_option.price - sbc_cost : 0)}
+		</td>
+	      </tr>
 	      {/each}
 	    </table>
 	  </td>
