@@ -71,7 +71,12 @@
   };
   
   function get_model_width() {
-    return Math.round(innerWidth - 50);
+    let max_width = Math.round(innerWidth - 50);
+    let max_height = Math.round(innerHeight - 50);
+    if (max_width * 9 / 16 < max_height) {
+      return max_width;			   
+    }
+    return Math.round(max_height * 16 / 9);
   }
   
   function get_model_height() {
