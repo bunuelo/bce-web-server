@@ -117,8 +117,8 @@
   }
   
   function handleMouseUp(e) {
-    mouse_mode = "up"
     e.preventDefault();
+    mouse_mode = "up"
   }
 
   function handleTouchStart(e) {
@@ -129,6 +129,7 @@
 
   function handleTouchMove(e) {
     if (mouse_mode == "down") {
+      e.preventDefault();
       let x = e.touches[0].screenX;
       let y = e.touches[0].screenY;
       let dx = x - previous_touch_x;
