@@ -174,11 +174,11 @@
 		</td>
 		<td align="right">
 		  {(function () {
-		      let cost_diff = (sbc_cost ? sbc_option.price - sbc_cost : 0).toFixed(2)
+		      let cost_diff = (sbc_cost ? sbc_option.price - sbc_cost : 0);
 		      if (cost_diff < 0) {
-		        return "-$" + (-cost_diff);
+		        return "-$" + (-cost_diff).toFixed(2);
 		      } else {
-		        return "+$" + cost_diff;
+		        return "+$" + cost_diff.toFixed(2);
 		      }
 		    })()}
 		</td>
