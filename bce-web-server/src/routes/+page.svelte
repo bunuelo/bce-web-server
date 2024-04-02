@@ -195,7 +195,7 @@
 		  <input type="radio" id="sbc_{sbc_option.name}" bind:group={sbc} name="sbc" value="{sbc_option.name}" /><label for="sbc_{sbc_option.name}">{sbc_option.display_name}</label>
 		</td>
 		<td align="right">
-		  {display_cost_difference(sbc_cost ? sbc_option.price - sbc_cost : 0)}
+		  {display_cost_difference(sbc_cost != null ? sbc_option.price - sbc_cost : 0)}
 		</td>
 	      </tr>
 	      {/each}
@@ -223,7 +223,7 @@
 		  <label for="display_{display_option.name}">{display_option.display_name}</label>
 		</td>
 		<td align="right">
-		  {display_cost_difference(display_cost ? display_option.price - display_cost : 0)}
+		  {display_cost_difference(display_cost != null ? display_option.price - display_cost : 0)}
 		</td>
 	      </tr>
 	      {/each}
@@ -250,7 +250,7 @@
 		  <input type="radio" id="lens_{lens_option.name}" bind:group={lens} name="lens" value="{lens_option.name}" /><label for="lens_{lens_option.name}">{lens_option.display_name}</label>
 		</td>
 		<td align="right">
-		  {display_cost_difference(lens_cost ? lens_option.price - lens_cost : 0)}
+		  {display_cost_difference(lens_cost != null ? lens_option.price - lens_cost : 0)}
 		</td>
 	      </tr>
 	      {/each}
@@ -278,7 +278,7 @@
 		  <label for="front_camera_{front_camera_option.name}">{front_camera_option.display_name}</label>
 		</td>
 		<td align="right">
-		  {display_cost_difference(front_camera_cost ? front_camera_option.price - front_camera_cost : 0)}
+		  {display_cost_difference(front_camera_cost != null ? front_camera_option.price - front_camera_cost : 0)}
 		</td>
 	      </tr>
 	      {/each}
@@ -306,7 +306,7 @@
 		  <label for="eye_camera_{eye_camera_option.name}">{eye_camera_option.display_name}</label>
 		</td>
 		<td align="right">
-		  {display_cost_difference(eye_camera_cost ? eye_camera_option.price - eye_camera_cost : 0)}
+		  {display_cost_difference(eye_camera_cost != null ? eye_camera_option.price - eye_camera_cost : 0)}
 		</td>
 	      </tr>
 	      {/each}
