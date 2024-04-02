@@ -71,7 +71,7 @@
   async function on_input_change() {
     await rest_api__generate()
   }
-
+  
   function display_cost_difference(cost_diff) {
     if (cost_diff < 0) {
       return "-$" + (-cost_diff).toFixed(2);
@@ -79,7 +79,8 @@
       return "+$" + cost_diff.toFixed(2);
     }
   }
-  
+
+  // recalculate price
   $: (function () {
        console.log("Recalculating price.")
        sbc_cost = 0;
@@ -122,6 +123,19 @@
        total_cost = model_cost + sbc_cost + display_cost + lens_cost + front_camera_cost + eye_camera_cost;
      })()
   
+  // check IPD limits
+  $: (function () {
+	console.log("Check IPD limits.")
+	if (ipd) {
+	  if (ipd < options.ipd.minimum) {
+	    ipd = options.ipd.minimum;
+	  }
+	  if (ipd > options.ipd.maximum) {
+	    ipd = options.ipd.maximum;
+	  }
+	}
+      })()
+		    
 </script>
 
 <h1>Design</h1>
