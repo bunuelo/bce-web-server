@@ -72,6 +72,15 @@
     await rest_api__generate()
   }
 
+  function display_cost_difference(cost_diff) {
+    let cost_diff = ();
+    if (cost_diff < 0) {
+      return "-$" + (-cost_diff).toFixed(2);
+    } else {
+      return "+$" + cost_diff.toFixed(2);
+    }
+  }
+  
   $: (function () {
        console.log("Recalculating price.")
        sbc_cost = 0;
@@ -173,14 +182,7 @@
 		  <input type="radio" id="sbc_{sbc_option.name}" bind:group={sbc} name="sbc" value="{sbc_option.name}" /><label for="sbc_{sbc_option.name}">{sbc_option.display_name}</label>
 		</td>
 		<td align="right">
-		  {(function () {
-		      let cost_diff = (sbc_cost ? sbc_option.price - sbc_cost : 0);
-		      if (cost_diff < 0) {
-		        return "-$" + (-cost_diff).toFixed(2);
-		      } else {
-		        return "+$" + cost_diff.toFixed(2);
-		      }
-		    })()}
+		  {display_cost_difference(sbc_cost ? sbc_option.price - sbc_cost : 0)}
 		</td>
 	      </tr>
 	      {/each}
