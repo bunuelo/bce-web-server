@@ -65,7 +65,11 @@
   };
   
   const createScene = (el:HTMLCanvasElement) => {
-    renderer = new WebGLRenderer({ antialias: true, canvas: el });
+    renderer = new WebGLRenderer({
+      antialias: true,
+      canvas: el,
+      alpha: true
+    });
     resize();
     animate();
   };
