@@ -173,7 +173,14 @@
 		  <input type="radio" id="sbc_{sbc_option.name}" bind:group={sbc} name="sbc" value="{sbc_option.name}" /><label for="sbc_{sbc_option.name}">{sbc_option.display_name}</label>
 		</td>
 		<td align="right">
-		  ${(sbc_cost ? sbc_cost - sbc_option.price : 0).toFixed(2)}
+		  {(function () {
+		      cost_diff = (sbc_cost ? sbc_option.price - sbc_cost : 0).toFixed(2)
+		      if (cost_diff < 0) {
+		        return "-$" + (-cost_diff);
+		      } else {
+		        return "+$" + cost_diff;
+		      }
+		    })()}
 		</td>
 	      </tr>
 	      {/each}
