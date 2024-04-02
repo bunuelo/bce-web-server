@@ -6,6 +6,7 @@
   let ipd = 0;
 
   let sbc = null;
+  let display = null;
   let lens = null;
   let front_camera = null;
   let eye_camera = null;
@@ -18,6 +19,7 @@
 
   let model_cost = 50;
   let sbc_cost = 0;
+  let display_cost = 0;
   let lens_cost = 0;
   let front_camera_cost = 0;
   let eye_camera_cost = 0;
@@ -50,6 +52,7 @@
     ipd = response_json.options.ipd.default;
     options = response_json.options;
     sbc = options.sbc.default;
+    display = options.display.default;
     lens = options.lens.default;
     front_camera = options.front_camera.default;
     eye_camera = options.eye_camera.default;
@@ -72,6 +75,7 @@
   $: (function () {
        console.log("Recalculating price.")
        sbc_cost = 0;
+       display_cost = 0;
        lens_cost = 0;
        front_camera_cost = 0;
        eye_camera_cost = 0;
@@ -80,6 +84,12 @@
            let o = options.sbc.options[oi]
            if (o.name == sbc) {
              sbc_cost = o.price;
+           }
+         }
+         for (var oi in options.display.options) {
+           let o = options.display.options[oi]
+           if (o.name == display) {
+             display_cost = o.price;
            }
          }
          for (var oi in options.lens.options) {
@@ -101,7 +111,7 @@
            }
          }
        }
-       total_cost = model_cost + sbc_cost + lens_cost + front_camera_cost + eye_camera_cost;
+       total_cost = model_cost + sbc_cost + display_cost + lens_cost + front_camera_cost + eye_camera_cost;
      })()
   
 </script>
@@ -164,6 +174,34 @@
 		</td>
 		<td align="right">
 		  ${sbc_option.price.toFixed(2)}
+		</td>
+	      </tr>
+	      {/each}
+	    </table>
+	  </td>
+	</tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table>
+	<tr>
+	  <td>
+	    <h2>Displays</h2>
+	  </td>
+	</tr>
+	<tr>
+	  <td>
+	    <table>
+	      {#each (options ? options.display.options : []) as display_option}
+	      <tr>
+		<td>
+		  <input type="radio" id="display_{display_option.name}" bind:group={display} name="display" value="{display_option.name}" />
+		  <label for="display_{display_option.name}">{display_option.display_name}</label>
+		</td>
+		<td align="right">
+		  ${display_option.price.toFixed(2)}
 		</td>
 	      </tr>
 	      {/each}
