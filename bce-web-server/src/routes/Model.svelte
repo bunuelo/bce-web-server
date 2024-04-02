@@ -25,7 +25,7 @@
   camera.position.z = 5;
   camera.position.y = 0;
   
-  const directionalLight = new DirectionalLight(0x9090aa);
+  const directionalLight = new DirectionalLight(0xffffff);
   directionalLight.position.set(1, 1, 1).normalize();
   scene.add(directionalLight);
   
