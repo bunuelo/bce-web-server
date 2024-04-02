@@ -71,7 +71,7 @@
   };
   
   function get_model_width() {
-    return Math.round(innerWidth / 1.5);
+    return Math.round(innerWidth - 50);
   }
   
   function get_model_height() {
