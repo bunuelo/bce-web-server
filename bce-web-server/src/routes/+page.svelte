@@ -266,7 +266,7 @@
       <table>
 	<tr>
 	  <td>
-	    <h2>Front Cameras</h2>
+	    <h2>Front Camera(s)</h2>
 	  </td>
 	</tr>
 	<tr>
