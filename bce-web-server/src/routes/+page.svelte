@@ -73,7 +73,6 @@
   }
 
   function display_cost_difference(cost_diff) {
-    let cost_diff = ();
     if (cost_diff < 0) {
       return "-$" + (-cost_diff).toFixed(2);
     } else {
