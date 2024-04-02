@@ -174,7 +174,7 @@
 		</td>
 		<td align="right">
 		  {(function () {
-		      cost_diff = (sbc_cost ? sbc_option.price - sbc_cost : 0).toFixed(2)
+		      let cost_diff = (sbc_cost ? sbc_option.price - sbc_cost : 0).toFixed(2)
 		      if (cost_diff < 0) {
 		        return "-$" + (-cost_diff);
 		      } else {
