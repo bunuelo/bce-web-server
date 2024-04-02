@@ -68,7 +68,20 @@
     await rest_api__generate()
   }
 
+  function check_ipd_limits() {
+    console.log("Check IPD limits.")
+    if (ipd) {
+      if (ipd < options.ipd.minimum) {
+        ipd = options.ipd.minimum;
+      }
+      if (ipd > options.ipd.maximum) {
+        ipd = options.ipd.maximum;
+      }
+    }
+  }
+  
   async function on_input_change() {
+    check_ipd_limits();
     await rest_api__generate()
   }
   
@@ -123,19 +136,6 @@
        total_cost = model_cost + sbc_cost + display_cost + lens_cost + front_camera_cost + eye_camera_cost;
      })()
   
-  // check IPD limits
-  $: (function () {
-	console.log("Check IPD limits.")
-	if (ipd) {
-	  if (ipd < options.ipd.minimum) {
-	    ipd = options.ipd.minimum;
-	  }
-	  if (ipd > options.ipd.maximum) {
-	    ipd = options.ipd.maximum;
-	  }
-	}
-      })()
-		    
 </script>
 
 <h1>Design</h1>
