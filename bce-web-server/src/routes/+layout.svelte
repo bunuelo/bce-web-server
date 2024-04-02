@@ -8,20 +8,16 @@
 <table width="100%">
   <tr>
     <td>
-      <table>
-	<tr>
-	  <td>
-	    <Logo />
-	  </td>
-	<tr>
-	</tr>
-	<tr>
-	  <td>
-	    <Menu />
-	  </td>
-	</tr>
-      </table>
+      <Logo />
     </td>
+  <tr>
+  </tr>
+  <tr>
+    <td>
+      <Menu />
+    </td>
+  </tr>
+  <tr>
     <td>
       <slot />
     </td>
