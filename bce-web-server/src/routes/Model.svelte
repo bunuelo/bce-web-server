@@ -90,8 +90,8 @@
   async function load_3d_model(model_url) {
     gltf_loader.load(model_url, function(gltf) {
       let m = new Object3D()
-      gltf.scene.rotation.y = 0.5 * Math.PI
-      m.attach(gltf.scene)
+      m.add(gltf.scene)
+      gltf.scene.rotation.x = 0.5 * Math.PI
       model = m
       scene.add(model);
     });
