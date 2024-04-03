@@ -90,7 +90,9 @@
   
   async function load_3d_model(model_url) {
     gltf_loader.load(model_url, function(gltf) {
-      model = gltf.scene
+      m = Object3D()
+      m.add(gltf.scene)
+      model = m
       scene.add(model);
     });
   }
