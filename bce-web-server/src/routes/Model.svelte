@@ -5,11 +5,10 @@
     BoxGeometry,
     DirectionalLight,
     HemisphereLight,
-    //Mesh,
-    //MeshStandardMaterial,
     PerspectiveCamera,
     Scene,
-    WebGLRenderer
+    WebGLRenderer,
+    Object3D
   } from 'three';
 
   export let model_url = "";
