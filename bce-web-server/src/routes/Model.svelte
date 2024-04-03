@@ -92,6 +92,7 @@
     gltf_loader.load(model_url, function(gltf) {
       m = Object3D()
       m.add(gltf.scene)
+      gltf.scene.rotation.y = 0.5 * Math.PI
       model = m
       scene.add(model);
     });
