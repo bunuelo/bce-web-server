@@ -21,8 +21,9 @@
   
   const scene = new Scene();
 
+  let camera_distance = 500;
   const camera = new PerspectiveCamera(75, innerWidth / innerHeight, 0.1, 1000);
-  camera.position.z = 5;
+  camera.position.z = camera_distance;
   camera.position.y = 0;
   
   const directionalLight = new DirectionalLight(0xffffff);
