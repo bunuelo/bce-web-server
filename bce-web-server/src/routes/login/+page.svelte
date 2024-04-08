@@ -9,4 +9,12 @@
       <input type="email">
     </td>
   </tr>
+  <tr>
+    <td>
+      password:
+    </td>
+    <td>
+      <input type="password">
+    </td>
+  </tr>
 </table>
