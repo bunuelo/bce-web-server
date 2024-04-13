@@ -15,7 +15,6 @@
   let eye_camera = null;
   
   let current_model_url = "";
-  let model_reload_count = 0;
 
   let options = null;
 
