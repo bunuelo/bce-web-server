@@ -134,7 +134,7 @@
   </tr>
   <tr>
     <td>
-      {bce_rest_api.message}
+      BCE REST API message: {bce_rest_api.message}
     </td>
   </tr>
   <tr>
