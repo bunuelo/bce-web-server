@@ -14,7 +14,6 @@
   let front_camera = null;
   let eye_camera = null;
   
-  let bce_rest_api_message = "";
   let current_model_url = "";
   let model_reload_count = 0;
 
@@ -119,7 +118,7 @@
   </tr>
   <tr>
     <td>
-      {bce_rest_api_message}
+      {bce_rest_api.message}
     </td>
   </tr>
   <tr>
