@@ -15,6 +15,7 @@
   let eye_camera = null;
   
   let current_model_url = "";
+  var model_reload_count = 0;
 
   let options = null;
 
@@ -35,14 +36,20 @@
     front_camera = options.front_camera.default;
     eye_camera = options.eye_camera.default;
   }
+
+  async function generate_unique() {
+    let model_url = await bce_rest_api.generate(ipd);
+    current_model_url = model_url + "?v=" + model_reload_count;
+    model_reload_count += 1;
+  }
   
   onMount(async function() {
     await load_default_options()    
-    current_model_url = await bce_rest_api.generate(ipd);
+    await generate_unique();
   });
 
   async function onclickGenerate() {
-    current_model_url = await bce_rest_api.generate(ipd)
+    await generate_unique();
   }
 
   function check_ipd_limits() {
@@ -59,7 +66,7 @@
   
   async function on_input_change() {
     check_ipd_limits();
-    current_model_url = await bce_rest_api.generate(ipd)
+    await generate_unique();
   }
   
   function display_cost_difference(cost_diff) {
