@@ -28,45 +28,13 @@
   let eye_camera_cost = 0;
   let total_cost = 0;
   
-  async function rest_api__root() {
-    const response = await fetch(bce_rest_api.apiURL + "/");
-    const response_json = await response.json();
-    bce_rest_api_message = response_json.message
-    return response_json;
-  }
-  
-  async function rest_api__generate() {
-    const response = await fetch(bce_rest_api.apiURL + "/generate?" + new URLSearchParams({
-      ipd: ipd
-    }));
-    const response_json = await response.json();
-    bce_rest_api_message = response_json.message + "  (sent ipd=" + ipd + ")"
-    current_model_url = response_json.model_url + "?v=" + model_reload_count
-    model_reload_count += 1
-    return response_json;
-  }
-  
-  async function rest_api__options() {
-    const response = await fetch(bce_rest_api.apiURL + "/options");
-    const response_json = await response.json();
-    bce_rest_api_message = response_json.message;
-    ipd = response_json.options.ipd.default;
-    options = response_json.options;
-    sbc = options.sbc.default;
-    display = options.display.default;
-    lens = options.lens.default;
-    front_camera = options.front_camera.default;
-    eye_camera = options.eye_camera.default;
-    return response_json;
-  }
-
   onMount(async function() {
-    await rest_api__options();
-    await rest_api__generate();
+    await bce_rest_api.options();
+    await bce_rest_api.generate(ipd);
   });
 
   async function onclickGenerate() {
-    await rest_api__generate()
+    await bce_rest_api.generate(ipd)
   }
 
   function check_ipd_limits() {
@@ -83,7 +51,7 @@
   
   async function on_input_change() {
     check_ipd_limits();
-    await rest_api__generate()
+    await bce_rest_api.generate(ipd)
   }
   
   function display_cost_difference(cost_diff) {
