@@ -2,7 +2,9 @@
   import { onMount } from "svelte";
   import Model from "./Model.svelte";
   import BceRestApi from "./bce_rest_api.js";
-  
+
+  let bce_rest_api = new BceRestApi()
+
   // 61.7 average female.  64 average male. https://en.wikipedia.org/wiki/Pupillary_distance
   let ipd = 0;
 
