@@ -26,9 +26,19 @@
   let front_camera_cost = 0;
   let eye_camera_cost = 0;
   let total_cost = 0;
+
+  async function load_default_options() {
+    options = await bce_rest_api.options();
+    ipd = options.ipd.default;
+    sbc = options.sbc.default;
+    display = options.display.default;
+    lens = options.lens.default;
+    front_camera = options.front_camera.default;
+    eye_camera = options.eye_camera.default;
+  }
   
   onMount(async function() {
-    await bce_rest_api.options();
+    await load_default_options()    
     await bce_rest_api.generate(ipd);
   });
 

@@ -27,14 +27,7 @@ export default class BceRestApi {
 	const response = await fetch(this.apiURL + "/options");
 	const response_json = await response.json();
 	this.message = response_json.message;
-	ipd = response_json.options.ipd.default;
-	options = response_json.options;
-	sbc = options.sbc.default;
-	display = options.display.default;
-	lens = options.lens.default;
-	front_camera = options.front_camera.default;
-	eye_camera = options.eye_camera.default;
-	return response_json;
+	return response_json.options;
     }
     
     
