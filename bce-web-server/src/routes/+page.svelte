@@ -38,11 +38,11 @@
   
   onMount(async function() {
     await load_default_options()    
-    await bce_rest_api.generate(ipd);
+    current_model_url = await bce_rest_api.generate(ipd);
   });
 
   async function onclickGenerate() {
-    await bce_rest_api.generate(ipd)
+    current_model_url = await bce_rest_api.generate(ipd)
   }
 
   function check_ipd_limits() {
@@ -59,7 +59,7 @@
   
   async function on_input_change() {
     check_ipd_limits();
-    await bce_rest_api.generate(ipd)
+    current_model_url = await bce_rest_api.generate(ipd)
   }
   
   function display_cost_difference(cost_diff) {
