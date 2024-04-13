@@ -28,17 +28,15 @@
   let eye_camera_cost = 0;
   let total_cost = 0;
   
-  const apiURL = "http://64.23.144.229:8000";
-  
   async function rest_api__root() {
-    const response = await fetch(apiURL + "/");
+    const response = await fetch(bce_rest_api.apiURL + "/");
     const response_json = await response.json();
     bce_rest_api_message = response_json.message
     return response_json;
   }
   
   async function rest_api__generate() {
-    const response = await fetch(apiURL + "/generate?" + new URLSearchParams({
+    const response = await fetch(bce_rest_api.apiURL + "/generate?" + new URLSearchParams({
       ipd: ipd
     }));
     const response_json = await response.json();
@@ -49,7 +47,7 @@
   }
   
   async function rest_api__options() {
-    const response = await fetch(apiURL + "/options");
+    const response = await fetch(bce_rest_api.apiURL + "/options");
     const response_json = await response.json();
     bce_rest_api_message = response_json.message;
     ipd = response_json.options.ipd.default;
