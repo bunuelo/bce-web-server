@@ -3,7 +3,7 @@
   import Transition from 'svelte-transition'
   import Logo from './Logo.svelte'
   import Edit from './Edit.svelte'
-  
+
 </script>
 
 <table>

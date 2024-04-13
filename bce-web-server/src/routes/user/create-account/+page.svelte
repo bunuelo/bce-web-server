@@ -1,3 +1,9 @@
+<script>
+  function create_account() {
+      console.log("Create account: here."
+  }
+</script>
+
 <h1>Create Account</h1>
 
 <table>
@@ -29,7 +35,7 @@
     <td>
     </td>
     <td>
-      <button type="button">Create Account</button>
+      <button type="button" on:click={create_account}>Create Account</button>
     </td>
   </tr>
 </table>
