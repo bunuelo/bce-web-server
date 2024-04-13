@@ -22,12 +22,12 @@
 	</tr>
 	<tr>
 	  <td>
-	    <a href="/login">login</a>
+	    <a href="/user/login">login</a>
 	  </td>
 	</tr>
 	<tr>
 	  <td>
-	    <a href="/create-account">create account</a>
+	    <a href="/user/create-account">create account</a>
 	  </td>
 	</tr>
 	<tr>
