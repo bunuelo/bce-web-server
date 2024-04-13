@@ -1,6 +1,6 @@
 <script>
   function create_account() {
-      console.log("Create account: here."
+      console.log("Create account: here.")
   }
 </script>
 
