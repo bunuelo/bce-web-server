@@ -27,6 +27,11 @@
 	</tr>
 	<tr>
 	  <td>
+	    <a href="/create-account">create account</a>
+	  </td>
+	</tr>
+	<tr>
+	  <td>
 	    <a href="/docs">docs</a>
 	  </td>
 	</tr>

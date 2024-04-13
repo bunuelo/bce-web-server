@@ -17,4 +17,11 @@
       <input type="password">
     </td>
   </tr>
+  <tr>
+    <td>
+    </td>
+    <td>
+      <button type="button">Login</button>
+    </td>
+  </tr>
 </table>
