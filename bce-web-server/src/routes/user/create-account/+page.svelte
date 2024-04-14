@@ -42,12 +42,15 @@
   </tr>
   <tr>
     <td>
+      {#if email == ""}
+      <p>⚠ Please enter valid email. ⚠</p>
+      {/if}
       {#if password != confirm_password}
-      ⚠ Passwords do not match. ⚠
+      <p>⚠ Please enter matching passwords. ⚠</p>
       {/if}
     </td>
     <td>
-      {#if password != "" && password == confirm_password}
+      {#if email != "" && password != "" && password == confirm_password}
       <button type="button" on:click={create_account}>Create Account</button>
       {:else}
       <button type="button" disabled>Create Account</button>
