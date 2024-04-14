@@ -8,7 +8,7 @@ export default class BceRestApi {
     async root() {
 	const response = await fetch(this.apiURL + "/");
 	const response_json = await response.json();
-	this.message = response_json.message
+	this.message = response_json.message;
 	return response_json;
     }
     
@@ -17,7 +17,7 @@ export default class BceRestApi {
 	    ipd: ipd
 	}));
 	const response_json = await response.json();
-	this.message = response_json.message + "  (sent ipd=" + ipd + ")"
+	this.message = response_json.message;
 	return response_json.model_url;
     }
     
