@@ -6,8 +6,8 @@
   let password = "";
   
   function create_account() {
-    console.log("Create account: here.")
-    bce_rest_api.user_create_account(
+    console.log("Create account: here.");
+    bce_rest_api.user_create_account(email, password);
   }
 </script>
 
@@ -19,7 +19,7 @@
       email:
     </td>
     <td>
-      <input type="email">
+      <input type="email" bind:value={email}>
     </td>
   </tr>
   <tr>
@@ -27,7 +27,7 @@
       password:
     </td>
     <td>
-      <input type="password">
+      <input type="password" bind:value={password}>
     </td>
   </tr>
   <tr>
