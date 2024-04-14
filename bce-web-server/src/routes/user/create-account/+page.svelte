@@ -1,5 +1,5 @@
 <script>
-  import { redirect } from '@sveltejs/kit';
+  import { goto } from '$app/navigation';
   import BceRestApi from "../../bce_rest_api.js";
   let bce_rest_api = new BceRestApi();
 
@@ -12,7 +12,7 @@
     let success = await bce_rest_api.user_create_account(email, password);
     console.log("Create account: success = " + success);
     if (success) {
-      throw redirect(303, '/user/login');
+      goto("/user/login");
     }
   }
 </script>
