@@ -4,6 +4,7 @@
 
   let email = "";
   let password = "";
+  let confirm_password = "";
   
   function create_account() {
     console.log("Create account: here.");
@@ -35,14 +36,18 @@
       confirm password:
     </td>
     <td>
-      <input type="password">
+      <input type="password" bind:value={confirm_password}>
     </td>
   </tr>
   <tr>
     <td>
     </td>
     <td>
+      {#if password == confirm_password}
       <button type="button" on:click={create_account}>Create Account</button>
+      {:else}
+      <button type="button" disabled>Create Account</button>
+      {/if}
     </td>
   </tr>
 </table>
