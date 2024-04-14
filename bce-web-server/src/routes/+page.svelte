@@ -3,8 +3,9 @@
   import Model from "./Model.svelte";
   import BceRestApi from "./bce_rest_api.js";
 
-  let bce_rest_api = new BceRestApi()
-
+  let bce_rest_api = new BceRestApi();
+  let bce_rest_api_message = "";
+  
   // 61.7 average female.  64 average male. https://en.wikipedia.org/wiki/Pupillary_distance
   let ipd = 0;
 
@@ -35,12 +36,14 @@
     lens = options.lens.default;
     front_camera = options.front_camera.default;
     eye_camera = options.eye_camera.default;
+    bce_rest_api_message = bce_rest_api.message;
   }
 
   async function generate_unique() {
     let model_url = await bce_rest_api.generate(ipd);
     current_model_url = model_url + "?v=" + model_reload_count;
     model_reload_count += 1;
+    bce_rest_api_message = bce_rest_api.message;
   }
   
   onMount(async function() {
@@ -134,9 +137,7 @@
   </tr>
   <tr>
     <td>
-      {#key bce_rest_api.message}
-      BCE REST API message: {bce_rest_api.message}
-      {/key}
+      BCE REST API message: {bce_rest_api_message}
     </td>
   </tr>
   <tr>
