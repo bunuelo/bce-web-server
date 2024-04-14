@@ -8,7 +8,7 @@
   
   async function create_account() {
     console.log("Create account: here.");
-    success = await bce_rest_api.user_create_account(email, password);
+    let success = await bce_rest_api.user_create_account(email, password);
     console.log("Create account: success = " + success);
   }
 </script>
