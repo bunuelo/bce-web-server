@@ -134,7 +134,9 @@
   </tr>
   <tr>
     <td>
+      {#key bce_rest_api.message}
       BCE REST API message: {bce_rest_api.message}
+      {/key}
     </td>
   </tr>
   <tr>
