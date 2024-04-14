@@ -28,5 +28,21 @@ export default class BceRestApi {
 	return response_json.options;
     }
     
+    async user_create_account(email, password) {
+	const response = await fetch(this.apiURL + "/user/create_account", {
+	    method: "POST",
+	    body: JSON.stringify({
+		email: email,
+		password: password
+	    }),
+	    headers: {
+		"Content-type": "application/json; charset=UTF-8"
+	    }
+	});
+	const response_json = await response.json();
+	this.message = response_json.message;
+	return response_json.options;
+    }
+    
     
 }
