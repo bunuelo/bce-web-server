@@ -6,9 +6,10 @@
   let password = "";
   let confirm_password = "";
   
-  function create_account() {
+  async function create_account() {
     console.log("Create account: here.");
-    bce_rest_api.user_create_account(email, password);
+    success = await bce_rest_api.user_create_account(email, password);
+    console.log("Create account: success = " + success);
   }
 </script>
 
