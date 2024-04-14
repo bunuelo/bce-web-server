@@ -42,7 +42,7 @@
   <tr>
     <td>
       {#if password != confirm_password}
-      Passwords must match.
+      ⚠ Passwords do not match. ⚠
       {/if}
     </td>
     <td>
