@@ -41,9 +41,12 @@
   </tr>
   <tr>
     <td>
+      {#if password != confirm_password}
+      Passwords must match.
+      {/if}
     </td>
     <td>
-      {#if password == confirm_password}
+      {#if password != "" && password == confirm_password}
       <button type="button" on:click={create_account}>Create Account</button>
       {:else}
       <button type="button" disabled>Create Account</button>
