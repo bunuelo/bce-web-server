@@ -1,6 +1,13 @@
 <script>
+  import BceRestApi from "./bce_rest_api.js";
+  let bce_rest_api = new BceRestApi();
+
+  let email = "";
+  let password = "";
+  
   function create_account() {
-      console.log("Create account: here.")
+    console.log("Create account: here.")
+    bce_rest_api.user_create_account(
   }
 </script>
 
