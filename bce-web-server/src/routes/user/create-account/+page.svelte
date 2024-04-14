@@ -11,7 +11,9 @@
     console.log("Create account: here.");
     let success = await bce_rest_api.user_create_account(email, password);
     console.log("Create account: success = " + success);
-    throw redirect(303, '/user/login');
+    if (success) {
+      throw redirect(303, '/user/login');
+    }
   }
 </script>
 
