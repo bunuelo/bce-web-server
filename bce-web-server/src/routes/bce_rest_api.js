@@ -44,5 +44,21 @@ export default class BceRestApi {
 	return response_json.success;
     }
     
+    async user_login(email, password) {
+	const response = await fetch(this.apiURL + "/user/login", {
+	    method: "POST",
+	    body: JSON.stringify({
+		email: email,
+		password: password
+	    }),
+	    headers: {
+		"Content-type": "application/json; charset=UTF-8"
+	    }
+	});
+	const response_json = await response.json();
+	this.message = response_json.message;
+	return response_json.success;
+    }
+    
     
 }
