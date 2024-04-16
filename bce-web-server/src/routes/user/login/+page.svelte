@@ -7,8 +7,8 @@
   
   async function login() {
     console.log("Login: here.");
-    let success = await bce_rest_api.user_login(email, password);
-    console.log("Login: success = " + success);
+    let session_token = await bce_rest_api.user_login(email, password);
+    console.log("Login: session_token = " + session_token);
     //if (success) {
     //  goto("/user/login");
     //}
