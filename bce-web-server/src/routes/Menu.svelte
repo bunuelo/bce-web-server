@@ -33,7 +33,7 @@
         {#if session_is_valid}
           <tr>
 	    <td>
-	      <a href="/user/logout">log out</a>
+	      <a href="/user/logout">logout</a>
 	    </td>
 	  </tr>
 	{:else}
