@@ -57,11 +57,7 @@ export default class BceRestApi {
 	});
 	const response_json = await response.json();
 	this.message = response_json.message;
-	if (response_json.success) {
-	    return response_json.session_token;
-	} else {
-	    return null;
-	}
+	return response_json.session_token;
     }
     
 }
