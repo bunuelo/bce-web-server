@@ -10,7 +10,7 @@
   let password = "";
   
   onMount(async () => {
-    session_is_valid = await bce_session.session_is_valid()
+    let session_is_valid = await bce_session.session_is_valid()
     if (session_is_valid) {
       goto("/");
     }
