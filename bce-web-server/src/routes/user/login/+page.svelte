@@ -18,6 +18,7 @@
     session_token = await bce_rest_api.user_login(email, password);
     if (session_token != null) {
       console.log("Login: session_token = " + session_token);
+      bce_session.set_cookie("email", email, 1);
       bce_session.set_cookie("session_token", session_token, 1);
     } else {
       console.log("Login failed.");

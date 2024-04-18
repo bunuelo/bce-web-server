@@ -1,3 +1,6 @@
+import BceRestApi from "../../bce_rest_api.js";
+let bce_rest_api = new BceRestApi();
+
 export default class BceSession {
     
     constructor() {
@@ -27,9 +30,9 @@ export default class BceSession {
     }
 
     async session_is_valid() {
-	let email = BceSession.get_cookie("email");
-	let session_token = BceSession.get_cookie("session_token");
-	return await user_check_valid_session_token(email, session_token);
+	let email = this.get_cookie("email");
+	let session_token = this.get_cookie("session_token");
+	return await bce_rest_api.user_check_valid_session_token(email, session_token);
     }
     
 }
