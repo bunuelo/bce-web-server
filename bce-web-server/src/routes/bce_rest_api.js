@@ -65,7 +65,7 @@ export default class BceRestApi {
 	    method: "POST",
 	    body: JSON.stringify({
 		email: email,
-		password: password
+		session_token: session_token
 	    }),
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
