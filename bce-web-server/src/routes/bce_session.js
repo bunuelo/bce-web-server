@@ -1,4 +1,4 @@
-import BceRestApi from "../../bce_rest_api.js";
+import BceRestApi from "bce_rest_api.js";
 let bce_rest_api = new BceRestApi();
 
 export default class BceSession {
