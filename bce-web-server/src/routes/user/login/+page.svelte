@@ -1,5 +1,6 @@
 <script>
   import BceRestApi from "../../bce_rest_api.js";
+  import BceSession from "../../bce_session.js";
   let bce_rest_api = new BceRestApi();
   let bce_session = new BceSession();
 
