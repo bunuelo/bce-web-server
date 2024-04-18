@@ -8,15 +8,17 @@
 
   let email = "";
   let password = "";
-  let session_token = "";
   
   onMount(async () => {
-    session_token = bce_session.get_cookie("session_token")
+    session_is_valid = await bce_session.session_is_valid()
+    if (session_is_valid) {
+      goto("/");
+    }
   });
   
   async function login() {
     console.log("Login: here.");
-    session_token = await bce_rest_api.user_login(email, password);
+    let session_token = await bce_rest_api.user_login(email, password);
     if (session_token != null) {
       console.log("Login: session_token = " + session_token);
       bce_session.set_cookie("email", email, 1);
@@ -55,14 +57,6 @@
     </td>
     <td>
       <button type="button" on:click={login}>Login</button>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      Session Token:
-    </td>
-    <td>
-      {session_token}
     </td>
   </tr>
 </table>
