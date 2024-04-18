@@ -1,6 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import { goto } from '$app/navigation';
+  import { invalidateAll } from '$app/navigation';
   import BceRestApi from "../../bce_rest_api.js";
   import BceSession from "../../bce_session.js";
   let bce_rest_api = new BceRestApi();
@@ -12,7 +13,7 @@
   onMount(async () => {
     let session_is_valid = await bce_session.session_is_valid()
     if (session_is_valid) {
-      goto("/");
+      goto("/", { invalidateAll });
     }
   });
   
@@ -23,7 +24,7 @@
       console.log("Login: session_token = " + session_token);
       bce_session.set_cookie("email", email, 1);
       bce_session.set_cookie("session_token", session_token, 1);
-      goto("/");
+      goto("/", { invalidateAll });
     } else {
       email = "";
       password = "";

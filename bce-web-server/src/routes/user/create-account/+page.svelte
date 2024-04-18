@@ -1,6 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import { goto } from '$app/navigation';
+  import { invalidateAll } from '$app/navigation';
   import BceRestApi from "../../bce_rest_api.js";
   import BceSession from "../../bce_session.js";
   let bce_rest_api = new BceRestApi();
@@ -13,7 +14,7 @@
   onMount(async () => {
     let session_is_valid = await bce_session.session_is_valid()
     if (session_is_valid) {
-      goto("/");
+      goto("/", { invalidateAll });
     }
   });
   
@@ -22,7 +23,7 @@
     let success = await bce_rest_api.user_create_account(email, password);
     console.log("Create account: success = " + success);
     if (success) {
-      goto("/user/login");
+      goto("/user/login", { invalidateAll });
     }
   }
 </script>
