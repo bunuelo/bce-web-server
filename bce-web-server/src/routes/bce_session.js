@@ -25,5 +25,11 @@ export default class BceSession {
 	}
 	return "";
     }
+
+    async session_is_valid() {
+	let email = BceSession.get_cookie("email");
+	let session_token = BceSession.get_cookie("session_token");
+	return await user_check_valid_session_token(email, session_token);
+    }
     
 }

@@ -1,8 +1,16 @@
 <script lang="ts">
-  import { createMenu } from 'svelte-headlessui'
+  import { onMount } from 'svelte';
   import Transition from 'svelte-transition'
   import Logo from './Logo.svelte'
   import Edit from './Edit.svelte'
+  
+  let bce_session = new BceSession();
+
+  let session_is_valid = false
+
+  onMount(async () => {
+    session_is_valid = bce_session.session_is_valid()
+  });
 
 </script>
 
@@ -20,16 +28,24 @@
 	    <a href="/">home</a>
 	  </td>
 	</tr>
-	<tr>
-	  <td>
-	    <a href="/user/login">login</a>
-	  </td>
-	</tr>
-	<tr>
-	  <td>
-	    <a href="/user/create-account">create account</a>
-	  </td>
-	</tr>
+        {#if session_is_valid}
+          <tr>
+	    <td>
+0	      <a href="/user/logout">log out</a>
+	    </td>
+	  </tr>
+	{:else}
+          <tr>
+	    <td>
+	      <a href="/user/login">login</a>
+	    </td>
+	  </tr>
+	  <tr>
+	    <td>
+	      <a href="/user/create-account">create account</a>
+	    </td>
+	  </tr>
+	{/if}
 	<tr>
 	  <td>
 	    <a href="/docs">docs</a>

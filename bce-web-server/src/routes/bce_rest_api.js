@@ -60,4 +60,20 @@ export default class BceRestApi {
 	return response_json.session_token;
     }
     
+    async user_check_valid_session_token(email, session_token) {
+	const response = await fetch(this.apiURL + "/user/check_valid_session_token", {
+	    method: "POST",
+	    body: JSON.stringify({
+		email: email,
+		password: password
+	    }),
+	    headers: {
+		"Content-type": "application/json; charset=UTF-8"
+	    }
+	});
+	const response_json = await response.json();
+	this.message = response_json.message;
+	return response_json.session_token_is_valid;
+    }
+    
 }
