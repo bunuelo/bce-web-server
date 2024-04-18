@@ -13,7 +13,7 @@
   onMount(async () => {
     let session_is_valid = await bce_session.session_is_valid()
     if (session_is_valid) {
-      goto("/", { invalidateAll });
+      goto("/", { invalidateAll: true });
     }
   });
   
@@ -24,7 +24,7 @@
       console.log("Login: session_token = " + session_token);
       bce_session.set_cookie("email", email, 1);
       bce_session.set_cookie("session_token", session_token, 1);
-      goto("/", { invalidateAll });
+      goto("/", { invalidateAll: true });
     } else {
       email = "";
       password = "";
