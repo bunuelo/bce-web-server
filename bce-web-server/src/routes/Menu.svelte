@@ -4,6 +4,8 @@
   import Logo from './Logo.svelte'
   import Edit from './Edit.svelte'
   
+  import BceSession from "./bce_session.js";
+
   let bce_session = new BceSession();
 
   let session_is_valid = false
