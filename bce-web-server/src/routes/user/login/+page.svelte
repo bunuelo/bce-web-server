@@ -1,6 +1,7 @@
 <script>
   import BceRestApi from "../../bce_rest_api.js";
   let bce_rest_api = new BceRestApi();
+  let bce_session = new BceSession();
 
   let email = "";
   let password = "";
@@ -9,6 +10,7 @@
     console.log("Login: here.");
     let session_token = await bce_rest_api.user_login(email, password);
     console.log("Login: session_token = " + session_token);
+    bce_session.set_cookie("session_token", session_token, 1);
     //if (success) {
     //  goto("/user/login");
     //}
