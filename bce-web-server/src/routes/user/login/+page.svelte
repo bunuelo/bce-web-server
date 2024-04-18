@@ -54,9 +54,10 @@
   </tr>
   <tr>
     <td>
+      Session Token:
     </td>
     <td>
-      Session Token: {session_token}
+      {session_token}
     </td>
   </tr>
 </table>
