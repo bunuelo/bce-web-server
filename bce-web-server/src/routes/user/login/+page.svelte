@@ -1,5 +1,6 @@
 <script>
   import { onMount } from 'svelte';
+  import { goto } from '$app/navigation';
   import BceRestApi from "../../bce_rest_api.js";
   import BceSession from "../../bce_session.js";
   let bce_rest_api = new BceRestApi();
@@ -20,7 +21,10 @@
       console.log("Login: session_token = " + session_token);
       bce_session.set_cookie("email", email, 1);
       bce_session.set_cookie("session_token", session_token, 1);
+      goto("/");
     } else {
+      email = "";
+      password = "";
       console.log("Login failed.");
     }
   }
