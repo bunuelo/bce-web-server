@@ -9,7 +9,7 @@ export default class BceSession {
 	let expires = "expires="+ d.toUTCString();
 	document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/;SameSite=strict";
     }
-
+    
     get_cookie(cname) {
 	let name = cname + "=";
 	let decodedCookie = decodeURIComponent(document.cookie);
