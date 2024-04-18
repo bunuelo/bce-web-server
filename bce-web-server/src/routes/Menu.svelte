@@ -11,7 +11,7 @@
   let session_is_valid = false
 
   onMount(async () => {
-    session_is_valid = bce_session.session_is_valid()
+    session_is_valid = await bce_session.session_is_valid()
   });
 
 </script>
