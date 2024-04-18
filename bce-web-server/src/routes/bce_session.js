@@ -29,6 +29,11 @@ export default class BceSession {
 	return "";
     }
 
+    logout() {
+	this.set_cookie("email", "", -1);
+	this.set_cookie("session_token", "", -1);
+    }
+    
     async session_is_valid() {
 	let email = this.get_cookie("email");
 	let session_token = this.get_cookie("session_token");

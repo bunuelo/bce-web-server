@@ -8,8 +8,7 @@
   let bce_session = new BceSession();
 
   onMount(async () => {
-    bce_session.set_cookie("email", "", -1);
-    bce_session.set_cookie("session_token", "", -1);
+    bce_session.logout()
     goto("/", { invalidateAll: true });
   });
   
