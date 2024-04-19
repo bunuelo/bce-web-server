@@ -15,7 +15,7 @@
 
   onMount(async () => {
     bce_session.logout()
-    invalidate("session");
+    //invalidate("session");
     goto("/", { invalidateAll: true });
   });
   
