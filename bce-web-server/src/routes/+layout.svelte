@@ -1,6 +1,9 @@
 <script lang="ts">
   import Logo from './Logo.svelte'
   import Menu from './Menu.svelte'
+
+  let session_is_valid = false
+
 </script>
 
 <link rel="icon" href="/favicon.png?v=2" />
@@ -14,12 +17,12 @@
   </tr>
   <tr>
     <td>
-      <Menu />
+      <Menu session_is_valid={session_is_valid} />
     </td>
   </tr>
   <tr>
     <td>
-      <slot />
+      <slot session_is_valid={session_is_valid} />
     </td>
   </tr>
 </table>
