@@ -8,7 +8,7 @@
 
   let bce_session = new BceSession();
 
-  export let session_is_valid = false
+  export let session_is_valid = false;
 
   //export async function load( { depends } ) {
   //  depends("session");

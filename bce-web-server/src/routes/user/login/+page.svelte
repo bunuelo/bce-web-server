@@ -7,7 +7,7 @@
   let bce_rest_api = new BceRestApi();
   let bce_session = new BceSession();
 
-  export let session_is_valid = false
+  export let session_is_valid = false;
   
   let email = "";
   let password = "";
