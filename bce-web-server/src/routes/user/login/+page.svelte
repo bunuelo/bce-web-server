@@ -27,7 +27,7 @@
           bce_session.set_cookie("email", $user_email, 1);
           bce_session.set_cookie("session_token", $user_session_token, 1);
           $user_session_is_valid = true;
-          goto("/");
+          goto("/user/dashboard");
       } else {
           $user_email = "";
           password = "";
