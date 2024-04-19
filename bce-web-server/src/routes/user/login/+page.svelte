@@ -24,7 +24,6 @@
       console.log("Login: session_token = " + session_token);
       bce_session.set_cookie("email", email, 1);
       bce_session.set_cookie("session_token", session_token, 1);
-      session_is_valid = true;
       goto("/");
     } else {
       email = "";
