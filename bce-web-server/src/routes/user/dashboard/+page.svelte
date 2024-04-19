@@ -2,6 +2,8 @@
     import { onMount } from 'svelte';
     import { goto } from '$app/navigation';
     import { user_session_is_valid } from '../../bce_stores.js'
+    import BceSession from "../../bce_session.js";
+    let bce_session = new BceSession();
     
     let password;
     
