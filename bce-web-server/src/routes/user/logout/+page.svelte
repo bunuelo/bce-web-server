@@ -1,6 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import { goto } from '$app/navigation';
+  import { invalidate } from '$app/navigation';
   import { invalidateAll } from '$app/navigation';
   import BceRestApi from "../../bce_rest_api.js";
   import BceSession from "../../bce_session.js";
@@ -14,6 +15,7 @@
 
   onMount(async () => {
     bce_session.logout()
+    invalidate("session");
     goto("/", { invalidateAll: true });
   });
   
