@@ -1,4 +1,6 @@
 import { writable } from "svelte/store";
 
-export const alert = writable("Welcome to the to-do list app!");
+export const alert = writable("");
+export const user_email = writable("");
+export const user_session_token = writable("");
 
