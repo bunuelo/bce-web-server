@@ -13,7 +13,7 @@
     
     onMount(async () => {
         let session_is_valid = await bce_session.session_is_valid()
-        f (session_is_valid) {
+        if (session_is_valid) {
             goto("/", { invalidateAll: true });
         }
     });
