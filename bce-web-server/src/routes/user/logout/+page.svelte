@@ -7,10 +7,15 @@
   let bce_rest_api = new BceRestApi();
   let bce_session = new BceSession();
 
-  onMount(async () => {
+  export async function load() {
     bce_session.logout()
     goto("/", { invalidateAll: true });
-  });
+  }
+
+  //onMount(async () => {
+  //  bce_session.logout()
+  //  goto("/", { invalidateAll: true });
+  //});
   
 </script>
 

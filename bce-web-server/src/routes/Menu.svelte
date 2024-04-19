@@ -10,7 +10,8 @@
 
   let session_is_valid = false
 
-  onMount(async () => {
+  export async function load() {
+  //onMount(async () => {
     session_is_valid = await bce_session.session_is_valid()
   });
 
