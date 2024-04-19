@@ -10,8 +10,9 @@
 
   let session_is_valid = false
 
-  export async function load() {
-    session_is_valid = await bce_session.session_is_valid()
+  export async function load({ locals, params }) {
+    params.branch;
+    session_is_valid = await bce_session.session_is_valid();
   }
   
   //onMount(async () => {
