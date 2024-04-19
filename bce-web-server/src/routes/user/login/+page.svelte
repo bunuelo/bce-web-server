@@ -21,7 +21,7 @@
   async function login() {
       console.log("Login: here.");
       $user_session_token = await bce_rest_api.user_login($user_email, password);
-      if (session_token != null) {
+      if ($user_session_token != null) {
           console.log("Login: session_token = " + $user_session_token);
           bce_session.set_cookie("email", $user_email, 1);
           bce_session.set_cookie("session_token", $user_session_token, 1);
