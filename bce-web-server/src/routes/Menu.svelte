@@ -3,18 +3,15 @@
     import Transition from 'svelte-transition'
     import Logo from './Logo.svelte'
     import Edit from './Edit.svelte'
+    import { user_session_is_valid } from './bce_stores.js'
     
     import BceSession from "./bce_session.js";
     
     let bce_session = new BceSession();
     
-    let session_is_valid = false;
-    
-    $: (function () {
-        let temp1 = $user_email;
-        let temp2 = $user_session_token;
-        session_is_valid = await bce_session.session_is_valid();
-    })()
+    onMount(async () => {
+        $user_session_is_valid = await bce_session.session_is_valid();
+    });
     
 </script>
 
@@ -32,7 +29,7 @@
 	                <a href="/">home</a>
 	            </td>
 	        </tr>
-                {#if session_is_valid}
+                {#if $user_session_is_valid}
                   <tr>
 	              <td>
 	                  <a href="/user/logout">logout</a>

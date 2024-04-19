@@ -6,14 +6,15 @@
     import BceSession from "../../bce_session.js";
     import { user_email } from '../../bce_stores.js'
     import { user_session_token } from '../../bce_stores.js'
+    import { user_session_is_valid } from '../../bce_stores.js'
     let bce_rest_api = new BceRestApi();
     let bce_session = new BceSession();
     
     let password;
     
     onMount(async () => {
-        let session_is_valid = await bce_session.session_is_valid()
-        if (session_is_valid) {
+        $user_session_is_valid = await bce_session.session_is_valid()
+        if ($user_session_is_valid) {
             goto("/", { invalidateAll: true });
         }
     });
@@ -25,6 +26,7 @@
           console.log("Login: session_token = " + $user_session_token);
           bce_session.set_cookie("email", $user_email, 1);
           bce_session.set_cookie("session_token", $user_session_token, 1);
+          $user_session_is_valid = true;
           goto("/");
       } else {
           $user_email = "";
