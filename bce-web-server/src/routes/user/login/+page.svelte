@@ -1,35 +1,36 @@
 <script>
-  import { onMount } from 'svelte';
-  import { goto } from '$app/navigation';
-  import { invalidateAll } from '$app/navigation';
-  import BceRestApi from "../../bce_rest_api.js";
-  import BceSession from "../../bce_session.js";
-  let bce_rest_api = new BceRestApi();
-  let bce_session = new BceSession();
-
-  let email = "";
-  let password = "";
-  
-  onMount(async () => {
-    let session_is_valid = await bce_session.session_is_valid()
-    if (session_is_valid) {
-      goto("/", { invalidateAll: true });
-    }
-  });
+    import { onMount } from 'svelte';
+    import { goto } from '$app/navigation';
+    import { invalidateAll } from '$app/navigation';
+    import BceRestApi from "../../bce_rest_api.js";
+    import BceSession from "../../bce_session.js";
+    import { user_email } from './bce_stores.js'
+    import { user_session_token } from './bce_stores.js'
+    let bce_rest_api = new BceRestApi();
+    let bce_session = new BceSession();
+    
+    let password;
+    
+    onMount(async () => {
+        let session_is_valid = await bce_session.session_is_valid()
+        f (session_is_valid) {
+            goto("/", { invalidateAll: true });
+        }
+    });
   
   async function login() {
-    console.log("Login: here.");
-    let session_token = await bce_rest_api.user_login(email, password);
-    if (session_token != null) {
-      console.log("Login: session_token = " + session_token);
-      bce_session.set_cookie("email", email, 1);
-      bce_session.set_cookie("session_token", session_token, 1);
-      goto("/");
-    } else {
-      email = "";
-      password = "";
-      console.log("Login failed.");
-    }
+      console.log("Login: here.");
+      $user_session_token = await bce_rest_api.user_login($user_email, password);
+      if (session_token != null) {
+          console.log("Login: session_token = " + $user_session_token);
+          bce_session.set_cookie("email", $user_email, 1);
+          bce_session.set_cookie("session_token", $user_session_token, 1);
+          goto("/");
+      } else {
+          $user_email = "";
+          password = "";
+          console.log("Login failed.");
+      }
   }
   
 </script>
@@ -42,7 +43,7 @@
       email:
     </td>
     <td>
-      <input type="email" bind:value={email}>
+      <input type="email" bind:value={$user_email}>
     </td>
   </tr>
   <tr>

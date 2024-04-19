@@ -1,3 +1,5 @@
+import { user_email } from './bce_stores.js'
+import { user_session_token } from './bce_stores.js'
 import BceRestApi from "./bce_rest_api.js";
 let bce_rest_api = new BceRestApi();
 
@@ -30,14 +32,16 @@ export default class BceSession {
     }
 
     logout() {
-	this.set_cookie("email", "", -1);
-	this.set_cookie("session_token", "", -1);
+        $user_email = "";
+        $user_session_token = "";
+        this.set_cookie("email", $user_email, -1);
+	this.set_cookie("session_token", $user_session_token, -1);
     }
     
     async session_is_valid() {
-	let email = this.get_cookie("email");
-	let session_token = this.get_cookie("session_token");
-	return await bce_rest_api.user_check_valid_session_token(email, session_token);
+        $user_email = this.get_cookie("email");
+        $user_session_token = this.get_cookie("session_token");
+	return await bce_rest_api.user_check_valid_session_token($user_email, $user_session_token);
     }
     
 }
