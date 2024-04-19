@@ -1,6 +1,7 @@
 <script>
     import { onMount } from 'svelte';
     import { goto } from '$app/navigation';
+    import { user_session_is_valid } from '../../bce_stores.js'
     
     let password;
     
