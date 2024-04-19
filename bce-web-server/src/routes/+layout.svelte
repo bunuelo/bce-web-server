@@ -17,12 +17,12 @@
   </tr>
   <tr>
     <td>
-      <Menu session_is_valid={session_is_valid} />
+      <Menu bind:session_is_valid={session_is_valid} />
     </td>
   </tr>
   <tr>
     <td>
-      <slot session_is_valid={session_is_valid} />
+      <slot bind:session_is_valid={session_is_valid} />
     </td>
   </tr>
 </table>
