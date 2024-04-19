@@ -1,3 +1,4 @@
+import { get } from 'svelte/store'
 import { user_email } from './bce_stores.js'
 import { user_session_token } from './bce_stores.js'
 import BceRestApi from "./bce_rest_api.js";
@@ -32,16 +33,16 @@ export default class BceSession {
     }
 
     logout() {
-        $user_email = "";
-        $user_session_token = "";
-        this.set_cookie("email", $user_email, -1);
-	this.set_cookie("session_token", $user_session_token, -1);
+        user_email.set("");
+        user_session_token.set("");
+        this.set_cookie("email", get(user_email), -1);
+        this.set_cookie("session_token", get(user_session_token), -1);
     }
     
     async session_is_valid() {
-        $user_email = this.get_cookie("email");
-        $user_session_token = this.get_cookie("session_token");
-	return await bce_rest_api.user_check_valid_session_token($user_email, $user_session_token);
+        user_email.set(this.get_cookie("email"));
+        user_session_token.set(this.get_cookie("session_token"));
+        return await bce_rest_api.user_check_valid_session_token(get(user_email), get(user_session_token));
     }
     
 }
