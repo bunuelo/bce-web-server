@@ -30,6 +30,11 @@
 	            </td>
 	        </tr>
                 {#if $user_session_is_valid}
+  	          <tr>
+	              <td>
+	                  <a href="/user/dashboard">dashboard</a>
+	              </td>
+	          </tr>
                   <tr>
 	              <td>
 	                  <a href="/user/logout">logout</a>
@@ -47,11 +52,6 @@
 	              </td>
 	          </tr>
 	        {/if}
-	        <tr>
-	            <td>
-	                <a href="/user/dashboard">dashboard</a>
-	            </td>
-	        </tr>
 	        <tr>
 	            <td>
 	                <a href="/docs">docs</a>
