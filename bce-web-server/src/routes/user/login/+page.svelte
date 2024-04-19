@@ -7,6 +7,8 @@
   let bce_rest_api = new BceRestApi();
   let bce_session = new BceSession();
 
+  export let session_is_valid = false
+  
   let email = "";
   let password = "";
   
@@ -24,7 +26,8 @@
       console.log("Login: session_token = " + session_token);
       bce_session.set_cookie("email", email, 1);
       bce_session.set_cookie("session_token", session_token, 1);
-      goto("/", { invalidateAll: true });
+      session_is_valid = true;
+      goto("/");
     } else {
       email = "";
       password = "";
