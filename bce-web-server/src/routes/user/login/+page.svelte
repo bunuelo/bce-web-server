@@ -4,7 +4,7 @@
     import { invalidateAll } from '$app/navigation';
     import BceRestApi from "../../bce_rest_api.js";
     import BceSession from "../../bce_session.js";
-    import { user_email } from './bce_stores.js'
+    import { user_email } from '../../bce_stores.js'
     import { user_session_token } from './bce_stores.js'
     let bce_rest_api = new BceRestApi();
     let bce_session = new BceSession();
