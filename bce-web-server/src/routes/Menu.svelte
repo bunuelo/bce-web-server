@@ -10,9 +10,11 @@
     
     let session_is_valid = false;
     
-    onMount(async () => {
-        session_is_valid = await bce_session.session_is_valid()
-    });
+    $: (function () {
+        let temp1 = $user_email;
+        let temp2 = $user_session_token;
+        session_is_valid = await bce_session.session_is_valid();
+    })()
     
 </script>
 
@@ -42,17 +44,17 @@
 	                  <a href="/user/login">login</a>
 	              </td>
 	          </tr>
+	          <tr>
+	              <td>
+	                  <a href="/user/create-account">create account</a>
+	              </td>
+	          </tr>
+	        {/if}
 	        <tr>
 	            <td>
-	                <a href="/user/create-account">create account</a>
+	                <a href="/docs">docs</a>
 	            </td>
 	        </tr>
-	      {/if}
-	      <tr>
-	          <td>
-	              <a href="/docs">docs</a>
-	          </td>
-	      </tr>
 	        <tr>
 	            <td>
 	                <a href="/terms">terms</a>
