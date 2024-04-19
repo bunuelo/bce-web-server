@@ -49,6 +49,11 @@
 	        {/if}
 	        <tr>
 	            <td>
+	                <a href="/user/dashboard">dashboard</a>
+	            </td>
+	        </tr>
+	        <tr>
+	            <td>
 	                <a href="/docs">docs</a>
 	            </td>
 	        </tr>
