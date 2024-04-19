@@ -9,8 +9,8 @@
     
     onMount(async () => {
         $user_session_is_valid = await bce_session.session_is_valid()
-        if ($user_session_is_valid) {
-            goto("/user/dashboard");
+        if (! $user_session_is_valid) {
+            goto("/");
         }
     });
 </script>
