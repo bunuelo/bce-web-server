@@ -4,8 +4,7 @@
     import Logo from './Logo.svelte'
     import Edit from './Edit.svelte'
     import { user_session_is_valid } from '$lib/bce_stores.js'
-    
-    import BceSession from "./bce_session.js";
+    import BceSession from "$lib/bce_session.js";
     
     let bce_session = new BceSession();
     
