@@ -3,7 +3,7 @@
     import Transition from 'svelte-transition'
     import Logo from './Logo.svelte'
     import Edit from './Edit.svelte'
-    import { user_session_is_valid } from './bce_stores.js'
+    import { user_session_is_valid } from '$lib/bce_stores.js'
     
     import BceSession from "./bce_session.js";
     
