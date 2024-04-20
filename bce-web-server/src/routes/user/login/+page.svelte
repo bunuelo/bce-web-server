@@ -4,6 +4,7 @@
     import { invalidateAll } from '$app/navigation';
     import BceRestApi from "$lib/bce_rest_api.js";
     import BceSession from "$lib/bce_session.js";
+    import { alert } from "$lib/bce_stores.js";
     import { user_email } from '$lib/bce_stores.js'
     import { user_session_token } from '$lib/bce_stores.js'
     import { user_session_is_valid } from '$lib/bce_stores.js'
@@ -29,10 +30,12 @@
           bce_session.set_cookie("email", $user_email, 1);
           bce_session.set_cookie("session_token", $user_session_token, 1);
           $user_session_is_valid = true;
+          $alert = "Login successful!";
           goto("/user/dashboard");
       } else {
           $user_email = "";
           password = "";
+          $alert = "Login failed.";
           console.log("Login failed.");
       }
   }

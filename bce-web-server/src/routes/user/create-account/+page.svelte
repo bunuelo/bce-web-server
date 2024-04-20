@@ -4,6 +4,7 @@
   import { invalidateAll } from '$app/navigation';
   import BceRestApi from "$lib/bce_rest_api.js";
   import BceSession from "$lib/bce_session.js";
+  import { alert } from "$lib/bce_stores.js";
   let bce_rest_api = new BceRestApi();
   let bce_session = new BceSession();
 
@@ -23,7 +24,10 @@
     let success = await bce_rest_api.user_create_account(email, password);
     console.log("Create account: success = " + success);
     if (success) {
+      $alert = "Acount created successfully!";
       goto("/user/login", { invalidateAll });
+    } else {
+      $alert = "Acount creation failed.  Maybe you already have an account?";
     }
   }
 </script>
