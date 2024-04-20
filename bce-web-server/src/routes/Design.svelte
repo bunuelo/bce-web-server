@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import Model from "./Model.svelte";
-  import BceRestApi from "./bce_rest_api.js";
+  import BceRestApi from "$lib/bce_rest_api.js";
 
   let bce_rest_api = new BceRestApi();
   let bce_rest_api_message = "";
