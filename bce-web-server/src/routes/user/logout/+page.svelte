@@ -12,7 +12,7 @@
   onMount(async () => {
     bce_session.logout()
     $user_session_is_valid = false;
-    goto("/", { invalidateAll: true });
+    goto("/user/dashboard");
   });
   
 </script>
