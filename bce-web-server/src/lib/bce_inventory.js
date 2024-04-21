@@ -12,7 +12,7 @@ export default class BceInventory {
     }
 
     async products() {
-      return ["blah", "blah", "blah"]
+        return await bce_rest_api.inventory_products(get(user_email), get(user_session_token));
     }
   
 }
