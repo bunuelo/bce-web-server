@@ -22,13 +22,21 @@
   <h1>Inventory</h1>
 
   <table>
+    <tr>
+        <td>
+            <b>Product Name</b>
+        </td>
+        <td>
+            <b>Quantity</b>
+        </td>
+    </tr>
   {#each products as product}
     <tr>
         <td>
             { product }
         </td>
         <td>
-            bing bong
+            1
         </td>
     </tr>
   {/each}
