@@ -14,7 +14,11 @@
         }
     });
 </script>
-  
-<h1>Dashboard</h1>
+
+{#if $user_session_is_valid}
+
+  <h1>Dashboard</h1>
+
+{/if}
 
 
