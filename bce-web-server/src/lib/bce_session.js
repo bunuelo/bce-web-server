@@ -48,7 +48,7 @@ export default class BceSession {
         console.log("BceSession.update_session_from_cookie: here.")
         user_email.set(this.get_cookie("email"));
         user_session_token.set(this.get_cookie("session_token"));
-        console.log("BceSession.update_session_from_cookie: user_email = \"" + get(user_email) + "\", user_session_token = \"" + get(user_session_token + "\""));
+        console.log("BceSession.update_session_from_cookie: user_email = \"" + get(user_email) + "\", user_session_token = \"" + get(user_session_token) + "\"");
     }
     
     async session_is_valid() {
