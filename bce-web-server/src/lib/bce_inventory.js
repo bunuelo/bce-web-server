@@ -12,7 +12,7 @@ export default class BceInventory {
     }
 
     async products() {
-        return []
+      return ["blah", "blah", "blah"]
     }
   
 }
