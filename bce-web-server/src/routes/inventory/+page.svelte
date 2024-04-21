@@ -7,7 +7,7 @@
     
     onMount(async () => {
         if ($user_security_level >= 100) {
-            $user_security_level = await bce_session.user_security_level()
+            $user_security_level = await bce_session.security_level()
         }
         if ($user_security_level < 100) {
             goto("/user/dashboard");
