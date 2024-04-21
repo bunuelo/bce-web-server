@@ -7,7 +7,7 @@
     import BceInventory from "$lib/bce_inventory.js";
     let bce_inventory = new BceInventory();
 
-    let products = [];
+    let products = ["blah"];
     
     onMount(async () => {
         if ($user_security_level >= 100) {
