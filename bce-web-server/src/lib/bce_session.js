@@ -45,12 +45,12 @@ export default class BceSession {
     }
   
     async session_is_valid() {
-        update_session_from_cookie();
+        this.update_session_from_cookie();
         return await bce_rest_api.user_check_valid_session_token(get(user_email), get(user_session_token));
     }
     
     async user_security_level() {
-        update_session_from_cookie();
+        this.update_session_from_cookie();
         return await bce_rest_api.user_security_level(get(user_email), get(user_session_token));
     }
     
