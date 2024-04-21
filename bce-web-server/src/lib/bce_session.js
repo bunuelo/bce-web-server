@@ -38,11 +38,20 @@ export default class BceSession {
         this.set_cookie("email", get(user_email), -1);
         this.set_cookie("session_token", get(user_session_token), -1);
     }
-    
-    async session_is_valid() {
+
+    update_session_from_cookie() {
         user_email.set(this.get_cookie("email"));
         user_session_token.set(this.get_cookie("session_token"));
+    }
+  
+    async session_is_valid() {
+        update_session_from_cookie();
         return await bce_rest_api.user_check_valid_session_token(get(user_email), get(user_session_token));
+    }
+    
+    async user_security_level() {
+        update_session_from_cookie();
+        return await bce_rest_api.user_security_level(get(user_email), get(user_session_token));
     }
     
 }

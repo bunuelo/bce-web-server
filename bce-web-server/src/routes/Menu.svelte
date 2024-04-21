@@ -4,12 +4,14 @@
     import Logo from './Logo.svelte'
     import Edit from './Edit.svelte'
     import { user_session_is_valid } from '$lib/bce_stores.js'
+    import { user_secutity_level } from '$lib/bce_stores.js'
     import BceSession from "$lib/bce_session.js";
     
     let bce_session = new BceSession();
     
     onMount(async () => {
         $user_session_is_valid = await bce_session.session_is_valid();
+        $user_secutity_level = await bce_session.secutity_level();
     });
     
 </script>
@@ -50,6 +52,13 @@
 	                  <a href="/user/create-account">create account</a>
 	              </td>
 	          </tr>
+	        {/if}
+                {#if $user_security_level >= 100}
+	        <tr>
+	            <td>
+	                <a href="/inventory">inventory</a>
+	            </td>
+	        </tr>
 	        {/if}
 	        <tr>
 	            <td>
