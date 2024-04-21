@@ -1,5 +1,7 @@
 <script>
-  import { page } from '$app/stores';
+    import { page } from '$app/stores';
+    import { goto } from '$app/navigation';
+    goto("/user/dashboard");
 </script>
 
 {#if page.status == 404}
