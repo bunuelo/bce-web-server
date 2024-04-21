@@ -6,8 +6,14 @@
     let bce_session = new BceSession();
     import BceInventory from "$lib/bce_inventory.js";
     let bce_inventory = new BceInventory();
-
+    
     let products = ["blah"];
+
+    export function load() {
+        if ($user_security_level < 100) {
+            goto("/user/dashboard");
+        }
+    }
     
     onMount(async () => {
         if ($user_security_level >= 100) {
