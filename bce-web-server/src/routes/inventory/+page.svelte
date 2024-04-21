@@ -33,10 +33,10 @@
   {#each products as product}
     <tr>
         <td>
-            { product }
+            { product.name }
         </td>
         <td>
-            1
+            { product.quantity }
         </td>
     </tr>
   {/each}
