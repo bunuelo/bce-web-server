@@ -25,21 +25,21 @@
 {#if products}
   <h1>Inventory</h1>
 
-  <table>
+  <table style="border: 1px solid black; border-collapse: collapse;">
     <tr>
-        <td>
+        <td style="border: 1px solid black; border-collapse: collapse;">
             <b>Product Name</b>
         </td>
-        <td>
+        <td style="border: 1px solid black; border-collapse: collapse;">
             <b>Quantity</b>
         </td>
     </tr>
   {#each products as product}
     <tr>
-        <td>
+        <td style="border: 1px solid black; border-collapse: collapse;">
             { product.name }
         </td>
-        <td>
+        <td style="border: 1px solid black; border-collapse: collapse;">
 	    <input type="number" bind:value="{product.quantity}" min=0 style="width: 50px;" on:change={on_input_change} />
         </td>
     </tr>
