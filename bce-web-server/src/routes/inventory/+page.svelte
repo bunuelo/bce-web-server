@@ -16,6 +16,10 @@
         }
         products = await bce_inventory.products();
     });
+
+    function on_input_change() {
+      
+    }
 </script>
 
 {#if products}
@@ -36,7 +40,7 @@
             { product.name }
         </td>
         <td>
-            { product.quantity }
+	    <input type="number" bind:value="{product.quantity}" min=0 style="width: 50px;" on:change={on_input_change} />
         </td>
     </tr>
   {/each}
