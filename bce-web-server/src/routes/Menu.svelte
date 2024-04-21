@@ -11,7 +11,7 @@
     
     onMount(async () => {
         $user_session_is_valid = await bce_session.session_is_valid();
-        $user_secutity_level = await bce_session.secutity_level();
+        $user_security_level = await bce_session.security_level();
     });
     
 </script>
