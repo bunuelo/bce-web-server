@@ -35,7 +35,7 @@
         </td>
     </tr>
   {#each products as product}
-    <tr>
+    <tr style="border: 1px solid black; border-collapse: collapse;">
         <td style="border: 1px solid black; border-collapse: collapse;">
             { product.name }
         </td>
