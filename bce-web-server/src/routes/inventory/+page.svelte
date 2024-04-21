@@ -7,14 +7,8 @@
     import BceInventory from "$lib/bce_inventory.js";
     let bce_inventory = new BceInventory();
     
-    let products = ["blah"];
+    let products = null;
 
-    export function load() {
-        if ($user_security_level < 100) {
-            goto("/user/dashboard");
-        }
-    }
-    
     onMount(async () => {
         if ($user_security_level >= 100) {
             $user_security_level = await bce_session.security_level()
@@ -26,7 +20,9 @@
     });
 </script>
 
+{#if products}
 <h1>Inventory</h1>
 
 <p> { products } </p>
+{/if}
 
