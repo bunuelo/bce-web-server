@@ -25,7 +25,7 @@
 {#if products}
   <h1>Inventory</h1>
 
-  <table>
+  <table style="border-collapse: collapse;">
     <tr>
         <td>
             <b>Product Name</b>
