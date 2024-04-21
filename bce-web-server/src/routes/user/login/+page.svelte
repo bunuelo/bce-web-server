@@ -18,7 +18,7 @@
             $user_session_is_valid = await bce_session.session_is_valid()
         }
         if ($user_session_is_valid) {
-            goto("/user/dashboard");
+          goto("/user/dashboard", { invalidateAll: true });
         }
     });
   
@@ -31,7 +31,7 @@
           bce_session.set_cookie("session_token", $user_session_token, 1);
           $user_session_is_valid = true;
           $alert = "Login successful!";
-          goto("/user/dashboard");
+          goto("/user/dashboard", { invalidateAll: true });
       } else {
           $user_email = "";
           password = "";
