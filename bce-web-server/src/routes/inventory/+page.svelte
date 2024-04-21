@@ -19,8 +19,10 @@
 </script>
 
 {#if products}
-<h1>Inventory</h1>
-
-<p> { products } </p>
+  <h1>Inventory</h1>
+  
+  {#each products as product}
+    <p> { product } </p>
+  {/each}
 {/if}
-
+  
