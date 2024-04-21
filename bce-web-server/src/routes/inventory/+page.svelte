@@ -20,9 +20,18 @@
 
 {#if products}
   <h1>Inventory</h1>
-  
+
+  <table>
   {#each products as product}
-    <p> { product } </p>
+    <tr>
+        <td>
+            { product }
+        </td>
+        <td>
+            bing bong
+        </td>
+    </tr>
   {/each}
+  </table>
 {/if}
   
