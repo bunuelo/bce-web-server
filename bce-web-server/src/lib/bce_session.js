@@ -41,7 +41,7 @@ export default class BceSession {
     }
   
     logout() {
-        console.log("BceSession.logout: here.")
+        //console.log("BceSession.logout: here.")
         user_email.set("");
         user_session_token.set("");
         this.set_cookie("email", get(user_email), -1);
@@ -51,25 +51,25 @@ export default class BceSession {
     }
     
     update_session_from_cookie() {
-        console.log("BceSession.update_session_from_cookie: here.")
+        //console.log("BceSession.update_session_from_cookie: here.")
         user_email.set(this.get_cookie("email"));
         user_session_token.set(this.get_cookie("session_token"));
-        console.log("BceSession.update_session_from_cookie: user_email = \"" + get(user_email) + "\", user_session_token = \"" + get(user_session_token) + "\"");
+        //console.log("BceSession.update_session_from_cookie: user_email = \"" + get(user_email) + "\", user_session_token = \"" + get(user_session_token) + "\"");
     }
     
     async session_is_valid() {
-        console.log("BceSession.session_is_valid: here.")
+        //console.log("BceSession.session_is_valid: here.")
         this.update_session_from_cookie();
         let result = await bce_rest_api.user_check_valid_session_token(get(user_email), get(user_session_token));
-        console.log("BceSession.session_is_valid: user_email = \"" + get(user_email) + "\", user_session_token = \"" + get(user_session_token) + "\", result = " + result);
+        //console.log("BceSession.session_is_valid: user_email = \"" + get(user_email) + "\", user_session_token = \"" + get(user_session_token) + "\", result = " + result);
         return result;
     }
     
     async security_level() {
-        console.log("BceSession.security_level: here.")
+        //console.log("BceSession.security_level: here.")
         this.update_session_from_cookie();
         let result = await bce_rest_api.user_security_level(get(user_email), get(user_session_token));
-        console.log("BceSession.security_level: user_email = \"" + get(user_email) + "\", user_session_token = \"" + get(user_session_token) + "\", result = " + result);
+        //console.log("BceSession.security_level: user_email = \"" + get(user_email) + "\", user_session_token = \"" + get(user_session_token) + "\", result = " + result);
         return result;
     }
     
