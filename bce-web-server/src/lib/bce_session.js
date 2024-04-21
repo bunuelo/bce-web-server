@@ -34,6 +34,12 @@ export default class BceSession {
 	return "";
     }
 
+    login(email, session_token) {
+        this.set_cookie("email", email, 1);
+        this.set_cookie("session_token", session_token, 1);
+        this.update_session_from_cookie();
+    }
+  
     logout() {
         console.log("BceSession.logout: here.")
         user_email.set("");
