@@ -27,7 +27,8 @@
       $user_session_token = await bce_rest_api.user_login($user_email, password);
       if ($user_session_token != null) {
           console.log("Login: session_token = " + $user_session_token);
-          bce_session.login();
+          $user_session_is_valid = true;
+          $user_security_level = await bce_rest_api.user_security_level($user_email, $user_session_token);
           $alert = "Login successful!";
           goto("/user/dashboard", { invalidateAll: true });
       } else {

@@ -34,12 +34,6 @@ export default class BceSession {
 	return "";
     }
 
-    login() {
-        this.update_session_from_cookie();
-        user_session_is_valid.set(await bce_rest_api.user_check_valid_session_token(get(user_email), get(user_session_token)));
-        user_security_level.set(await bce_rest_api.user_security_level(get(user_email), get(user_session_token)));
-    }
-  
     logout() {
         user_email.set("");
         user_session_token.set("");
