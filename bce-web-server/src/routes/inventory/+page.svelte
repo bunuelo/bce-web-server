@@ -33,6 +33,8 @@
         <td>
             <b>Quantity</b>
         </td>
+        <td>
+        </td>
     </tr>
   {#each products as product}
     <tr style="border: 1px solid black; border-collapse: collapse;">
@@ -41,6 +43,9 @@
         </td>
         <td align="right" style="border: 1px solid black; border-collapse: collapse;">
 	    <input type="number" bind:value="{product.quantity}" min=0 style="width: 50px;" on:change={on_input_change} />
+        </td>
+        <td>
+            edit
         </td>
     </tr>
   {/each}
