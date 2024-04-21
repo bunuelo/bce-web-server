@@ -25,12 +25,12 @@
 {#if products}
   <h1>Inventory</h1>
 
-  <table style="border: 1px solid black; border-collapse: collapse;">
+  <table>
     <tr>
-        <td style="border: 1px solid black; border-collapse: collapse;">
+        <td>
             <b>Product Name</b>
         </td>
-        <td style="border: 1px solid black; border-collapse: collapse;">
+        <td>
             <b>Quantity</b>
         </td>
     </tr>
