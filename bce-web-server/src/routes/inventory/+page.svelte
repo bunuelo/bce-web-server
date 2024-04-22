@@ -29,6 +29,8 @@
         let success = bce_inventory.create_product(new_product_name, new_product_quantity);
         if (success) {
             $alert = "Product created successfully!";
+            new_product_name = "";
+            new_product_quantity = 0;
         } else {
             $alert = "Failed to create product.";
         }
