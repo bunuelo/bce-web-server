@@ -23,8 +23,9 @@
       
     }
 
-    function on_click_create_product() {
-        console.log("create: here.");
+    async function on_click_create_product() {
+        console.log("async create: here.");
+        
     }
 </script>
 
