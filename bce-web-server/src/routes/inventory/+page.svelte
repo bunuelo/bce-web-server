@@ -63,7 +63,8 @@
             <a href="#" on:click={on_click_create_product}>create</a>
         </td>
     </tr>
-  {#each products as product}
+    {#key products}
+    {#each products as product}
     <tr style="border: 1px solid black; border-collapse: collapse;">
         <td style="border: 1px solid black; border-collapse: collapse;">
             { product.name }
@@ -76,6 +77,7 @@
         </td>
     </tr>
   {/each}
+  {/key}
   </table>
 {/if}
   
