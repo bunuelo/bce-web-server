@@ -46,6 +46,7 @@
 	    <input type="number" bind:value="{new_product_quantity}" min=0 style="width: 100%;" />
         </td>
         <td style="border: 0px;">
+            create
         </td>
     </tr>
   {#each products as product}
