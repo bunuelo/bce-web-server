@@ -50,9 +50,7 @@
 	    <input type="number" bind:value="{new_product_quantity}" min=0 style="width: 90%;" />
         </td>
         <td style="border: 0px;">
-            <div on:click={on_click_create_product}>
-                <a>create</a>
-            </div>
+            <a href="#" on:click={on_click_create_product}>create</a>
         </td>
     </tr>
   {#each products as product}
