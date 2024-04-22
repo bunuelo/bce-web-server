@@ -22,6 +22,10 @@
     function on_input_change() {
       
     }
+
+    function on_click_create_product() {
+        console.log("create: here.");
+    }
 </script>
 
 {#if products}
@@ -46,7 +50,9 @@
 	    <input type="number" bind:value="{new_product_quantity}" min=0 style="width: 90%;" />
         </td>
         <td style="border: 0px;">
-            create
+            <div on:click={on_click_create_product}>
+                create
+            </div>
         </td>
     </tr>
   {#each products as product}
