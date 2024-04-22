@@ -1,6 +1,7 @@
 <script>
     import { onMount } from 'svelte';
     import { goto } from '$app/navigation';
+    import { alert } from '$lib/bce_stores.js'
     import { user_security_level } from '$lib/bce_stores.js'
     import BceSession from "$lib/bce_session.js";
     let bce_session = new BceSession();
@@ -25,7 +26,13 @@
 
     async function on_click_create_product() {
         console.log("async create: here.");
-        
+        success = bce_inventory.create_product(new_product_name, new_product_quantity);
+        if (success) {
+            $alert = "Product created successfully!";
+        } else {
+            $alert = "Failed to create product.";
+        }
+        products = await bce_inventory.products();
     }
 </script>
 
