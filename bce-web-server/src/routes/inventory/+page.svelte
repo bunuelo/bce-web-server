@@ -43,10 +43,14 @@
 	    <input type="text" bind:value="{new_product_name}" style="width: 100%;" />
         </td>
         <td align="right" style="border: 1px solid black; border-collapse: collapse;">
-	    <input type="number" bind:value="{new_product_quantity}" min=0 style="width: 100%;" />
+            <div>
+	        <input type="number" bind:value="{new_product_quantity}" min=0 style="width: 100%;" />
+            </div>
         </td>
         <td style="border: 0px;">
-            create
+            <div>
+                create
+            </div>
         </td>
     </tr>
   {#each products as product}
@@ -55,10 +59,14 @@
             { product.name }
         </td>
         <td align="right" style="border: 1px solid black; border-collapse: collapse;">
-	    <input type="number" bind:value="{product.quantity}" min=0 style="width: 100%;" on:change={on_input_change} />
+            <div>
+	        <input type="number" bind:value="{product.quantity}" min=0 style="width: 100%;" on:change={on_input_change} />
+            </div>
         </td>
         <td style="border: 0px;">
-            edit
+            <div>
+                edit
+            </div>
         </td>
     </tr>
   {/each}
