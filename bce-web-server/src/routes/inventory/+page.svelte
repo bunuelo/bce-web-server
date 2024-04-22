@@ -8,7 +8,9 @@
     let bce_inventory = new BceInventory();
     
     let products = null;
-
+    let new_product_name = "";
+    let new_product_quantity = 0;
+    
     onMount(async () => {
         $user_security_level = await bce_session.security_level()
         if ($user_security_level < 100) {
@@ -36,13 +38,23 @@
         <td>
         </td>
     </tr>
+    <tr style="border: 1px solid black; border-collapse: collapse;">
+        <td style="border: 1px solid black; border-collapse: collapse;">
+	    <input type="text" bind:value="{new_product_name}" style="width: 100%;" />
+        </td>
+        <td align="right" style="border: 1px solid black; border-collapse: collapse;">
+	    <input type="number" bind:value="{new_product_quantity}" min=0 style="width: 100%;" />
+        </td>
+        <td style="border: 0px;">
+        </td>
+    </tr>
   {#each products as product}
     <tr style="border: 1px solid black; border-collapse: collapse;">
         <td style="border: 1px solid black; border-collapse: collapse;">
             { product.name }
         </td>
         <td align="right" style="border: 1px solid black; border-collapse: collapse;">
-	    <input type="number" bind:value="{product.quantity}" min=0 style="width: 50px;" on:change={on_input_change} />
+	    <input type="number" bind:value="{product.quantity}" min=0 style="width: 100%;" on:change={on_input_change} />
         </td>
         <td style="border: 0px;">
             edit
