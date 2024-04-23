@@ -44,7 +44,7 @@
     }
 
     async function on_click_save_product() {
-        console.log("save: edit_id = " + edit_id);\
+        console.log("save: edit_id = " + edit_id);
         edit_id = null;
     }
 
