@@ -37,6 +37,13 @@
         }
         products = await bce_inventory.products();
     }
+
+    async function on_click_edit_product() {
+    }
+
+    async function on_click_save_product() {
+    }
+
 </script>
 
 {#if products}
