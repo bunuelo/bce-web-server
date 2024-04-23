@@ -83,8 +83,7 @@
         <td>
         </td>
     </tr>
-    {#key products}
-      {#each products as product (product)}
+      {#each products as product (product.product_id)}
         <tr style="border: 1px solid black; border-collapse: collapse;">
             <td style="border: 1px solid black; border-collapse: collapse;">
                 {#if edit_product_id == product.product_id}
@@ -110,7 +109,6 @@
             </td>
         </tr>
       {/each}
-    {/key}
     {#if edit_product_id == null}
       <tr style="border: 1px solid black; border-collapse: collapse;">
           <td style="border: 1px solid black; border-collapse: collapse;">
