@@ -69,7 +69,7 @@
 
 </script>
 
-{#if access_allowed}
+<!--{#if access_allowed}-->
   <h1>Inventory</h1>
 
   <table style="border-collapse: collapse;">
@@ -125,5 +125,5 @@
       </tr>
     {/if}
   </table>
-{/if}
+<!--{/if}-->
 
