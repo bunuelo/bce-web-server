@@ -126,4 +126,21 @@ export default class BceRestApi {
 	return response_json.success;
     }
     
+    async inventory_delete_product(email, session_token, id) {
+	const response = await fetch(this.apiURL + "/inventory/delete_product", {
+	    method: "POST",
+	    body: JSON.stringify({
+		email: email,
+  	        session_token: session_token,
+                _id: id
+	    }),
+	    headers: {
+		"Content-type": "application/json; charset=UTF-8"
+	    }
+	});
+	const response_json = await response.json();
+	this.message = response_json.message;
+	return response_json.success;
+    }
+    
 }

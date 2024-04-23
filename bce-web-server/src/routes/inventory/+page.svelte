@@ -45,6 +45,13 @@
 
     async function on_click_delete_product(id) {
         console.log("delete: id = " + id);
+        let success = bce_inventory.delete_product(id);
+        if (success) {
+            $alert = "Product deleted successfully!";
+        } else {
+            $alert = "Failed to delete product.";
+        }
+        products = await bce_inventory.products();
     }
 
     async function on_click_save_product() {
