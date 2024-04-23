@@ -82,7 +82,7 @@
         </td>
     </tr>
     {#key product_update_count}
-      {#each products as product}
+      {#each products as product (product.product_id)}
         <tr style="border: 1px solid black; border-collapse: collapse;">
             <td style="border: 1px solid black; border-collapse: collapse;">
                 {#if edit_product_id == product.product_id}
