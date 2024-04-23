@@ -20,8 +20,8 @@
         if ($user_security_level < 100) {
             goto("/user/dashboard");
         }
-        products = await bce_inventory.products();
         access_allowed = true;
+        products = await bce_inventory.products();
     });
 
     function on_input_change() {
@@ -69,7 +69,7 @@
 
 </script>
 
-<!--{#if access_allowed}-->
+{#if access_allowed}
   <h1>Inventory</h1>
 
   <table style="border-collapse: collapse;">
@@ -84,7 +84,7 @@
         </td>
     </tr>
     {#key products}
-      {#each products as product (product.product_id)}
+      {#each products as product (product)}
         <tr style="border: 1px solid black; border-collapse: collapse;">
             <td style="border: 1px solid black; border-collapse: collapse;">
                 {#if edit_product_id == product.product_id}
@@ -99,7 +99,7 @@
                 {:else}
                   { product.quantity }
                 {/if}
-              </td>
+            </td>
             <td style="border: 0px;">
                 {#if edit_product_id == null}
                   <a href="#" on:click={() => on_click_edit_product(product.product_id)}>edit</a>
@@ -107,7 +107,7 @@
                 {:else if edit_product_id == product.product_id}
                   <a href="#" on:click={on_click_save_product}>save</a>
                 {/if}
-              </td>
+            </td>
         </tr>
       {/each}
     {/key}
@@ -125,5 +125,5 @@
       </tr>
     {/if}
   </table>
-<!--{/if}-->
+{/if}
 
