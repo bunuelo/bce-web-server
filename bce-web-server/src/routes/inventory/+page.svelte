@@ -7,7 +7,8 @@
     let bce_session = new BceSession();
     import BceInventory from "$lib/bce_inventory.js";
     let bce_inventory = new BceInventory();
-    
+
+    let product_update_count = 0;
     let products = null;
     let new_product_name = "";
     let new_product_quantity = 0;
@@ -25,6 +26,11 @@
       
     }
 
+    async function update_product_list() {
+        products = await bce_inventory.products();
+        product_update_count += 1;
+    }
+    
     async function on_click_create_product() {
         console.log("async create: here.");
         let success = bce_inventory.create_product(new_product_name, new_product_quantity);
@@ -35,7 +41,7 @@
         } else {
             $alert = "Failed to create product.";
         }
-        products = await bce_inventory.products();
+        await update_product_list();
     }
 
     async function on_click_edit_product(product_id) {
@@ -51,7 +57,7 @@
         } else {
             $alert = "Failed to delete product.";
         }
-        products = await bce_inventory.products();
+        await update_product_list();
     }
 
     async function on_click_save_product() {
@@ -75,7 +81,7 @@
         <td>
         </td>
     </tr>
-    {#key products}
+    {#key product_update_count (product_update_count)}
       {#each products as product}
         <tr style="border: 1px solid black; border-collapse: collapse;">
             <td style="border: 1px solid black; border-collapse: collapse;">
