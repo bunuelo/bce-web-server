@@ -11,6 +11,7 @@
     let products = null;
     let new_product_name = "";
     let new_product_quantity = 0;
+    let edit_id = 1;
     
     onMount(async () => {
         $user_security_level = await bce_session.security_level()
@@ -70,7 +71,11 @@
             { product.name }
         </td>
         <td align="right" style="border: 1px solid black; border-collapse: collapse;">
-	    <input type="number" bind:value="{product.quantity}" min=0 style="width: 90%;" on:change={on_input_change} />
+            {#if edit_id == product.id}
+	      <input type="number" bind:value="{product.quantity}" min=0 style="width: 90%;" on:change={on_input_change} />
+            {:else}
+              { product.quantity }
+            {/if}
         </td>
         <td style="border: 0px;">
             edit
