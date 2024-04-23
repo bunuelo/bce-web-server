@@ -64,19 +64,6 @@
         <td>
         </td>
     </tr>
-    {#if edit_id == null}
-      <tr style="border: 1px solid black; border-collapse: collapse;">
-          <td style="border: 1px solid black; border-collapse: collapse;">
-	      <input type="text" bind:value="{new_product_name}" style="width: 90%;" />
-          </td>
-          <td align="right" style="border: 1px solid black; border-collapse: collapse;">
-	      <input type="number" bind:value="{new_product_quantity}" min=0 style="width: 90%;" />
-          </td>
-          <td style="border: 0px;">
-              <a href="#" on:click={on_click_create_product}>create</a>
-          </td>
-      </tr>
-    {/if}
     {#key products}
       {#each products as product}
         <tr style="border: 1px solid black; border-collapse: collapse;">
@@ -100,6 +87,19 @@
         </tr>
       {/each}
     {/key}
+    {#if edit_id == null}
+      <tr style="border: 1px solid black; border-collapse: collapse;">
+          <td style="border: 1px solid black; border-collapse: collapse;">
+	      <input type="text" bind:value="{new_product_name}" style="width: 90%;" />
+          </td>
+          <td align="right" style="border: 1px solid black; border-collapse: collapse;">
+	      <input type="number" bind:value="{new_product_quantity}" min=0 style="width: 90%;" />
+          </td>
+          <td style="border: 0px;">
+              <a href="#" on:click={on_click_create_product}>create</a>
+          </td>
+      </tr>
+    {/if}
   </table>
 {/if}
 
