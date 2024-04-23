@@ -29,8 +29,12 @@
     }
 
     async function update_product_list() {
-        products = await bce_inventory.products();
-        product_update_count += 1;
+        let temp_products = await bce_inventory.products();
+        products = [];
+        setTimeout(function () {
+            products = temp_products;
+            product_update_count += 1;
+        }, 1);
     }
     
     async function on_click_create_product() {
