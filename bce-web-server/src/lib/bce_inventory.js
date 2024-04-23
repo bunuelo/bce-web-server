@@ -19,8 +19,8 @@ export default class BceInventory {
         return await bce_rest_api.inventory_create_product(get(user_email), get(user_session_token), name, quantity);
     }
   
-    async delete_product(id) {
-        return await bce_rest_api.inventory_delete_product(get(user_email), get(user_session_token), id);
+    async delete_product(product_id) {
+        return await bce_rest_api.inventory_delete_product(get(user_email), get(user_session_token), product_id);
     }
   
 }

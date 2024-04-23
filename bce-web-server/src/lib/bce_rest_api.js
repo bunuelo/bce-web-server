@@ -126,13 +126,13 @@ export default class BceRestApi {
 	return response_json.success;
     }
     
-    async inventory_delete_product(email, session_token, id) {
+    async inventory_delete_product(email, session_token, product_id) {
 	const response = await fetch(this.apiURL + "/inventory/delete_product", {
 	    method: "POST",
 	    body: JSON.stringify({
 		email: email,
   	        session_token: session_token,
-                id: id
+                product_id: product_id
 	    }),
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"

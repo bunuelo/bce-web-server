@@ -11,7 +11,7 @@
     let products = null;
     let new_product_name = "";
     let new_product_quantity = 0;
-    let edit_id = null;
+    let edit_product_id = null;
     
     onMount(async () => {
         $user_security_level = await bce_session.security_level()
@@ -38,9 +38,9 @@
         products = await bce_inventory.products();
     }
 
-    async function on_click_edit_product(id) {
-        console.log("edit: id = " + id);
-        edit_id = id;
+    async function on_click_edit_product(product_id) {
+        console.log("edit: product_id = " + product_id);
+        edit_product_id = product_id;
     }
 
     async function on_click_delete_product(id) {
@@ -55,8 +55,8 @@
     }
 
     async function on_click_save_product() {
-        console.log("save: edit_id = " + edit_id);
-        edit_id = null;
+        console.log("save: edit_product_id = " + edit_product_id);
+        edit_product_id = null;
     }
 
 </script>
@@ -79,31 +79,31 @@
       {#each products as product}
         <tr style="border: 1px solid black; border-collapse: collapse;">
             <td style="border: 1px solid black; border-collapse: collapse;">
-                {#if edit_id == product.id}
+                {#if edit_product_id == product.product_id}
     	          <input type="text" bind:value="{product.name}" style="width: 90%;" />
                 {:else}
                   { product.name }
                 {/if}
             </td>
             <td align="right" style="border: 1px solid black; border-collapse: collapse;">
-                {#if edit_id == product.id}
+                {#if edit_product_id == product.product_id}
 	          <input type="number" bind:value="{product.quantity}" min=0 style="width: 90%;" on:change={on_input_change} />
                 {:else}
                   { product.quantity }
                 {/if}
               </td>
             <td style="border: 0px;">
-                {#if edit_id == null}
-                  <a href="#" on:click={() => on_click_edit_product(product.id)}>edit</a>
-                  <a href="#" on:click={() => on_click_delete_product(product.id)}>delete</a>
-                {:else if edit_id == product.id}
+                {#if edit_product_id == null}
+                  <a href="#" on:click={() => on_click_edit_product(product.product_id)}>edit</a>
+                  <a href="#" on:click={() => on_click_delete_product(product.product_id)}>delete</a>
+                {:else if edit_product_id == product.product_id}
                   <a href="#" on:click={on_click_save_product}>save</a>
                 {/if}
               </td>
         </tr>
       {/each}
     {/key}
-    {#if edit_id == null}
+    {#if edit_product_id == null}
       <tr style="border: 1px solid black; border-collapse: collapse;">
           <td style="border: 1px solid black; border-collapse: collapse;">
 	      <input type="text" bind:value="{new_product_name}" style="width: 90%;" />
