@@ -68,7 +68,11 @@
       {#each products as product}
         <tr style="border: 1px solid black; border-collapse: collapse;">
             <td style="border: 1px solid black; border-collapse: collapse;">
-                { product.name }
+                {#if edit_id == product.id}
+    	          <input type="text" bind:value="{product.name}" style="width: 90%;" />
+                {:else}
+                  { product.name }
+                {/if}
             </td>
             <td align="right" style="border: 1px solid black; border-collapse: collapse;">
                 {#if edit_id == product.id}
