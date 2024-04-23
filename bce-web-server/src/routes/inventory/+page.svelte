@@ -11,7 +11,7 @@
     let products = null;
     let new_product_name = "";
     let new_product_quantity = 0;
-    let edit_id = 1;
+    let edit_id = null;
     
     onMount(async () => {
         $user_security_level = await bce_session.security_level()
