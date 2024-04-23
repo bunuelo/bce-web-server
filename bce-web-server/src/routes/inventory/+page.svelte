@@ -85,7 +85,7 @@
             {/if}
         </td>
         <td style="border: 0px;">
-            {#if edit_id != null}
+            {#if edit_id == null}
               <a href="#" on:click={on_click_edit_product}>edit</a>
             {:else if edit_id == product.id}
               <a href="#" on:click={on_click_save_product}>save</a>
