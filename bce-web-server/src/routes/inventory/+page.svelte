@@ -20,8 +20,8 @@
         if ($user_security_level < 100) {
             goto("/user/dashboard");
         }
-        access_allowed = true;
         products = await bce_inventory.products();
+        access_allowed = true;
     });
 
     function on_input_change() {
