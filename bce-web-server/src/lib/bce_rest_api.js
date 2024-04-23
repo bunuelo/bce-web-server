@@ -132,7 +132,7 @@ export default class BceRestApi {
 	    body: JSON.stringify({
 		email: email,
   	        session_token: session_token,
-                _id: id
+                id: id
 	    }),
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
