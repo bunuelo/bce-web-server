@@ -9,6 +9,7 @@
     let bce_inventory = new BceInventory();
 
     let product_update_count = 0;
+    let access_allowed = false;
     let products = null;
     let new_product_name = "";
     let new_product_quantity = 0;
@@ -20,6 +21,7 @@
             goto("/user/dashboard");
         }
         products = await bce_inventory.products();
+        access_allowed = true;
     });
 
     function on_input_change() {
@@ -67,7 +69,7 @@
 
 </script>
 
-{#if products}
+{#if access_allowed}
   <h1>Inventory</h1>
 
   <table style="border-collapse: collapse;">
