@@ -43,6 +43,10 @@
         edit_id = id;
     }
 
+    async function on_click_delete_product(id) {
+        console.log("delete: id = " + id);
+    }
+
     async function on_click_save_product() {
         console.log("save: edit_id = " + edit_id);
         edit_id = null;
@@ -84,6 +88,7 @@
             <td style="border: 0px;">
                 {#if edit_id == null}
                   <a href="#" on:click={() => on_click_edit_product(product.id)}>edit</a>
+                  <a href="#" on:click={() => on_click_delete_product(product.id)}>delete</a>
                 {:else if edit_id == product.id}
                   <a href="#" on:click={on_click_save_product}>save</a>
                 {/if}
