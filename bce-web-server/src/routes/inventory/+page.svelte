@@ -32,7 +32,7 @@
             products = temp_products;
         }, 400);
     }
-
+    
     async function on_click_create_product() {
         console.log("async create: here.");
         let success = bce_inventory.create_product(new_product_name, new_product_quantity);
@@ -84,6 +84,7 @@
         <td>
         </td>
     </tr>
+    {#key products}
       {#each products as product}
         <tr style="border: 1px solid black; border-collapse: collapse;">
             <td style="border: 1px solid black; border-collapse: collapse;">
@@ -110,6 +111,7 @@
             </td>
         </tr>
       {/each}
+    {/key}
     {#if edit_product_id == null}
       <tr style="border: 1px solid black; border-collapse: collapse;">
           <td style="border: 1px solid black; border-collapse: collapse;">
