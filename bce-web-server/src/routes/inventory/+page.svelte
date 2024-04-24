@@ -8,8 +8,6 @@
     import BceInventory from "$lib/bce_inventory.js";
     let bce_inventory = new BceInventory();
 
-    let product_update_count = 0;
-    let access_allowed = false;
     let products = null;
     let new_product_name = "";
     let new_product_quantity = 0;
@@ -21,7 +19,6 @@
             goto("/user/dashboard");
         }
         products = await bce_inventory.products();
-        access_allowed = true;
     });
 
     function on_input_change() {
@@ -33,7 +30,6 @@
         products = [];
         setTimeout(function () {
             products = temp_products;
-            product_update_count += 1;
         }, 100);
     }
     
@@ -73,7 +69,7 @@
 
 </script>
 
-{#if access_allowed}
+{#if products}
   <h1>Inventory</h1>
 
   <table style="border-collapse: collapse;">
