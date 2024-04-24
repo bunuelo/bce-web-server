@@ -29,7 +29,7 @@
         let temp_products = await bce_inventory.products();
         products = [];
         setTimeout(function () {
-            products = temp_products;
+            products = [...temp_products];
         }, 400);
     }
     
