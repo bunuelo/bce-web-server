@@ -84,7 +84,7 @@
         <td>
         </td>
     </tr>
-      {#each products as product (product.product_id)}
+      {#each products as product}
         <tr style="border: 1px solid black; border-collapse: collapse;">
             <td style="border: 1px solid black; border-collapse: collapse;">
                 {#if edit_product_id == product.product_id}
