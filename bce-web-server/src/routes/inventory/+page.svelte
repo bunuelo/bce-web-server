@@ -8,7 +8,7 @@
     import BceInventory from "$lib/bce_inventory.js";
     let bce_inventory = new BceInventory();
 
-    let products = null;
+    let products = [];
     let new_product_name = "";
     let new_product_quantity = 0;
     let edit_product_id = null;
@@ -30,7 +30,7 @@
         products = [];
         setTimeout(function () {
             products = temp_products;
-        }, 200);
+        }, 400);
     }
     
     async function on_click_create_product() {
@@ -69,7 +69,6 @@
 
 </script>
 
-{#if products}
   <h1>Inventory</h1>
 
   <table style="border-collapse: collapse;">
@@ -123,5 +122,4 @@
       </tr>
     {/if}
   </table>
-{/if}
 
