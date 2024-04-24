@@ -30,7 +30,7 @@
         products = [];
         setTimeout(function () {
             products = temp_products;
-        }, 100);
+        }, 200);
     }
     
     async function on_click_create_product() {
