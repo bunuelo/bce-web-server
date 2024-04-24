@@ -34,7 +34,7 @@
         setTimeout(function () {
             products = temp_products;
             product_update_count += 1;
-        }, 1000);
+        }, 100);
     }
     
     async function on_click_create_product() {
