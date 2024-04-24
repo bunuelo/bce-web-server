@@ -32,7 +32,7 @@
             products = temp_products;
         }, 400);
     }
-    
+
     async function on_click_create_product() {
         console.log("async create: here.");
         let success = bce_inventory.create_product(new_product_name, new_product_quantity);
@@ -70,6 +70,8 @@
 </script>
 
   <h1>Inventory</h1>
+
+  <a href="#" on:click={update_product_list}>refresh</a>
 
   <table style="border-collapse: collapse;">
     <tr>
