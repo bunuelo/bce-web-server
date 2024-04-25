@@ -108,14 +108,15 @@ export default class BceRestApi {
 	return response_json.products;
     }
     
-    async inventory_create_product(email, session_token, name, quantity) {
+  async inventory_create_product(email, session_token, name, quantity, sale_price) {
 	const response = await fetch(this.apiURL + "/inventory/create_product", {
 	    method: "POST",
 	    body: JSON.stringify({
 		email: email,
   	        session_token: session_token,
                 name: name,
-                quantity: quantity
+                quantity: quantity,
+                sale_price: sale_price
 	    }),
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"

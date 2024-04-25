@@ -42,7 +42,7 @@
     
     async function on_click_create_product() {
         console.log("async create: here.");
-        let success = bce_inventory.create_product(new_product_name, new_product_quantity);
+        let success = bce_inventory.create_product(new_product_name, new_product_quantity, new_product_sale_price);
         if (success) {
             $alert = "Product created successfully!";
             new_product_name = "";
