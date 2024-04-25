@@ -12,7 +12,10 @@ export default class BceInventory {
     }
 
     async products() {
-        return await bce_rest_api.inventory_products(get(user_email), get(user_session_token));
+        console.log("[bce_inventory] products: before rest API.");
+        result = await bce_rest_api.inventory_products(get(user_email), get(user_session_token));
+        console.log("[bce_inventory] products: after rest API.");
+        return result;
     }
 
     async create_product(name, quantity, sale_price) {
