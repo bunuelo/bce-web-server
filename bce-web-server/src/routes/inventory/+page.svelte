@@ -13,6 +13,10 @@
     let new_product_quantity = 0;
     let edit_product_id = null;
     
+    function delay(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+    
     onMount(async () => {
         $user_security_level = await bce_session.security_level()
         if ($user_security_level < 100) {
@@ -27,9 +31,8 @@
 
     async function update_product_list() {
         products = [];
-        setTimeout(function () {
-            products = await bce_inventory.products();
-        }, 400);
+        await delay(400);
+        products = await bce_inventory.products();
     }
     
     async function refresh_product_list() {
