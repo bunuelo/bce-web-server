@@ -48,12 +48,12 @@
             $alert = "Product created successfully!";
             new_product_name = "";
             new_product_quantity = 0;
+            console.log("async create: before update product list.  " + JSON.stringify(products));
+            await update_product_list();
+            console.log("async create: after update product list.  " + JSON.stringify(products));
         } else {
             $alert = "Failed to create product.";
         }
-        console.log("async create: before update product list.  " + JSON.stringify(products));
-        await update_product_list();
-        console.log("async create: after update product list.  " + JSON.stringify(products));
     }
 
     async function on_click_edit_product(product_id) {
