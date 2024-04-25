@@ -11,6 +11,7 @@
     let products = [];
     let new_product_name = "";
     let new_product_quantity = 0;
+    let new_product_sale_price = 0;
     let edit_product_id = null;
     
     function delay(ms) {
@@ -25,7 +26,11 @@
         products = await bce_inventory.products();
     });
 
-    function on_input_change() {
+    function on_input_quantity_change() {
+      
+    }
+
+    function on_input_sale_price_change() {
       
     }
 
@@ -82,6 +87,9 @@
             <b>Quantity</b>
         </td>
         <td>
+            <b>Sale Price</b>
+        </td>
+        <td>
         </td>
     </tr>
     {#key products}
@@ -96,9 +104,16 @@
             </td>
             <td align="right" style="border: 1px solid black; border-collapse: collapse;">
                 {#if edit_product_id == product.product_id}
-	          <input type="number" bind:value="{product.quantity}" min=0 style="width: 90%;" on:change={on_input_change} />
+	          <input type="number" bind:value="{product.quantity}" min=0 style="width: 90%;" on:change={on_input_quantity_change} />
                 {:else}
                   { product.quantity }
+                {/if}
+            </td>
+            <td align="right" style="border: 1px solid black; border-collapse: collapse;">
+                {#if edit_product_id == product.product_id}
+	          <input type="number" bind:value="{product.sale_price}" min=0 style="width: 90%;" on:change={on_input_sale_price_change} />
+                {:else}
+                  { product.sale_price }
                 {/if}
             </td>
             <td style="border: 0px;">
