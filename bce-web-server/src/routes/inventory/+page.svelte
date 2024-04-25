@@ -41,8 +41,9 @@
     }
     
     async function on_click_create_product() {
-        console.log("async create: here.");
+        console.log("async create: before create product.");
         let success = bce_inventory.create_product(new_product_name, new_product_quantity, new_product_sale_price);
+        console.log("async create: after create product.");
         if (success) {
             $alert = "Product created successfully!";
             new_product_name = "";
@@ -50,7 +51,9 @@
         } else {
             $alert = "Failed to create product.";
         }
+        console.log("async create: before update product list.");
         await update_product_list();
+        console.log("async create: after update product list.");
     }
 
     async function on_click_edit_product(product_id) {
