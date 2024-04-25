@@ -26,10 +26,9 @@
     }
 
     async function update_product_list() {
-        let temp_products = await bce_inventory.products();
         products = [];
         setTimeout(function () {
-            products = [...temp_products];
+            products = await bce_inventory.products();
         }, 400);
     }
     
