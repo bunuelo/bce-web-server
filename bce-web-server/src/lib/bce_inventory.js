@@ -14,7 +14,7 @@ export default class BceInventory {
     async products() {
         console.log("[bce_inventory] products: before rest API.");
         let result = await bce_rest_api.inventory_products(get(user_email), get(user_session_token));
-        console.log("[bce_inventory] products: after rest API.");
+        console.log("[bce_inventory] products: after rest API.  result = " + result);
         return result;
     }
 
