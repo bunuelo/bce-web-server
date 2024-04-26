@@ -105,7 +105,7 @@
     {#key products}
       {#each products as product}
         <tr style="border: 1px solid black; border-collapse: collapse;">
-            <td style="width: 600px; border: 1px solid black; border-collapse: collapse;">
+            <td style="width: 200px; border: 1px solid black; border-collapse: collapse;">
                 {#if edit_product_id == product.product_id}
     	          <input type="text" bind:value="{product.name}" style="width: 90%;" />
                 {:else}
@@ -119,7 +119,7 @@
                   { product.display_name }
                 {/if}
             </td>
-            <td style="width: 600px; border: 1px solid black; border-collapse: collapse;">
+            <td style="width: 200px; border: 1px solid black; border-collapse: collapse;">
                 {#if edit_product_id == product.product_id}
     	          <input type="text" bind:value="{product.url}" style="width: 90%;" />
                 {:else}
@@ -153,13 +153,13 @@
     {/key}
     {#if edit_product_id == null}
       <tr style="border: 1px solid black; border-collapse: collapse;">
-          <td style="width: 600px; border: 1px solid black; border-collapse: collapse;">
+          <td style="width: 200px; border: 1px solid black; border-collapse: collapse;">
 	      <input type="text" bind:value="{new_product_name}" style="width: 90%;" />
           </td>
           <td style="width: 600px; border: 1px solid black; border-collapse: collapse;">
 	      <input type="text" bind:value="{new_product_display_name}" style="width: 90%;" />
           </td>
-          <td style="width: 600px; border: 1px solid black; border-collapse: collapse;">
+          <td style="width: 200px; border: 1px solid black; border-collapse: collapse;">
 	      <input type="text" bind:value="{new_product_url}" style="width: 90%;" />
           </td>
           <td align="right" style="border: 1px solid black; border-collapse: collapse;">
