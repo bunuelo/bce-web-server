@@ -1,5 +1,6 @@
 <script>
     import { onMount } from 'svelte';
+    import { tick } from 'svelte';
     import { goto } from '$app/navigation';
     import { alert } from '$lib/bce_stores.js'
     import { user_security_level } from '$lib/bce_stores.js'
@@ -36,7 +37,8 @@
 
     async function update_product_list() {
         products = null;
-        await delay(1000);
+        //await delay(1);
+        await tick();
         products = await bce_inventory.products();
     }
     
