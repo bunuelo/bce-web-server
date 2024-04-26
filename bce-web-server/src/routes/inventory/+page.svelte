@@ -11,6 +11,8 @@
 
     let products = null;
     let new_product_name = "";
+    let new_product_display_name = "";
+    let new_product_url = "";
     let new_product_quantity = 0;
     let new_product_sale_price = 0;
     let edit_product_id = null;
@@ -41,10 +43,12 @@
     
     async function on_click_create_product() {
         console.log("async create: before create product.  name = \"" + new_product_name + "\"");
-        let success = await bce_inventory.create_product(new_product_name, new_product_quantity, new_product_sale_price);
+        let success = await bce_inventory.create_product(new_product_name, new_product_display_name, new_product_url, new_product_quantity, new_product_sale_price);
         if (success) {
             $alert = "Product created successfully!";
             new_product_name = "";
+            new_product_display_name = "";
+            new_product_url = "";
             new_product_quantity = 0;
             await update_product_list();
         } else {
@@ -81,7 +85,13 @@
   <table style="border-collapse: collapse;">
     <tr>
         <td>
-            <b>Product Name</b>
+            <b>Name</b>
+        </td>
+        <td>
+            <b>Display Name</b>
+        </td>
+        <td>
+            <b>URL</b>
         </td>
         <td>
             <b>Quantity</b>
@@ -100,6 +110,20 @@
     	          <input type="text" bind:value="{product.name}" style="width: 90%;" />
                 {:else}
                   { product.name }
+                {/if}
+            </td>
+            <td style="width: 600px; border: 1px solid black; border-collapse: collapse;">
+                {#if edit_product_id == product.product_id}
+    	          <input type="text" bind:value="{product.display_name}" style="width: 90%;" />
+                {:else}
+                  { product.display_name }
+                {/if}
+            </td>
+            <td style="width: 600px; border: 1px solid black; border-collapse: collapse;">
+                {#if edit_product_id == product.product_id}
+    	          <input type="text" bind:value="{product.url}" style="width: 90%;" />
+                {:else}
+                  { product.url }
                 {/if}
             </td>
             <td align="right" style="border: 1px solid black; border-collapse: collapse;">
@@ -131,6 +155,12 @@
       <tr style="border: 1px solid black; border-collapse: collapse;">
           <td style="width: 600px; border: 1px solid black; border-collapse: collapse;">
 	      <input type="text" bind:value="{new_product_name}" style="width: 90%;" />
+          </td>
+          <td style="width: 600px; border: 1px solid black; border-collapse: collapse;">
+	      <input type="text" bind:value="{new_product_display_name}" style="width: 90%;" />
+          </td>
+          <td style="width: 600px; border: 1px solid black; border-collapse: collapse;">
+	      <input type="text" bind:value="{new_product_url}" style="width: 90%;" />
           </td>
           <td align="right" style="border: 1px solid black; border-collapse: collapse;">
 	      <input type="number" bind:value="{new_product_quantity}" min=0 style="width: 90%;" />
