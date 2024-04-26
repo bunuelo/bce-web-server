@@ -36,17 +36,15 @@
     }
 
     async function update_product_list() {
-        products = null;
+        //products = null;
         //await delay(1);
-        await tick();
-        await tick();
-        await tick();
+        //await tick();
         products = await bce_inventory.products();
     }
     
     async function on_click_create_product() {
         console.log("async create: before create product.  name = \"" + new_product_name + "\"");
-        let success = bce_inventory.create_product(new_product_name, new_product_quantity, new_product_sale_price);
+        let success = await bce_inventory.create_product(new_product_name, new_product_quantity, new_product_sale_price);
         console.log("async create: after create product.");
         if (success) {
             $alert = "Product created successfully!";
@@ -67,13 +65,13 @@
 
     async function on_click_delete_product(id) {
         console.log("delete: id = " + id);
-        let success = bce_inventory.delete_product(id);
+        let success = await bce_inventory.delete_product(id);
         if (success) {
             $alert = "Product deleted successfully!";
+            await update_product_list();
         } else {
             $alert = "Failed to delete product.";
         }
-        await update_product_list();
     }
 
     async function on_click_save_product() {
