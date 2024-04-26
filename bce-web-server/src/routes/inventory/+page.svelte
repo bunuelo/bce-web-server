@@ -39,6 +39,7 @@
         products = null;
         //await delay(1);
         await tick();
+        await tick();
         products = await bce_inventory.products();
     }
     
