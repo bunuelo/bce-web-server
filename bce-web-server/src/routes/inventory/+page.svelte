@@ -126,14 +126,14 @@
                   { product.url }
                 {/if}
             </td>
-            <td align="right" style="border: 1px solid black; border-collapse: collapse;">
+            <td align="right" style="width: 50px; border: 1px solid black; border-collapse: collapse;">
                 {#if edit_product_id == product.product_id}
 	          <input type="number" bind:value="{product.quantity}" min=0 style="width: 90%;" on:change={on_input_quantity_change} />
                 {:else}
                   { product.quantity }
                 {/if}
             </td>
-            <td align="right" style="border: 1px solid black; border-collapse: collapse;">
+            <td align="right" style="width: 50px; border: 1px solid black; border-collapse: collapse;">
                 {#if edit_product_id == product.product_id}
 	          <input type="number" data-type="currency" bind:value="{product.sale_price}" min=0 style="width: 90%;" on:change={on_input_sale_price_change} />
                 {:else}
@@ -162,10 +162,10 @@
           <td style="width: 200px; border: 1px solid black; border-collapse: collapse;">
 	      <input type="text" bind:value="{new_product_url}" style="width: 90%;" />
           </td>
-          <td align="right" style="border: 1px solid black; border-collapse: collapse;">
+          <td align="right" style="width: 50px; border: 1px solid black; border-collapse: collapse;">
 	      <input type="number" bind:value="{new_product_quantity}" min=0 style="width: 90%;" />
           </td>
-          <td align="right" style="border: 1px solid black; border-collapse: collapse;">
+          <td align="right" style="width: 50px; border: 1px solid black; border-collapse: collapse;">
 	      <input type="number" data-type="currency" bind:value="{new_product_sale_price}" min=0 style="width: 90%;" />
           </td>
           <td style="border: 0px;">
