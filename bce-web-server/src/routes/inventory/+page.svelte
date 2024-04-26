@@ -36,7 +36,7 @@
 
     async function update_product_list() {
         //products = [];
-        //await delay(1);
+        await delay(1);
         products = await bce_inventory.products();
     }
     
