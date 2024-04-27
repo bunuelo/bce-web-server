@@ -17,6 +17,14 @@
     let new_product_sale_price = 0;
     let edit_product_id = null;
     
+    function reset_new_product() {
+        new_product_name = "";
+        new_product_display_name = "";
+        new_product_url = "";
+        new_product_quantity = 0;
+        new_product_sale_price = 0;
+    }
+    
     function delay(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
@@ -46,10 +54,7 @@
         let success = await bce_inventory.create_product(new_product_name, new_product_display_name, new_product_url, new_product_quantity, new_product_sale_price);
         if (success) {
             $alert = "Product created successfully!";
-            new_product_name = "";
-            new_product_display_name = "";
-            new_product_url = "";
-            new_product_quantity = 0;
+            reset_new_product();
             await update_product_list();
         } else {
             $alert = "Failed to create product.";
