@@ -136,7 +136,9 @@
                 {#if edit_product_id == product.product_id}
     	          <input type="text" bind:value="{product.url}" style="width: 90%;" />
                 {:else}
-                  <a href="{product.url}">source</a>
+                  {#if product.url != ""}
+                    <a href="{product.url}">source</a>
+                  {/if}
                 {/if}
             </td>
             <td align="right" style="width: 50px; border: 1px solid black; border-collapse: collapse;">
