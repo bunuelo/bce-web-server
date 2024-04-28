@@ -85,6 +85,7 @@
     async function on_click_ingest_products() {
         console.log("ingest_products: here.");
         await bce_inventory.ingest_products();
+        await update_product_list();
     }
 
 </script>
