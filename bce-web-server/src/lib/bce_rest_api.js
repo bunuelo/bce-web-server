@@ -146,4 +146,20 @@ export default class BceRestApi {
 	return response_json.success;
     }
     
+    async inventory_ingest_products(email, session_token) {
+	const response = await fetch(this.apiURL + "/inventory/ingest_products", {
+	    method: "POST",
+	    body: JSON.stringify({
+		email: email,
+  	        session_token: session_token
+	    }),
+	    headers: {
+		"Content-type": "application/json; charset=UTF-8"
+	    }
+	});
+	const response_json = await response.json();
+	this.message = response_json.message;
+	return response_json.success;
+    }
+    
 }

@@ -23,4 +23,8 @@ export default class BceInventory {
         return await bce_rest_api.inventory_delete_product(get(user_email), get(user_session_token), product_id);
     }
   
+    async ingest_products() {
+        return await bce_rest_api.inventory_ingest_products(get(user_email), get(user_session_token));
+    }
+  
 }

@@ -82,11 +82,18 @@
         edit_product_id = null;
     }
 
+    async function on_click_ingest_products() {
+        console.log("ingest_products: here.");
+        await bce_inventory.ingest_products();
+    }
+
 </script>
 
 {#if products}
   <h1>Inventory</h1>
 
+  <a href="#" on:click={on_click_ingest_products}>ingest products</a>
+  
   <table style="border-collapse: collapse;">
     <tr>
         <td>
