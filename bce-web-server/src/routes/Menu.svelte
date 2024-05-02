@@ -53,6 +53,13 @@
 	              </td>
 	          </tr>
 	        {/if}
+                {#if $user_security_level >= 25}
+	        <tr>
+	            <td>
+	                <a href="/design">design</a>
+	            </td>
+	        </tr>
+	        {/if}
                 {#if $user_security_level >= 100}
 	        <tr>
 	            <td>
