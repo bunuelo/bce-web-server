@@ -17,6 +17,14 @@
     let new_product_sale_price = 0;
     let edit_product_id = null;
     
+    onMount(async () => {
+        $user_security_level = await bce_session.security_level()
+        if ($user_security_level < 100) {
+            goto("/user/dashboard");
+        }
+        products = await bce_inventory.products();
+    });
+
     function reset_new_product() {
         new_product_name = "";
         new_product_display_name = "";
@@ -29,14 +37,6 @@
         return new Promise(resolve => setTimeout(resolve, ms));
     }
     
-    onMount(async () => {
-        $user_security_level = await bce_session.security_level()
-        if ($user_security_level < 100) {
-            goto("/user/dashboard");
-        }
-        products = await bce_inventory.products();
-    });
-
     function on_input_quantity_change() {
       
     }
