@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { onMount } from 'svelte';
     import BceSession from "$lib/bce_session.js";
     let bce_session = new BceSession();
     import { user_security_level } from '$lib/bce_stores.js'
