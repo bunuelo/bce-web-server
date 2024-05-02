@@ -7,7 +7,7 @@
     
     onMount(async () => {
         $user_security_level = await bce_session.security_level()
-        if ($user_security_level < 100) {
+        if ($user_security_level < 25) {
             goto("/user/dashboard");
         }
         access_granted = true;                           
