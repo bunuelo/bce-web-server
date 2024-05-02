@@ -15,6 +15,6 @@
 
 </script>
 
-{#if access_granted}
+{#if $user_security_level >= 25}
 <Design />
 {/if}
