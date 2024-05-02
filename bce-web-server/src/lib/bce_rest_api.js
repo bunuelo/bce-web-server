@@ -1,7 +1,7 @@
 export default class BceRestApi {
     
     constructor() {
-	this.apiURL = "https://64.23.144.229:8000";
+	this.apiURL = "https://braincomputerenterprises.com:8000";
 	this.message = "";
     }
     
