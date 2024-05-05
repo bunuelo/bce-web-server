@@ -9,12 +9,9 @@
     import { user_session_token } from '$lib/bce_stores.js'
     import { user_security_level } from '$lib/bce_stores.js'
     import { user_session_is_valid } from '$lib/bce_stores.js'
-    import { page_title } from '$lib/bce_stores.js'
     let bce_rest_api = new BceRestApi();
     let bce_session = new BceSession();
 
-    $page_title = "Login";
-    
     let password;
     
     onMount(async () => {
@@ -45,6 +42,10 @@
   }
   
 </script>
+
+<svelte:head>
+    <title>Login</title>
+</svelte:head>
 
 <h1>Login</h1>
 
