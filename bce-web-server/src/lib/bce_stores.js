@@ -1,6 +1,5 @@
 import { writable } from "svelte/store";
 
-export const page_title = writable("BCE");
 export const alert = writable("");
 export const user_email = writable("");
 export const user_session_token = writable("");
