@@ -1,12 +1,15 @@
 <script lang="ts">
     import Logo from './Logo.svelte'
     import Menu from './Menu.svelte'
+    import { page_title } from '$lib/bce_stores.js'
     import { alert } from '$lib/bce_stores.js'
       
+    $page_title = "BCE";
+
 </script>
 
 <svelte:head>
-    <title>BCE</title>
+    <title>{page_title}</title>
 </svelte:head>
 
 <link rel="icon" href="/favicon.png?v=2" />
