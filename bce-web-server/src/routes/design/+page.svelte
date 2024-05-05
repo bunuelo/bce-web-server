@@ -15,6 +15,10 @@
 
 </script>
 
+<svelte:head>
+    <title>Design</title>
+</svelte:head>
+
 {#if $user_security_level >= 25}
 <Design />
 {/if}
