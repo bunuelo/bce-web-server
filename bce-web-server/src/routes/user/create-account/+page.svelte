@@ -32,6 +32,10 @@
   }
 </script>
 
+<svelte:head>
+    <title>Create Account</title>
+</svelte:head>
+
 <h1>Create Account</h1>
 
 <table>
