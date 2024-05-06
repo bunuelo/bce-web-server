@@ -2,7 +2,7 @@
 </script>
 
 <svelte:head>
-    <title>BCE</title>
+    <title>Home</title>
 </svelte:head>
 
 <h1>BCE</h1>
