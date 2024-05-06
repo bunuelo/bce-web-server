@@ -5,4 +5,4 @@
     <title>Home</title>
 </svelte:head>
 
-<h1>BCE</h1>
+<h1>Home</h1>

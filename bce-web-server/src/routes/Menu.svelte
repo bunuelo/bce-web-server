@@ -18,72 +18,61 @@
 
 <table>
     <tr>
-        <td>
-            Menu
-        </td>
+	<td>
+	    <a href="/">home</a>
+	</td>
+    </tr>
+    {#if $user_session_is_valid}
+      <tr>
+	  <td>
+	      <a href="/user/dashboard">dashboard</a>
+	  </td>
+      </tr>
+    <tr>
+	<td>
+	    <a href="/user/logout">logout</a>
+	</td>
+    </tr>
+  {:else}
+    <tr>
+	<td>
+	    <a href="/user/login">login</a>
+	</td>
     </tr>
     <tr>
-        <td>
-            <table>
-	        <tr>
-	            <td>
-	                <a href="/">home</a>
-	            </td>
-	        </tr>
-                {#if $user_session_is_valid}
-  	          <tr>
-	              <td>
-	                  <a href="/user/dashboard">dashboard</a>
-	              </td>
-	          </tr>
-                  <tr>
-	              <td>
-	                  <a href="/user/logout">logout</a>
-	              </td>
-	          </tr>
-	        {:else}
-                  <tr>
-	              <td>
-	                  <a href="/user/login">login</a>
-	              </td>
-	          </tr>
-	          <tr>
-	              <td>
-	                  <a href="/user/create-account">create account</a>
-	              </td>
-	          </tr>
-	        {/if}
-                {#if $user_security_level >= 25}
-	        <tr>
-	            <td>
-	                <a href="/design">design</a>
-	            </td>
-	        </tr>
-	        {/if}
-                {#if $user_security_level >= 100}
-	        <tr>
-	            <td>
-	                <a href="/inventory">inventory</a>
-	            </td>
-	        </tr>
-	        {/if}
-	        <tr>
-	            <td>
-	                <a href="/docs">docs</a>
-	            </td>
-	        </tr>
-	        <tr>
-	            <td>
-	                <a href="/terms">terms</a>
-	            </td>
-	        </tr>
-	        <tr>
-	            <td>
-	                <a href="/contact">contact</a>
-	            </td>
-	        </tr>
-            </table>
-        </td>
+	<td>
+	    <a href="/user/create-account">create account</a>
+	</td>
+    </tr>
+  {/if}
+  {#if $user_security_level >= 25}
+    <tr>
+	<td>
+	    <a href="/design">design</a>
+	</td>
+    </tr>
+  {/if}
+  {#if $user_security_level >= 100}
+    <tr>
+	<td>
+	    <a href="/inventory">inventory</a>
+	</td>
+    </tr>
+  {/if}
+  <tr>
+      <td>
+	  <a href="/docs">docs</a>
+      </td>
+  </tr>
+    <tr>
+	<td>
+	    <a href="/terms">terms</a>
+	</td>
+    </tr>
+    <tr>
+	<td>
+	    <a href="/contact">contact</a>
+	</td>
     </tr>
 </table>
 
