@@ -2,9 +2,7 @@
 
 source bootstrap
 
-cd ~/bce-web-server/bce-web-server/
-#npm run build
-#npm run preview -- --host
-npm run dev -- --host
+./start_bce_web_server &
+./start_bce_http_redirect_server &
 
 
