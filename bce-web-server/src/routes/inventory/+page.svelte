@@ -90,6 +90,10 @@
 
 </script>
 
+<svelte:head>
+    <title>Inventory</title>
+</svelte:head>
+
 {#if products}
   <h1>Inventory</h1>
 
