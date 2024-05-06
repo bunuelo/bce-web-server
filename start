@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source bootstrap
+./bootstrap
 
 ./start_bce_web_server &
 ./start_bce_http_redirect_server &
