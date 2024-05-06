@@ -3,6 +3,6 @@
 ./bootstrap
 
 ./start_bce_web_server &
-./start_bce_http_redirect_server &
+./start_bce_redirect_server &
 
 
