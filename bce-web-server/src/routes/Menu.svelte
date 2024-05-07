@@ -30,7 +30,6 @@
       </tr>
       <tr>
 	  <td>
-              enu
 	      <a href="/user/data">data</a>
 	  </td>
       </tr>
