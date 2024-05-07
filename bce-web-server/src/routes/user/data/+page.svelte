@@ -22,7 +22,14 @@
 {#if $user_session_is_valid}
 
   <h1>User Data</h1>
+  
+  <h2>Access Control Lists</h2>
 
+  
+  
+  <h2>Assets</h2>
+  
+  
 {/if}
 
 
