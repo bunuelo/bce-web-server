@@ -22,6 +22,7 @@ SOURCE_FILES = \
   bce-web-server/src/routes/user/login/+page.svelte \
   bce-web-server/src/routes/user/logout/+page.svelte \
   bce-web-server/src/routes/user/dashboard/+page.svelte \
+  bce-web-server/src/routes/user/data/+page.svelte \
   test \
   start \
   bootstrap \
