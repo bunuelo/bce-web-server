@@ -25,12 +25,12 @@
     {#if $user_session_is_valid}
       <tr>
 	  <td>
-	      <a href="/user/dashboard">dashboard</a>
+	      <a href="/user/dashboard">user dashboard</a>
 	  </td>
       </tr>
       <tr>
 	  <td>
-	      <a href="/user/data">data</a>
+	      <a href="/user/data">user data</a>
 	  </td>
       </tr>
     <tr>

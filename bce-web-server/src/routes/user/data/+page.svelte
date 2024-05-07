@@ -16,12 +16,12 @@
 </script>
 
 <svelte:head>
-    <title>Data</title>
+    <title>User Data</title>
 </svelte:head>
 
 {#if $user_session_is_valid}
 
-  <h1>Data</h1>
+  <h1>User Data</h1>
 
 {/if}
 

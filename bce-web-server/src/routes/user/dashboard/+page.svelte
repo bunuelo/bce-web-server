@@ -16,12 +16,12 @@
 </script>
 
 <svelte:head>
-    <title>Dashboard</title>
+    <title>User Dashboard</title>
 </svelte:head>
 
 {#if $user_session_is_valid}
 
-  <h1>Dashboard</h1>
+  <h1>User Dashboard</h1>
 
 {/if}
 
