@@ -82,7 +82,6 @@
 
   // recalculate price
   $: (function () {
-       console.log("Recalculating price.")
        sbc_cost = 0;
        display_cost = 0;
        lens_cost = 0;
