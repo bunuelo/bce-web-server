@@ -60,11 +60,10 @@ export default class BceRestApi {
 	return response_json.session_token;
     }
     
-    async user_check_valid_session_token(email, session_token) {
-	const response = await fetch(this.apiURL + "/user/check_valid_session_token", {
+    async session_check_valid(session_token) {
+	const response = await fetch(this.apiURL + "/session/check_valid", {
 	    method: "POST",
 	    body: JSON.stringify({
-		email: email,
 		session_token: session_token
 	    }),
 	    headers: {
@@ -76,11 +75,10 @@ export default class BceRestApi {
 	return response_json.session_token_is_valid;
     }
     
-    async user_security_level(email, session_token) {
-	const response = await fetch(this.apiURL + "/user/security_level", {
+    async session_security_level(session_token) {
+	const response = await fetch(this.apiURL + "/session/security_level", {
 	    method: "POST",
 	    body: JSON.stringify({
-		email: email,
 		session_token: session_token
 	    }),
 	    headers: {
@@ -92,11 +90,10 @@ export default class BceRestApi {
 	return response_json.security_level;
     }
     
-    async inventory_products(email, session_token) {
+    async inventory_products(session_token) {
 	const response = await fetch(this.apiURL + "/inventory/products", {
 	    method: "POST",
 	    body: JSON.stringify({
-		email: email,
 		session_token: session_token
 	    }),
 	    headers: {
@@ -108,11 +105,10 @@ export default class BceRestApi {
 	return response_json.products;
     }
     
-  async inventory_create_product(email, session_token, name, display_name, url, quantity, sale_price) {
+  async inventory_create_product(session_token, name, display_name, url, quantity, sale_price) {
 	const response = await fetch(this.apiURL + "/inventory/create_product", {
 	    method: "POST",
 	    body: JSON.stringify({
-		email: email,
   	        session_token: session_token,
                 name: name,
                 display_name: display_name,
@@ -129,11 +125,10 @@ export default class BceRestApi {
 	return response_json.success;
     }
     
-    async inventory_delete_product(email, session_token, product_id) {
+    async inventory_delete_product(session_token, product_id) {
 	const response = await fetch(this.apiURL + "/inventory/delete_product", {
 	    method: "POST",
 	    body: JSON.stringify({
-		email: email,
   	        session_token: session_token,
                 product_id: product_id
 	    }),
@@ -146,11 +141,10 @@ export default class BceRestApi {
 	return response_json.success;
     }
     
-    async inventory_ingest_products(email, session_token) {
+    async inventory_ingest_products(session_token) {
 	const response = await fetch(this.apiURL + "/inventory/ingest_products", {
 	    method: "POST",
 	    body: JSON.stringify({
-		email: email,
   	        session_token: session_token
 	    }),
 	    headers: {
