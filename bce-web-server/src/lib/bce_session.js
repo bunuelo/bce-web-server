@@ -60,7 +60,7 @@ export default class BceSession {
     async session_is_valid() {
         //console.log("BceSession.session_is_valid: here.")
         this.update_session_from_cookie();
-        let result = await bce_rest_api.user_check_valid_session_token(get(user_email), get(user_session_token));
+        let result = await bce_rest_api.session_check_valid(get(user_session_token));
         //console.log("BceSession.session_is_valid: user_email = \"" + get(user_email) + "\", user_session_token = \"" + get(user_session_token) + "\", result = " + result);
         return result;
     }
@@ -68,7 +68,7 @@ export default class BceSession {
     async security_level() {
         //console.log("BceSession.security_level: here.")
         this.update_session_from_cookie();
-        let result = await bce_rest_api.user_security_level(get(user_email), get(user_session_token));
+        let result = await bce_rest_api.session_security_level(get(user_session_token));
         //console.log("BceSession.security_level: user_email = \"" + get(user_email) + "\", user_session_token = \"" + get(user_session_token) + "\", result = " + result);
         return result;
     }
