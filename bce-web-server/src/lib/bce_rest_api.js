@@ -103,7 +103,7 @@ export default class BceRestApi {
 	});
 	const response_json = await response.json();
 	this.message = response_json.message;
-	return response_json.acls;
+	return response_json.success;
     }
     
     async session_acls(session_token) {
