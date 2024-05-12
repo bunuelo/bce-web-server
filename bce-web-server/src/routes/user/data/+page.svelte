@@ -54,9 +54,9 @@
   <table>
       <tr>
           <td><i>Display Name</i></td>
-          <td><i>Owner</i></td>
-          <td><i>Read</i></td>
-          <td><i>Write</i></td>
+          <td style="text-align:center;"><i>Owner</i></td>
+          <td style="text-align:center;"><i>Read</i></td>
+          <td style="text-align:center;"><i>Write</i></td>
       </tr>
       {#key acls}
         {#each acls as acl}
@@ -64,13 +64,13 @@
               <td>
               {acl.display_name}
               </td>
-              <td>
+              <td style="text-align:center;">
               <input type="checkbox" checked={acl.owner} disabled="disabled">
               </td>
-              <td>
+              <td style="text-align:center;">
               <input type="checkbox" checked={acl.read} disabled="disabled">
               </td>
-              <td>
+              <td style="text-align:center;">
               <input type="checkbox" checked={acl.write} disabled="disabled">
               </td>
           </tr>
