@@ -66,7 +66,10 @@
       {/key}
   </table>
   
-  <a href="#" on:click={on_click_create_acl}>create acl</a>
+  <p>
+    <input type="text" bind:value="{new_acl_name}" style="width: 150px;" />
+    <a href="#" on:click={on_click_create_acl}>create acl</a>
+  </p>
 
   <h2>Assets</h2>
   
