@@ -55,6 +55,8 @@
       <tr>
           <td><i>Display Name</i></td>
           <td><i>Owner</i></td>
+          <td><i>Read</i></td>
+          <td><i>Write</i></td>
       </tr>
       {#key acls}
         {#each acls as acl}
@@ -64,6 +66,12 @@
               </td>
               <td>
               {acl.owner}
+              </td>
+              <td>
+              {acl.read}
+              </td>
+              <td>
+              {acl.write}
               </td>
           </tr>
         {/each}
