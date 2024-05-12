@@ -35,7 +35,17 @@
             reset_new_acl();
             await update_acl_list();
         } else {
-            $alert = "Failed to create product.";
+            $alert = "Failed to create ACL.";
+        }
+    }
+
+    async function on_click_delete_acl(acl_id) {
+        let success = await bce_session.delete_acl(acl_id);
+        if (success) {
+            $alert = "ACL deleted successfully!";
+            await update_acl_list();
+        } else {
+            $alert = "Failed to delete ACL.";
         }
     }
 
@@ -57,6 +67,7 @@
           <td style="text-align:center;"><i>Owner</i></td>
           <td style="text-align:center;"><i>Read</i></td>
           <td style="text-align:center;"><i>Write</i></td>
+          <td></td>
       </tr>
       {#key acls}
         {#each acls as acl}
@@ -72,6 +83,9 @@
               </td>
               <td style="text-align:center;">
               <input type="checkbox" checked={acl.write} disabled="disabled">
+              </td>
+              <td>
+                  <a href="#" on:click={on_click_delete_acl}>delete</a>
               </td>
           </tr>
         {/each}
