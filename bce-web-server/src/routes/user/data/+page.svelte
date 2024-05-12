@@ -5,7 +5,9 @@
     import BceSession from "$lib/bce_session.js";
     let bce_session = new BceSession();
 
-    let acls = []
+    let new_acl_display_name = "";
+    
+    let acls = [];
     
     onMount(async () => {
         if (! $user_session_is_valid) {
@@ -14,8 +16,28 @@
         if (! $user_session_is_valid) {
             goto("/user/login");
         }
-        acls = await bce_session.acls()
+        await update_acl_list();
     });
+
+    async function update_acl_list() {
+        acls = await bce_session.acls()
+    }
+    
+    function reset_new_acl() {
+        new_acl_display_name = "";
+    }
+    
+    async function on_click_create_acl() {
+        let success = await bce_session.create_acl(new_acl_display_name);
+        if (success) {
+            $alert = "ACL created successfully!";
+            reset_new_acl();
+            await update_acl_list();
+        } else {
+            $alert = "Failed to create product.";
+        }
+    }
+
 </script>
 
 <svelte:head>
@@ -30,6 +52,8 @@
 
   <p>{acls}</p>
   
+  <a href="#" on:click={on_click_create_acl}>create acl</a>
+
   <h2>Assets</h2>
   
   
