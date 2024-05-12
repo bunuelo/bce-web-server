@@ -67,7 +67,7 @@
   </table>
   
   <p>
-    <input type="text" bind:value="{new_acl_name}" style="width: 150px;" />
+    <input type="text" bind:value="{new_acl_display_name}" style="width: 150px;" />
     <a href="#" on:click={on_click_create_acl}>create acl</a>
   </p>
 
