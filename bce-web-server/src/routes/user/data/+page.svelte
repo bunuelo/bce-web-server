@@ -4,6 +4,8 @@
     import { user_session_is_valid } from '$lib/bce_stores.js'
     import BceSession from "$lib/bce_session.js";
     let bce_session = new BceSession();
+
+    let acls = []
     
     onMount(async () => {
         if (! $user_session_is_valid) {
@@ -12,6 +14,7 @@
         if (! $user_session_is_valid) {
             goto("/user/login");
         }
+        acls = await bce_session.acls()
     });
 </script>
 
@@ -25,7 +28,7 @@
   
   <h2>Access Control Lists</h2>
 
-  
+  <p>{acls}</p>
   
   <h2>Assets</h2>
   
