@@ -76,7 +76,7 @@ export default class BceSession {
     async acls() {
         console.log("BceSession.acls: here.")
         this.update_session_from_cookie();
-        let result = await bce_rest_api.acls(get(user_session_token));
+        let result = await bce_rest_api.session_acls(get(user_session_token));
         console.log("BceSession.acls: user_email = \"" + get(user_email) + "\", user_session_token = \"" + get(user_session_token) + "\", result = " + result);
         return result;
     }
