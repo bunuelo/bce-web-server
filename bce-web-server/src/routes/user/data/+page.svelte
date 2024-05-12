@@ -85,7 +85,7 @@
               <input type="checkbox" checked={acl.write} disabled="disabled">
               </td>
               <td>
-                  <a href="#" on:click={on_click_delete_acl}>delete</a>
+                  <a href="#" on:click={() => on_click_delete_acl(acl_id)}>delete</a>
               </td>
           </tr>
         {/each}
