@@ -65,13 +65,13 @@
               {acl.display_name}
               </td>
               <td>
-              {acl.owner}
+              <input type="checkbox" checked={acl.owner}>
               </td>
               <td>
-              {acl.read}
+              <input type="checkbox" checked={acl.read}>
               </td>
               <td>
-              {acl.write}
+              <input type="checkbox" checked={acl.write}>
               </td>
           </tr>
         {/each}
