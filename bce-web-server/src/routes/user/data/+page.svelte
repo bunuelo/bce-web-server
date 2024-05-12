@@ -51,7 +51,11 @@
   
   <h2>Access Control Lists</h2>
 
-  <p>{acls}</p>
+  {#key acls}
+    {#each acls as acl}
+      <p>{acl.display_name}</p>
+    {/each}
+  {/key}
   
   <a href="#" on:click={on_click_create_acl}>create acl</a>
 
