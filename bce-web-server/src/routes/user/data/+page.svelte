@@ -54,12 +54,16 @@
   <table>
       <tr>
           <td><i>Display Name</i></td>
+          <td><i>Owner</i></td>
       </tr>
       {#key acls}
         {#each acls as acl}
           <tr>
               <td>
               {acl.display_name}
+              </td>
+              <td>
+              {acl.owner}
               </td>
           </tr>
         {/each}
