@@ -18,6 +18,10 @@
         if (! $user_session_is_valid) {
             goto("/user/login");
         }
+        $user_security_level = await bce_session.security_level()
+        if ($user_security_level < 25) {
+            goto("/user/dashboard");
+        }
         await update_acl_list();
     });
 
