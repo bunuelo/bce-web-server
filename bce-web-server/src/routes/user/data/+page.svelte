@@ -73,16 +73,16 @@
         {#each acls as acl}
           <tr>
               <td>
-              {acl.display_name}
+                  {acl.display_name}
               </td>
               <td style="text-align:center;">
-              <input type="checkbox" checked={acl.owner} disabled="disabled">
+                  <input type="checkbox" checked={acl.owner} disabled="disabled">
               </td>
               <td style="text-align:center;">
-              <input type="checkbox" checked={acl.read} disabled="disabled">
+                  <input type="checkbox" checked={acl.read} disabled="disabled">
               </td>
               <td style="text-align:center;">
-              <input type="checkbox" checked={acl.write} disabled="disabled">
+                  <input type="checkbox" checked={acl.write} disabled="disabled">
               </td>
               <td>
                   <a href="#" on:click={() => on_click_delete_acl(acl.acl_id)}>delete</a>
