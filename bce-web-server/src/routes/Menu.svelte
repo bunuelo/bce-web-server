@@ -28,22 +28,24 @@
 	      <a href="/user/dashboard">user dashboard</a>
 	  </td>
       </tr>
+      {#if $user_security_level >= 25}
+        <tr>
+	    <td>
+	        <a href="/user/data">user data</a>
+	    </td>
+        </tr>
+      {/if}
       <tr>
 	  <td>
-	      <a href="/user/data">user data</a>
+	      <a href="/user/logout">logout</a>
 	  </td>
       </tr>
-    <tr>
-	<td>
-	    <a href="/user/logout">logout</a>
-	</td>
-    </tr>
-  {:else}
-    <tr>
-	<td>
-	    <a href="/user/login">login</a>
-	</td>
-    </tr>
+    {:else}
+      <tr>
+	  <td>
+	      <a href="/user/login">login</a>
+	  </td>
+      </tr>
     <tr>
 	<td>
 	    <a href="/user/create-account">create account</a>
