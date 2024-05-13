@@ -91,7 +91,7 @@
                   <input type="checkbox" checked={acl.write} disabled="disabled">
               </td>
               <td>
-                  {#if acl.owner || acl.write}
+                  {#if acl.owner}
                     <a href="#" on:click={() => on_click_delete_acl(acl.acl_id)}>delete</a>
                   {/if}
               </td>
