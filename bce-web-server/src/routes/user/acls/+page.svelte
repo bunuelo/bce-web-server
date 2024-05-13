@@ -1,0 +1,108 @@
+<script>
+    import { onMount } from 'svelte';
+    import { goto } from '$app/navigation';
+    import { alert } from '$lib/bce_stores.js'
+    import { user_session_is_valid } from '$lib/bce_stores.js'
+    import { user_security_level } from '$lib/bce_stores.js'
+    import BceSession from "$lib/bce_session.js";
+    let bce_session = new BceSession();
+
+    let new_acl_display_name = "";
+    
+    let acls = [];
+    
+    onMount(async () => {
+        if (! $user_session_is_valid) {
+            $user_session_is_valid = await bce_session.session_is_valid()
+        }
+        if (! $user_session_is_valid) {
+            goto("/user/login");
+        }
+        $user_security_level = await bce_session.security_level()
+        if ($user_security_level < 25) {
+            goto("/user/dashboard");
+        }
+        await update_acl_list();
+    });
+
+    async function update_acl_list() {
+        acls = await bce_session.acls()
+    }
+    
+    function reset_new_acl() {
+        new_acl_display_name = "";
+    }
+    
+    async function on_click_create_acl() {
+        let success = await bce_session.create_acl(new_acl_display_name);
+        if (success) {
+            $alert = "ACL created successfully!";
+            reset_new_acl();
+            await update_acl_list();
+        } else {
+            $alert = "Failed to create ACL.";
+        }
+    }
+
+    async function on_click_delete_acl(acl_id) {
+        let success = await bce_session.delete_acl(acl_id);
+        if (success) {
+            $alert = "ACL deleted successfully!";
+            await update_acl_list();
+        } else {
+            $alert = "Failed to delete ACL.";
+        }
+    }
+
+</script>
+
+
+<svelte:head>
+    <title>User ACLs</title>
+</svelte:head>
+
+{#if $user_session_is_valid && $user_security_level >= 25}
+
+  <h1>User ACLs</h1>
+  
+  <table>
+      <tr>
+          <td><i>Display Name</i></td>
+          <td style="text-align:center;"><i>Owner</i></td>
+          <td style="text-align:center;"><i>Read</i></td>
+          <td style="text-align:center;"><i>Write</i></td>
+          <td></td>
+      </tr>
+      {#key acls}
+        {#each acls as acl}
+          <tr>
+              <td>
+                  {acl.display_name}
+              </td>
+              <td style="text-align:center;">
+                  <input type="checkbox" checked={acl.owner} disabled="disabled">
+              </td>
+              <td style="text-align:center;">
+                  <input type="checkbox" checked={acl.read} disabled="disabled">
+              </td>
+              <td style="text-align:center;">
+                  <input type="checkbox" checked={acl.write} disabled="disabled">
+              </td>
+              <td>
+                  {#if acl.owner}
+                    <a href="#" on:click={() => on_click_delete_acl(acl.acl_id)}>delete</a>
+                  {/if}
+              </td>
+          </tr>
+        {/each}
+      {/key}
+  </table>
+  
+  <p>
+    <input type="text" bind:value="{new_acl_display_name}" style="width: 150px;" />
+    <a href="#" on:click={on_click_create_acl}>create acl</a>
+  </p>
+
+{/if}
+
+

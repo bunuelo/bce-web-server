@@ -31,6 +31,11 @@
       {#if $user_security_level >= 25}
         <tr>
 	    <td>
+	        <a href="/user/acls">user acls</a>
+	    </td>
+        </tr>
+        <tr>
+	    <td>
 	        <a href="/user/data">user data</a>
 	    </td>
         </tr>
