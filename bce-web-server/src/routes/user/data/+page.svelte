@@ -49,6 +49,7 @@
 	  </option>
         {/each}
       </select>
+    {acl_selected}
 </p>
 
 {/if}
