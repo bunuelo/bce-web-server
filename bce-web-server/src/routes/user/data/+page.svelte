@@ -7,6 +7,10 @@
     import BceSession from "$lib/bce_session.js";
     let bce_session = new BceSession();
 
+    let acls = [];
+
+    let acl_selected = null;
+    
     onMount(async () => {
         if (! $user_session_is_valid) {
             $user_session_is_valid = await bce_session.session_is_valid()
@@ -18,8 +22,13 @@
         if ($user_security_level < 25) {
             goto("/user/dashboard");
         }
+        await update_acl_list();
     });
 
+    async function update_acl_list() {
+        acls = await bce_session.acls()
+    }
+    
 </script>
 
 
@@ -31,6 +40,13 @@
 
   <h1>User Data</h1>
   
+  <select bind:value={acl_selected}>
+      {#each acls as acl}
+	<option value={acl.display_name}>
+	    {acl.display_name}
+	</option>
+      {/each}
+  </select>
   
 {/if}
 
