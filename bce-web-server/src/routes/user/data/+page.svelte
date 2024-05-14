@@ -40,14 +40,17 @@
 
   <h1>User Data</h1>
   
-  <select bind:value={acl_selected}>
-      {#each acls as acl}
-	<option value={acl.display_name}>
-	    {acl.display_name}
-	</option>
-      {/each}
-  </select>
-  
+<p>
+    ACL: 
+    <select bind:value={acl_selected}>
+        {#each acls as acl}
+	  <option value={acl.display_name}>
+	      {acl.display_name}
+	  </option>
+        {/each}
+      </select>
+</p>
+
 {/if}
 
 
