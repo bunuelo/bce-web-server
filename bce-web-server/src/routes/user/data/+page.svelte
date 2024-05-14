@@ -44,7 +44,7 @@
     ACL: 
     <select bind:value={acl_selected}>
         {#each acls as acl}
-	  <option value={acl.display_name}>
+	  <option value={acl.acl_id}>
 	      {acl.display_name}
 	  </option>
         {/each}
