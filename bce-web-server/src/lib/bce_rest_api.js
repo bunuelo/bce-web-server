@@ -28,8 +28,8 @@ export default class BceRestApi {
 	return response_json.options;
     }
     
-    async user_create_account(email, password) {
-	const response = await fetch(this.apiURL + "/user/create_account", {
+    async user_create(email, password) {
+	const response = await fetch(this.apiURL + "/user/create", {
 	    method: "POST",
 	    body: JSON.stringify({
 		email: email,
@@ -60,8 +60,8 @@ export default class BceRestApi {
 	return response_json.session_token;
     }
     
-    async session_check_valid(session_token) {
-	const response = await fetch(this.apiURL + "/session/check_valid", {
+    async session_valid(session_token) {
+	const response = await fetch(this.apiURL + "/session/valid", {
 	    method: "POST",
 	    body: JSON.stringify({
 		session_token: session_token
@@ -90,8 +90,8 @@ export default class BceRestApi {
 	return response_json.security_level;
     }
     
-  async session_create_acl(session_token, display_name) {
-	const response = await fetch(this.apiURL + "/session/create_acl", {
+  async acl_create(session_token, display_name) {
+	const response = await fetch(this.apiURL + "/acl/create", {
 	    method: "POST",
 	    body: JSON.stringify({
 	      session_token: session_token,
@@ -106,8 +106,8 @@ export default class BceRestApi {
 	return response_json.success;
     }
     
-  async session_delete_acl(session_token, acl_id) {
-	const response = await fetch(this.apiURL + "/session/delete_acl", {
+  async acl_delete(session_token, acl_id) {
+	const response = await fetch(this.apiURL + "/acl/delete", {
 	    method: "POST",
 	    body: JSON.stringify({
 	      session_token: session_token,
@@ -122,8 +122,8 @@ export default class BceRestApi {
 	return response_json.success;
     }
     
-    async session_acls(session_token) {
-	const response = await fetch(this.apiURL + "/session/acls", {
+    async acl_list(session_token) {
+	const response = await fetch(this.apiURL + "/acl/list", {
 	    method: "POST",
 	    body: JSON.stringify({
 		session_token: session_token
@@ -137,8 +137,8 @@ export default class BceRestApi {
 	return response_json.acls;
     }
     
-    async inventory_products(session_token) {
-	const response = await fetch(this.apiURL + "/inventory/products", {
+    async product_list(session_token) {
+	const response = await fetch(this.apiURL + "/product/list", {
 	    method: "POST",
 	    body: JSON.stringify({
 		session_token: session_token
@@ -152,8 +152,8 @@ export default class BceRestApi {
 	return response_json.products;
     }
     
-  async inventory_create_product(session_token, name, display_name, url, quantity, sale_price) {
-	const response = await fetch(this.apiURL + "/inventory/create_product", {
+  async product_create(session_token, name, display_name, url, quantity, sale_price) {
+	const response = await fetch(this.apiURL + "/product/create", {
 	    method: "POST",
 	    body: JSON.stringify({
   	        session_token: session_token,
@@ -172,8 +172,8 @@ export default class BceRestApi {
 	return response_json.success;
     }
     
-    async inventory_delete_product(session_token, product_id) {
-	const response = await fetch(this.apiURL + "/inventory/delete_product", {
+    async product_delete(session_token, product_id) {
+	const response = await fetch(this.apiURL + "/product/delete", {
 	    method: "POST",
 	    body: JSON.stringify({
   	        session_token: session_token,
@@ -188,8 +188,8 @@ export default class BceRestApi {
 	return response_json.success;
     }
     
-    async inventory_ingest_products(session_token) {
-	const response = await fetch(this.apiURL + "/inventory/ingest_products", {
+    async product_ingest(session_token) {
+	const response = await fetch(this.apiURL + "/product/ingest", {
 	    method: "POST",
 	    body: JSON.stringify({
   	        session_token: session_token

@@ -12,19 +12,19 @@ export default class BceInventory {
     }
 
     async products() {
-        return await bce_rest_api.inventory_products(get(user_session_token));
+        return await bce_rest_api.product_list(get(user_session_token));
     }
 
     async create_product(name, display_name, url, quantity, sale_price) {
-        return await bce_rest_api.inventory_create_product(get(user_session_token), name, display_name, url, quantity, sale_price);
+        return await bce_rest_api.product_create(get(user_session_token), name, display_name, url, quantity, sale_price);
     }
   
     async delete_product(product_id) {
-        return await bce_rest_api.inventory_delete_product(get(user_session_token), product_id);
+        return await bce_rest_api.product_delete(get(user_session_token), product_id);
     }
   
     async ingest_products() {
-        return await bce_rest_api.inventory_ingest_products(get(user_session_token));
+        return await bce_rest_api.product_ingest(get(user_session_token));
     }
   
 }

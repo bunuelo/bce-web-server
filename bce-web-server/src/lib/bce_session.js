@@ -60,7 +60,7 @@ export default class BceSession {
     async session_is_valid() {
         //console.log("BceSession.session_is_valid: here.")
         this.update_session_from_cookie();
-        let result = await bce_rest_api.session_check_valid(get(user_session_token));
+        let result = await bce_rest_api.session_valid(get(user_session_token));
         //console.log("BceSession.session_is_valid: user_email = \"" + get(user_email) + "\", user_session_token = \"" + get(user_session_token) + "\", result = " + result);
         return result;
     }
@@ -76,7 +76,7 @@ export default class BceSession {
     async create_acl(display_name) {
         console.log("BceSession.create_acl: display_name=\"" + display_name + "\"")
         this.update_session_from_cookie();
-        let result = await bce_rest_api.session_create_acl(get(user_session_token), display_name);
+        let result = await bce_rest_api.acl_create(get(user_session_token), display_name);
         console.log("BceSession.create_acl: user_email = \"" + get(user_email) + "\", user_session_token = \"" + get(user_session_token) + "\", result = " + result);
         return result;
     }
@@ -84,7 +84,7 @@ export default class BceSession {
     async delete_acl(acl_id) {
         console.log("BceSession.delete_acl: acl_id=\"" + acl_id + "\"")
         this.update_session_from_cookie();
-        let result = await bce_rest_api.session_delete_acl(get(user_session_token), acl_id);
+        let result = await bce_rest_api.acl_delete(get(user_session_token), acl_id);
         console.log("BceSession.create_acl: user_email = \"" + get(user_email) + "\", user_session_token = \"" + get(user_session_token) + "\", result = " + result);
         return result;
     }
@@ -92,7 +92,7 @@ export default class BceSession {
     async acls() {
         console.log("BceSession.acls: here.")
         this.update_session_from_cookie();
-        let result = await bce_rest_api.session_acls(get(user_session_token));
+        let result = await bce_rest_api.acl_list(get(user_session_token));
         console.log("BceSession.acls: user_email = \"" + get(user_email) + "\", user_session_token = \"" + get(user_session_token) + "\", result = " + result);
         return result;
     }
