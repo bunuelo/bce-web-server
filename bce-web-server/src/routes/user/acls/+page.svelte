@@ -71,6 +71,8 @@
           <td style="text-align:center;"><i>Owner</i></td>
           <td style="text-align:center;"><i>Read</i></td>
           <td style="text-align:center;"><i>Write</i></td>
+          <td style="text-align:center;"><i>Public</i></td>
+          <td style="text-align:center;"><i>Active</i></td>
           <td></td>
       </tr>
       {#key acls}
@@ -87,6 +89,12 @@
               </td>
               <td style="text-align:center;">
                   <input type="checkbox" checked={acl.write} disabled="disabled">
+              </td>
+              <td style="text-align:center;">
+                  <input type="checkbox" checked={acl.public} disabled="disabled">
+              </td>
+              <td style="text-align:center;">
+                  <input type="checkbox" checked={acl.active} disabled="disabled">
               </td>
               <td>
                   {#if acl.owner}
