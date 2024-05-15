@@ -91,10 +91,18 @@
                   <input type="checkbox" checked={acl.write} disabled="disabled">
               </td>
               <td style="text-align:center;">
-                  <input type="checkbox" checked={acl.public} disabled="disabled">
-              </td>
+                  {#if acl.owner}
+                    <input type="checkbox" checked={acl.public}>
+                  {:else}
+                    <input type="checkbox" checked={acl.public} disabled="disabled">
+                  {/if}
+                </td>
               <td style="text-align:center;">
-                  <input type="checkbox" checked={acl.active} disabled="disabled">
+                  {#if acl.owner}
+                    <input type="checkbox" checked={acl.active}>
+                  {:else}
+                    <input type="checkbox" checked={acl.active} disabled="disabled">
+                  {/if}
               </td>
               <td>
                   {#if acl.owner}
