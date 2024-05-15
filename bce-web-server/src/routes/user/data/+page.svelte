@@ -26,7 +26,10 @@
     });
 
     async function update_acl_list() {
-        acls = await bce_session.acls()
+        acls = await bce_session.acls();
+        if (acl_selected == null && acls.length > 0) {
+            acl_selected = acls[0].acl_id;
+        }
     }
     
 </script>
