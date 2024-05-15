@@ -27,9 +27,6 @@
 
     async function update_acl_list() {
         acls = await bce_session.acls();
-        if (acl_selected == null && acls.length > 0) {
-            acl_selected = acls[0].acl_id;
-        }
     }
     
 </script>
@@ -46,6 +43,9 @@
 <p>
     ACL: 
     <select bind:value={acl_selected}>
+	<option value=null>
+	    All
+	</option>
         {#each acls as acl}
 	  <option value={acl.acl_id}>
 	      {acl.display_name}
