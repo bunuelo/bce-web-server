@@ -9,7 +9,7 @@
 
     let acls = [];
 
-    let acl_selected = null;
+    let acl_selected = "all";
     
     onMount(async () => {
         if (! $user_session_is_valid) {
@@ -27,6 +27,7 @@
 
     async function update_acl_list() {
         acls = await bce_session.acls();
+        acl_selected = "all";
     }
     
 </script>
@@ -43,7 +44,7 @@
 <p>
     ACL: 
     <select bind:value={acl_selected}>
-	<option value=null>
+	<option value="all">
 	    All
 	</option>
         {#each acls as acl}
