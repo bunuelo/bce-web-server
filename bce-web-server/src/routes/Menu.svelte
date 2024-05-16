@@ -31,7 +31,7 @@
       {#if $user_security_level >= 25}
         <tr>
 	    <td>
-	        <a href="/user/acls">user acls</a>
+	        <a href="/user/acls">user ACLs</a>
 	    </td>
         </tr>
         <tr>
