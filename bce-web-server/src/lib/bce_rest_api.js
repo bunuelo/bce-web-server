@@ -123,14 +123,19 @@ export default class BceRestApi {
     }
     
     async acl_update(session_token, acl_id, _public = null, active = null) {
-	const response = await fetch(this.apiURL + "/acl/update", {
+        body = {
+	    session_token: session_token,
+            acl_id: acl_id
+	}
+        if (_public != null) {
+            body["public"] = _public;
+        }
+        if (active != null) {
+            body["active"] = active;
+        }
+        const response = await fetch(this.apiURL + "/acl/update", {
 	    method: "POST",
-	    body: JSON.stringify({
-	      session_token: session_token,
-              acl_id: acl_id,
-              "public": _public,
-              active: active
-	    }),
+	    body: JSON.stringify(body),
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
