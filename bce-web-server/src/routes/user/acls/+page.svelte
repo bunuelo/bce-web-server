@@ -9,7 +9,7 @@
 
     let new_acl_display_name = "";
     
-    let acls = [];
+    let acls = null;
     
     onMount(async () => {
         if (! $user_session_is_valid) {
@@ -87,7 +87,7 @@
     <title>User ACLs</title>
 </svelte:head>
 
-{#if $user_session_is_valid && $user_security_level >= 25}
+{#if acls}
 
   <h1>User ACLs</h1>
   
@@ -102,7 +102,7 @@
           <td></td>
       </tr>
       {#key acls}
-        {#each acls as acl (acl.acl_id)}
+        {#each acls as acl}
           <tr>
               <td>
                   {acl.display_name}
