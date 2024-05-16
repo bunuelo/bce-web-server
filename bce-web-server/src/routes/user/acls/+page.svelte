@@ -26,7 +26,8 @@
     });
 
     async function update_acl_list() {
-        acls = await bce_session.acls()
+        acls = null;
+        acls = await bce_session.acls();
     }
     
     function reset_new_acl() {
