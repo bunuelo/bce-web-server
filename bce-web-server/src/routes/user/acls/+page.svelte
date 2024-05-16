@@ -102,7 +102,7 @@
           <td></td>
       </tr>
       {#key acls}
-        {#each acls as acl}
+        {#each acls as acl (acl.id)}
           <tr>
               <td>
                   {acl.display_name}
