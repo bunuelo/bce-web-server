@@ -67,10 +67,13 @@
     
     function handle_click_active(event) {
         console.log("handle_click_active: here.");
-        if (!event.target.checked && !window.confirm("Really make active?")) {
-            return;
-        }
-        //setTimeout(() => event.target.checked = !event.target.checked, 0);
+        setTimeout(function () {
+            console.log("handle_click_active: event.target.checked = " + event.target.checked);
+            if (!event.target.checked && !window.confirm("Really make active?")) {
+                return;
+            }
+            event.target.checked = !event.target.checked;
+        }, 0);
     }
     
 </script>
