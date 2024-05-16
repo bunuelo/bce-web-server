@@ -46,6 +46,9 @@
     }
 
     async function on_click_delete_acl(acl_id) {
+        if (! window.confirm("Are you sure you want to delete ACL?")) {
+            return;
+        }
         let success = await bce_session.delete_acl(acl_id);
         if (success) {
             $alert = "ACL deleted successfully!";
