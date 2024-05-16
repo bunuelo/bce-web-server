@@ -16,7 +16,7 @@
     
 </script>
 
-<table>
+<table aria-description="The Top-level Menu for the BCE Webpage">
     <tr>
 	<td>
 	    <a href="/">home</a>
