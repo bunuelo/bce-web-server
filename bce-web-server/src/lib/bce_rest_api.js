@@ -123,7 +123,7 @@ export default class BceRestApi {
     }
     
     async acl_update(session_token, acl_id, _public = null, active = null) {
-        body = {
+        var body = {
 	    session_token: session_token,
             acl_id: acl_id
 	}
