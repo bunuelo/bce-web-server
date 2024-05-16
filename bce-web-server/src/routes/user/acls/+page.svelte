@@ -56,6 +56,7 @@
     
     function handle_click_public(event) {
         console.log("handle_click_public: here.");
+        console.log("handle_click_public: event.target.checked = " + event.target.checked);
         if (!event.target.checked && !window.confirm("Really make public?")) {
             return;
         }
