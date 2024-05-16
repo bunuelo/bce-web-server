@@ -57,7 +57,7 @@
     async function handle_click_public(event, acl_id) {
         console.log("handle_click_public: here.");
         console.log("handle_click_public: event.target.checked = " + event.target.checked);
-        let new_public = !(event.target.checked === "true");
+        let new_public = !(event.target.checked === true || event.target.checked === "true");
         let success = await bce_session.acl_update(acl_id, new_public, null);
         if (success) {
             $alert = "ACL updated successfully!";
@@ -70,7 +70,7 @@
     async function handle_click_active(event, acl_id) {
         console.log("handle_click_active: here.");
         console.log("handle_click_active: event.target.checked = " + event.target.checked);
-        let new_active = !(event.target.checked === "true");
+        let new_active = !(event.target.checked === true || event.target.checked === "true");
         let success = await bce_session.acl_update(acl_id, null, new_active);
         if (success) {
             $alert = "ACL updated successfully!";
