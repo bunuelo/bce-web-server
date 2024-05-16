@@ -133,6 +133,7 @@ export default class BceRestApi {
         if (active != null) {
             body["active"] = active;
         }
+        console.log("acl_update: body = " + JSON.stringify(body));
         const response = await fetch(this.apiURL + "/acl/update", {
 	    method: "POST",
 	    body: JSON.stringify(body),
