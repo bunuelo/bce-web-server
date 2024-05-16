@@ -106,14 +106,14 @@
               </td>
               <td style="text-align:center;">
                   {#if acl.owner}
-                    <input type="checkbox" checked={acl.public} on:click|preventDefault={handle_click_public}>
+                    <input type="checkbox" checked={acl.public} on:click={handle_click_public}>
                   {:else}
                     <input type="checkbox" checked={acl.public} disabled="disabled">
                   {/if}
                 </td>
               <td style="text-align:center;">
                   {#if acl.owner}
-                    <input type="checkbox" checked={acl.active} on:click|preventDefault={handle_click_active}>
+                    <input type="checkbox" checked={acl.active} on:click={handle_click_active}>
                   {:else}
                     <input type="checkbox" checked={acl.active} disabled="disabled">
                   {/if}
