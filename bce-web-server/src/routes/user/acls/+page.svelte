@@ -46,9 +46,12 @@
     }
 
     async function on_click_delete_acl(acl_id) {
+        console.log("on_click_delete_acl: here.");
         if (! window.confirm("Are you sure you want to delete ACL?")) {
+            console.log("on_click_delete_acl: User did not confirm delete ACL.");
             return;
         }
+        console.log("on_click_delete_acl: User confirmed delete ACL.");
         let success = await bce_session.delete_acl(acl_id);
         if (success) {
             $alert = "ACL deleted successfully!";
