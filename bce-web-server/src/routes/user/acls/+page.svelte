@@ -53,7 +53,21 @@
             $alert = "Failed to delete ACL.";
         }
     }
-
+    
+    function handle_click_public(event) {
+        if (!event.target.checked && !window.confirm("Really make public?")) {
+            return;
+        }
+        setTimeout(() => event.target.checked = !event.target.checked, 0);
+    }
+    
+    function handle_click_active(event) {
+        if (!event.target.checked && !window.confirm("Really make active?")) {
+            return;
+        }
+        setTimeout(() => event.target.checked = !event.target.checked, 0);
+    }
+    
 </script>
 
 
@@ -92,14 +106,14 @@
               </td>
               <td style="text-align:center;">
                   {#if acl.owner}
-                    <input type="checkbox" checked={acl.public}>
+                    <input type="checkbox" checked={acl.public} on:click|preventDefault={handle_click_public}>
                   {:else}
                     <input type="checkbox" checked={acl.public} disabled="disabled">
                   {/if}
                 </td>
               <td style="text-align:center;">
                   {#if acl.owner}
-                    <input type="checkbox" checked={acl.active}>
+                    <input type="checkbox" checked={acl.active} on:click|preventDefault={handle_click_active}>
                   {:else}
                     <input type="checkbox" checked={acl.active} disabled="disabled">
                   {/if}

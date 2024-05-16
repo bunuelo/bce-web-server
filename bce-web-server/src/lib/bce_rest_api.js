@@ -106,12 +106,30 @@ export default class BceRestApi {
 	return response_json.success;
     }
     
-  async acl_delete(session_token, acl_id) {
+    async acl_delete(session_token, acl_id) {
 	const response = await fetch(this.apiURL + "/acl/delete", {
 	    method: "POST",
 	    body: JSON.stringify({
 	      session_token: session_token,
               acl_id: acl_id
+	    }),
+	    headers: {
+		"Content-type": "application/json; charset=UTF-8"
+	    }
+	});
+	const response_json = await response.json();
+	this.message = response_json.message;
+	return response_json.success;
+    }
+    
+    async acl_update(session_token, acl_id, _public = null, active = null) {
+	const response = await fetch(this.apiURL + "/acl/delete", {
+	    method: "POST",
+	    body: JSON.stringify({
+	      session_token: session_token,
+              acl_id: acl_id,
+              "public": _public,
+              active: active
 	    }),
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"

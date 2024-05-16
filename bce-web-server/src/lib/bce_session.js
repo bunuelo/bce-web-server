@@ -89,6 +89,14 @@ export default class BceSession {
         return result;
     }
     
+  async acl_update(acl_id, _public = null, active = null) {
+        console.log("BceSession.delete_acl: acl_id=\"" + acl_id + "\"")
+        this.update_session_from_cookie();
+        let result = await bce_rest_api.acl_update(get(user_session_token), acl_id, _public, active);
+        console.log("BceSession.acl_update: user_email = \"" + get(user_email) + "\", user_session_token = \"" + get(user_session_token) + "\", result = " + result);
+        return result;
+    }
+    
     async acls() {
         console.log("BceSession.acls: here.")
         this.update_session_from_cookie();
