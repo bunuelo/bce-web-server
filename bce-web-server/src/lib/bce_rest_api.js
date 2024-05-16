@@ -123,7 +123,7 @@ export default class BceRestApi {
     }
     
     async acl_update(session_token, acl_id, _public = null, active = null) {
-	const response = await fetch(this.apiURL + "/acl/delete", {
+	const response = await fetch(this.apiURL + "/acl/update", {
 	    method: "POST",
 	    body: JSON.stringify({
 	      session_token: session_token,
