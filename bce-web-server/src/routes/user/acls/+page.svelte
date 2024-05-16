@@ -54,7 +54,7 @@
         }
     }
     
-    async function handle_click_public(event) {
+    async function handle_click_public(event, acl_id) {
         console.log("handle_click_public: here.");
         console.log("handle_click_public: event.target.checked = " + event.target.checked);
         let new_public = !event.target.checked;
@@ -67,7 +67,7 @@
         }
     }
     
-    async function handle_click_active(event) {
+    async function handle_click_active(event, acl_id) {
         console.log("handle_click_active: here.");
         console.log("handle_click_active: event.target.checked = " + event.target.checked);
         let new_active = !event.target.checked;
@@ -118,14 +118,14 @@
               </td>
               <td style="text-align:center;">
                   {#if acl.owner}
-                    <input type="checkbox" checked={acl.public} on:click|preventDefault={handle_click_public}>
+                    <input type="checkbox" checked={acl.public} on:click|preventDefault={async function (event) {await handle_click_public(event, acl.acl_id);}}>
                   {:else}
                     <input type="checkbox" checked={acl.public} disabled="disabled">
                   {/if}
                 </td>
               <td style="text-align:center;">
                   {#if acl.owner}
-                    <input type="checkbox" checked={acl.active} on:click|preventDefault={handle_click_active}>
+                    <input type="checkbox" checked={acl.active} on:click|preventDefault={async function (event) {await handle_click_active(event, acl.acl_id);}}>
                   {:else}
                     <input type="checkbox" checked={acl.active} disabled="disabled">
                   {/if}
