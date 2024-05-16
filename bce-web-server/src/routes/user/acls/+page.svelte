@@ -54,26 +54,30 @@
         }
     }
     
-    function handle_click_public(event) {
+    async function handle_click_public(event) {
         console.log("handle_click_public: here.");
-        setTimeout(function () {
-            console.log("handle_click_public: event.target.checked = " + event.target.checked);
-            if (!event.target.checked && !window.confirm("Really make public?")) {
-                return;
-            }
-            event.target.checked = !event.target.checked;
-        }, 0);
+        console.log("handle_click_public: event.target.checked = " + event.target.checked);
+        let new_public = !event.target.checked;
+        let success = await bce_session.acl_update(acl_id, new_public, null);
+        if (success) {
+            $alert = "ACL updated successfully!";
+            await update_acl_list();
+        } else {
+            $alert = "Failed to update ACL.";
+        }
     }
     
-    function handle_click_active(event) {
+    async function handle_click_active(event) {
         console.log("handle_click_active: here.");
-        setTimeout(function () {
-            console.log("handle_click_active: event.target.checked = " + event.target.checked);
-            if (!event.target.checked && !window.confirm("Really make active?")) {
-                return;
-            }
-            event.target.checked = !event.target.checked;
-        }, 0);
+        console.log("handle_click_active: event.target.checked = " + event.target.checked);
+        let new_active = !event.target.checked;
+        let success = await bce_session.acl_update(acl_id, null, new_active);
+        if (success) {
+            $alert = "ACL updated successfully!";
+            await update_acl_list();
+        } else {
+            $alert = "Failed to update ACL.";
+        }
     }
     
 </script>
