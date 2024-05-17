@@ -122,11 +122,14 @@ export default class BceRestApi {
 	return response_json.success;
     }
     
-    async acl_update(session_token, acl_id, _public = null, active = null) {
+    async acl_update(session_token, acl_id, display_name = null, _public = null, active = null) {
         var body = {
 	    session_token: session_token,
             acl_id: acl_id
 	}
+        if (display_name != null) {
+            body["display_name"] = display_name;
+        }
         if (_public != null) {
             body["public"] = _public;
         }

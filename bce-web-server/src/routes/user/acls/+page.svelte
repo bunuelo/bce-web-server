@@ -63,7 +63,7 @@
     }
     
     async function on_click_save_acl_display_name(acl_id) {
-        let success = await bce_session.acl_update(acl_id, null, null);
+        let success = await bce_session.acl_update(acl_id, edit_acl_display_name, null, null);
         if (success) {
             $alert = "ACL updated successfully!";
             await update_acl_list();
@@ -77,7 +77,7 @@
         console.log("handle_click_public: here.");
         console.log("handle_click_public: event.target.checked = " + event.target.checked);
         let new_public = (event.target.checked === true || event.target.checked === "true");
-        let success = await bce_session.acl_update(acl_id, new_public, null);
+        let success = await bce_session.acl_update(acl_id, null, new_public, null);
         if (success) {
             $alert = "ACL updated successfully!";
             await update_acl_list();
@@ -90,7 +90,7 @@
         console.log("handle_click_active: here.");
         console.log("handle_click_active: event.target.checked = " + event.target.checked);
         let new_active = (event.target.checked === true || event.target.checked === "true");
-        let success = await bce_session.acl_update(acl_id, null, new_active);
+        let success = await bce_session.acl_update(acl_id, null, null, new_active);
         if (success) {
             $alert = "ACL updated successfully!";
             await update_acl_list();
