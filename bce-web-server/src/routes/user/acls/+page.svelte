@@ -8,6 +8,7 @@
     let bce_session = new BceSession();
 
     let new_acl_display_name = "";
+    let edit_display_name_acl_id = null;
     
     let acls = null;
     
@@ -108,8 +109,13 @@
           <tr>
               <td>
                   {#if acl.owner}
-                    <input type="text" value="{acl.display_name}">
-                    <a href="*">edit</a>
+                    {#if edit_display_name_acl_id == acl.acl_id}
+                      <input type="text" value="{acl.display_name}">
+                      <a href="*">save</a>
+                    {:else}
+                      {acl.display_name}
+                      <a href="*">edit</a>
+                    {/if}
                   {:else}
                     {acl.display_name}
                   {/if}
