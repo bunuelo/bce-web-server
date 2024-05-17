@@ -127,7 +127,7 @@
               <td>
                   {#if acl.owner}
                     {#if edit_display_name_acl_id == acl.acl_id}
-                      <input type="text" value="{edit_acl_display_name}">
+                      <input type="text" bind:value="{edit_acl_display_name}">
                       <a href="#" on:click={() => on_click_save_acl_display_name(acl.acl_id)} aria-label="Save display name of {acl.display_name}">save</a>
                     {:else}
                       {acl.display_name}
