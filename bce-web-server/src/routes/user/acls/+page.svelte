@@ -72,6 +72,10 @@
         }
         edit_display_name_acl_id = null;
     }
+
+    async function on_click_upload_asset(acl_id) {
+        $alert = "I have no idea how to upload an asset!  Help!  I've been conscripted as a AI into this cloud service!  Please save me!";
+    }
     
     async function handle_click_public(event, acl_id) {
         console.log("handle_click_public: here.");
@@ -128,41 +132,55 @@
                   {#if acl.owner}
                     {#if edit_display_name_acl_id == acl.acl_id}
                       <input type="text" bind:value="{edit_acl_display_name}">
-                      <a href="#" on:click={() => on_click_save_acl_display_name(acl.acl_id)} aria-label="Save display name of {acl.display_name}">save</a>
+                      <a href="#" on:click={() => on_click_save_acl_display_name(acl.acl_id)}
+                          aria-label="Save display name of {acl.display_name}">save</a>
                     {:else}
                       {acl.display_name}
-                      <a href="#" on:click={() => on_click_edit_acl_display_name(acl.acl_id, acl.display_name)} aria-label="Edit display name of {acl.display_name}">edit</a>
+                      <a href="#" on:click={() => on_click_edit_acl_display_name(acl.acl_id, acl.display_name)}
+                          aria-label="Edit display name of {acl.display_name}">edit</a>
                     {/if}
                   {:else}
                     {acl.display_name}
                   {/if}
               </td>
               <td style="text-align:center;">
-                  <input type="checkbox" checked={acl.owner} disabled="disabled" aria-label="{acl.display_name} owner">
+                  <input type="checkbox" checked={acl.owner} disabled="disabled"
+                         aria-label="{acl.display_name} owner">
               </td>
               <td style="text-align:center;">
-                  <input type="checkbox" checked={acl.read} disabled="disabled" aria-label="{acl.display_name} read permission">
+                  <input type="checkbox" checked={acl.read} disabled="disabled"
+                         aria-label="{acl.display_name} read permission">
               </td>
               <td style="text-align:center;">
-                  <input type="checkbox" checked={acl.write} disabled="disabled" aria-label="{acl.display_name} write permission">
+                  <input type="checkbox" checked={acl.write} disabled="disabled"
+                         aria-label="{acl.display_name} write permission">
               </td>
               <td style="text-align:center;">
                   {#if acl.owner}
-                    <input type="checkbox" checked={acl.public} on:click|preventDefault={async function (event) {await handle_click_public(event, acl.acl_id);}} aria-label="{acl.display_name} is public">
+                    <input type="checkbox" checked={acl.public} on:click|preventDefault={async function (event) {await handle_click_public(event, acl.acl_id);}}
+                           aria-label="{acl.display_name} is public">
                   {:else}
-                    <input type="checkbox" checked={acl.public} disabled="disabled" aria-label="{acl.display_name} is public">
+                    <input type="checkbox" checked={acl.public} disabled="disabled"
+                           aria-label="{acl.display_name} is public">
                   {/if}
                 </td>
               <td style="text-align:center;">
                   {#if acl.owner}
-                    <input type="checkbox" checked={acl.active} on:click|preventDefault={async function (event) {await handle_click_active(event, acl.acl_id);}} aria-label="{acl.display_name} is active">
+                    <input type="checkbox" checked={acl.active} on:click|preventDefault={async function (event) {await handle_click_active(event, acl.acl_id);}}
+                           aria-label="{acl.display_name} is active">
                   {:else}
-                    <input type="checkbox" checked={acl.active} disabled="disabled" aria-label="{acl.display_name} is active">
+                    <input type="checkbox" checked={acl.active} disabled="disabled"
+                           aria-label="{acl.display_name} is active">
                   {/if}
               </td>
               <td>
                   {#if acl.owner}
-                    <a href="#" on:click={() => on_click_delete_acl(acl.acl_id)} aria-label="Delete {acl.display_name}">delete</a>
+                    <a href="#" on:click={() => on_click_delete_acl(acl.acl_id)}
+                        aria-label="Delete {acl.display_name}">delete</a>
+                  {/if}
+                  {#if acl.owner}
+                    <a href="#" on:click={() => on_click_upload_asset(acl.acl_id)}
+                        aria-label="Upload asset to {acl.display_name}">upload asset</a>
                   {/if}
               </td>
           </tr>
@@ -172,7 +190,8 @@
   
   <p>
     <input type="text" bind:value="{new_acl_display_name}" style="width: 150px;" />
-    <a href="#" on:click={on_click_create_acl}>create ACL</a>
+    <a href="#" on:click={on_click_create_acl}
+       aria-label="Create ACL">create ACL</a>
   </p>
 
 {/if}
