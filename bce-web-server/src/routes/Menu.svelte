@@ -17,7 +17,7 @@
 </script>
 
 <nav aria-labelledby="mainmenulabel">
-    <h2 id="mainmenulabel" class="visuallyhidden">Main Menu</h2>
+    <div id="mainmenulabel" hidden>Main Menu</h2>
     <ul>
         <li>
 	    <a href="/">home</a>
