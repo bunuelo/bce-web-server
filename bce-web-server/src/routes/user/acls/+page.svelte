@@ -100,7 +100,7 @@
           <td style="text-align:center;"><i>Write</i></td>
           <td style="text-align:center;"><i>Public</i></td>
           <td style="text-align:center;"><i>Active</i></td>
-          <td style="text-align:center;"><i>Action</i></td>
+          <td style="text-align:center;"><i hidden>Action</i></td>
           <td></td>
       </tr>
       {#key acls}
