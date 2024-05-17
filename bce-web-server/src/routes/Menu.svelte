@@ -31,7 +31,7 @@
 	        <a href="/user/acls">user ACLs</a>
             </li>
         <li>
-	    <a href="/user/data">user data</a>
+	    <a href="/user/assets">user assets</a>
         </li>
       {/if}
       <li>

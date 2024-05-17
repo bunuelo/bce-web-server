@@ -34,12 +34,12 @@
 
 
 <svelte:head>
-    <title>User Data</title>
+    <title>User Assets</title>
 </svelte:head>
 
 {#if $user_session_is_valid && $user_security_level >= 25}
 
-  <h1>User Data</h1>
+  <h1>User Assets</h1>
   
 <p>
     ACL: 
