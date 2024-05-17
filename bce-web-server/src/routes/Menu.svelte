@@ -16,75 +16,51 @@
     
 </script>
 
-<table aria-description="The Top-level Menu for the BCE Webpage">
-    <tr>
-	<td>
-	    <a href="/">home</a>
-	</td>
-    </tr>
+<ul aria-description="The Top-level Menu for the BCE Webpage">
+    <li>
+	<a href="/">home</a>
+    </li>
     {#if $user_session_is_valid}
-      <tr>
-	  <td>
-	      <a href="/user/dashboard">user dashboard</a>
-	  </td>
-      </tr>
+      <li>
+	  <a href="/user/dashboard">user dashboard</a>
+      </li>
       {#if $user_security_level >= 25}
-        <tr>
-	    <td>
-	        <a href="/user/acls">user ACLs</a>
-	    </td>
-        </tr>
-        <tr>
-	    <td>
-	        <a href="/user/data">user data</a>
-	    </td>
-        </tr>
+        <li>
+	    <a href="/user/acls">user ACLs</a>
+        </li>
+        <li>
+	    <a href="/user/data">user data</a>
+        </li>
       {/if}
-      <tr>
-	  <td>
-	      <a href="/user/logout">logout</a>
-	  </td>
-      </tr>
+      <li>
+	  <a href="/user/logout">logout</a>
+      </li>
     {:else}
-      <tr>
-	  <td>
-	      <a href="/user/login">login</a>
-	  </td>
-      </tr>
-    <tr>
-	<td>
-	    <a href="/user/create-account">create account</a>
-	</td>
-    </tr>
+      <li>
+	  <a href="/user/login">login</a>
+      </li>
+    <li>
+	<a href="/user/create-account">create account</a>
+    </li>
   {/if}
   {#if $user_security_level >= 25}
-    <tr>
-	<td>
-	    <a href="/design">design</a>
-	</td>
-    </tr>
+    <li>
+	<a href="/design">design</a>
+    </li>
   {/if}
   {#if $user_security_level >= 100}
-    <tr>
-	<td>
-	    <a href="/inventory">inventory</a>
-	</td>
-    </tr>
+    <li>
+	<a href="/inventory">inventory</a>
+    </li>
   {/if}
-  <tr>
-      <td>
-	  <a href="/docs">docs</a>
-      </td>
-  </tr>
-    <tr>
-	<td>
-	    <a href="/terms">terms</a>
-	</td>
-    </tr>
-    <tr>
-	<td>
-	    <a href="/contact">contact</a>
-	</td>
-    </tr>
-</table>
+  <li>
+      <a href="/docs">docs</a>
+  </li>
+    <li>
+	<a href="/terms">terms</a>
+    </li>
+    <li>
+	<a href="/contact">contact</a>
+    </li>
+</ul>
 
