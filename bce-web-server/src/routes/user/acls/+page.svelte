@@ -56,6 +56,10 @@
         }
     }
     
+    async function on_click_edit_acl_display_name(acl_id) {
+        edit_display_name_acl_id = acl_id;
+    }
+
     async function handle_click_public(event, acl_id) {
         console.log("handle_click_public: here.");
         console.log("handle_click_public: event.target.checked = " + event.target.checked);
@@ -111,10 +115,9 @@
                   {#if acl.owner}
                     {#if edit_display_name_acl_id == acl.acl_id}
                       <input type="text" value="{acl.display_name}">
-                      <a href="*">save</a>
                     {:else}
                       {acl.display_name}
-                      <a href="*">edit</a>
+                      <a href="#" on:click={() => on_click_edit_acl_display_name(acl.acl_id)} aria-label="Edit display name of {acl.display_name}">edit</a>
                     {/if}
                   {:else}
                     {acl.display_name}
