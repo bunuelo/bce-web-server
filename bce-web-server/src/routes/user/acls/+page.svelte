@@ -107,7 +107,12 @@
         {#each acls as acl}
           <tr>
               <td>
-                  {acl.display_name}
+                  {#if acl.owner}
+                    <input type="text" value="{acl.display_name}">
+                    <a href="*">edit</a>
+                  {:else}
+                    {acl.display_name}
+                  {/if}
               </td>
               <td style="text-align:center;">
                   <input type="checkbox" checked={acl.owner} disabled="disabled" aria-label="{acl.display_name} owner">
