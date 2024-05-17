@@ -100,6 +100,7 @@
           <td style="text-align:center;"><i>Write</i></td>
           <td style="text-align:center;"><i>Public</i></td>
           <td style="text-align:center;"><i>Active</i></td>
+          <td style="text-align:center;"><i>Action</i></td>
           <td></td>
       </tr>
       {#key acls}
@@ -110,25 +111,32 @@
               </td>
               <td style="text-align:center;">
                   <input type="checkbox" checked={acl.owner} disabled="disabled">
+                  <label hidden>{acl.display_name} owner</label>
               </td>
               <td style="text-align:center;">
                   <input type="checkbox" checked={acl.read} disabled="disabled">
+                  <label hidden>{acl.display_name} read permission</label>
               </td>
               <td style="text-align:center;">
                   <input type="checkbox" checked={acl.write} disabled="disabled">
+                  <label hidden>{acl.display_name} write permission</label>
               </td>
               <td style="text-align:center;">
                   {#if acl.owner}
                     <input type="checkbox" checked={acl.public} on:click|preventDefault={async function (event) {await handle_click_public(event, acl.acl_id);}}>
+                    <label hidden>{acl.display_name} is public</label>
                   {:else}
                     <input type="checkbox" checked={acl.public} disabled="disabled">
+                    <label hidden>{acl.display_name} is public</label>
                   {/if}
                 </td>
               <td style="text-align:center;">
                   {#if acl.owner}
                     <input type="checkbox" checked={acl.active} on:click|preventDefault={async function (event) {await handle_click_active(event, acl.acl_id);}}>
+                    <label hidden>{acl.display_name} is active</label>
                   {:else}
                     <input type="checkbox" checked={acl.active} disabled="disabled">
+                    <label hidden>{acl.display_name} is active</label>
                   {/if}
               </td>
               <td>
