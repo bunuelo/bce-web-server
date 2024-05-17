@@ -134,7 +134,7 @@
               </td>
               <td>
                   {#if acl.owner}
-                    <a href="#" on:click={() => on_click_delete_acl(acl.acl_id)}>delete</a>
+                    <a href="#" on:click={() => on_click_delete_acl(acl.acl_id)} aria-label="Delete {acl.display_name}">delete</a>
                   {/if}
               </td>
           </tr>
