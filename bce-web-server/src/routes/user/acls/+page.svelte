@@ -9,6 +9,7 @@
 
     let new_acl_display_name = "";
     let edit_display_name_acl_id = null;
+    let edit_acl_display_name = null;
     
     let acls = null;
     
@@ -45,7 +46,7 @@
             $alert = "Failed to create ACL.";
         }
     }
-
+    
     async function on_click_delete_acl(acl_id) {
         let success = await bce_session.delete_acl(acl_id);
         if (success) {
@@ -56,14 +57,22 @@
         }
     }
     
-    async function on_click_edit_acl_display_name(acl_id) {
+    async function on_click_edit_acl_display_name(acl_id, display_name) {
         edit_display_name_acl_id = acl_id;
+        edit_acl_display_name = display_name;
     }
-
+    
     async function on_click_save_acl_display_name(acl_id) {
+        let success = await bce_session.acl_update(acl_id, null, null);
+        if (success) {
+            $alert = "ACL updated successfully!";
+            await update_acl_list();
+        } else {
+            $alert = "Failed to update ACL.";
+        }
         edit_display_name_acl_id = null;
     }
-
+    
     async function handle_click_public(event, acl_id) {
         console.log("handle_click_public: here.");
         console.log("handle_click_public: event.target.checked = " + event.target.checked);
@@ -118,11 +127,11 @@
               <td>
                   {#if acl.owner}
                     {#if edit_display_name_acl_id == acl.acl_id}
-                      <input type="text" value="{acl.display_name}">
+                      <input type="text" value="{edit_acl_display_name}">
                       <a href="#" on:click={() => on_click_save_acl_display_name(acl.acl_id)} aria-label="Save display name of {acl.display_name}">save</a>
                     {:else}
                       {acl.display_name}
-                      <a href="#" on:click={() => on_click_edit_acl_display_name(acl.acl_id)} aria-label="Edit display name of {acl.display_name}">edit</a>
+                      <a href="#" on:click={() => on_click_edit_acl_display_name(acl.acl_id, acl.display_name)} aria-label="Edit display name of {acl.display_name}">edit</a>
                     {/if}
                   {:else}
                     {acl.display_name}
