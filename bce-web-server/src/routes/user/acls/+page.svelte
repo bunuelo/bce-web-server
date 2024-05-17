@@ -110,33 +110,26 @@
                   {acl.display_name}
               </td>
               <td style="text-align:center;">
-                  <input type="checkbox" checked={acl.owner} disabled="disabled">
-                  <label hidden>{acl.display_name} owner</label>
+                  <input type="checkbox" checked={acl.owner} disabled="disabled" aria-label="{acl.display_name} owner">
               </td>
               <td style="text-align:center;">
-                  <input type="checkbox" checked={acl.read} disabled="disabled">
-                  <label hidden>{acl.display_name} read permission</label>
+                  <input type="checkbox" checked={acl.read} disabled="disabled" aria-label="{acl.display_name} read permission">
               </td>
               <td style="text-align:center;">
-                  <input type="checkbox" checked={acl.write} disabled="disabled">
-                  <label hidden>{acl.display_name} write permission</label>
+                  <input type="checkbox" checked={acl.write} disabled="disabled" aria-label="{acl.display_name} write permission">
               </td>
               <td style="text-align:center;">
                   {#if acl.owner}
-                    <input type="checkbox" checked={acl.public} on:click|preventDefault={async function (event) {await handle_click_public(event, acl.acl_id);}}>
-                    <label hidden>{acl.display_name} is public</label>
+                    <input type="checkbox" checked={acl.public} on:click|preventDefault={async function (event) {await handle_click_public(event, acl.acl_id);}} aria-label="{acl.display_name} is public">
                   {:else}
-                    <input type="checkbox" checked={acl.public} disabled="disabled">
-                    <label hidden>{acl.display_name} is public</label>
+                    <input type="checkbox" checked={acl.public} disabled="disabled" aria-label="{acl.display_name} is public">
                   {/if}
                 </td>
               <td style="text-align:center;">
                   {#if acl.owner}
-                    <input type="checkbox" checked={acl.active} on:click|preventDefault={async function (event) {await handle_click_active(event, acl.acl_id);}}>
-                    <label hidden>{acl.display_name} is active</label>
+                    <input type="checkbox" checked={acl.active} on:click|preventDefault={async function (event) {await handle_click_active(event, acl.acl_id);}} aria-label="{acl.display_name} is active">
                   {:else}
-                    <input type="checkbox" checked={acl.active} disabled="disabled">
-                    <label hidden>{acl.display_name} is active</label>
+                    <input type="checkbox" checked={acl.active} disabled="disabled" aria-label="{acl.display_name} is active">
                   {/if}
               </td>
               <td>
