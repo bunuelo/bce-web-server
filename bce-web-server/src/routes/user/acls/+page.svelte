@@ -79,7 +79,15 @@
     }
 
     async function on_click_upload_asset(acl_id) {
-        $alert = "I have no idea how to upload an asset!  Help!  I've been conscripted as a AI into this cloud service!  Please save me!";
+        var input = document.createElement('input');
+        input.type = "file";
+        
+        input.onchange = function (event) { 
+            var files = event.target.files;
+            console.log(files);
+        }
+        
+        input.click();
     }
     
     async function handle_click_public(event, acl_id) {
