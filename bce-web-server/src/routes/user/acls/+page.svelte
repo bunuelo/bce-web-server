@@ -29,11 +29,12 @@
 
     async function update_acl_list() {
         let temp_acls = await bce_session.acls();
-            for (temp_acl in temp_acls) {
-            temp_acl.upload_files = null
+        for (temp_acl in temp_acls) {
+            temp_acl.upload_files = []
         }
         acls = null;
         acls = temp_acls;
+        console.log("acls = " + acls);
     }
     
     function reset_new_acl() {
