@@ -80,7 +80,7 @@
         input.onchange = function (event) { 
             var files = event.target.files;
             console.log(files);
-            bce_session.asset_upload(files)
+          bce_session.asset_upload(acl_id, files)
                 .then(data => {
                 })
                 .catch(e => {

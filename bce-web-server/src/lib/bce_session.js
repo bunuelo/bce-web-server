@@ -105,10 +105,10 @@ export default class BceSession {
         return result;
     }
 
-    async asset_upload(files) {
+    async asset_upload(acl_id, files) {
         console.log("BceSession.asset_upload: here.")
         this.update_session_from_cookie();
-        let result = await bce_rest_api.asset_upload(get(user_session_token), files);
+        let result = await bce_rest_api.asset_upload(get(user_session_token), acl_id, files);
         console.log("BceSession.asset_upload: user_email = \"" + get(user_email) + "\", user_session_token = \"" + get(user_session_token) + "\", result = " + result);
         return result;
     }
