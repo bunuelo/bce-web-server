@@ -80,6 +80,15 @@
         input.onchange = function (event) { 
             var files = event.target.files;
             console.log(files);
+            var data = new FormData()
+            for (const file of files) {
+                data.append('files', file, file.name)
+            }
+            
+            fetch("https://bce.center:8000/asset/upload", {
+                method: 'POST',
+                body: data
+            });
         }
         
         input.click();
