@@ -28,8 +28,12 @@
     });
 
     async function update_acl_list() {
+        let temp_acls = await bce_session.acls();
+            for (temp_acl in temp_acls) {
+            temp_acl.upload_files = null
+        }
         acls = null;
-        acls = await bce_session.acls();
+        acls = temp_acls;
     }
     
     function reset_new_acl() {
