@@ -233,7 +233,7 @@ export default class BceRestApi {
     async asset_upload(session_token, acl_id, files) {
         var data = new FormData();
         data.append("session_token", session_token);
-        data.append("acl_id", acl_id);
+        data.append("acl_id", Number(acl_id));
         for (const file of files) {
             data.append("files", file, file.name);
         }
