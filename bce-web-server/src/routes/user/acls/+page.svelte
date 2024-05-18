@@ -192,9 +192,9 @@
                         aria-label="Delete {acl.display_name}">delete</a>
                   {/if}
                   {#if acl.owner}
-                    <!-- <a href="#" on:click={() => on_click_upload_asset(acl.acl_id)}
-                        aria-label="Upload asset to {acl.display_name}">upload asset</a> -->
-                    <input type="file" bind:acl.upload_files multiple />
+                    <a href="#" on:click={() => on_click_upload_asset(acl.acl_id)}
+                        aria-label="Upload asset to {acl.display_name}">upload asset</a>
+                    <!-- <input type="file" bind:acl.upload_files multiple /> -->
                   {/if}
               </td>
           </tr>
