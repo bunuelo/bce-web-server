@@ -229,5 +229,20 @@ export default class BceRestApi {
 	this.message = response_json.message;
 	return response_json.success;
     }
-    
+
+    async asset_upload(session_token, files) {
+        var data = new FormData();
+        //data.append("session_token", session_token);
+        for (const file of files) {
+            data.append("files", file, file.name);
+        }
+        const response = await fetch(this.apiURL + "/asset/upload", {
+            method: 'POST',
+            body: data
+        });
+	const response_json = await response.json();
+	this.message = response_json.message;
+	return response_json.success;
+    }
+  
 }
