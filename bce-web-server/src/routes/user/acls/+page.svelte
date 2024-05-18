@@ -80,14 +80,15 @@
         input.onchange = function (event) { 
             var files = event.target.files;
             console.log(files);
-          bce_session.asset_upload(acl_id, files)
-                .then(data => {
-                })
-                .catch(e => {
-                    console.log(e);
-                })
+            for file in files:
+                console.log("Uploading " + file);
+                bce_session.asset_upload(acl_id, file)
+                    .then(data => {
+                    })
+                    .catch(e => {
+                        console.log(e);
+                    })
         }
-        
         input.click();
     }
     
