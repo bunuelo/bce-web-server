@@ -76,7 +76,7 @@
     async function on_click_upload_asset(acl_id) {
         var input = document.createElement('input');
         input.type = "file";
-        
+        input.multiple = true;
         input.onchange = function (event) { 
             var files = event.target.files;
             console.log(files);
