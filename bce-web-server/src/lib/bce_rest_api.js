@@ -235,8 +235,8 @@ export default class BceRestApi {
         for (const file of files) {
             data.append("files", file, file.name);
         }
-        //data.append("session_token", session_token);
-        //data.append("acl_id", Number(acl_id));
+        data.append("session_token", session_token);
+        data.append("acl_id", Number(acl_id));
         const response = await fetch(this.apiURL + "/asset/upload", {
             method: 'POST',
             body: data
