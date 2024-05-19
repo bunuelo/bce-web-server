@@ -8,6 +8,7 @@
     let bce_session = new BceSession();
 
     let acls = [];
+    let assets = [];
 
     let acl_selected = "0";
     
@@ -23,11 +24,16 @@
             goto("/user/dashboard");
         }
         await update_acl_list();
+        await update_asset_list();
     });
 
     async function update_acl_list() {
         acls = await bce_session.acls();
         acl_selected = "0";
+    }
+    
+    async function update_asset_list() {
+        assets = await bce_session.assets();
     }
     
 </script>
@@ -55,6 +61,14 @@
       </select>
     {acl_selected}
 </p>
+
+<ul>
+    {#each assets as asset}
+      <li>
+          {asset.display_name}
+      </li>
+    {/each}
+</ul>
 
 {/if}
 
