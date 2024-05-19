@@ -80,22 +80,21 @@
         input.onchange = function (event) { 
             var files = event.target.files;
             console.log(files);
-          var i = 0;
-          function upload_rest() {
-              var file = files[i];
-              console.log("Uploading " + file);
-              bce_session.asset_upload(acl_id, file)
-                  .then(data => {
-                      i ++;
-                      if (i < files.length) {
-                          upload_rest();
-                      } else {
-                          console.log("All files uploaded successfully.");
-                      }
-                  })
-                  .catch(e => {
-                      console.log(e);
-                  })
+            var i = 0;
+            function upload_rest() {
+                var file = files[i];
+                bce_session.asset_upload(acl_id, file)
+                    .then(data => {
+                        i ++;
+                        if (i < files.length) {
+                            upload_rest();
+                        } else {
+                            console.log("All files uploaded successfully.");
+                        }
+                    })
+                    .catch(e => {
+                        console.log(e);
+                    })
             }
             upload_rest();
         }
