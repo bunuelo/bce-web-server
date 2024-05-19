@@ -81,20 +81,21 @@
             var files = event.target.files;
             console.log(files);
           var i = 0;
-          function upload_one() {
+          function upload_rest() {
               var file = files[i];
               console.log("Uploading " + file);
               bce_session.asset_upload(acl_id, file)
                   .then(data => {
                       i ++;
                       if (i < files.length) {
-                          upload_one();
+                          upload_rest();
                       }
                   })
                   .catch(e => {
                     console.log(e);
                   })
             }
+            upload_rest();
         }
         input.click();
     }
