@@ -109,7 +109,11 @@ export default class BceSession {
         console.log("BceSession.asset_upload: Upload Begin.  file.name = " + file.name)
         this.update_session_from_cookie();
         let result = await bce_rest_api.asset_upload(get(user_session_token), acl_id, file);
-        console.log("BceSession.asset_upload: Upload Done.  file.name = " + file.name + ", result = " + result);
+        if (result == true) {
+            console.log("BceSession.asset_upload: Upload Successful.  file.name = " + file.name + ", result = " + result);
+        } else {
+            console.log("BceSession.asset_upload: Upload Failed.  file.name = " + file.name + ", result = " + result);
+        }
         return result;
     }
   

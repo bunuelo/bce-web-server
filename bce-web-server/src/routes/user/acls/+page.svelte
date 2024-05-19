@@ -84,7 +84,11 @@
             function upload_rest() {
                 var file = files[i];
                 bce_session.asset_upload(acl_id, file)
-                    .then(data => {
+                    .then(result => {
+                        if (!result) {
+                            console.log("Some files failed to upload.");
+                            return;
+                        }
                         i ++;
                         if (i < files.length) {
                             upload_rest();
