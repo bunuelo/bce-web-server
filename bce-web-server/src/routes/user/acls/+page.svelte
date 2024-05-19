@@ -89,10 +89,12 @@
                       i ++;
                       if (i < files.length) {
                           upload_rest();
+                      } else {
+                          console.log("All files uploaded successfully.");
                       }
                   })
                   .catch(e => {
-                    console.log(e);
+                      console.log(e);
                   })
             }
             upload_rest();
