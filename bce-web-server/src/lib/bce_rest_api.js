@@ -245,7 +245,7 @@ export default class BceRestApi {
     }
   
     async asset_list(session_token, acl_id = null) {
-        body = {
+        var body = {
   	    session_token: session_token
 	}
         if (acl_id) {
