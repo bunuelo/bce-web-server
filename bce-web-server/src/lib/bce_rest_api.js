@@ -251,7 +251,7 @@ export default class BceRestApi {
         if (acl_id) {
             body["acl_id"] = acl_id;
         }
-        const response = await fetch(this.apiURL + "/product/ingest", {
+        const response = await fetch(this.apiURL + "/asset/list", {
 	    method: "POST",
 	    body: JSON.stringify(body),
 	    headers: {
