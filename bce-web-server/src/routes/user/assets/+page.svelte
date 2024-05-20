@@ -28,7 +28,11 @@
     });
 
     $: (async function () {
-        assets = await bce_session.assets(selected_acl_id);
+        var acl_id = acl_selected;
+        if (acl_id == "0") {
+            acl_id = null;
+        }
+        assets = await bce_session.assets(acl_id);
     }) ()
     
     async function update_acl_list() {
