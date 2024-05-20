@@ -27,21 +27,17 @@
         await update_asset_list();
     });
 
-    $: (async function () {
-        var acl_id = acl_selected;
-        if (acl_id == "0") {
-            acl_id = null;
-        }
-        assets = await bce_session.assets(acl_id);
-    }) ()
-    
     async function update_acl_list() {
         acls = await bce_session.acls();
         acl_selected = "0";
     }
     
     async function update_asset_list() {
-        assets = await bce_session.assets();
+        var acl_id = acl_selected;
+        if (acl_id == "0") {
+            acl_id = null;
+        }
+        assets = await bce_session.assets(acl_id);
     }
     
 </script>
@@ -57,7 +53,7 @@
   
 <p>
     ACL: 
-    <select bind:value={acl_selected}>
+    <select bind:value={acl_selected} on:change={update_asset_list}>
 	<option value="0">
 	    All
 	</option>
