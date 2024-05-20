@@ -65,7 +65,7 @@
 <ul>
     {#each assets as asset}
       <li>
-          {asset.display_name}
+          <a href="https://bce.center:8000/asset/download?name={asset.name}">{asset.display_name}</a>
       </li>
     {/each}
 </ul>
