@@ -27,6 +27,10 @@
         await update_asset_list();
     });
 
+    $: (function () {
+        assets = await bce_session.assets(selected_acl_id);
+    }) ()
+    
     async function update_acl_list() {
         acls = await bce_session.acls();
         acl_selected = "0";
