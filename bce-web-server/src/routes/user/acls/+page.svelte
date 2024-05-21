@@ -85,15 +85,16 @@
                 var file = files[i];
                 bce_session.asset_upload(acl_id, file)
                     .then(result => {
+                        $alert = "Successfully uploaded " + file.name + "!";
                         if (!result) {
-                            console.log("Some files failed to upload.");
+                            $alert = "Some files failed to upload.";
                             return;
                         }
                         i ++;
                         if (i < files.length) {
                             upload_rest();
                         } else {
-                            console.log("All files uploaded successfully.");
+                            $alert = "All files uploaded successfully!";
                         }
                     })
                     .catch(e => {
