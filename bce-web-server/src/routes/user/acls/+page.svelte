@@ -85,16 +85,16 @@
                 var file = files[i];
                 bce_session.asset_upload(acl_id, file)
                     .then(result => {
-                        $alert = "Successfully uploaded " + file.name + "!";
+                        $alert = "Successfully uploaded file (" + str(i + 1) + "/" + str(len(files)) + ") " + file.name + "!";
                         if (!result) {
-                            $alert = "Some files failed to upload.";
+                            $alert = "Some files (" + str(len(files) - (i + 1)) + "/" + str(len(files)) + ") failed to upload.";
                             return;
                         }
                         i ++;
                         if (i < files.length) {
                             upload_rest();
                         } else {
-                            $alert = "All files uploaded successfully!";
+                            $alert = "All (" + str(len(files)) + ") files uploaded successfully!";
                         }
                     })
                     .catch(e => {
