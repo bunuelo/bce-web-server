@@ -40,8 +40,8 @@ p {
 }
 
 button {
-  background-color: var(--surface2);
-  color: var(--element2);
+  background-color: var(--element1);
+  color: var(--elementInverse);
   border: none;
   border-radius: 4px;
   padding: 0.5rem;
