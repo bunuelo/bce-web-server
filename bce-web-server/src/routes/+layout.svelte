@@ -5,6 +5,14 @@
       
 </script>
 
+<style>
+    :global(body) {
+      background-color: #000000;
+      color: #00ff00;
+      transition: background-color 0.3s
+    }
+</style>
+
 <link rel="icon" href="/favicon.png?v=2" />
 
 {#if $alert}
