@@ -9,7 +9,7 @@
     
     onMount(async () => {
         $user_color_theme = await bce_session.color_theme()
-        if ($user_color_theme == "light" || $user_color_theme == "light") {
+        if ($user_color_theme == "light" || $user_color_theme == "dark") {
              document.documentElement.setAttribute("color-mode", $user_color_theme);
         }
     });
