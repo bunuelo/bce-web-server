@@ -3,8 +3,8 @@
 /* Light Mode */
 :root[color-mode="light"] {
   --surface1: #ffffff;
-  --surface2: #eeeeee;
-  --surface3: #dddddd;
+  --surface2: #dddddd;
+  --surface3: #bbbbbb;
   --element1: #000000;
   --element2: #111111;
   --element3: #222222;
@@ -17,8 +17,8 @@
 /* Dark Mode */
 :root[color-mode="dark"] {
   --surface1: #000000;
-  --surface2: #111111;
-  --surface3: #222222;
+  --surface2: #222222;
+  --surface3: #444444;
   --element1: #ffffff;
   --element2: #eeeeee;
   --element3: #dddddd;
