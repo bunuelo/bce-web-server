@@ -8,7 +8,7 @@
 <style>
     :global(body) {
       background-color: #000000;
-      color: #00ff00;
+      color: #ffffff;
       transition: background-color 0.3s
     }
 </style>
