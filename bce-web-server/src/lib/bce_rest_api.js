@@ -105,6 +105,26 @@ export default class BceRestApi {
 	return response_json.color_theme;
     }
     
+  async session_update(session_token, color_theme=null) {
+        var body = {
+    	    session_token: session_token,
+            color_theme: color_theme
+	}
+        if (color_theme != null) {
+            body["color_theme"] = color_theme;
+        }
+	const response = await fetch(this.apiURL + "/session/color_theme", {
+	    method: "POST",
+	    body: JSON.stringify(body),
+	    headers: {
+		"Content-type": "application/json; charset=UTF-8"
+	    }
+	});
+	const response_json = await response.json();
+	this.message = response_json.message;
+	return response_json.success;
+    }
+    
     async acl_create(session_token, display_name) {
 	const response = await fetch(this.apiURL + "/acl/create", {
 	    method: "POST",

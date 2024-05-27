@@ -24,7 +24,7 @@
     async function update_color_theme() {
         console.log("Update color theme.");
         var color_theme = color_theme_selected;
-        //var success = await bce_session.update(color_theme);
+        var success = await bce_session.update(color_theme);
         $user_color_theme = await bce_session.color_theme();
     }
     </script>
