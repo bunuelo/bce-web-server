@@ -81,7 +81,7 @@ export default class BceSession {
         let result = await bce_rest_api.session_color_theme(get(user_session_token));
         //console.log("BceSession.color_theme: user_email = \"" + get(user_email) + "\", result = " + result);
         this.set_cookie("color_theme", result, 1);
-        if ($user_color_theme == "light" || $user_color_theme == "dark") {
+        if (result == "light" || result == "dark") {
             document.documentElement.setAttribute("color-mode", result);
         }
         return result;
