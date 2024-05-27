@@ -40,15 +40,15 @@ p {
 }
 
 a:link {
-  color: var(--primary);
+  color: var(--element1);
 }
 
 a:visited {
-  color: var(--secondary);
+  color: var(--primary);
 }
 
 a:active {
-  color: var(--tertiary);
+  color: var(--secondary);
 }
 
 a:hover {
