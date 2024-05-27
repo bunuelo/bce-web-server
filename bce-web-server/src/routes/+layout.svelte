@@ -8,7 +8,7 @@
     let bce_session = new BceSession();
     
     onMount(async () => {
-        $user_color_theme = await bce_session.session_color_theme()
+        $user_color_theme = await bce_session.color_theme()
         document.documentElement.style.setProperty("color-mode", "light");
     });
 
