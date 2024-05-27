@@ -65,6 +65,7 @@ button {
 
 input:autofill {
   background-color: var(--surface1);
+  background: var(--surface1);
   color: var(--element1);
 }
 
