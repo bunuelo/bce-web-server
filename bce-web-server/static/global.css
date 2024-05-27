@@ -83,3 +83,14 @@ input[type=text], input[type=email], input[type=password] {
   box-shadow: 0px 0px 4px var(--element1);
 }
 
+select {
+  background-color: var(--surface1);
+  color: var(--element1)
+  background: var(--surface1);
+}
+
+select option {
+  background-color: var(--surface1);
+  color: var(--element1)
+  background: var(--surface1);
+}
