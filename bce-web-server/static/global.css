@@ -11,7 +11,7 @@
   --elementInverse: #ffffff;
   --primary: #00ff00;
   --secondary: #0000ff;
-  --tertiary: #ff00ff;
+  --tertiary: #7f007f;
 }
 
 /* Dark Mode */
@@ -23,9 +23,9 @@
   --element2: #eeeeee;
   --element3: #dddddd;
   --elementInverse: #000000;
-  --primary: #00ff00;
-  --secondary: #0000ff;
-  --tertiary: #ff00ff;
+  --primary: #7fff7f;
+  --secondary: #7f7fff;
+  --tertiary: #ff7fff;
 }
 
 body {
