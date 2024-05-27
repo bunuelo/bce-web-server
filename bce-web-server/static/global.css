@@ -29,10 +29,8 @@
 }
 
 body {
-/*
-  color: #ffffff;
-  background: #000000;
-*/
+  color: --element1;
+  background: --surface1;
   padding: 0;
   margin: 0;
 }
