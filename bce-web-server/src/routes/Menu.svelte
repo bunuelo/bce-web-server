@@ -24,40 +24,32 @@
         </li>
         {#if $user_session_is_valid}
           <li>
+	      <a href="/user/logout">logout</a>
+          </li>
+          <li>
 	      <a href="/user/dashboard">user dashboard</a>
           </li>
-          {#if $user_security_level >= 25}
-            <li>
-	        <a href="/user/acls">user ACLs</a>
-            </li>
+        {:else}
+          <li>
+	      <a href="/user/login">login</a>
+          </li>
+          <li>
+	      <a href="/user/create-account">create account</a>
+          </li>
+        {/if}
+        {#if $user_security_level >= 25}
+          <li>
+	      <a href="/design">design</a>
+          </li>
+        {/if}
+        {#if $user_security_level >= 100}
+          <li>
+	      <a href="/inventory">inventory</a>
+          </li>
+        {/if}
         <li>
-	    <a href="/user/assets">user assets</a>
+            <a href="/docs">docs</a>
         </li>
-      {/if}
-      <li>
-	  <a href="/user/logout">logout</a>
-      </li>
-    {:else}
-      <li>
-	  <a href="/user/login">login</a>
-      </li>
-        <li>
-	    <a href="/user/create-account">create account</a>
-        </li>
-      {/if}
-      {#if $user_security_level >= 25}
-        <li>
-	    <a href="/design">design</a>
-        </li>
-      {/if}
-      {#if $user_security_level >= 100}
-        <li>
-	    <a href="/inventory">inventory</a>
-        </li>
-      {/if}
-      <li>
-          <a href="/docs">docs</a>
-      </li>
         <li>
 	    <a href="/terms">terms</a>
         </li>
