@@ -51,21 +51,20 @@
 
   <h1>User Assets</h1>
   
-<p>
-    ACL: 
-    <select bind:value={acl_selected} on:change={update_asset_list}>
-	<option value="0">
-	    All
-	</option>
-        {#each acls as acl}
-	  <option value={acl.acl_id}>
-	      {acl.display_name}
+  <label>
+      ACL: 
+      <select bind:value={acl_selected} on:change={update_asset_list}>
+	  <option value="0">
+	      All
 	  </option>
-        {/each}
+          {#each acls as acl}
+	    <option value={acl.acl_id}>
+	        {acl.display_name}
+	    </option>
+          {/each}
       </select>
-    {acl_selected}
-</p>
-
+  </label>
+  
 <ul>
     {#each assets as asset}
       <li>
