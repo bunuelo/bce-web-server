@@ -28,29 +28,34 @@
   --tertiary: #eee8a9;
 }
 
-/*
 body {
-    color: #ffffff;
-    background: #000000;
-    padding: 0;
-    margin: 0;
+/*
+  color: #ffffff;
+  background: #000000;
+*/
+  padding: 0;
+  margin: 0;
 }
 
+/*
 p {
-    color: #ffffff
+  color: #ffffff
 }
+*/
 
 button {
+/*
   background-color: #ffffff;
   color: #000000;
+*/
   border: none;
   border-radius: 4px;
   padding: 0.5rem;
 }
 
+/*
 :global(body.dark-mode) button {
   background-color: #00ff00;
   color: #000000;
 }
-
 */
