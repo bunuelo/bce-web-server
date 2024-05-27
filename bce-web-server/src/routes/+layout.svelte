@@ -5,23 +5,6 @@
       
 </script>
 
-<style>
-    :global(body) {
-      background-color: #000000;
-      color: #ffffff;
-      transition: background-color 0.3s
-    }
-    :global(a) {
-      color: #00ff00;
-    }
-    :global(a.active) {
-      color: #0000ff;
-    }
-    :global(a.visited) {
-      color: #ff00ff;
-    }
-</style>
-
 <link rel="icon" href="/favicon.png?v=2" />
 
 {#if $alert}
