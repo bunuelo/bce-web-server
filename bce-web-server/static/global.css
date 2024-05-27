@@ -65,9 +65,11 @@ button {
 
 input[type=text], input[type=email], input[type=password], textarea {
   background-color: var(--surface1);
+  color: var(--element1)
 }
 
 input[type=text]:focus, input[type=email]:focus, input[type=password]:focus, textarea:focus {
   background-color: var(--surface2);
+  color: var(--element2)
 }
 
