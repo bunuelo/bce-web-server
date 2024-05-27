@@ -90,7 +90,22 @@ export default class BceRestApi {
 	return response_json.security_level;
     }
     
-  async acl_create(session_token, display_name) {
+    async session_color_theme(session_token) {
+	const response = await fetch(this.apiURL + "/session/color_theme", {
+	    method: "POST",
+	    body: JSON.stringify({
+		session_token: session_token
+	    }),
+	    headers: {
+		"Content-type": "application/json; charset=UTF-8"
+	    }
+	});
+	const response_json = await response.json();
+	this.message = response_json.message;
+	return response_json.color_theme;
+    }
+    
+    async acl_create(session_token, display_name) {
 	const response = await fetch(this.apiURL + "/acl/create", {
 	    method: "POST",
 	    body: JSON.stringify({
