@@ -70,16 +70,16 @@ input[type=email] {
 
 input[type=password] {
   background-color: var(--surface1);
-  color: var(--element1)
+  color: var(--element1);
 }
 
 input[type=email]:focus {
   background-color: var(--surface2);
-  color: var(--element2)
+  color: var(--element2);
 }
 
 input[type=password]:focus {
   background-color: var(--surface2);
-  color: var(--element2)
+  color: var(--element2);
 }
 
