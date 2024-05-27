@@ -77,10 +77,13 @@ input:-webkit-autofill {
 input[type=email] {
   background-color: var(--surface1);
   color: var(--element1)
+  background: var(--surface1);
+  border:1px solid var(--element1);
 }
 
 input[type=password] {
   background-color: var(--surface1);
   color: var(--element1);
+  border:1px solid var(--element1);
 }
 
