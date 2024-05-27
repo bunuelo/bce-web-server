@@ -30,6 +30,7 @@
           $user_session_is_valid = true;
           $user_security_level = await bce_session.security_level();
           $alert = "Login successful!";
+          $user_color_theme = await bce_session.color_theme();
           goto("/user/dashboard", { invalidateAll: true });
       } else {
           $user_email = "";
