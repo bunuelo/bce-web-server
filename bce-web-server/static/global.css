@@ -82,8 +82,8 @@ input[type=email] {
 }
 
 input[type=email]:focus:hover {
-  outline: none;
-  box-shadow: 0px 0px 5px var(--element1);
+  outline: none !important;
+  box-shadow: 0px 0px 0px var(--element1);
   border:1px solid var(--element1);
   border-radius:0;
 }
@@ -95,8 +95,8 @@ input[type=password] {
 }
 
 input[type=password]:focus:hover {
-  outline: none;
-  box-shadow: 0px 0px 5px var(--element1);
+  outline: none !important;
+  box-shadow: 0px 0px 0px var(--element1);
   border:1px solid var(--element1);
   border-radius:0;
 }
