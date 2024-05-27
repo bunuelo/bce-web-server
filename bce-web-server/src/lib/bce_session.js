@@ -54,6 +54,7 @@ export default class BceSession {
         //console.log("BceSession.update_session_from_cookie: here.")
         user_email.set(this.get_cookie("email"));
         user_session_token.set(this.get_cookie("session_token"));
+        user_color_theme.set(this.get_cookie("color_theme"));
         //console.log("BceSession.update_session_from_cookie: user_email = \"" + get(user_email) + "\", user_session_token = \"" + get(user_session_token) + "\"");
     }
     
@@ -74,50 +75,51 @@ export default class BceSession {
     }
     
     async color_theme() {
-        console.log("BceSession.color_theme: here.")
+        //console.log("BceSession.color_theme: here.")
         this.update_session_from_cookie();
         let result = await bce_rest_api.session_color_theme(get(user_session_token));
-        console.log("BceSession.color_theme: user_email = \"" + get(user_email) + "\", result = " + result);
+        //console.log("BceSession.color_theme: user_email = \"" + get(user_email) + "\", result = " + result);
+        this.set_cookie("color_theme", result, 1);
         return result;
     }
     
     async update(color_theme = null) {
-        console.log("BceSession.update: color_theme=\"" + color_theme + "\"")
+        //console.log("BceSession.update: color_theme=\"" + color_theme + "\"")
         this.update_session_from_cookie();
         let result = await bce_rest_api.session_update(get(user_session_token), color_theme);
-        console.log("BceSession.update: user_email = \"" + get(user_email) + "\", result = " + result);
+        //console.log("BceSession.update: user_email = \"" + get(user_email) + "\", result = " + result);
         return result;
     }
     
     async create_acl(display_name) {
-        console.log("BceSession.create_acl: display_name=\"" + display_name + "\"")
+        //console.log("BceSession.create_acl: display_name=\"" + display_name + "\"")
         this.update_session_from_cookie();
         let result = await bce_rest_api.acl_create(get(user_session_token), display_name);
-        console.log("BceSession.create_acl: user_email = \"" + get(user_email) + "\", user_session_token = \"" + get(user_session_token) + "\", result = " + result);
+        //console.log("BceSession.create_acl: user_email = \"" + get(user_email) + "\", user_session_token = \"" + get(user_session_token) + "\", result = " + result);
         return result;
     }
     
     async delete_acl(acl_id) {
-        console.log("BceSession.delete_acl: acl_id=\"" + acl_id + "\"")
+        //console.log("BceSession.delete_acl: acl_id=\"" + acl_id + "\"")
         this.update_session_from_cookie();
         let result = await bce_rest_api.acl_delete(get(user_session_token), acl_id);
-        console.log("BceSession.create_acl: user_email = \"" + get(user_email) + "\", user_session_token = \"" + get(user_session_token) + "\", result = " + result);
+        //console.log("BceSession.create_acl: user_email = \"" + get(user_email) + "\", user_session_token = \"" + get(user_session_token) + "\", result = " + result);
         return result;
     }
     
     async acl_update(acl_id, display_name = null, _public = null, active = null) {
-        console.log("BceSession.delete_acl: acl_id=\"" + acl_id + "\"")
+        //console.log("BceSession.acl_update: acl_id=\"" + acl_id + "\"")
         this.update_session_from_cookie();
         let result = await bce_rest_api.acl_update(get(user_session_token), acl_id, display_name, _public, active);
-        console.log("BceSession.acl_update: user_email = \"" + get(user_email) + "\", user_session_token = \"" + get(user_session_token) + "\", result = " + result);
+        //console.log("BceSession.acl_update: user_email = \"" + get(user_email) + "\", user_session_token = \"" + get(user_session_token) + "\", result = " + result);
         return result;
     }
     
     async acls() {
-        console.log("BceSession.acls: here.")
+        //console.log("BceSession.acls: here.")
         this.update_session_from_cookie();
         let result = await bce_rest_api.acl_list(get(user_session_token));
-        console.log("BceSession.acls: user_email = \"" + get(user_email) + "\", user_session_token = \"" + get(user_session_token) + "\", result = " + result);
+        //console.log("BceSession.acls: user_email = \"" + get(user_email) + "\", user_session_token = \"" + get(user_session_token) + "\", result = " + result);
         return result;
     }
 
@@ -134,10 +136,10 @@ export default class BceSession {
     }
   
     async assets(acl_id = null) {
-        console.log("BceSession.assets: here.")
+        //console.log("BceSession.assets: here.")
         this.update_session_from_cookie();
         let result = await bce_rest_api.asset_list(get(user_session_token), acl_id);
-        console.log("BceSession.assets: user_email = \"" + get(user_email) + "\", acl_id = \"" + acl_id + "\", result = " + result);
+        //console.log("BceSession.assets: user_email = \"" + get(user_email) + "\", acl_id = \"" + acl_id + "\", result = " + result);
         return result;
     }
 
