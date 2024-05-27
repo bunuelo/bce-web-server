@@ -9,6 +9,9 @@
 
     onMount(async () => {
         bce_session.update_session_from_cookie();
+        if ($user_color_theme == "light" || $user_color_theme == "dark") {
+             document.documentElement.setAttribute("color-mode", $user_color_theme);
+        }
         $user_color_theme = await bce_session.color_theme()
         if ($user_color_theme == "light" || $user_color_theme == "dark") {
              document.documentElement.setAttribute("color-mode", $user_color_theme);
