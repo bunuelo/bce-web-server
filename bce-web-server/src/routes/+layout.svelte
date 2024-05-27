@@ -9,7 +9,7 @@
     
     onMount(async () => {
         $user_color_theme = await bce_session.color_theme()
-        document.documentElement.style.setProperty("color-mode", "light");
+        document.documentElement.setAttribute("color-mode", "light");
     });
 
 </script>
