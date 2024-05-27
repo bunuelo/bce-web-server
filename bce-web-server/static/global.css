@@ -29,8 +29,8 @@
 }
 
 body {
-  color: --element1;
-  background: --surface1;
+  color: var(--element1);
+  background: var(--surface1);
   padding: 0;
   margin: 0;
 }
