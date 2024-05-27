@@ -14,10 +14,10 @@
     :global(a) {
       color: #00ff00;
     }
-    :global(.active) {
+    :global(a.active) {
       color: #0000ff;
     }
-    :global(.visited) {
+    :global(a.visited) {
       color: #ff00ff;
     }
 </style>
