@@ -4,6 +4,8 @@
     import Menu from './Menu.svelte'
     import { alert } from '$lib/bce_stores.js'
     import { user_color_theme } from '$lib/bce_stores.js'
+    import BceSession from "$lib/bce_session.js";
+    let bce_session = new BceSession();
     
     onMount(async () => {
         $user_color_theme = await bce_session.session_color_theme()
