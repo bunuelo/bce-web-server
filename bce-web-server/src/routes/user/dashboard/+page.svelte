@@ -26,6 +26,9 @@
         var color_theme = color_theme_selected;
         var success = await bce_session.update(color_theme);
         $user_color_theme = await bce_session.color_theme();
+        if ($user_color_theme == "light" || $user_color_theme == "light") {
+            document.documentElement.setAttribute("color-mode", $user_color_theme);
+        }
     }
     </script>
 
