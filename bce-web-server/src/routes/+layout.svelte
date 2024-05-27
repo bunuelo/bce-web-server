@@ -6,6 +6,8 @@
     import { user_color_theme } from '$lib/bce_stores.js'
     import BceSession from "$lib/bce_session.js";
     let bce_session = new BceSession();
+
+    bce_session.update_session_from_cookie();
     
     onMount(async () => {
         $user_color_theme = await bce_session.color_theme()
