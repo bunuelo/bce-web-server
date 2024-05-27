@@ -63,3 +63,6 @@ button {
   padding: 0.5rem;
 }
 
+input[type="text"], textarea {
+  background-color: var(--surface2);
+}
