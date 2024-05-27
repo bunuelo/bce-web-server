@@ -41,7 +41,7 @@
   <h1>User Dashboard</h1>
   
   <label>
-      Color Theme: 
+      color theme: 
       <select bind:value={color_theme_selected} on:change={update_color_theme}>
 	  <option value="dark">
 	      Dark
