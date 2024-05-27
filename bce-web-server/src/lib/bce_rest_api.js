@@ -113,7 +113,7 @@ export default class BceRestApi {
         if (color_theme != null) {
             body["color_theme"] = color_theme;
         }
-	const response = await fetch(this.apiURL + "/session/color_theme", {
+	const response = await fetch(this.apiURL + "/session/update", {
 	    method: "POST",
 	    body: JSON.stringify(body),
 	    headers: {
