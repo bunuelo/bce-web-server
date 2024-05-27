@@ -11,6 +11,15 @@
       color: #ffffff;
       transition: background-color 0.3s
     }
+    :global(a) {
+      color: #00ff00;
+    }
+    :global(.active) {
+      color: #0000ff;
+    }
+    :global(.visited) {
+      color: #ff00ff;
+    }
 </style>
 
 <link rel="icon" href="/favicon.png?v=2" />
