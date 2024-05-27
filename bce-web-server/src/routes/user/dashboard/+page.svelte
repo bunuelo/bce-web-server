@@ -13,6 +13,11 @@
             goto("/user/login");
         }
     });
+
+    async function on_click_toggle_dark_mode() {
+        console.log("Toggle dark mode.");
+    }
+    
 </script>
 
 <svelte:head>
@@ -22,7 +27,9 @@
 {#if $user_session_is_valid}
 
   <h1>User Dashboard</h1>
-
+  
+  <label>Toggle Dark Mode: <input type="checkbox" on:click|preventDefault={on_click_toggle_dark_mode}></label>
+  
 {/if}
 
 
