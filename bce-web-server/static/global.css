@@ -104,3 +104,8 @@ select option {
 .skip-link:focus {
   top: 0;
 }
+
+.alert {
+  position: absolute;
+  top: 0;
+}

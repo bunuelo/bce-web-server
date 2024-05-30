@@ -31,7 +31,7 @@
       <a href="#content" class="skip-link">Skip to main content</a>
       
       {#if $alert}
-        <div on:click={() => $alert = ''}>
+        <div on:click={() => $alert = ''} class="alert">
             <p>{ $alert }</p>
         </div>
       {/if}
