@@ -58,6 +58,25 @@
                 </select>
             </label>
         </li>
+        <li>
+            <label>
+                language: 
+                <select bind:value={language_selected} on:change={update_language}>
+	            <option value="">
+	                System Default
+	            </option>
+	            <option value="en">
+	                English
+	            </option>
+	            <option value="en">
+	                Spanish
+	            </option>
+	            <option value="ja">
+	                Japanese
+	            </option>
+                </select>
+            </label>
+        </li>
     {/if}
   </ul>
   
