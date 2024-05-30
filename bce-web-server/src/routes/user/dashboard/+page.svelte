@@ -35,7 +35,7 @@
 	    <a href="/user/acls">ACLs</a>: Access Control Lists (ACLs) can be created and managed by users to securely upload and optionally securely share data assets with other users.
         </li>
         <li>
-            <a href="/user/assets">assets</a>: User assets can be securely searched, viewed, and downloaded.
+            <a href="/user/assets">assets</a>: A user's data assets can be securely searched, viewed, and downloaded.
         </li>
       {/if}
   </ul>
