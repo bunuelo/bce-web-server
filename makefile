@@ -1,6 +1,7 @@
 
 SOURCE_FILES = \
   bce-web-server/vite.config.js \
+  bce-web-server/static/global.css \
   bce-web-server/src/lib/bce_inventory.js \
   bce-web-server/src/lib/bce_rest_api.js \
   bce-web-server/src/lib/bce_session.js \

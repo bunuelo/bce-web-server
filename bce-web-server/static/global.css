@@ -95,3 +95,13 @@ select option {
   color: var(--element1)
   background: var(--surface1);
 }
+
+.skip-link {
+  position: absolute;
+  top: -3em;
+  color: var(--surface1);
+  background: var(--element1);
+}
+.skip-link:focus {
+  top: 0;
+}
