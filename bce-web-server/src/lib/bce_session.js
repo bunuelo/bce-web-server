@@ -3,7 +3,7 @@ import { user_email, user_session_token, user_session_is_valid, user_security_le
 import BceRestApi from "./bce_rest_api.js";
 let bce_rest_api = new BceRestApi();
 
-function get_default_system_language() {
+function get_system_default_language() {
     var navigator_language = "en";
     if (navigator.languages != undefined) {
         navigator_language = navigator.languages[0];
@@ -121,7 +121,7 @@ export default class BceSession {
         this.set_cookie("language", result, 1);
         var language = result;
         if (language == "") {
-            language = get_default_system_language();
+            language = get_system_default_language();
         }
         return result;
     }
