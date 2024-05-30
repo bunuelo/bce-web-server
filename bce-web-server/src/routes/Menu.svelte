@@ -9,13 +9,21 @@
     import BceSession from "$lib/bce_session.js";
     
     let bce_session = new BceSession();
+
+    let user_tab_open = false;
     
     onMount(async () => {
         $user_session_is_valid = await bce_session.session_is_valid();
         $user_security_level = await bce_session.security_level();
     });
+
+    $ (function () {
+        user_tab_open = ("/user" in $page.url.pathname);
+    })();
     
 </script>
+
+<p>$page.url.pathname = "{$page.url.pathname}"</p>
 
 <nav aria-labelledby="mainmenulabel">
     <div id="mainmenulabel" hidden>Main Menu</div>
@@ -30,7 +38,7 @@
           <li>
 	      <a href="/user/dashboard">dashboard</a>
               <ul>
-                  {#if $user_security_level >= 25}
+                  {#if $user_security_level >= 25 && user_tab_open}
                     <li>
 	                <a href="/user/settings">settings</a>
                     </li>
