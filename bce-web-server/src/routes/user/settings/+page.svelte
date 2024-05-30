@@ -68,11 +68,11 @@
 	            <option value="en">
 	                English
 	            </option>
-	            <option value="en">
-	                Spanish
+	            <option value="es">
+	                Español
 	            </option>
 	            <option value="ja">
-	                Japanese
+	                日本語
 	            </option>
                 </select>
             </label>
