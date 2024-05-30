@@ -28,6 +28,7 @@
 
 {#if done_loading}
   <header>
+      <a href="#content" class="skip-link">Skip to main content</a>
       
       {#if $alert}
         <div on:click={() => $alert = ''}>
@@ -49,6 +50,7 @@
           </tr>
           <tr>
               <td>
+                  <main id="content"></main>
                   <slot />
               </td>
           </tr>
