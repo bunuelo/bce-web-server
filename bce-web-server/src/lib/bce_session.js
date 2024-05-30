@@ -7,6 +7,17 @@ import { user_color_theme } from './bce_stores.js'
 import BceRestApi from "./bce_rest_api.js";
 let bce_rest_api = new BceRestApi();
 
+function get_default_system_language() {
+    var navigator_language = "en";
+    if (navigator.languages != undefined) {
+        navigator_language = navigator.languages[0];
+    } else {
+        navigator_language = navigator.language;
+    }
+    console.log("navigator_language = \"" + navigator_language + "\"");
+    return navigator_language;
+}
+
 export default class BceSession {
     
     constructor() {
@@ -56,12 +67,16 @@ export default class BceSession {
         user_email.set(this.get_cookie("email"));
         user_session_token.set(this.get_cookie("session_token"));
         user_color_theme.set(this.get_cookie("color_theme"));
+        user_language.set(this.get_cookie("language"));
         if (get(user_color_theme) == "") {
             if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
                 user_color_theme.set("dark");
             } else {
                 user_color_theme.set("light");
             }
+        }
+        if (get(user_language) == "") {
+            user_language.set(get_system_default_language());
         }
         //console.log("BceSession.update_session_from_cookie: user_email = \"" + get(user_email) + "\", user_session_token = \"" + get(user_session_token) + "\"");
     }
@@ -102,7 +117,20 @@ export default class BceSession {
         return result;
     }
     
-  async update(payload = {}) {
+    async language() {
+        //console.log("BceSession.language: here.")
+        this.update_session_from_cookie();
+        let result = await bce_rest_api.session_language(get(user_session_token));
+        //console.log("BceSession.language: user_email = \"" + get(user_email) + "\", result = " + result);
+        this.set_cookie("language", result, 1);
+        var language = result;
+        if (language == "") {
+            language = get_default_system_language();
+        }
+        return result;
+    }
+    
+    async update(payload = {}) {
         //console.log("BceSession.update: color_theme=\"" + color_theme + "\"")
         this.update_session_from_cookie();
         let result = await bce_rest_api.session_update(get(user_session_token), payload);

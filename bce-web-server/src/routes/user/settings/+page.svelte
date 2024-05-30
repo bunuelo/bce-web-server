@@ -35,7 +35,7 @@
         var language = language_selected;
         console.log("Update language: \"" + language + "\"");
         var success = await bce_session.update({"language": language});
-        //$user_language = await bce_session.language();
+        $user_language = await bce_session.language();
     }
 </script>
 
@@ -54,7 +54,7 @@
                 color theme: 
                 <select bind:value={color_theme_selected} on:change={update_color_theme}>
 	            <option value="">
-	                System Default
+	                System Default Color Theme
 	            </option>
 	            <option value="dark">
 	                Dark
@@ -70,7 +70,7 @@
                 language: 
                 <select bind:value={language_selected} on:change={update_language}>
 	            <option value="">
-	                System Default
+	                System Default Language
 	            </option>
 	            <option value="en">
 	                English
