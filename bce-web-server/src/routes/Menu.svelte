@@ -32,12 +32,15 @@
               <ul>
                   {#if $user_security_level >= 25}
                     <li>
+	                <a href="/user/settings">settings</a>
+                    </li>
+                    <li>
 	                <a href="/user/acls">ACLs</a>
                     </li>
-                  <li>
-                      <a href="/user/assets">assets</a>
-                  </li>
-                {/if}
+                    <li>
+                        <a href="/user/assets">assets</a>
+                    </li>
+                  {/if}
               </ul>
           </li>
         {:else}
