@@ -73,10 +73,10 @@
 	                System Default Language
 	            </option>
 	            <option value="en">
-	                English
+	                English Language
 	            </option>
 	            <option value="es">
-	                Español
+	                Lengua Epañola
 	            </option>
 	            <option value="ja">
 	                日本語
