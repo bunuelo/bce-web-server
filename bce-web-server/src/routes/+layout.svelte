@@ -21,30 +21,35 @@
 
 </script>
 
-<link rel="icon" href="/favicon.png?v=2" />
+<link rel="icon" href="/favicon.png" />
 
-{#if $alert}
-<div on:click={() => $alert = ''}>
-  <p>{ $alert }</p>
-</div>
+{#if !$navigating}
+  <div>
+      
+      {#if $alert}
+        <div on:click={() => $alert = ''}>
+            <p>{ $alert }</p>
+        </div>
+      {/if}
+      
+      <table width="100%">
+          <tr>
+              <td>
+                  <Logo />
+              </td>
+          <tr>
+          </tr>
+          <tr>
+              <td>
+                  <Menu />
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <slot />
+              </td>
+          </tr>
+      </table>
+      
+  </div>
 {/if}
-
-<table width="100%">
-  <tr>
-    <td>
-      <Logo />
-    </td>
-  <tr>
-  </tr>
-  <tr>
-    <td>
-      <Menu />
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <slot />
-    </td>
-  </tr>
-</table>
-
