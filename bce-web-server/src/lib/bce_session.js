@@ -59,6 +59,8 @@ export default class BceSession {
         if (get(user_color_theme) == "") {
             if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
                 user_color_theme.set("dark");
+            } else {
+                user_color_theme.set("light");
             }
         }
         //console.log("BceSession.update_session_from_cookie: user_email = \"" + get(user_email) + "\", user_session_token = \"" + get(user_session_token) + "\"");
