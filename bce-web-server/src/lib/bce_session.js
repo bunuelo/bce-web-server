@@ -87,9 +87,17 @@ export default class BceSession {
         this.update_session_from_cookie();
         let result = await bce_rest_api.session_color_theme(get(user_session_token));
         //console.log("BceSession.color_theme: user_email = \"" + get(user_email) + "\", result = " + result);
-        if (result == "light" || result == "dark") {
-            this.set_cookie("color_theme", result, 1);
-            document.documentElement.setAttribute("color-mode", result);
+        this.set_cookie("color_theme", result, 1);
+        var color_theme = result;
+        if (color_theme == "") {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                color_theme = "dark";
+            } else {
+                color_theme = "light";
+            }
+        }
+        if (color_theme == "light" || color_theme == "dark") {
+            document.documentElement.setAttribute("color-mode", color_theme);
         }
         return result;
     }
