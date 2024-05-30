@@ -22,8 +22,8 @@
     });
 
     async function update_color_theme() {
-        console.log("Update color theme.");
         var color_theme = color_theme_selected;
+        console.log("Update color theme: \"" + color_theme + "\"");
         var success = await bce_session.update(color_theme);
         $user_color_theme = await bce_session.color_theme();
         if ($user_color_theme == "light" || $user_color_theme == "dark") {
