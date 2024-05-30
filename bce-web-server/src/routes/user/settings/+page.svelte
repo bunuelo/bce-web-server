@@ -24,7 +24,7 @@
     async function update_color_theme() {
         var color_theme = color_theme_selected;
         console.log("Update color theme: \"" + color_theme + "\"");
-        var success = await bce_session.update(color_theme);
+        var success = await bce_session.update({"color_theme": color_theme});
         $user_color_theme = await bce_session.color_theme();
         if ($user_color_theme == "light" || $user_color_theme == "dark") {
             document.documentElement.setAttribute("color-mode", $user_color_theme);
@@ -34,7 +34,7 @@
     async function update_language() {
         var language = language_selected;
         console.log("Update language: \"" + language + "\"");
-        //var success = await bce_session.update(language);
+        var success = await bce_session.update({"language": language});
         //$user_language = await bce_session.language();
     }
 </script>
