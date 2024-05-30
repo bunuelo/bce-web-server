@@ -1,5 +1,6 @@
 <script lang="ts">
     import { onMount } from 'svelte';
+    import { getStores, navigating, page, updated } from '$app/stores';
     import Logo from './Logo.svelte'
     import Menu from './Menu.svelte'
     import { alert } from '$lib/bce_stores.js'
