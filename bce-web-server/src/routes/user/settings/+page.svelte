@@ -7,7 +7,7 @@
     import BceSession from "$lib/bce_session.js";
     let bce_session = new BceSession();
     
-    let color_theme_selected = "dark";
+    let color_theme_selected = "";
     
     onMount(async () => {
         if (! $user_session_is_valid) {
@@ -46,6 +46,9 @@
             <label>
                 color theme: 
                 <select bind:value={color_theme_selected} on:change={update_color_theme}>
+	            <option value="">
+	                System Default
+	            </option>
 	            <option value="dark">
 	                Dark
 	            </option>
