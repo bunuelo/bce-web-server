@@ -8,6 +8,8 @@
     import BceSession from "$lib/bce_session.js";
     let bce_session = new BceSession();
 
+    let done_loading = false;
+    
     onMount(async () => {
         bce_session.update_session_from_cookie();
         if ($user_color_theme == "light" || $user_color_theme == "dark") {
@@ -17,13 +19,14 @@
         if ($user_color_theme == "light" || $user_color_theme == "dark") {
              document.documentElement.setAttribute("color-mode", $user_color_theme);
         }
+        done_loading = true;
     });
 
 </script>
 
 <link rel="icon" href="/favicon.png" />
 
-{#if !$navigating}
+{#if done_loading}
   <div>
       
       {#if $alert}
