@@ -34,8 +34,8 @@
     async function update_language() {
         var language = language_selected;
         console.log("Update language: \"" + language + "\"");
-        var success = await bce_session.update(language);
-        $user_language = await bce_session.language();
+        //var success = await bce_session.update(language);
+        //$user_language = await bce_session.language();
     }
 </script>
 
