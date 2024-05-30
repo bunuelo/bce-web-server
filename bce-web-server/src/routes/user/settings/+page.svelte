@@ -57,10 +57,10 @@
 	                System Default Color Theme
 	            </option>
 	            <option value="dark">
-	                Dark
+	                Dark Color Theme
 	            </option>
 	            <option value="light">
-	                Light
+	                Light Color Theme
 	            </option>
                 </select>
             </label>
