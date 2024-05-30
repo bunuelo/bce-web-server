@@ -17,7 +17,7 @@
         $user_security_level = await bce_session.security_level();
     });
 
-    $ (function () {
+    $: (function () {
         user_tab_open = ("/user" in $page.url.pathname);
     })();
     
