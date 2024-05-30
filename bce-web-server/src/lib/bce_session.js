@@ -56,6 +56,11 @@ export default class BceSession {
         user_email.set(this.get_cookie("email"));
         user_session_token.set(this.get_cookie("session_token"));
         user_color_theme.set(this.get_cookie("color_theme"));
+        if (get(user_color_theme) == "") {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                user_color_theme.set("dark");
+            }
+        }
         //console.log("BceSession.update_session_from_cookie: user_email = \"" + get(user_email) + "\", user_session_token = \"" + get(user_session_token) + "\"");
     }
     
