@@ -29,13 +29,13 @@
   <ul>
       {#if $user_security_level >= 25}
         <li>
-	    <a href="/user/settings">settings</a>
+	    <a href="/user/settings">settings</a>: User display and other settings can be configured.
         </li>
         <li>
-	    <a href="/user/acls">ACLs</a>
+	    <a href="/user/acls">ACLs</a>: Access Control Lists (ACLs) can be created and managed by users to securely upload and share data assets.
         </li>
         <li>
-            <a href="/user/assets">assets</a>
+            <a href="/user/assets">assets</a>: User assets can be securely searched, viewed, and downloaded.
         </li>
       {/if}
   </ul>
