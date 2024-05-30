@@ -32,7 +32,7 @@
 	    <a href="/user/settings">settings</a>: User display and other settings can be configured.
         </li>
         <li>
-	    <a href="/user/acls">ACLs</a>: Access Control Lists (ACLs) can be created and managed by users to securely upload and share data assets.
+	    <a href="/user/acls">ACLs</a>: Access Control Lists (ACLs) can be created and managed by users to securely upload and optionally share data assets with other users.
         </li>
         <li>
             <a href="/user/assets">assets</a>: User assets can be securely searched, viewed, and downloaded.
