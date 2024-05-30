@@ -18,7 +18,7 @@
     });
 
     $: (function () {
-        user_tab_open = ("/user" in $page.url.pathname);
+        user_tab_open = ($page.url.pathname).includes("/user");
     })();
     
 </script>
