@@ -28,14 +28,14 @@
 	      <a href="/user/logout">logout</a>
           </li>
           <li>
-	      <a href="/user/dashboard">user dashboard</a>
+	      <a href="/user/dashboard">dashboard</a>
               <ul>
                   {#if $user_security_level >= 25}
                     <li>
-	                <a href="/user/acls">user ACLs</a>
+	                <a href="/user/acls">ACLs</a>
                     </li>
                   <li>
-                      <a href="/user/assets">user assets</a>
+                      <a href="/user/assets">assets</a>
                   </li>
                 {/if}
               </ul>

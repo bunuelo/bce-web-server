@@ -33,12 +33,12 @@
     </script>
 
 <svelte:head>
-    <title>User Dashboard</title>
+    <title>Dashboard</title>
 </svelte:head>
 
 {#if $user_session_is_valid}
 
-  <h1>User Dashboard</h1>
+  <h1>Dashboard</h1>
   
   <label>
       color theme: 
@@ -55,10 +55,10 @@
   <ul>
       {#if $user_security_level >= 25}
         <li>
-	    <a href="/user/acls">user ACLs</a>
+	    <a href="/user/acls">ACLs</a>
         </li>
       <li>
-          <a href="/user/assets">user assets</a>
+          <a href="/user/assets">assets</a>
       </li>
     {/if}
   </ul>
