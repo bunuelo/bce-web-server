@@ -52,14 +52,16 @@
       </select>
   </label>
   
-  {#if $user_security_level >= 25}
-    <li>
-	<a href="/user/acls">user ACLs</a>
-    </li>
-    <li>
-        <a href="/user/assets">user assets</a>
-    </li>
-  {/if}
+  <ul>
+      {#if $user_security_level >= 25}
+        <li>
+	    <a href="/user/acls">user ACLs</a>
+        </li>
+      <li>
+          <a href="/user/assets">user assets</a>
+      </li>
+    {/if}
+  </ul>
   
 {/if}
 
