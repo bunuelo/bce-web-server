@@ -8,6 +8,7 @@
     let bce_session = new BceSession();
     
     let color_theme_selected = "";
+    let language_selected = "";
     
     onMount(async () => {
         if (! $user_session_is_valid) {
@@ -18,6 +19,7 @@
         }
         $user_security_level = await bce_session.security_level();
         $user_color_theme = await bce_session.color_theme();
+        //$user_language = await bce_session.language();
         color_theme_selected = $user_color_theme;
     });
 
@@ -30,7 +32,14 @@
             document.documentElement.setAttribute("color-mode", $user_color_theme);
         }
     }
-    </script>
+
+    async function update_language() {
+        var language = language_selected;
+        console.log("Update language: \"" + language + "\"");
+        var success = await bce_session.update(language);
+        $user_language = await bce_session.language();
+    }
+</script>
 
 <svelte:head>
     <title>Settings</title>
