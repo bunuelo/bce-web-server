@@ -23,60 +23,58 @@
     
 </script>
 
-<p>$page.url.pathname = "{$page.url.pathname}"</p>
-
 <nav aria-labelledby="mainmenulabel">
     <div id="mainmenulabel" hidden>Main Menu</div>
     <ul>
         <li>
-	    <a href="/" aria-current={$page.url.pathname === '/'}>home</a>
+	    <a href="/" aria-current={$page.url.pathname === "/"}>home</a>
         </li>
         {#if $user_session_is_valid}
           <li>
-	      <a href="/user/logout">logout</a>
+	      <a href="/user/logout" aria-current={$page.url.pathname === "/user/logout"}>logout</a>
           </li>
           <li>
-	      <a href="/user/dashboard">dashboard</a>
+	      <a href="/user/dashboard" aria-current={$page.url.pathname === "/user/dashboard"}>dashboard</a>
               <ul>
                   {#if $user_security_level >= 25 && user_tab_open}
                     <li>
-	                <a href="/user/settings">settings</a>
+	                <a href="/user/settings" aria-current={$page.url.pathname === "/user/settings"}>settings</a>
                     </li>
                     <li>
-	                <a href="/user/acls">ACLs</a>
+	                <a href="/user/acls" aria-current={$page.url.pathname === "/user/acls"}>ACLs</a>
                     </li>
                     <li>
-                        <a href="/user/assets">assets</a>
+                        <a href="/user/assets" aria-current={$page.url.pathname === "/user/assets"}>assets</a>
                     </li>
                   {/if}
               </ul>
           </li>
         {:else}
           <li>
-	      <a href="/user/login">login</a>
+	      <a href="/user/login" aria-current={$page.url.pathname === "/user/login"}>login</a>
           </li>
           <li>
-	      <a href="/user/create-account">create account</a>
+	      <a href="/user/create-account" aria-current={$page.url.pathname === "/user/create-account"}>create account</a>
           </li>
         {/if}
         {#if $user_security_level >= 25}
           <li>
-	      <a href="/design">design</a>
+	      <a href="/design" aria-current={$page.url.pathname === "/design"}>design</a>
           </li>
         {/if}
         {#if $user_security_level >= 100}
           <li>
-	      <a href="/inventory">inventory</a>
+	      <a href="/inventory" aria-current={$page.url.pathname === "/inventory"}>inventory</a>
           </li>
         {/if}
         <li>
-            <a href="/docs">docs</a>
+            <a href="/docs" aria-current={$page.url.pathname === "/docs"}>docs</a>
         </li>
         <li>
-	    <a href="/terms">terms</a>
+	    <a href="/terms" aria-current={$page.url.pathname === "/terms"}>terms</a>
         </li>
         <li>
-	    <a href="/contact">contact</a>
+	    <a href="/contact" aria-current={$page.url.pathname === "/contact"}>contact</a>
         </li>
     </ul>
 </nav>
