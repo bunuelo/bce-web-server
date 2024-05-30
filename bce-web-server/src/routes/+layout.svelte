@@ -27,7 +27,7 @@
 <link rel="icon" href="/favicon.png" />
 
 {#if done_loading}
-  <div>
+  <header>
       
       {#if $alert}
         <div on:click={() => $alert = ''}>
@@ -54,5 +54,5 @@
           </tr>
       </table>
       
-  </div>
+  </header>
 {/if}
