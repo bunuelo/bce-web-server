@@ -53,7 +53,7 @@
       {#if $user_security_level >= 25}
         <li>
             <label>
-                color theme: 
+                {bce_lang($user_language, "page_settings_label_color_theme")}: 
                 <select bind:value={color_theme_selected} on:change={update_color_theme}>
 	            <option value="">
 	                {bce_lang($user_language, "page_settings_label_system_default_color_theme")}
