@@ -206,8 +206,7 @@
               </td>
               <td>
                   {#if acl.owner}
-                    <a href="#" on:click={() => on_click_delete_acl(acl.acl_id)}
-                        aria-label="Delete {acl.display_name}">delete</a>
+                    <a href="#" on:click={() => on_click_delete_acl(acl.acl_id)}>{bce_lang($user_language, "page_acls_label_delete")}</a>
                   {/if}
                   {#if acl.owner}
                     <a href="#" on:click={() => on_click_upload_asset(acl.acl_id)}
