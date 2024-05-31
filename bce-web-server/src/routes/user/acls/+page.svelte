@@ -147,7 +147,7 @@
   
   <table>
       <tr>
-          <td><i>Display Name</i></td>
+          <td><i>{bce_lang($user_language, "page_acls_label_display_name")}</i></td>
           <td style="text-align:center;"><i>Owner</i></td>
           <td style="text-align:center;"><i>Read</i></td>
           <td style="text-align:center;"><i>Write</i></td>
