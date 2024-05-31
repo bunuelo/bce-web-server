@@ -60,7 +60,8 @@
     "page_acls_aria_label_edit": "edit display name",
     "page_assets_title": "Assets",
     "page_assets_label_acl": "ACL",
-    "page_assets_label_all": "All"
+    "page_assets_label_all": "All",
+    "page_docs_title": "Docs"
   },
   "es": {
     "bce": "BCE: las empresas de computadoras cerebrales",
@@ -123,7 +124,8 @@
     "page_acls_aria_label_edit": "Editar nombre para mostrar",
     "page_assets_title": "Activo",
     "page_assets_label_acl": "Lista de control de acceso",
-    "page_assets_label_all": "Todo"
+    "page_assets_label_all": "Todo",
+    "page_docs_title": "Docs"
   },
   "ja": {
     "bce": "BCE: ブレイン・コンピュータ・エンタープライズ",
@@ -186,7 +188,8 @@
     "page_acls_aria_label_edit": "表示名の編集",
     "page_assets_title": "財産",
     "page_assets_label_acl": "アクセス制御リスト",
-    "page_assets_label_all": "すべての"
+    "page_assets_label_all": "すべての",
+    "page_docs_title": "ドキュメント"
   },
   "ru": {
     "bce": "BCE: Компьютерные предприятия мозга",
@@ -249,7 +252,8 @@
     "page_acls_aria_label_edit": "Редактировать отображаемое имя",
     "page_assets_title": "Авуары",
     "page_assets_label_acl": "Список контроля доступа",
-    "page_assets_label_all": "Все"
+    "page_assets_label_all": "Все",
+    "page_docs_title": "Документы"
   },
   "uk": {
     "bce": "BCE: Мозок комп'ютерних підприємств",
@@ -312,7 +316,8 @@
     "page_acls_aria_label_edit": "Редагувати відображуване ім'я",
     "page_assets_title": "Активів",
     "page_assets_label_acl": "Список контролю доступу",
-    "page_assets_label_all": "Увесь"
+    "page_assets_label_all": "Увесь",
+    "page_docs_title": "Документи"
   },
   "zh": {
     "bce": "BCE: 脑机企业",
@@ -375,6 +380,7 @@
     "page_acls_aria_label_edit": "编辑显示名称",
     "page_assets_title": "资产",
     "page_assets_label_acl": "访问控制列表",
-    "page_assets_label_all": "都"
+    "page_assets_label_all": "都",
+    "page_docs_title": "文档"
   }
 }
