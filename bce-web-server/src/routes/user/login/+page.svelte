@@ -61,7 +61,7 @@
   </tr>
   <tr>
     <td>
-      password:
+      {bce_lang($user_language, "page_login_label_password")}:
     </td>
     <td>
       <input type="password" bind:value={password}>
