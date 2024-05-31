@@ -4,6 +4,8 @@
     import { goto } from '$app/navigation';
     import { alert } from '$lib/bce_stores.js'
     import { user_security_level } from '$lib/bce_stores.js'
+    import { user_language } from '$lib/bce_stores.js'
+    import { bce_lang } from '$lib/bce_locale.js'
     import BceSession from "$lib/bce_session.js";
     let bce_session = new BceSession();
     import BceInventory from "$lib/bce_inventory.js";
@@ -86,11 +88,11 @@
 </script>
 
 <svelte:head>
-    <title>Inventory</title>
+    <title>{bce_lang($user_language, "page_docs_inventory")}</title>
 </svelte:head>
 
 {#if products}
-  <h1>Inventory</h1>
+  <h1>{bce_lang($user_language, "page_docs_inventory")}</h1>
 
   <a href="#" on:click={on_click_ingest_products}>ingest products</a>
   
