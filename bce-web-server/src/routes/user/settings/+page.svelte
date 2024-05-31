@@ -41,12 +41,12 @@
 </script>
 
 <svelte:head>
-    <title>Settings</title>
+    <title>{bce_lang($user_language, "page_settings_title")}</title>
 </svelte:head>
 
 {#if $user_session_is_valid}
 
-  <h1>Settings</h1>
+  <h1>{bce_lang($user_language, "page_settings_title")}</h1>
   
   <ul>
       {#if $user_security_level >= 25}

@@ -13,7 +13,8 @@
     "menu_inventory": "inventory",
     "menu_docs": "docs",
     "menu_terms": "terms",
-    "menu_contact": "contact"
+    "menu_contact": "contact",
+    "page_settings_title": "Settings"
   },
   "es": {
     "bce": "BCE: las empresas de computadoras cerebrales",
@@ -29,7 +30,8 @@
     "menu_inventory": "inventario",
     "menu_docs": "docs",
     "menu_terms": "letra chica",
-    "menu_contact": "contacto"
+    "menu_contact": "contacto",
+    "page_settings_title": "Configuración"
   },
   "ja": {
     "bce": "BCE: ブレイン・コンピュータ・エンタープライズ",
@@ -45,7 +47,8 @@
     "menu_inventory": "在庫",
     "menu_docs": "ドキュメント",
     "menu_terms": "条件",
-    "menu_contact": "接触"
+    "menu_contact": "接触",
+    "page_settings_title": "設定"
   },
   "ru": {
     "bce": "BCE: Компьютерные предприятия мозга",
@@ -61,7 +64,8 @@
     "menu_inventory": "инвентарь",
     "menu_docs": "Документы",
     "menu_terms": "Условия",
-    "menu_contact": "контакт"
+    "menu_contact": "контакт",
+    "page_settings_title": "Параметры"
   },
   "uk": {
     "bce": "BCE: Мозок комп'ютерних підприємств",
@@ -77,7 +81,8 @@
     "menu_inventory": "iнвентаризації",
     "menu_docs": "Документи",
     "menu_terms": "Умови",
-    "menu_contact": "Контакт"
+    "menu_contact": "Контакт",
+    "page_settings_title": "Параметри"
   },
   "zh": {
     "bce": "BCE: 脑机企业",
@@ -93,6 +98,7 @@
     "menu_inventory": "库存",
     "menu_docs": "文档",
     "menu_terms": "条款",
-    "menu_contact": "联系"
+    "menu_contact": "联系",
+    "page_settings_title": "设置"
   }
 }
