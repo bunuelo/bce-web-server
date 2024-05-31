@@ -6,7 +6,8 @@
     "menu_dashboard": "dashboard",
     "menu_settings": "settings",
     "menu_acls": "ACLs",
-    "menu_assets": "assets"
+    "menu_assets": "assets",
+    "menu_login": "login"
   },
   "es": {
     "bce": "BCE: las empresas de computadoras cerebrales",
@@ -15,7 +16,8 @@
     "menu_dashboard": "salpicadero",
     "menu_settings": "configuración",
     "menu_acls": "listas de control de acceso",
-    "menu_assets": "activo"
+    "menu_assets": "activo",
+    "menu_login": "iniciar sesión"
   },
   "ja": {
     "bce": "BCE: ブレイン・コンピュータ・エンタープライズ",
@@ -24,7 +26,8 @@
     "menu_dashboard": "ダッシュボード",
     "menu_settings": "設定",
     "menu_acls": "アクセス制御リスト",
-    "menu_assets": "財産"
+    "menu_assets": "財産",
+    "menu_login": "ログイン"
   },
   "ru": {
     "bce": "BCE: Компьютерные предприятия мозга",
@@ -32,8 +35,9 @@
     "menu_logout": "bыход",
     "menu_dashboard": "щиток",
     "menu_settings": "Параметры",
-    "menu_acls": "Списки контроля доступа",
-    "menu_assets": "авуары"
+    "menu_acls": "cписки контроля доступа",
+    "menu_assets": "авуары",
+    "menu_login": "логин"
   },
   "uk": {
     "bce": "BCE: Мозок комп'ютерних підприємств",
@@ -42,7 +46,8 @@
     "menu_dashboard": "Панелі",
     "menu_settings": "Параметри",
     "menu_acls": "Списки контролю доступу",
-    "menu_assets": "Активів"
+    "menu_assets": "Активів",
+    "menu_login": "Логін"
   },
   "zh": {
     "bce": "BCE: 脑机企业",
@@ -51,6 +56,7 @@
     "menu_dashboard": "挡泥板",
     "menu_settings": "设置",
     "menu_acls": "访问控制列表",
-    "menu_assets": "资产"
+    "menu_assets": "资产",
+    "menu_login": "登录"
   }
 }

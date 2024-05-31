@@ -51,7 +51,7 @@
           </li>
         {:else}
           <li>
-	      <a href="/user/login" aria-current={$page.url.pathname === "/user/login"}>login</a>
+	      <a href="/user/login" aria-current={$page.url.pathname === "/user/login"}>{bce_lang($user_language, "menu_login")}</a>
           </li>
           <li>
 	      <a href="/user/create-account" aria-current={$page.url.pathname === "/user/create-account"}>create account</a>
