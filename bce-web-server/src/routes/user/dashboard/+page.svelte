@@ -37,7 +37,7 @@
 	    <a href="/user/acls">{bce_lang($user_language, "page_dashboard_label_acls")}</a>: {bce_lang($user_language, "page_dashboard_description_acls")}
         </li>
         <li>
-            <a href="/user/assets">{bce_lang($user_language, "page_dashboard_label_assets")}</a>: A user's data assets can be securely searched, viewed, and downloaded.
+            <a href="/user/assets">{bce_lang($user_language, "page_dashboard_label_assets")}</a>: {bce_lang($user_language, "page_dashboard_description_assets")}
         </li>
       {/if}
   </ul>
