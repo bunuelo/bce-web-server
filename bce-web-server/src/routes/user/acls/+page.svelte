@@ -52,7 +52,7 @@
     async function on_click_delete_acl(acl_id) {
         let success = await bce_session.delete_acl(acl_id);
         if (success) {
-            $alert = "ACL deleted successfully!";
+            $alert = bce_lang($user_language, "page_acls_alert_delete_acl_success");
             await update_acl_list();
         } else {
             $alert = "Failed to delete ACL.";
