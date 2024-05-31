@@ -4,41 +4,47 @@
     "menu_home": "home",
     "menu_logout": "logout",
     "menu_dashboard": "dashboard",
-    "menu_settings": "settings"
+    "menu_settings": "settings",
+    "menu_acls": "ACLs"
   },
   "es": {
     "bce": "BCE: las empresas de computadoras cerebrales",
     "menu_home": "hogar",
     "menu_logout": "cerrar sesión",
     "menu_dashboard": "salpicadero",
-    "menu_settings": "configuración"
+    "menu_settings": "configuración",
+    "menu_acls": "Listas de control de acceso"
   },
   "ja": {
     "bce": "BCE: ブレイン・コンピュータ・エンタープライズ",
     "menu_home": "家",
     "menu_logout": "ログアウト",
     "menu_dashboard": "ダッシュボード",
-    "menu_settings": "設定"
+    "menu_settings": "設定",
+    "menu_acls": "アクセス制御リスト"
   },
   "ru": {
     "bce": "BCE: Компьютерные предприятия мозга",
     "menu_home": "дом",
     "menu_logout": "bыход",
     "menu_dashboard": "щиток",
-    "menu_settings": "Параметры"
+    "menu_settings": "Параметры",
+    "menu_acls": "Списки контроля доступа"
   },
   "uk": {
     "bce": "BCE: Мозок комп'ютерних підприємств",
     "menu_home": "дім",
     "menu_logout": "bихід",
     "menu_dashboard": "Панелі",
-    "menu_settings": "Параметри"
+    "menu_settings": "Параметри",
+    "menu_acls": "Списки контролю доступу"
   },
   "zh": {
     "bce": "BCE: 脑机企业",
     "menu_home": "家",
     "menu_logout": "注销",
     "menu_dashboard": "挡泥板",
-    "menu_settings": "设置"
+    "menu_settings": "设置",
+    "menu_acls": "访问控制列表"
   }
 }
