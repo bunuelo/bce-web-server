@@ -10,6 +10,8 @@
     import { user_security_level } from '$lib/bce_stores.js'
     import { user_session_is_valid } from '$lib/bce_stores.js'
     import { user_color_theme } from '$lib/bce_stores.js'
+    import { user_language } from '$lib/bce_stores.js'
+    import { bce_lang } from '$lib/bce_locale.js'
     let bce_rest_api = new BceRestApi();
     let bce_session = new BceSession();
 
@@ -43,10 +45,10 @@
 </script>
 
 <svelte:head>
-    <title>Login</title>
+    <title>{bce_lang($user_language, "page_login_title")}</title>
 </svelte:head>
 
-<h1>Login</h1>
+<h1>{bce_lang($user_language, "page_login_title")}</h1>
 
 <table>
   <tr>
