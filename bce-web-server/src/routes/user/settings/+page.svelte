@@ -88,6 +88,9 @@
 	            <option value="uk">
 	                Українська мова
 	            </option>
+	            <option value="zh">
+                        中文
+	            </option>
                 </select>
             </label>
         </li>

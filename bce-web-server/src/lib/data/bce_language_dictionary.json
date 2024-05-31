@@ -21,17 +21,24 @@
     "menu_settings": "設定"
   },
   "ru": {
-    "bce": "BCE: ",
+    "bce": "BCE: Компьютерные предприятия мозга",
     "menu_home": "дом",
     "menu_logout": "bыход",
     "menu_dashboard": "щиток",
     "menu_settings": "Параметры"
   },
   "uk": {
-    "bce": "BCE: ",
+    "bce": "BCE: Мозок комп'ютерних підприємств",
     "menu_home": "дім",
     "menu_logout": "bихід",
     "menu_dashboard": "Панелі",
     "menu_settings": "Параметри"
+  },
+  "zh": {
+    "bce": "BCE: 脑机企业",
+    "menu_home": "家",
+    "menu_logout": "注销",
+    "menu_dashboard": "挡泥板",
+    "menu_settings": "设置"
   }
 }
