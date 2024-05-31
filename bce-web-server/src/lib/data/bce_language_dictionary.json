@@ -8,7 +8,8 @@
     "menu_acls": "ACLs",
     "menu_assets": "assets",
     "menu_login": "login",
-    "menu_create_account": "create account"
+    "menu_create_account": "create account",
+    "menu_design": "design"
   },
   "es": {
     "bce": "BCE: las empresas de computadoras cerebrales",
@@ -19,7 +20,8 @@
     "menu_acls": "listas de control de acceso",
     "menu_assets": "activo",
     "menu_login": "iniciar sesión",
-    "menu_create_account": "crear una cuenta"
+    "menu_create_account": "crear una cuenta",
+    "menu_design": "diseño"
   },
   "ja": {
     "bce": "BCE: ブレイン・コンピュータ・エンタープライズ",
@@ -30,7 +32,8 @@
     "menu_acls": "アクセス制御リスト",
     "menu_assets": "財産",
     "menu_login": "ログイン",
-    "menu_create_account": "アカウント作成"
+    "menu_create_account": "アカウント作成",
+    "menu_design": "設計"
   },
   "ru": {
     "bce": "BCE: Компьютерные предприятия мозга",
@@ -41,7 +44,8 @@
     "menu_acls": "cписки контроля доступа",
     "menu_assets": "авуары",
     "menu_login": "логин",
-    "menu_create_account": "cоздать аккаунт"
+    "menu_create_account": "cоздать аккаунт",
+    "menu_design": "проектировать"
   },
   "uk": {
     "bce": "BCE: Мозок комп'ютерних підприємств",
@@ -52,7 +56,8 @@
     "menu_acls": "Списки контролю доступу",
     "menu_assets": "Активів",
     "menu_login": "Логін",
-    "menu_create_account": "cтворити обліковий запис"
+    "menu_create_account": "cтворити обліковий запис",
+    "menu_design": "проект"
   },
   "zh": {
     "bce": "BCE: 脑机企业",
@@ -63,6 +68,7 @@
     "menu_acls": "访问控制列表",
     "menu_assets": "资产",
     "menu_login": "登录",
-    "menu_create_account": "创建账户"
+    "menu_create_account": "创建账户",
+    "menu_design": "设计"
   }
 }

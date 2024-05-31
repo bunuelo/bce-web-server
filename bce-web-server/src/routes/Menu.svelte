@@ -59,7 +59,7 @@
         {/if}
         {#if $user_security_level >= 25}
           <li>
-	      <a href="/design" aria-current={$page.url.pathname === "/design"}>design</a>
+	      <a href="/design" aria-current={$page.url.pathname === "/design"}>{bce_lang($user_language, "menu_design")}</a>
           </li>
         {/if}
         {#if $user_security_level >= 100}
