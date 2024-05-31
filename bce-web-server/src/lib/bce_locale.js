@@ -24,12 +24,6 @@ let bce_language_dictionary = {
   },
 };
 
-function get_user_language() {
-    if (get(user_language) == "") {
-    }
-
-}
-
 export const get_system_default_language = function() {
     var navigator_language = "en";
     if (navigator.languages != undefined) {
@@ -39,6 +33,18 @@ export const get_system_default_language = function() {
     }
     console.log("navigator_language = \"" + navigator_language + "\"");
     return navigator_language;
+}
+
+function get_user_language() {
+    if (get(user_language) == "") {
+        let default_language = get_system_default_language();
+        for (var supported_language in bce_language_dictionary) {
+            if (default_language.startsWith(supported_language)) {
+                return supported_language;
+            }
+        }
+    }
+    return get(user_language);
 }
 
 export const bce_lang = function (key) {
