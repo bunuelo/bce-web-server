@@ -34,7 +34,8 @@
     "page_settings_label_dark_color_theme": "Dark Color Theme",
     "page_settings_label_light_color_theme": "Light Color Theme",
     "page_settings_label_language": "language",
-    "page_settings_label_system_default_language": "System Default Language"
+    "page_settings_label_system_default_language": "System Default Language",
+    "page_acls_title": "ACLs"
   },
   "es": {
     "bce": "BCE: las empresas de computadoras cerebrales",
@@ -71,7 +72,8 @@
     "page_settings_label_dark_color_theme": "Tema de color oscuro",
     "page_settings_label_light_color_theme": "Tema de color claro",
     "page_settings_label_language": "idioma",
-    "page_settings_label_system_default_language": "Idioma predeterminado del sistema"
+    "page_settings_label_system_default_language": "Idioma predeterminado del sistema",
+    "page_acls_title": "listas de control de acceso"
   },
   "ja": {
     "bce": "BCE: ブレイン・コンピュータ・エンタープライズ",
@@ -108,7 +110,8 @@
     "page_settings_label_dark_color_theme": "ダークカラーテーマ",
     "page_settings_label_light_color_theme": "ライトカラーテーマ",
     "page_settings_label_language": "言語",
-    "page_settings_label_system_default_language": "システムのデフォルト言語"
+    "page_settings_label_system_default_language": "システムのデフォルト言語",
+    "page_acls_title": "アクセス制御リスト"
   },
   "ru": {
     "bce": "BCE: Компьютерные предприятия мозга",
@@ -145,7 +148,8 @@
     "page_settings_label_dark_color_theme": "Темная цветовая тема",
     "page_settings_label_light_color_theme": "Светлая цветовая тема",
     "page_settings_label_language": "Язык",
-    "page_settings_label_system_default_language": "Системный язык по умолчанию"
+    "page_settings_label_system_default_language": "Системный язык по умолчанию",
+    "page_acls_title": "Cписки контроля доступа"
   },
   "uk": {
     "bce": "BCE: Мозок комп'ютерних підприємств",
@@ -182,7 +186,8 @@
     "page_settings_label_dark_color_theme": "Темна колірна тема",
     "page_settings_label_light_color_theme": "Тема світлих кольорів",
     "page_settings_label_language": "Мова",
-    "page_settings_label_system_default_language": "Мова за замовчуванням у системі"
+    "page_settings_label_system_default_language": "Мова за замовчуванням у системі",
+    "page_acls_title": "Списки контролю доступу"
   },
   "zh": {
     "bce": "BCE: 脑机企业",
@@ -219,6 +224,7 @@
     "page_settings_label_dark_color_theme": "深色主题",
     "page_settings_label_light_color_theme": "浅色主题",
     "page_settings_label_language": "语言",
-    "page_settings_label_system_default_language": "系统默认语言"
+    "page_settings_label_system_default_language": "系统默认语言",
+    "page_acls_title": "访问控制列表"
   }
 }
