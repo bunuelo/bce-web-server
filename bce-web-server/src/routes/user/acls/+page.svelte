@@ -219,8 +219,7 @@
   
   <p>
     <input type="text" bind:value="{new_acl_display_name}" style="width: 150px;" />
-    <a href="#" on:click={on_click_create_acl}
-       aria-label="Create ACL">create ACL</a>
+    <a href="#" on:click={on_click_create_acl}>{bce_lang($user_language, "page_acls_label_create_acl")}</a>
   </p>
 
 {/if}

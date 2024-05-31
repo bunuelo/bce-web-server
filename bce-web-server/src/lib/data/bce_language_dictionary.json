@@ -53,6 +53,7 @@
     "page_acls_label_save": "save",
     "page_acls_label_delete": "delete",
     "page_acls_label_upload": "upload assets",
+    "page_acls_label_create_acl": "create ACL",
     "page_acls_aria_label_save": "save display name",
     "page_acls_aria_label_edit": "edit display name"
   },
@@ -110,6 +111,7 @@
     "page_acls_label_save": "salvar",
     "page_acls_label_delete": "borrar",
     "page_acls_label_upload": "Carga de recursos",
+    "page_acls_label_create_acl": "Crear lista de control de acceso",
     "page_acls_aria_label_save": "Guardar nombre para mostrar",
     "page_acls_aria_label_edit": "Editar nombre para mostrar"
   },
@@ -167,6 +169,7 @@
     "page_acls_label_save": "セーブ",
     "page_acls_label_delete": "削除",
     "page_acls_label_upload": "アセットのアップロード",
+    "page_acls_label_create_acl": "アクセス制御リストの作成",
     "page_acls_aria_label_save": "表示名の保存",
     "page_acls_aria_label_edit": "表示名の編集"
   },
@@ -224,6 +227,7 @@
     "page_acls_label_save": "спасать",
     "page_acls_label_delete": "удалить",
     "page_acls_label_upload": "Загрузка ресурсов",
+    "page_acls_label_create_acl": "Создание списка контроля доступа",
     "page_acls_aria_label_save": "Сохранить отображаемое имя",
     "page_acls_aria_label_edit": "Редактировать отображаемое имя"
   },
@@ -281,6 +285,7 @@
     "page_acls_label_save": "рятувати",
     "page_acls_label_delete": "Видалити",
     "page_acls_label_upload": "Як завантажити об'єкти",
+    "page_acls_label_create_acl": "Створення списку керування доступом",
     "page_acls_aria_label_save": "Збереження відображуваного імені",
     "page_acls_aria_label_edit": "Редагувати відображуване ім'я"
   },
@@ -338,6 +343,7 @@
     "page_acls_label_save": "救",
     "page_acls_label_delete": "删除",
     "page_acls_label_upload": "上传资产",
+    "page_acls_label_create_acl": "创建访问控制列表",
     "page_acls_aria_label_save": "保存显示名称",
     "page_acls_aria_label_edit": "编辑显示名称"
   }
