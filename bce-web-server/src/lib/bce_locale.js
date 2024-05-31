@@ -3,13 +3,24 @@ import { user_language } from './bce_stores.js'
 
 let bce_language_dictionary = {
   "en": {
-    "bce": "BCE: the brain computer enterprises"
+    "bce": "BCE: the brain computer enterprises",
+    "menu_home": "home",
   },
   "es": {
-    "bce": "BCE: las empresas de computadoras cerebrales"
+    "bce": "BCE: las empresas de computadoras cerebrales",
+    "menu_home": "hogar",
   },
   "ja": {
-    "bce": "BCE: ブレイン・コンピュータ・エンタープライズ"
+    "bce": "BCE: ブレイン・コンピュータ・エンタープライズ",
+    "menu_home": "家",
+  },
+  "ru": {
+    "bce": "BCE: ",
+    "menu_home": "дом",
+  },
+  "uk": {
+    "bce": "BCE: ",
+    "menu_home": "дім",
   },
 };
 

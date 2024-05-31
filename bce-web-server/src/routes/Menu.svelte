@@ -4,8 +4,8 @@
     import { page } from '$app/stores';
     import Logo from './Logo.svelte'
     import Edit from './Edit.svelte'
-    import { user_session_is_valid } from '$lib/bce_stores.js'
-    import { user_security_level } from '$lib/bce_stores.js'
+    import { user_session_is_valid, user_security_level } from '$lib/bce_stores.js'
+    import { bce_lang } from './bce_locale.js'
     import BceSession from "$lib/bce_session.js";
     
     let bce_session = new BceSession();
@@ -27,7 +27,7 @@
     <div id="mainmenulabel" hidden>Main Menu</div>
     <ul>
         <li>
-	    <a href="/" aria-current={$page.url.pathname === "/"}>home</a>
+	    <a href="/" aria-current={$page.url.pathname === "/"}>{bce_lang("menu_home")}</a>
         </li>
         {#if $user_session_is_valid}
           <li>
