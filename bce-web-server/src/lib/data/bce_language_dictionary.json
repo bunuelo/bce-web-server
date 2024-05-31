@@ -1,6 +1,7 @@
 {
   "en": {
     "bce": "BCE: the brain computer enterprises",
+    "logo_image_path": "/logo/BCE-en.png",
     "menu_home": "home",
     "menu_logout": "logout",
     "menu_dashboard": "dashboard",
@@ -24,6 +25,7 @@
   },
   "es": {
     "bce": "BCE: las empresas de computadoras cerebrales",
+    "logo_image_path": "/logo/BCE-es.png",
     "menu_home": "hogar",
     "menu_logout": "cerrar sesión",
     "menu_dashboard": "salpicadero",
@@ -47,6 +49,7 @@
   },
   "ja": {
     "bce": "BCE: ブレイン・コンピュータ・エンタープライズ",
+    "logo_image_path": "/logo/BCE-ja.png",
     "menu_home": "家",
     "menu_logout": "ログアウト",
     "menu_dashboard": "ダッシュボード",
@@ -70,6 +73,7 @@
   },
   "ru": {
     "bce": "BCE: Компьютерные предприятия мозга",
+    "logo_image_path": "/logo/BCE-ru.png",
     "menu_home": "дом",
     "menu_logout": "bыход",
     "menu_dashboard": "щиток",
@@ -93,6 +97,7 @@
   },
   "uk": {
     "bce": "BCE: Мозок комп'ютерних підприємств",
+    "logo_image_path": "/logo/BCE-uk.png",
     "menu_home": "дім",
     "menu_logout": "bихід",
     "menu_dashboard": "Панелі",
@@ -116,6 +121,7 @@
   },
   "zh": {
     "bce": "BCE: 脑机企业",
+    "logo_image_path": "/logo/BCE-zh.png",
     "menu_home": "家",
     "menu_logout": "注销",
     "menu_dashboard": "挡泥板",
