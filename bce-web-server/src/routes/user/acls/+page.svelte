@@ -176,32 +176,32 @@
               </td>
               <td style="text-align:center;">
                   <input type="checkbox" checked={acl.owner} disabled="disabled"
-                         aria-label="{acl.display_name} owner">
+                         aria-label="{bce_lang($user_language, "page_acls_label_owner")}">
               </td>
               <td style="text-align:center;">
                   <input type="checkbox" checked={acl.read} disabled="disabled"
-                         aria-label="{acl.display_name} read permission">
+                         aria-label="{bce_lang($user_language, "page_acls_label_read")}">
               </td>
               <td style="text-align:center;">
                   <input type="checkbox" checked={acl.write} disabled="disabled"
-                         aria-label="{acl.display_name} write permission">
+                         aria-label="{bce_lang($user_language, "page_acls_label_write")}">
               </td>
               <td style="text-align:center;">
                   {#if acl.owner}
                     <input type="checkbox" checked={acl.public} on:click|preventDefault={async function (event) {await handle_click_public(event, acl.acl_id);}}
-                           aria-label="{acl.display_name} is public">
+                           aria-label="{bce_lang($user_language, "page_acls_label_public")}">
                   {:else}
                     <input type="checkbox" checked={acl.public} disabled="disabled"
-                           aria-label="{acl.display_name} is public">
+                           aria-label="{bce_lang($user_language, "page_acls_label_public")}">
                   {/if}
                 </td>
               <td style="text-align:center;">
                   {#if acl.owner}
                     <input type="checkbox" checked={acl.active} on:click|preventDefault={async function (event) {await handle_click_active(event, acl.acl_id);}}
-                           aria-label="{acl.display_name} is active">
+                           aria-label="{bce_lang($user_language, "page_acls_label_active")}">
                   {:else}
                     <input type="checkbox" checked={acl.active} disabled="disabled"
-                           aria-label="{acl.display_name} is active">
+                           aria-label="{bce_lang($user_language, "page_acls_label_active")}">
                   {/if}
               </td>
               <td>
