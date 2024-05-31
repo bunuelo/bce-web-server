@@ -50,7 +50,13 @@ function get_user_language() {
         }
         return "en";
     }
-    return get(user_language);
+    var search_language = get(user_language);
+    for (var supported_language in bce_language_dictionary) {
+        if (search_language.startsWith(supported_language)) {
+            return supported_language;
+        }
+    }
+    return "en";
 }
 
 export const bce_lang = function (language, key) {
