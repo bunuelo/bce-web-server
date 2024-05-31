@@ -57,7 +57,7 @@
       {bce_lang($user_language, "page_assets_label_acl")}: 
       <select bind:value={acl_selected} on:change={update_asset_list}>
 	  <option value="0">
-	      All
+	      {bce_lang($user_language, "page_assets_label_all")}
 	  </option>
           {#each acls as acl}
 	    <option value={acl.acl_id}>
