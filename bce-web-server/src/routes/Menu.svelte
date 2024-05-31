@@ -27,7 +27,7 @@
     <div id="mainmenulabel" hidden>Main Menu</div>
     <ul>
         <li>
-	    <a href="/" aria-current={$page.url.pathname === "/"}>{bce_lang("menu_home")}</a>
+	    <a href="/" aria-current={$page.url.pathname === "/"}>{bce_lang($user_language, "menu_home")}</a>
         </li>
         {#if $user_session_is_valid}
           <li>

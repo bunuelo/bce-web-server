@@ -47,7 +47,7 @@ function get_user_language() {
     return get(user_language);
 }
 
-export const bce_lang = function (key) {
+export const bce_lang = function (language, key) {
     let user_language = get_user_language();
     let language_dictionary = bce_language_dictionary[user_language][key];
     return language_dictionary;
