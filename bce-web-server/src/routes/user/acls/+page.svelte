@@ -89,7 +89,7 @@
                     .then(result => {
                         $alert = bce_lang($user_language, "page_acls_alert_upload_asset_success") + " (" + (i + 1) + "/" + (files.length) + ") " + file.name;
                         if (!result) {
-                            $alert = "Some files (" + (files.length - (i + 1)) + "/" + (files.length) + ") failed to upload.";
+                            $alert = bce_lang($user_language, "page_acls_alert_upload_asset_failure") + " (" + (files.length - (i + 1)) + "/" + (files.length) + ")";
                             return;
                         }
                         i ++;
