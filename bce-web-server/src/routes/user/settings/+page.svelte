@@ -81,6 +81,12 @@
 	            <option value="ja">
 	                日本語
 	            </option>
+	            <option value="ru">
+	                Русский язык
+	            </option>
+	            <option value="uk">
+	                Українська мова
+	            </option>
                 </select>
             </label>
         </li>
