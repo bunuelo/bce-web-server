@@ -34,7 +34,7 @@
 	      <a href="/user/logout" aria-current={$page.url.pathname === "/user/logout"}>{bce_lang($user_language, "menu_logout")}</a>
           </li>
           <li>
-	      <a href="/user/dashboard" aria-current={$page.url.pathname === "/user/dashboard"}>dashboard</a>
+	      <a href="/user/dashboard" aria-current={$page.url.pathname === "/user/dashboard"}>{bce_lang($user_language, "menu_dashboard")}</a>
               <ul>
                   {#if $user_security_level >= 25 && user_tab_open}
                     <li>
