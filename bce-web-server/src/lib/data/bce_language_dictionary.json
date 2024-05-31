@@ -37,7 +37,8 @@
     "page_settings_label_system_default_language": "System Default Language",
     "page_acls_title": "ACLs",
     "page_acls_label_display_name": "Display Name",
-    "page_acls_label_owner": "Owner"
+    "page_acls_label_owner": "Owner",
+    "page_acls_label_read": "Read"
   },
   "es": {
     "bce": "BCE: las empresas de computadoras cerebrales",
@@ -77,7 +78,8 @@
     "page_settings_label_system_default_language": "Idioma predeterminado del sistema",
     "page_acls_title": "listas de control de acceso",
     "page_acls_label_display_name": "Nombre Para Mostrar",
-    "page_acls_label_owner": "Dueño"
+    "page_acls_label_owner": "Dueño",
+    "page_acls_label_read": "Leer"
   },
   "ja": {
     "bce": "BCE: ブレイン・コンピュータ・エンタープライズ",
@@ -117,7 +119,8 @@
     "page_settings_label_system_default_language": "システムのデフォルト言語",
     "page_acls_title": "アクセス制御リスト",
     "page_acls_label_display_name": "表示名",
-    "page_acls_label_owner": "所有者"
+    "page_acls_label_owner": "所有者",
+    "page_acls_label_read": "読む"
   },
   "ru": {
     "bce": "BCE: Компьютерные предприятия мозга",
@@ -157,7 +160,8 @@
     "page_settings_label_system_default_language": "Системный язык по умолчанию",
     "page_acls_title": "Cписки контроля доступа",
     "page_acls_label_display_name": "Отображаемое имя",
-    "page_acls_label_owner": "Владелец"
+    "page_acls_label_owner": "Владелец",
+    "page_acls_label_read": "Читать"
   },
   "uk": {
     "bce": "BCE: Мозок комп'ютерних підприємств",
@@ -197,7 +201,8 @@
     "page_settings_label_system_default_language": "Мова за замовчуванням у системі",
     "page_acls_title": "Списки контролю доступу",
     "page_acls_label_display_name": "Відображуване ім'я",
-    "page_acls_label_owner": "Власник"
+    "page_acls_label_owner": "Власник",
+    "page_acls_label_read": "Читати"
   },
   "zh": {
     "bce": "BCE: 脑机企业",
@@ -237,6 +242,7 @@
     "page_settings_label_system_default_language": "系统默认语言",
     "page_acls_title": "访问控制列表",
     "page_acls_label_display_name": "显示名称",
-    "page_acls_label_owner": "所有者"
+    "page_acls_label_owner": "所有者",
+    "page_acls_label_read": "读"
   }
 }
