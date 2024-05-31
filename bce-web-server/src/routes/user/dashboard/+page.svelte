@@ -34,7 +34,7 @@
 	    <a href="/user/settings">{bce_lang($user_language, "page_dashboard_label_settings")}</a>: {bce_lang($user_language, "page_dashboard_description_settings")}
         </li>
         <li>
-	    <a href="/user/acls">{bce_lang($user_language, "page_dashboard_label_acls")}</a>: Access Control Lists (ACLs) can be created and managed by users to securely upload and optionally securely share data assets with other users.
+	    <a href="/user/acls">{bce_lang($user_language, "page_dashboard_label_acls")}</a>: {bce_lang($user_language, "page_dashboard_description_acls")}
         </li>
         <li>
             <a href="/user/assets">assets</a>: A user's data assets can be securely searched, viewed, and downloaded.
