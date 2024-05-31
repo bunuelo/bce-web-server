@@ -31,7 +31,7 @@
   <ul>
       {#if $user_security_level >= 25}
         <li>
-	    <a href="/user/settings">{bce_lang($user_language, "page_dashboard_label_settings")}</a>: User display and other settings can be configured.
+	    <a href="/user/settings">{bce_lang($user_language, "page_dashboard_label_settings")}</a>: {bce_lang($user_language, "page_dashboard_description_settings")}
         </li>
         <li>
 	    <a href="/user/acls">ACLs</a>: Access Control Lists (ACLs) can be created and managed by users to securely upload and optionally securely share data assets with other users.
