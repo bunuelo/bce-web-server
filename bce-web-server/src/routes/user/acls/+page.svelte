@@ -168,7 +168,7 @@
                     {:else}
                       {acl.display_name}
                       <a href="#" on:click={() => on_click_edit_acl_display_name(acl.acl_id, acl.display_name)}
-                          aria-label="Edit display name of {acl.display_name}">{bce_lang($user_language, "page_acls_label_edit")}</a>
+                          aria-label="{bce_lang($user_language, "page_acls_aria_label_edit")}">{bce_lang($user_language, "page_acls_label_edit")}</a>
                     {/if}
                   {:else}
                     {acl.display_name}
