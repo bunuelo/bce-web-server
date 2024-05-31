@@ -153,7 +153,7 @@
           <td style="text-align:center;"><i>{bce_lang($user_language, "page_acls_label_write")}</i></td>
           <td style="text-align:center;"><i>{bce_lang($user_language, "page_acls_label_public")}</i></td>
           <td style="text-align:center;"><i>{bce_lang($user_language, "page_acls_label_active")}</i></td>
-          <td style="text-align:center;"><i hidden>Action</i></td>
+          <td style="text-align:center;"></td>
           <td></td>
       </tr>
       {#key acls}
@@ -168,7 +168,7 @@
                     {:else}
                       {acl.display_name}
                       <a href="#" on:click={() => on_click_edit_acl_display_name(acl.acl_id, acl.display_name)}
-                          aria-label="Edit display name of {acl.display_name}">edit</a>
+                          aria-label="Edit display name of {acl.display_name}">{bce_lang($user_language, "page_acls_label_edit")}</a>
                     {/if}
                   {:else}
                     {acl.display_name}

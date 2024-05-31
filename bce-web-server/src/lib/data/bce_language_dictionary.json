@@ -41,7 +41,8 @@
     "page_acls_label_read": "Read",
     "page_acls_label_write": "Write",
     "page_acls_label_public": "Public",
-    "page_acls_label_active": "Active"
+    "page_acls_label_active": "Active",
+    "page_acls_label_edit": "edit"
   },
   "es": {
     "bce": "BCE: las empresas de computadoras cerebrales",
@@ -85,7 +86,8 @@
     "page_acls_label_read": "Leer",
     "page_acls_label_write": "Escribir",
     "page_acls_label_public": "Público",
-    "page_acls_label_active": "Activo"
+    "page_acls_label_active": "Activo",
+    "page_acls_label_edit": "editar"
   },
   "ja": {
     "bce": "BCE: ブレイン・コンピュータ・エンタープライズ",
@@ -129,7 +131,8 @@
     "page_acls_label_read": "読む",
     "page_acls_label_write": "書く",
     "page_acls_label_public": "公共",
-    "page_acls_label_active": "能動"
+    "page_acls_label_active": "能動",
+    "page_acls_label_edit": "編集"
   },
   "ru": {
     "bce": "BCE: Компьютерные предприятия мозга",
@@ -173,7 +176,8 @@
     "page_acls_label_read": "Читать",
     "page_acls_label_write": "Писать",
     "page_acls_label_public": "Общественный",
-    "page_acls_label_active": "Активный"
+    "page_acls_label_active": "Активный",
+    "page_acls_label_edit": "редактировать"
   },
   "uk": {
     "bce": "BCE: Мозок комп'ютерних підприємств",
@@ -217,7 +221,8 @@
     "page_acls_label_read": "Читати",
     "page_acls_label_write": "Написати",
     "page_acls_label_public": "Громадський",
-    "page_acls_label_active": "Активний"
+    "page_acls_label_active": "Активний",
+    "page_acls_label_edit": "редагувати"
   },
   "zh": {
     "bce": "BCE: 脑机企业",
@@ -261,6 +266,7 @@
     "page_acls_label_read": "读",
     "page_acls_label_write": "写",
     "page_acls_label_public": "公共",
-    "page_acls_label_active": "积极"
+    "page_acls_label_active": "积极",
+    "page_acls_label_edit": "编辑"
   }
 }
