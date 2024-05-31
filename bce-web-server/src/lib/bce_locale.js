@@ -48,6 +48,7 @@ function get_user_language() {
                 return supported_language;
             }
         }
+        return "en";
     }
     return get(user_language);
 }
