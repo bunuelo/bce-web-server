@@ -114,7 +114,7 @@
         let new_public = (event.target.checked === true || event.target.checked === "true");
         let success = await bce_session.acl_update(acl_id, null, new_public, null);
         if (success) {
-            $alert = "ACL updated successfully!";
+            $alert = bce_lang($user_language, "page_acls_alert_update_acl_success");
             await update_acl_list();
         } else {
             $alert = "Failed to update ACL.";
@@ -127,7 +127,7 @@
         let new_active = (event.target.checked === true || event.target.checked === "true");
         let success = await bce_session.acl_update(acl_id, null, null, new_active);
         if (success) {
-            $alert = "ACL updated successfully!";
+            $alert = bce_lang($user_language, "page_acls_alert_update_acl_success");
             await update_acl_list();
         } else {
             $alert = "Failed to update ACL.";
