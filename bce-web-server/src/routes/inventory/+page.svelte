@@ -88,11 +88,11 @@
 </script>
 
 <svelte:head>
-    <title>{bce_lang($user_language, "page_docs_inventory")}</title>
+    <title>{bce_lang($user_language, "page_inventory_title")}</title>
 </svelte:head>
 
 {#if products}
-  <h1>{bce_lang($user_language, "page_docs_inventory")}</h1>
+  <h1>{bce_lang($user_language, "page_inventory_title")}</h1>
 
   <a href="#" on:click={on_click_ingest_products}>ingest products</a>
   
