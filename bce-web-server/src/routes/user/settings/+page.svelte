@@ -76,7 +76,7 @@
 	                English Language
 	            </option>
 	            <option value="es">
-	                Lengua Epañola
+	                Lengua Española
 	            </option>
 	            <option value="ja">
 	                日本語
