@@ -209,8 +209,7 @@
                     <a href="#" on:click={() => on_click_delete_acl(acl.acl_id)}>{bce_lang($user_language, "page_acls_label_delete")}</a>
                   {/if}
                   {#if acl.owner}
-                    <a href="#" on:click={() => on_click_upload_asset(acl.acl_id)}
-                        aria-label="Upload assets to {acl.display_name}">upload assets</a>
+                    <a href="#" on:click={() => on_click_upload_asset(acl.acl_id)}>{bce_lang($user_language, "page_acls_label_upload")}</a>
                   {/if}
               </td>
           </tr>
