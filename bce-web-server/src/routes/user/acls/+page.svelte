@@ -96,7 +96,7 @@
                         if (i < files.length) {
                             upload_rest();
                         } else {
-                            $alert = bce_lang($user_language, "page_acls_alert_upload_all_assets_success") + " (" + (files.length) + ")";
+                            $alert = bce_lang($user_language, "page_acls_alert_upload_all_assets_success") + " (" + (files.length) + "/" + (files.length) + ")";
                         }
                     })
                     .catch(e => {
