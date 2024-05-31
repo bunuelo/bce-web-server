@@ -55,7 +55,7 @@
             $alert = bce_lang($user_language, "page_acls_alert_delete_acl_success");
             await update_acl_list();
         } else {
-            $alert = "Failed to delete ACL.";
+            $alert = bce_lang($user_language, "page_acls_alert_delete_acl_failure");
         }
     }
     
