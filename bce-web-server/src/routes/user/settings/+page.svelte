@@ -69,7 +69,7 @@
         </li>
         <li>
             <label>
-                language: 
+                {bce_lang($user_language, "page_settings_label_language")}: 
                 <select bind:value={language_selected} on:change={update_language}>
 	            <option value="">
 	                System Default Language
