@@ -38,7 +38,7 @@
               <ul>
                   {#if $user_security_level >= 25 && user_tab_open}
                     <li>
-	                <a href="/user/settings" aria-current={$page.url.pathname === "/user/settings"}>settings</a>
+	                <a href="/user/settings" aria-current={$page.url.pathname === "/user/settings"}>{bce_lang($user_language, "menu_settings")}</a>
                     </li>
                     <li>
 	                <a href="/user/acls" aria-current={$page.url.pathname === "/user/acls"}>ACLs</a>

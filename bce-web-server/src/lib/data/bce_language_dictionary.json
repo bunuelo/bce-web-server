@@ -3,30 +3,35 @@
     "bce": "BCE: the brain computer enterprises",
     "menu_home": "home",
     "menu_logout": "logout",
-    "menu_dashboard": "dashboard"
+    "menu_dashboard": "dashboard",
+    "menu_settings": "settings"
   },
   "es": {
     "bce": "BCE: las empresas de computadoras cerebrales",
     "menu_home": "hogar",
     "menu_logout": "cerrar sesión",
-    "menu_dashboard": "salpicadero"
+    "menu_dashboard": "salpicadero",
+    "menu_settings": "configuración"
   },
   "ja": {
     "bce": "BCE: ブレイン・コンピュータ・エンタープライズ",
     "menu_home": "家",
     "menu_logout": "ログアウト",
-    "menu_dashboard": "ダッシュボード"
+    "menu_dashboard": "ダッシュボード",
+    "menu_settings": "設定"
   },
   "ru": {
     "bce": "BCE: ",
     "menu_home": "дом",
     "menu_logout": "bыход",
-    "menu_dashboard": "щиток"
+    "menu_dashboard": "щиток",
+    "menu_settings": "Параметры"
   },
   "uk": {
     "bce": "BCE: ",
     "menu_home": "дім",
     "menu_logout": "bихід",
-    "menu_dashboard": "Панелі"
+    "menu_dashboard": "Панелі",
+    "menu_settings": "Параметри"
   }
 }
