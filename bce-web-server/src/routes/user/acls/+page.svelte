@@ -151,7 +151,7 @@
           <td style="text-align:center;"><i>{bce_lang($user_language, "page_acls_label_owner")}</i></td>
           <td style="text-align:center;"><i>{bce_lang($user_language, "page_acls_label_read")}</i></td>
           <td style="text-align:center;"><i>{bce_lang($user_language, "page_acls_label_write")}</i></td>
-          <td style="text-align:center;"><i>Public</i></td>
+          <td style="text-align:center;"><i>{bce_lang($user_language, "page_acls_label_public")}</i></td>
           <td style="text-align:center;"><i>Active</i></td>
           <td style="text-align:center;"><i hidden>Action</i></td>
           <td></td>

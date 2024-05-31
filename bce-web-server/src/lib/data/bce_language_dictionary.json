@@ -39,7 +39,8 @@
     "page_acls_label_display_name": "Display Name",
     "page_acls_label_owner": "Owner",
     "page_acls_label_read": "Read",
-    "page_acls_label_write": "Write"
+    "page_acls_label_write": "Write",
+    "page_acls_label_public": "Public"
   },
   "es": {
     "bce": "BCE: las empresas de computadoras cerebrales",
@@ -81,7 +82,8 @@
     "page_acls_label_display_name": "Nombre Para Mostrar",
     "page_acls_label_owner": "Dueño",
     "page_acls_label_read": "Leer",
-    "page_acls_label_write": "Escribir"
+    "page_acls_label_write": "Escribir",
+    "page_acls_label_public": "Público"
   },
   "ja": {
     "bce": "BCE: ブレイン・コンピュータ・エンタープライズ",
@@ -123,7 +125,8 @@
     "page_acls_label_display_name": "表示名",
     "page_acls_label_owner": "所有者",
     "page_acls_label_read": "読む",
-    "page_acls_label_write": "書く"
+    "page_acls_label_write": "書く",
+    "page_acls_label_public": "公共"
   },
   "ru": {
     "bce": "BCE: Компьютерные предприятия мозга",
@@ -165,7 +168,8 @@
     "page_acls_label_display_name": "Отображаемое имя",
     "page_acls_label_owner": "Владелец",
     "page_acls_label_read": "Читать",
-    "page_acls_label_write": "Писать"
+    "page_acls_label_write": "Писать",
+    "page_acls_label_public": "Общественный"
   },
   "uk": {
     "bce": "BCE: Мозок комп'ютерних підприємств",
@@ -207,7 +211,8 @@
     "page_acls_label_display_name": "Відображуване ім'я",
     "page_acls_label_owner": "Власник",
     "page_acls_label_read": "Читати",
-    "page_acls_label_write": "Написати"
+    "page_acls_label_write": "Написати",
+    "page_acls_label_public": "Громадський"
   },
   "zh": {
     "bce": "BCE: 脑机企业",
@@ -249,6 +254,7 @@
     "page_acls_label_display_name": "显示名称",
     "page_acls_label_owner": "所有者",
     "page_acls_label_read": "读",
-    "page_acls_label_write": "写"
+    "page_acls_label_write": "写",
+    "page_acls_label_public": "公共"
   }
 }
