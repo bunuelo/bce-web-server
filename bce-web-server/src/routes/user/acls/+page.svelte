@@ -87,7 +87,7 @@
                 var file = files[i];
                 bce_session.asset_upload(acl_id, file)
                     .then(result => {
-                        $alert = "Successfully uploaded file (" + (i + 1) + "/" + (files.length) + ") " + file.name + "!";
+                        $alert = bce_lang($user_language, "page_acls_alert_upload_asset_success") + " (" + (i + 1) + "/" + (files.length) + ") " + file.name;
                         if (!result) {
                             $alert = "Some files (" + (files.length - (i + 1)) + "/" + (files.length) + ") failed to upload.";
                             return;
