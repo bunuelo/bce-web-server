@@ -105,7 +105,22 @@ export default class BceRestApi {
 	return response_json.color_theme;
     }
     
-  async session_update(session_token, payload) {
+    async session_language(session_token) {
+	const response = await fetch(this.apiURL + "/session/language", {
+	    method: "POST",
+	    body: JSON.stringify({
+		session_token: session_token
+	    }),
+	    headers: {
+		"Content-type": "application/json; charset=UTF-8"
+	    }
+	});
+	const response_json = await response.json();
+	this.message = response_json.message;
+	return response_json.language;
+    }
+    
+    async session_update(session_token, payload) {
         var color_theme = null;
         var language = null;
         if ("color_theme" in payload) {
