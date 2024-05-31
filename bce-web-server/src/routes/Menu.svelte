@@ -68,7 +68,7 @@
           </li>
         {/if}
         <li>
-            <a href="/docs" aria-current={$page.url.pathname === "/docs"}>docs</a>
+            <a href="/docs" aria-current={$page.url.pathname === "/docs"}>{bce_lang($user_language, "menu_docs")}</a>
         </li>
         <li>
 	    <a href="/terms" aria-current={$page.url.pathname === "/terms"}>terms</a>
