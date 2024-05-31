@@ -15,7 +15,7 @@
     
     onMount(async () => {
         bce_session.logout()
-        $alert = bce_lang($user_language, "alert_logout_successful");
+        $alert = bce_lang($user_language, "page_logout_alert_logout_successful");
         goto("/user/dashboard");
     });
     

@@ -32,7 +32,7 @@
           bce_session.login($user_email, $user_session_token);
           $user_session_is_valid = true;
           $user_security_level = await bce_session.security_level();
-          $alert = "Login successful!";
+          $alert = bce_lang($user_language, "page_login_alert_login_successful");
           $user_color_theme = await bce_session.color_theme();
           goto("/user/dashboard", { invalidateAll: true });
       } else {
