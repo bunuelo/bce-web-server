@@ -2,26 +2,26 @@
   "en": {
     "bce": "BCE: the brain computer enterprises",
     "menu_home": "home",
-    "menu_logout": "logout",
+    "menu_logout": "logout"
   },
   "es": {
     "bce": "BCE: las empresas de computadoras cerebrales",
     "menu_home": "hogar",
-    "menu_logout": "cerrar sesión",
+    "menu_logout": "cerrar sesión"
   },
   "ja": {
     "bce": "BCE: ブレイン・コンピュータ・エンタープライズ",
     "menu_home": "家",
-    "menu_logout": "ログアウト",
+    "menu_logout": "ログアウト"
   },
   "ru": {
     "bce": "BCE: ",
     "menu_home": "дом",
-    "menu_logout": "bыход",
+    "menu_logout": "bыход"
   },
   "uk": {
     "bce": "BCE: ",
     "menu_home": "дім",
-    "menu_logout": "bихід",
-  },
+    "menu_logout": "bихід"
+  }
 }
