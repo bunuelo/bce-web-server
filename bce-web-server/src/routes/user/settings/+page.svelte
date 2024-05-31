@@ -62,7 +62,7 @@
 	                {bce_lang($user_language, "page_settings_label_dark_color_theme")}
 	            </option>
 	            <option value="light">
-	                Light Color Theme
+	                {bce_lang($user_language, "page_settings_label_light_color_theme")}
 	            </option>
                 </select>
             </label>

@@ -16,7 +16,8 @@
     "menu_contact": "contact",
     "page_settings_title": "Settings",
     "page_settings_label_system_default_color_theme": "System Default Color Theme",
-    "page_settings_label_dark_color_theme": "Dark Color Theme"
+    "page_settings_label_dark_color_theme": "Dark Color Theme",
+    "page_settings_label_light_color_theme": "Light Color Theme"
   },
   "es": {
     "bce": "BCE: las empresas de computadoras cerebrales",
@@ -35,7 +36,8 @@
     "menu_contact": "contacto",
     "page_settings_title": "Configuración",
     "page_settings_label_system_default_color_theme": "Tema de color predeterminado del sistema",
-    "page_settings_label_dark_color_theme": "Tema de color oscuro"
+    "page_settings_label_dark_color_theme": "Tema de color oscuro",
+    "page_settings_label_light_color_theme": "Tema de color claro"
   },
   "ja": {
     "bce": "BCE: ブレイン・コンピュータ・エンタープライズ",
@@ -54,7 +56,8 @@
     "menu_contact": "接触",
     "page_settings_title": "設定",
     "page_settings_label_system_default_color_theme": "システムのデフォルトのカラーテーマ",
-    "page_settings_label_dark_color_theme": "ダークカラーテーマ"
+    "page_settings_label_dark_color_theme": "ダークカラーテーマ",
+    "page_settings_label_light_color_theme": "ライトカラーテーマ"
   },
   "ru": {
     "bce": "BCE: Компьютерные предприятия мозга",
@@ -73,7 +76,8 @@
     "menu_contact": "контакт",
     "page_settings_title": "Параметры",
     "page_settings_label_system_default_color_theme": "Системная цветовая тема по умолчанию",
-    "page_settings_label_dark_color_theme": "Темная цветовая тема"
+    "page_settings_label_dark_color_theme": "Темная цветовая тема",
+    "page_settings_label_light_color_theme": "Светлая цветовая тема"
   },
   "uk": {
     "bce": "BCE: Мозок комп'ютерних підприємств",
@@ -92,7 +96,8 @@
     "menu_contact": "Контакт",
     "page_settings_title": "Параметри",
     "page_settings_label_system_default_color_theme": "Типова системна колірна тема",
-    "page_settings_label_dark_color_theme": "Темна колірна тема"
+    "page_settings_label_dark_color_theme": "Темна колірна тема",
+    "page_settings_label_light_color_theme": "Тема світлих кольорів"
   },
   "zh": {
     "bce": "BCE: 脑机企业",
@@ -111,6 +116,7 @@
     "menu_contact": "联系",
     "page_settings_title": "设置",
     "page_settings_label_system_default_color_theme": "系统默认颜色主题",
-    "page_settings_label_dark_color_theme": "深色主题"
+    "page_settings_label_dark_color_theme": "深色主题",
+    "page_settings_label_light_color_theme": "浅色主题"
   }
 }
