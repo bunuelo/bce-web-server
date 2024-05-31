@@ -5,7 +5,7 @@
     import Logo from './Logo.svelte'
     import Edit from './Edit.svelte'
     import { user_session_is_valid, user_security_level } from '$lib/bce_stores.js'
-    import { bce_lang } from './bce_locale.js'
+    import { bce_lang } from '$lib/bce_locale.js'
     import BceSession from "$lib/bce_session.js";
     
     let bce_session = new BceSession();
