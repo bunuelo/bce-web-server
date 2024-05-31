@@ -45,7 +45,7 @@
             reset_new_acl();
             await update_acl_list();
         } else {
-            $alert = "Failed to create ACL.";
+            $alert = bce_lang($user_language, "page_acls_alert_create_acl_failure");
         }
     }
     
