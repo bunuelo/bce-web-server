@@ -67,7 +67,7 @@
     async function on_click_save_acl_display_name(acl_id) {
         let success = await bce_session.acl_update(acl_id, edit_acl_display_name, null, null);
         if (success) {
-            $alert = "ACL updated successfully!";
+            $alert = bce_lang($user_language, "page_acls_alert_update_acl_success");
             await update_acl_list();
         } else {
             $alert = "Failed to update ACL.";
