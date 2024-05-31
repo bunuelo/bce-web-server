@@ -41,7 +41,7 @@
     async function on_click_create_acl() {
         let success = await bce_session.create_acl(new_acl_display_name);
         if (success) {
-            $alert = "ACL created successfully!";
+            $alert = bce_lang($user_language, "page_acls_alert_create_acl_success");
             reset_new_acl();
             await update_acl_list();
         } else {
