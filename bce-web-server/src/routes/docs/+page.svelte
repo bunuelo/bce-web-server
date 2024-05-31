@@ -9,6 +9,6 @@
 
 <h1>{bce_lang($user_language, "page_docs_title")}</h1>
 
-<p>The BCE website is an example web-based client application that accesses the BCE REST API.</p>
+<p>{bce_lang($user_language, "page_docs_description")}</p>
 <p>See the <a href="https://bce.center:8000/docs" target="_blank">BCE REST API OpenAPI documentation</a>.</p>
 

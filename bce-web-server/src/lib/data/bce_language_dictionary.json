@@ -61,7 +61,8 @@
     "page_assets_title": "Assets",
     "page_assets_label_acl": "ACL",
     "page_assets_label_all": "All",
-    "page_docs_title": "Docs"
+    "page_docs_title": "Docs",
+    "page_docs_description": "The BCE website is an example web-based client application that accesses the BCE REST API."
   },
   "es": {
     "bce": "BCE: las empresas de computadoras cerebrales",
@@ -125,7 +126,8 @@
     "page_assets_title": "Activo",
     "page_assets_label_acl": "Lista de control de acceso",
     "page_assets_label_all": "Todo",
-    "page_docs_title": "Docs"
+    "page_docs_title": "Docs",
+    "page_docs_description": "El sitio web de BCE es un ejemplo de aplicación cliente basada en web que accede a la API REST de BCE."
   },
   "ja": {
     "bce": "BCE: ブレイン・コンピュータ・エンタープライズ",
@@ -189,7 +191,8 @@
     "page_assets_title": "財産",
     "page_assets_label_acl": "アクセス制御リスト",
     "page_assets_label_all": "すべての",
-    "page_docs_title": "ドキュメント"
+    "page_docs_title": "ドキュメント",
+    "page_docs_description": "BCE Web サイトは、BCE REST API にアクセスする Web ベースのクライアント アプリケーションの例です。"
   },
   "ru": {
     "bce": "BCE: Компьютерные предприятия мозга",
@@ -253,7 +256,8 @@
     "page_assets_title": "Авуары",
     "page_assets_label_acl": "Список контроля доступа",
     "page_assets_label_all": "Все",
-    "page_docs_title": "Документы"
+    "page_docs_title": "Документы",
+    "page_docs_description": "Веб-сайт BCE является примером клиентского веб-приложения, которое обращается к REST API BCE."
   },
   "uk": {
     "bce": "BCE: Мозок комп'ютерних підприємств",
@@ -317,7 +321,8 @@
     "page_assets_title": "Активів",
     "page_assets_label_acl": "Список контролю доступу",
     "page_assets_label_all": "Увесь",
-    "page_docs_title": "Документи"
+    "page_docs_title": "Документи",
+    "page_docs_description": "Веб-сайт BCE є прикладом веб-клієнтської програми, яка отримує доступ до BCE REST API."
   },
   "zh": {
     "bce": "BCE: 脑机企业",
@@ -381,6 +386,7 @@
     "page_assets_title": "资产",
     "page_assets_label_acl": "访问控制列表",
     "page_assets_label_all": "都",
-    "page_docs_title": "文档"
+    "page_docs_title": "文档",
+    "page_docs_description": "BCE 网站是一个基于 Web 的客户端应用程序示例，用于访问 BCE REST API。"
   }
 }
