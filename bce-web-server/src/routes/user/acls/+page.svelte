@@ -70,7 +70,7 @@
             $alert = bce_lang($user_language, "page_acls_alert_update_acl_success");
             await update_acl_list();
         } else {
-            $alert = "Failed to update ACL.";
+            $alert = bce_lang($user_language, "page_acls_alert_update_acl_failure");
         }
         edit_display_name_acl_id = null;
     }
@@ -117,7 +117,7 @@
             $alert = bce_lang($user_language, "page_acls_alert_update_acl_success");
             await update_acl_list();
         } else {
-            $alert = "Failed to update ACL.";
+            $alert = bce_lang($user_language, "page_acls_alert_update_acl_failure");
         }
     }
     
@@ -130,7 +130,7 @@
             $alert = bce_lang($user_language, "page_acls_alert_update_acl_success");
             await update_acl_list();
         } else {
-            $alert = "Failed to update ACL.";
+            $alert = bce_lang($user_language, "page_acls_alert_update_acl_failure");
         }
     }
     
