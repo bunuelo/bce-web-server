@@ -38,7 +38,8 @@
     "page_acls_title": "ACLs",
     "page_acls_label_display_name": "Display Name",
     "page_acls_label_owner": "Owner",
-    "page_acls_label_read": "Read"
+    "page_acls_label_read": "Read",
+    "page_acls_label_write": "Write"
   },
   "es": {
     "bce": "BCE: las empresas de computadoras cerebrales",
@@ -79,7 +80,8 @@
     "page_acls_title": "listas de control de acceso",
     "page_acls_label_display_name": "Nombre Para Mostrar",
     "page_acls_label_owner": "Dueño",
-    "page_acls_label_read": "Leer"
+    "page_acls_label_read": "Leer",
+    "page_acls_label_write": "Escribir"
   },
   "ja": {
     "bce": "BCE: ブレイン・コンピュータ・エンタープライズ",
@@ -120,7 +122,8 @@
     "page_acls_title": "アクセス制御リスト",
     "page_acls_label_display_name": "表示名",
     "page_acls_label_owner": "所有者",
-    "page_acls_label_read": "読む"
+    "page_acls_label_read": "読む",
+    "page_acls_label_write": "書く"
   },
   "ru": {
     "bce": "BCE: Компьютерные предприятия мозга",
@@ -161,7 +164,8 @@
     "page_acls_title": "Cписки контроля доступа",
     "page_acls_label_display_name": "Отображаемое имя",
     "page_acls_label_owner": "Владелец",
-    "page_acls_label_read": "Читать"
+    "page_acls_label_read": "Читать",
+    "page_acls_label_write": "Писать"
   },
   "uk": {
     "bce": "BCE: Мозок комп'ютерних підприємств",
@@ -202,7 +206,8 @@
     "page_acls_title": "Списки контролю доступу",
     "page_acls_label_display_name": "Відображуване ім'я",
     "page_acls_label_owner": "Власник",
-    "page_acls_label_read": "Читати"
+    "page_acls_label_read": "Читати",
+    "page_acls_label_write": "Написати"
   },
   "zh": {
     "bce": "BCE: 脑机企业",
@@ -243,6 +248,7 @@
     "page_acls_title": "访问控制列表",
     "page_acls_label_display_name": "显示名称",
     "page_acls_label_owner": "所有者",
-    "page_acls_label_read": "读"
+    "page_acls_label_read": "读",
+    "page_acls_label_write": "写"
   }
 }
