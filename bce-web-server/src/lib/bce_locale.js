@@ -1,33 +1,6 @@
 import { get } from 'svelte/store'
 import { user_language } from './bce_stores.js'
-
-let bce_language_dictionary = {
-  "en": {
-    "bce": "BCE: the brain computer enterprises",
-    "menu_home": "home",
-    "menu_logout": "logout",
-  },
-  "es": {
-    "bce": "BCE: las empresas de computadoras cerebrales",
-    "menu_home": "hogar",
-    "menu_logout": "cerrar sesión",
-  },
-  "ja": {
-    "bce": "BCE: ブレイン・コンピュータ・エンタープライズ",
-    "menu_home": "家",
-    "menu_logout": "ログアウト",
-  },
-  "ru": {
-    "bce": "BCE: ",
-    "menu_home": "дом",
-    "menu_logout": "bыход",
-  },
-  "uk": {
-    "bce": "BCE: ",
-    "menu_home": "дім",
-    "menu_logout": "bихід",
-  },
-};
+import bce_language_dictionary from "./data/bce_language_dictionary.json";
 
 export const get_system_default_language = function() {
     var navigator_language = "en";
