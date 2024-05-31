@@ -164,7 +164,7 @@
                     {#if edit_display_name_acl_id == acl.acl_id}
                       <input type="text" bind:value="{edit_acl_display_name}">
                       <a href="#" on:click={() => on_click_save_acl_display_name(acl.acl_id)}
-                          aria-label="Save display name of {acl.display_name}">{bce_lang($user_language, "page_acls_label_save")}</a>
+                          aria-label="{bce_lang($user_language, "page_acls_aria_label_save")}">{bce_lang($user_language, "page_acls_label_save")}</a>
                     {:else}
                       {acl.display_name}
                       <a href="#" on:click={() => on_click_edit_acl_display_name(acl.acl_id, acl.display_name)}

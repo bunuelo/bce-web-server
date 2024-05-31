@@ -45,7 +45,8 @@
     "page_acls_label_public": "Public",
     "page_acls_label_active": "Active",
     "page_acls_label_edit": "edit",
-    "page_acls_label_save": "save"
+    "page_acls_label_save": "save",
+    "page_acls_aria_label_save": "save display name"
   },
   "es": {
     "bce": "BCE: las empresas de computadoras cerebrales",
@@ -93,7 +94,8 @@
     "page_acls_label_public": "Público",
     "page_acls_label_active": "Activo",
     "page_acls_label_edit": "editar",
-    "page_acls_label_save": "salvar"
+    "page_acls_label_save": "salvar",
+    "page_acls_aria_label_save": "Guardar nombre para mostrar"
   },
   "ja": {
     "bce": "BCE: ブレイン・コンピュータ・エンタープライズ",
@@ -141,7 +143,8 @@
     "page_acls_label_public": "公共",
     "page_acls_label_active": "能動",
     "page_acls_label_edit": "編集",
-    "page_acls_label_save": "セーブ"
+    "page_acls_label_save": "セーブ",
+    "page_acls_aria_label_save": "表示名の保存"
   },
   "ru": {
     "bce": "BCE: Компьютерные предприятия мозга",
@@ -189,7 +192,8 @@
     "page_acls_label_public": "Общественный",
     "page_acls_label_active": "Активный",
     "page_acls_label_edit": "редактировать",
-    "page_acls_label_save": "спасать"
+    "page_acls_label_save": "спасать",
+    "page_acls_aria_label_save": "Сохранить отображаемое имя"
   },
   "uk": {
     "bce": "BCE: Мозок комп'ютерних підприємств",
@@ -237,7 +241,8 @@
     "page_acls_label_public": "Громадський",
     "page_acls_label_active": "Активний",
     "page_acls_label_edit": "редагувати",
-    "page_acls_label_save": "рятувати"
+    "page_acls_label_save": "рятувати",
+    "page_acls_aria_label_save": "Збереження відображуваного імені"
   },
   "zh": {
     "bce": "BCE: 脑机企业",
@@ -285,6 +290,7 @@
     "page_acls_label_public": "公共",
     "page_acls_label_active": "积极",
     "page_acls_label_edit": "编辑",
-    "page_acls_label_save": "救"
+    "page_acls_label_save": "救",
+    "page_acls_aria_label_save": "保存显示名称"
   }
 }
