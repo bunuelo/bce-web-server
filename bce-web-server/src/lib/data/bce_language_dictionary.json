@@ -11,7 +11,8 @@
     "menu_create_account": "create account",
     "menu_design": "design",
     "menu_inventory": "inventory",
-    "menu_docs": "docs"
+    "menu_docs": "docs",
+    "menu_terms": "terms"
   },
   "es": {
     "bce": "BCE: las empresas de computadoras cerebrales",
@@ -25,7 +26,8 @@
     "menu_create_account": "crear una cuenta",
     "menu_design": "diseño",
     "menu_inventory": "inventario",
-    "menu_docs": "docs"
+    "menu_docs": "docs",
+    "menu_terms": "letra chica"
   },
   "ja": {
     "bce": "BCE: ブレイン・コンピュータ・エンタープライズ",
@@ -39,7 +41,8 @@
     "menu_create_account": "アカウント作成",
     "menu_design": "設計",
     "menu_inventory": "在庫",
-    "menu_docs": "ドキュメント"
+    "menu_docs": "ドキュメント",
+    "menu_terms": "条件"
   },
   "ru": {
     "bce": "BCE: Компьютерные предприятия мозга",
@@ -53,7 +56,8 @@
     "menu_create_account": "cоздать аккаунт",
     "menu_design": "проектировать",
     "menu_inventory": "инвентарь",
-    "menu_docs": "Документы"
+    "menu_docs": "Документы",
+    "menu_terms": "Условия"
   },
   "uk": {
     "bce": "BCE: Мозок комп'ютерних підприємств",
@@ -67,7 +71,8 @@
     "menu_create_account": "cтворити обліковий запис",
     "menu_design": "проект",
     "menu_inventory": "iнвентаризації",
-    "menu_docs": "Документи"
+    "menu_docs": "Документи",
+    "menu_terms": "Умови"
   },
   "zh": {
     "bce": "BCE: 脑机企业",
@@ -81,6 +86,7 @@
     "menu_create_account": "创建账户",
     "menu_design": "设计",
     "menu_inventory": "库存",
-    "menu_docs": "文档"
+    "menu_docs": "文档",
+    "menu_terms": "条款"
   }
 }

@@ -71,7 +71,7 @@
             <a href="/docs" aria-current={$page.url.pathname === "/docs"}>{bce_lang($user_language, "menu_docs")}</a>
         </li>
         <li>
-	    <a href="/terms" aria-current={$page.url.pathname === "/terms"}>terms</a>
+	    <a href="/terms" aria-current={$page.url.pathname === "/terms"}>{bce_lang($user_language, "menu_terms")}</a>
         </li>
         <li>
 	    <a href="/contact" aria-current={$page.url.pathname === "/contact"}>contact</a>
