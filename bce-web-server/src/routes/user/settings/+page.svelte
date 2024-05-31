@@ -17,8 +17,9 @@
         }
         $user_security_level = await bce_session.security_level();
         $user_color_theme = await bce_session.color_theme();
-        //$user_language = await bce_session.language();
         color_theme_selected = $user_color_theme;
+        $user_language = await bce_session.language();
+        language_selected = $user_language;
     });
 
     async function update_color_theme() {
