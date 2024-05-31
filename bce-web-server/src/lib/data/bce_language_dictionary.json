@@ -14,7 +14,8 @@
     "menu_docs": "docs",
     "menu_terms": "terms",
     "menu_contact": "contact",
-    "page_settings_title": "Settings"
+    "page_settings_title": "Settings",
+    "page_settings_label_system_default_color_theme": "System Default Color Theme"
   },
   "es": {
     "bce": "BCE: las empresas de computadoras cerebrales",
@@ -31,7 +32,8 @@
     "menu_docs": "docs",
     "menu_terms": "letra chica",
     "menu_contact": "contacto",
-    "page_settings_title": "Configuración"
+    "page_settings_title": "Configuración",
+    "page_settings_label_system_default_color_theme": "Tema de color predeterminado del sistema"
   },
   "ja": {
     "bce": "BCE: ブレイン・コンピュータ・エンタープライズ",
@@ -48,7 +50,8 @@
     "menu_docs": "ドキュメント",
     "menu_terms": "条件",
     "menu_contact": "接触",
-    "page_settings_title": "設定"
+    "page_settings_title": "設定",
+    "page_settings_label_system_default_color_theme": "システムのデフォルトのカラーテーマ"
   },
   "ru": {
     "bce": "BCE: Компьютерные предприятия мозга",
@@ -65,7 +68,8 @@
     "menu_docs": "Документы",
     "menu_terms": "Условия",
     "menu_contact": "контакт",
-    "page_settings_title": "Параметры"
+    "page_settings_title": "Параметры",
+    "page_settings_label_system_default_color_theme": "Системная цветовая тема по умолчанию"
   },
   "uk": {
     "bce": "BCE: Мозок комп'ютерних підприємств",
@@ -82,7 +86,8 @@
     "menu_docs": "Документи",
     "menu_terms": "Умови",
     "menu_contact": "Контакт",
-    "page_settings_title": "Параметри"
+    "page_settings_title": "Параметри",
+    "page_settings_label_system_default_color_theme": "Типова системна колірна тема"
   },
   "zh": {
     "bce": "BCE: 脑机企业",
@@ -99,6 +104,7 @@
     "menu_docs": "文档",
     "menu_terms": "条款",
     "menu_contact": "联系",
-    "page_settings_title": "设置"
+    "page_settings_title": "设置",
+    "page_settings_label_system_default_color_theme": "系统默认颜色主题"
   }
 }

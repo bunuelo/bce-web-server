@@ -56,7 +56,7 @@
                 color theme: 
                 <select bind:value={color_theme_selected} on:change={update_color_theme}>
 	            <option value="">
-	                System Default Color Theme
+	                {bce_lang($user_language, "page_settings_label_system_default_color_theme")}
 	            </option>
 	            <option value="dark">
 	                Dark Color Theme
