@@ -12,7 +12,8 @@
     "menu_design": "design",
     "menu_inventory": "inventory",
     "menu_docs": "docs",
-    "menu_terms": "terms"
+    "menu_terms": "terms",
+    "menu_contact": "contact"
   },
   "es": {
     "bce": "BCE: las empresas de computadoras cerebrales",
@@ -27,7 +28,8 @@
     "menu_design": "diseño",
     "menu_inventory": "inventario",
     "menu_docs": "docs",
-    "menu_terms": "letra chica"
+    "menu_terms": "letra chica",
+    "menu_contact": "contacto"
   },
   "ja": {
     "bce": "BCE: ブレイン・コンピュータ・エンタープライズ",
@@ -42,7 +44,8 @@
     "menu_design": "設計",
     "menu_inventory": "在庫",
     "menu_docs": "ドキュメント",
-    "menu_terms": "条件"
+    "menu_terms": "条件",
+    "menu_contact": "接触"
   },
   "ru": {
     "bce": "BCE: Компьютерные предприятия мозга",
@@ -57,7 +60,8 @@
     "menu_design": "проектировать",
     "menu_inventory": "инвентарь",
     "menu_docs": "Документы",
-    "menu_terms": "Условия"
+    "menu_terms": "Условия",
+    "menu_contact": "контакт"
   },
   "uk": {
     "bce": "BCE: Мозок комп'ютерних підприємств",
@@ -72,7 +76,8 @@
     "menu_design": "проект",
     "menu_inventory": "iнвентаризації",
     "menu_docs": "Документи",
-    "menu_terms": "Умови"
+    "menu_terms": "Умови",
+    "menu_contact": "Контакт"
   },
   "zh": {
     "bce": "BCE: 脑机企业",
@@ -87,6 +92,7 @@
     "menu_design": "设计",
     "menu_inventory": "库存",
     "menu_docs": "文档",
-    "menu_terms": "条款"
+    "menu_terms": "条款",
+    "menu_contact": "联系"
   }
 }
