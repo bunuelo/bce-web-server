@@ -1,18 +1,8 @@
 import { get } from 'svelte/store'
 import { user_email, user_session_token, user_session_is_valid, user_security_level, user_color_theme, user_language } from './bce_stores.js'
+import { get_system_default_language } from './bce_locale.js'
 import BceRestApi from "./bce_rest_api.js";
 let bce_rest_api = new BceRestApi();
-
-function get_system_default_language() {
-    var navigator_language = "en";
-    if (navigator.languages != undefined) {
-        navigator_language = navigator.languages[0];
-    } else {
-        navigator_language = navigator.language;
-    }
-    console.log("navigator_language = \"" + navigator_language + "\"");
-    return navigator_language;
-}
 
 export default class BceSession {
     
