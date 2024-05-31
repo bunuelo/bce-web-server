@@ -31,7 +31,7 @@
         </li>
         {#if $user_session_is_valid}
           <li>
-	      <a href="/user/logout" aria-current={$page.url.pathname === "/user/logout"}>logout</a>
+	      <a href="/user/logout" aria-current={$page.url.pathname === "/user/logout"}>{bce_lang($user_language, "menu_logout")</a>
           </li>
           <li>
 	      <a href="/user/dashboard" aria-current={$page.url.pathname === "/user/dashboard"}>dashboard</a>
