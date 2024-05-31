@@ -53,7 +53,7 @@
 <table>
   <tr>
     <td>
-      email:
+      {bce_lang($user_language, "page_login_label_email")}:
     </td>
     <td>
       <input type="email" bind:value={$user_email}>
