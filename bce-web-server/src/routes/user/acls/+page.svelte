@@ -96,7 +96,7 @@
                         if (i < files.length) {
                             upload_rest();
                         } else {
-                            $alert = "All (" + (files.length) + ") files uploaded successfully!";
+                            $alert = bce_lang($user_language, "page_acls_alert_upload_all_assets_success") + " (" + (files.length) + ")";
                         }
                     })
                     .catch(e => {
