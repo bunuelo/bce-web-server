@@ -11,10 +11,13 @@
     let bce_session = new BceSession();
 
     let user_tab_open = false;
+
+    let done_loading = false;
     
     onMount(async () => {
         $user_session_is_valid = await bce_session.session_is_valid();
         $user_security_level = await bce_session.security_level();
+        done_loading = true;
     });
 
     $: (function () {
@@ -23,6 +26,7 @@
     
 </script>
 
+{#if done_loading}
 <nav aria-labelledby="mainmenulabel">
     <div id="mainmenulabel" hidden>Main Menu</div>
     <div class="menu_container">
@@ -82,5 +86,5 @@
         </ul>
     </div>
 </nav>
-
+{/if}
     
