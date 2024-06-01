@@ -3,6 +3,7 @@
     import { goto } from '$app/navigation';
     import { alert } from '$lib/bce_stores.js'
     import { user_session_is_valid } from '$lib/bce_stores.js'
+    import { user_session_token } from '$lib/bce_stores.js'
     import { user_security_level } from '$lib/bce_stores.js'
     import { user_language } from '$lib/bce_stores.js'
     import { bce_lang } from '$lib/bce_locale.js'
