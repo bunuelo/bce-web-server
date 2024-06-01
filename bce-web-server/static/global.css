@@ -20,8 +20,8 @@
   --surface2: #222222;
   --surface3: #444444;
   --element1: #ffffff;
-  --element2: #eeeeee;
-  --element3: #dddddd;
+  --element2: #dddddd;
+  --element3: #bbbbbb;
   --elementInverse: #000000;
   --primary: #7fff7f;
   --secondary: #7f7fff;
@@ -49,17 +49,14 @@ a:link {
 }
 
 a:visited {
-/*  color: var(--primary); */
   color: var(--element3);
 }
 
 a:active {
-/*  color: var(--secondary); */
   color: var(--element3);
 }
 
 a:hover {
-/*  color: var(--tertiary); */
   color: var(--element1); 
 }
 
@@ -67,11 +64,11 @@ ul.menu {
   list-style-type: none;
 /*  margin: 0;*/
 /*  padding: 0;*/
-/*  background: var(--surface2); */
+  background: var(--surface2); 
 }
 
 li.menu {
-  background: var(--surface2);
+/*  background: var(--surface2); */
 }
 
 button {
