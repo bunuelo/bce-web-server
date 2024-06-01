@@ -13,7 +13,8 @@ export const get_system_default_language = function() {
 }
 
 function get_user_language() {
-    if (get(user_language) == "") {
+    var search_language = get(user_language);
+    if (search_language === "" || search_language === null) {
         let default_language = get_system_default_language();
         for (var supported_language in bce_language_dictionary) {
             if (default_language.startsWith(supported_language)) {
@@ -22,7 +23,6 @@ function get_user_language() {
         }
         return "en";
     }
-    var search_language = get(user_language);
     for (var supported_language in bce_language_dictionary) {
         if (search_language.startsWith(supported_language)) {
             return supported_language;
