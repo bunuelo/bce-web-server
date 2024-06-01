@@ -52,8 +52,18 @@ export default class BceSession {
         //console.log("BceSession.update_session_from_cookie: here.")
         user_email.set(this.get_cookie("email"));
         user_session_token.set(this.get_cookie("session_token"));
-        user_color_theme.set(this.get_cookie("color_theme"));
-        user_language.set(this.get_cookie("language"));
+        let cookie_color_theme = this.get_cookie("color_theme");
+        if (cookie_color_theme === null) {
+            user_color_theme.set("");
+        } else {
+            user_color_theme.set(cookie_color_theme);
+        }
+        let cookie_language = this.get_cookie("language");
+        if (cookie_language === null) {
+            user_language.set("");
+        } else {
+            user_language.set(cookie_language);
+        }
         if (get(user_color_theme) == "") {
             if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
                 user_color_theme.set("dark");
