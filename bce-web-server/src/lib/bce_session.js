@@ -97,7 +97,7 @@ export default class BceSession {
         //console.log("BceSession.color_theme: here.")
         this.update_session_from_cookie();
         let result = await bce_rest_api.session_color_theme(get(user_session_token));
-        console.log("BceSession.color_theme: user_email = \"" + get(user_email) + "\", result = " + result);
+        //console.log("BceSession.color_theme: user_email = \"" + get(user_email) + "\", result = " + result);
         this.set_cookie("color_theme", result, 1);
         var color_theme = result;
         if (color_theme == "") {
