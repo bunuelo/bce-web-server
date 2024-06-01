@@ -61,6 +61,7 @@ a:hover {
 }
 
 ul.menu {
+  display: inline-block;
   list-style-type: none;
 /*  margin: 0;*/
 /*  padding: 0;*/
