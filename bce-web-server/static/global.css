@@ -45,22 +45,22 @@ a {
 }
 
 a:link {
-  color: var(--element1);
+  color: var(--element3);
 }
 
 a:visited {
 /*  color: var(--primary); */
-  color: var(--element1);
+  color: var(--element3);
 }
 
 a:active {
 /*  color: var(--secondary); */
-  color: var(--element1);
+  color: var(--element3);
 }
 
 a:hover {
 /*  color: var(--tertiary); */
-  color: var(--primary); 
+  color: var(--element1); 
 }
 
 ul.menu {
