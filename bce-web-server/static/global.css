@@ -62,14 +62,14 @@ a:hover {
 
 div.menu_container {
   display: inline-block;
-  padding: 16px;
+  padding: 8px;
   background: var(--surface2); 
 }
 
 ul.menu {
   list-style-type: none;
 /*  margin: 0;*/
-/*  padding: 0;*/
+  padding: 0;
   background: var(--surface2); 
   transition: background 2s;
 }
