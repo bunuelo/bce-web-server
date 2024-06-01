@@ -3,11 +3,11 @@
 /* Light Mode */
 :root[color-mode="light"] {
   --surface1: #ffffff;
-  --surface2: #eeeeee;
-  --surface3: #dddddd;
+  --surface2: #dddddd;
+  --surface3: #bbbbbb;
   --element1: #000000;
-  --element2: #111111;
-  --element3: #222222;
+  --element2: #222222;
+  --element3: #444444;
   --elementInverse: #ffffff;
   --primary: #007f00;
   --secondary: #0000ff;
