@@ -70,6 +70,7 @@ ul.menu {
 }
 
 li.menu {
+  display: block;
 /*  background: var(--surface2); */
 }
 
