@@ -62,10 +62,10 @@ a:hover {
 
 div.menu_container {
   display: inline-block;
-  padding-top: 16px;
+  padding-top: 0px;
   padding-left: 0px;
   padding-right: 32px;
-  padding-bottom: 16px;
+  padding-bottom: 0px;
   background: var(--surface2); 
 }
 
