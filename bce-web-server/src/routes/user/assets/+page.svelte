@@ -74,7 +74,7 @@
 
   {#each assets as asset}
     <div width="272px" height="272px" style="display: inline-block; background: #7f7f7f;">
-        <img width="256px" height="256px" style="margin: auto;" src="https://bce.center:8000/asset/download?session_token={$user_session_token}&name={asset.name}" alt="{asset.display_name}">
+        <img width="128px" height="128px" style="margin: auto;" src="https://bce.center:8000/asset/download?session_token={$user_session_token}&name={asset.name}" alt="{asset.display_name}">
     </div>
   {/each}
   
