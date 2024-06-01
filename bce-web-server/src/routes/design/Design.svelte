@@ -48,7 +48,7 @@
   
   onMount(async function() {
     await load_default_options()    
-    await generate_unique();
+    //await generate_unique();
   });
 
   async function onclickGenerate() {
