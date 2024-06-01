@@ -60,8 +60,11 @@ a:hover {
   color: var(--element1); 
 }
 
-ul.menu {
+div.menu_container {
   display: inline-block;
+}
+
+ul.menu {
   list-style-type: none;
 /*  margin: 0;*/
 /*  padding: 0;*/
@@ -70,7 +73,6 @@ ul.menu {
 }
 
 li.menu {
-  display: block;
 /*  background: var(--surface2); */
 }
 
