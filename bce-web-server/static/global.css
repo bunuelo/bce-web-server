@@ -40,6 +40,10 @@ p {
   color: var(--element1)
 }
 
+a {
+  transition: 0.3s;
+}
+
 a:link {
   color: var(--element1);
 }
