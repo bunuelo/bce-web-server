@@ -69,7 +69,7 @@
       </select>
   </label>
   
-  <p>Total assets count: {assets_count}</p>
+  <p>{bce_lang($user_language, "page_assets_label_total_assets_count")}: {assets_count}</p>
 
   <ul>
       {#each assets as asset}
