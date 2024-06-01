@@ -69,7 +69,7 @@
       </select>
   </label>
   
-  <p>Total asset count: {asset_count}</p>
+  <p>Total assets count: {assets_count}</p>
 
   <ul>
       {#each assets as asset}
