@@ -71,11 +71,9 @@
   
   <p>{bce_lang($user_language, "page_assets_label_total_assets_count")}: {assets_count}</p>
 
-  <ul>
-      {#each assets as asset}
-        <img src="https://bce.center:8000/asset/download?name={asset.name}" alt="{asset.display_name}">
-      {/each}
-    </ul>
+  {#each assets as asset}
+    <img src="https://bce.center:8000/asset/download?name={asset.name}" alt="{asset.display_name}">
+  {/each}
   
 {/if}
 
