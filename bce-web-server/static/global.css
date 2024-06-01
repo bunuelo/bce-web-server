@@ -63,6 +63,7 @@ a:hover {
 div.menu_container {
   display: inline-block;
   padding: 16px;
+  background: var(--surface2); 
 }
 
 ul.menu {
