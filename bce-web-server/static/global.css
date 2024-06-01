@@ -62,6 +62,7 @@ a:hover {
 
 div.menu_container {
   display: inline-block;
+  padding: 16px;
 }
 
 ul.menu {
