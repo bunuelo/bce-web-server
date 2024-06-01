@@ -25,7 +25,7 @@
 
 <nav aria-labelledby="mainmenulabel">
     <div id="mainmenulabel" hidden>Main Menu</div>
-    <ul>
+    <ul class="menu">
         <li>
 	    <a href="/" aria-current={$page.url.pathname === "/"}>{bce_lang($user_language, "menu_home")}</a>
         </li>
@@ -35,7 +35,7 @@
           </li>
           <li>
 	      <a href="/user/dashboard" aria-current={$page.url.pathname === "/user/dashboard"}>{bce_lang($user_language, "menu_dashboard")}</a>
-              <ul>
+              <ul class="menu">
                   {#if $user_security_level >= 25 && user_tab_open}
                     <li>
 	                <a href="/user/settings" aria-current={$page.url.pathname === "/user/settings"}>{bce_lang($user_language, "menu_settings")}</a>

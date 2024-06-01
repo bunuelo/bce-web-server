@@ -56,6 +56,12 @@ a:hover {
   color: var(--tertiary);
 }
 
+ul.menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
 button {
   background-color: var(--element1);
   color: var(--elementInverse);
