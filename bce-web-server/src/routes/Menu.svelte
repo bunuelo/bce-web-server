@@ -37,17 +37,19 @@
             <li class="menu">
 	        <a href="/user/dashboard" aria-current={$page.url.pathname === "/user/dashboard"}>{bce_lang($user_language, "menu_dashboard")}</a>
                 <ul class="menu">
-                    {#if $user_security_level >= 25 && user_tab_open}
+                    {#if user_tab_open}
                       <li class="menu">
 	                  <a href="/user/settings" aria-current={$page.url.pathname === "/user/settings"}>{bce_lang($user_language, "menu_settings")}</a>
                       </li>
-                      <li class="menu">
-	                  <a href="/user/acls" aria-current={$page.url.pathname === "/user/acls"}>{bce_lang($user_language, "menu_acls")}</a>
-                      </li>
-                    <li class="menu">
-                        <a href="/user/assets" aria-current={$page.url.pathname === "/user/assets"}>{bce_lang($user_language, "menu_assets")}</a>
-                    </li>
-                  {/if}
+                      {#if $user_security_level >= 25}
+                        <li class="menu">
+	                    <a href="/user/acls" aria-current={$page.url.pathname === "/user/acls"}>{bce_lang($user_language, "menu_acls")}</a>
+                        </li>
+                        <li class="menu">
+                            <a href="/user/assets" aria-current={$page.url.pathname === "/user/assets"}>{bce_lang($user_language, "menu_assets")}</a>
+                        </li>
+                      {/if}
+                    {/if}
                 </ul>
             </li>
           {:else}
