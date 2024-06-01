@@ -49,15 +49,18 @@ a:link {
 }
 
 a:visited {
-  color: var(--primary);
+/*  color: var(--primary); */
+  color: var(--element1);
 }
 
 a:active {
-  color: var(--secondary);
+/*  color: var(--secondary); */
+  color: var(--element1);
 }
 
 a:hover {
-  color: var(--tertiary);
+/*  color: var(--tertiary); */
+  color: var(--primary); 
 }
 
 ul.menu {
