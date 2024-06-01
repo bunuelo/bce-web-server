@@ -124,12 +124,14 @@ select {
   background-color: var(--surface1);
   color: var(--element1)
   background: var(--surface1);
+  transition: background 2s;
 }
 
 select option {
   background-color: var(--surface1);
   color: var(--element1)
   background: var(--surface1);
+  transition: background 2s;
 }
 
 .skip-link {
