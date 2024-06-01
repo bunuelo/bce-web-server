@@ -66,7 +66,8 @@
     "page_docs_rest_api_link_description": "See the BCE REST API OpenAPI documentation.",
     "page_inventory_title": "Inventory",
     "page_design_title": "Design",
-    "page_terms_title": "Terms of Service"
+    "page_terms_title": "Terms of Service",
+    "page_contact_title": "Contact"
   },
   "es": {
     "bce": "BCE: las empresas de computadoras cerebrales",
@@ -135,7 +136,8 @@
     "page_docs_rest_api_link_description": "Consulte la documentación de OpenAPI de la API REST de BCE.",
     "page_inventory_title": "Inventario",
     "page_design_title": "Diseño",
-    "page_terms_title": "Términos de Servicio"
+    "page_terms_title": "Términos de Servicio",
+    "page_contact_title": "Contacto"
   },
   "ja": {
     "bce": "BCE: ブレイン・コンピュータ・エンタープライズ",
@@ -204,7 +206,8 @@
     "page_docs_rest_api_link_description": "BCE REST API OpenAPI のドキュメントを参照してください。",
     "page_inventory_title": "在庫",
     "page_design_title": "設計",
-    "page_terms_title": "利用規約"
+    "page_terms_title": "利用規約",
+    "page_contact_title": "接触"
   },
   "ru": {
     "bce": "BCE: Компьютерные предприятия мозга",
@@ -273,7 +276,8 @@
     "page_docs_rest_api_link_description": "Ознакомьтесь с документацией по OpenAPI REST API BCE.",
     "page_inventory_title": "Инвентарь",
     "page_design_title": "Проектировать",
-    "page_terms_title": "Условия предоставления услуг"
+    "page_terms_title": "Условия предоставления услуг",
+    "page_contact_title": "Контакт"
   },
   "uk": {
     "bce": "BCE: Мозок комп'ютерних підприємств",
@@ -342,7 +346,8 @@
     "page_docs_rest_api_link_description": "Перегляньте документацію BCE REST API OpenAPI.",
     "page_inventory_title": "Інвентаризації",
     "page_design_title": "Проект",
-    "page_terms_title": "Умови надання послуг"
+    "page_terms_title": "Умови надання послуг",
+    "page_contact_title": "Контакт"
   },
   "zh": {
     "bce": "BCE: 脑机企业",
@@ -411,6 +416,7 @@
     "page_docs_rest_api_link_description": "请参阅 BCE REST API OpenAPI 文档。",
     "page_inventory_title": "库存",
     "page_design_title": "设计",
-    "page_terms_title": "服务条款"
+    "page_terms_title": "服务条款",
+    "page_contact_title": "联系"
   }
 }
