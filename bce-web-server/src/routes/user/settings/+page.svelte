@@ -8,6 +8,7 @@
     
     let color_theme_selected = "";
     let language_selected = "";
+    let done_loading = false;
     
     onMount(async () => {
         if (! $user_session_is_valid) {
@@ -21,6 +22,7 @@
         color_theme_selected = $user_color_theme;
         $user_language = await bce_session.language();
         language_selected = $user_language;
+        done_loading = true;
     });
 
     async function update_color_theme() {
@@ -45,57 +47,55 @@
     <title>{bce_lang($user_language, "page_settings_title")}</title>
 </svelte:head>
 
-{#if $user_session_is_valid}
+{#if done_loading}
 
   <h1>{bce_lang($user_language, "page_settings_title")}</h1>
   
   <ul>
-      {#if $user_security_level >= 25}
-        <li>
-            <label>
-                {bce_lang($user_language, "page_settings_label_color_theme")}: 
-                <select bind:value={color_theme_selected} on:change={update_color_theme}>
-	            <option value="">
-	                {bce_lang($user_language, "page_settings_label_system_default_color_theme")}
-	            </option>
-	            <option value="dark">
-	                {bce_lang($user_language, "page_settings_label_dark_color_theme")}
-	            </option>
-	            <option value="light">
-	                {bce_lang($user_language, "page_settings_label_light_color_theme")}
-	            </option>
-                </select>
-            </label>
-        </li>
-        <li>
-            <label>
-                {bce_lang($user_language, "page_settings_label_language")}: 
-                <select bind:value={language_selected} on:change={update_language}>
-	            <option value="">
-	                {bce_lang($user_language, "page_settings_label_system_default_language")}
-	            </option>
-	            <option value="en">
-	                English Language
-	            </option>
-	            <option value="es">
-	                Lengua Española
-	            </option>
-	            <option value="ja">
-	                日本語
-	            </option>
-	            <option value="ru">
-	                Русский язык
-	            </option>
-	            <option value="uk">
-	                Українська мова
-	            </option>
-	            <option value="zh">
-                        中文
-	            </option>
-                </select>
-            </label>
-        </li>
-    {/if}
+      <li>
+          <label>
+              {bce_lang($user_language, "page_settings_label_color_theme")}: 
+              <select bind:value={color_theme_selected} on:change={update_color_theme}>
+	          <option value="">
+	              {bce_lang($user_language, "page_settings_label_system_default_color_theme")}
+	          </option>
+	          <option value="dark">
+	              {bce_lang($user_language, "page_settings_label_dark_color_theme")}
+	          </option>
+	          <option value="light">
+	              {bce_lang($user_language, "page_settings_label_light_color_theme")}
+	          </option>
+              </select>
+          </label>
+      </li>
+      <li>
+          <label>
+              {bce_lang($user_language, "page_settings_label_language")}: 
+              <select bind:value={language_selected} on:change={update_language}>
+	          <option value="">
+	              {bce_lang($user_language, "page_settings_label_system_default_language")}
+	          </option>
+	          <option value="en">
+	              English Language
+	          </option>
+	          <option value="es">
+	              Lengua Española
+	          </option>
+	          <option value="ja">
+	              日本語
+	          </option>
+	          <option value="ru">
+	              Русский язык
+	          </option>
+	          <option value="uk">
+	              Українська мова
+	          </option>
+	          <option value="zh">
+                      中文
+	          </option>
+              </select>
+          </label>
+      </li>
   </ul>
   
 {/if}
