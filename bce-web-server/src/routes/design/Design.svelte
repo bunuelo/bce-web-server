@@ -1,5 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
+  import { user_language } from '$lib/bce_stores.js'
+  import { bce_lang } from '$lib/bce_locale.js'
   import Model from "./Model.svelte";
   import BceRestApi from "$lib/bce_rest_api.js";
 
@@ -124,7 +126,7 @@
   
 </script>
 
-<h1>Design</h1>
+<h1>{bce_lang($user_language, "page_design_title")}</h1>
 
 <table>
   <tr>
