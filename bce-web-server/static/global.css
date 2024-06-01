@@ -65,6 +65,7 @@ ul.menu {
 /*  margin: 0;*/
 /*  padding: 0;*/
   background: var(--surface2); 
+  transition: background 2s;
 }
 
 li.menu {
@@ -77,6 +78,7 @@ button {
   border: none;
   border-radius: 4px;
   padding: 0.5rem;
+  transition: background 2s;
 }
 
 input:autofill {
@@ -88,6 +90,7 @@ input:autofill {
 input:-webkit-autofill {
   background-color: var(--surface1);
   color: var(--element1);
+  transition: background 2s;
 }
 
 input[type=text], input[type=email], input[type=password] {
@@ -97,6 +100,7 @@ input[type=text], input[type=email], input[type=password] {
   border:1px solid var(--element1);
   border-radius:4;
   box-shadow: 0px 0px 4px var(--element1);
+  transition: background 2s;
 }
 
 select {
