@@ -85,6 +85,10 @@ li.menu {
 /*  background: var(--surface2); */
 }
 
+div.main_content {
+  display: inline-block;
+}
+
 button {
   background-color: var(--element1);
   color: var(--elementInverse);

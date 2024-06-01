@@ -36,25 +36,15 @@
         </div>
       {/if}
       
-      <table width="100%">
-          <tr>
-              <td>
-                  <Logo />
-              </td>
-          <tr>
-          </tr>
-          <tr>
-              <td>
-                  <Menu />
-              </td>
-          </tr>
-          <tr>
-              <td>
-                  <main id="content"></main>
-                  <slot />
-              </td>
-          </tr>
-      </table>
+      <Logo />
+
+      <Menu />
       
   </header>
+  
+  <div class="main_content">
+      <main id="content">
+          <slot />
+      </main>
+  </div>
 {/if}
