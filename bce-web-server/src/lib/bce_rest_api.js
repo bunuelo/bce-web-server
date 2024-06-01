@@ -304,6 +304,25 @@ export default class BceRestApi {
 	return response_json.success;
     }
   
+    async asset_count(session_token, acl_id = null) {
+        var body = {
+  	    session_token: session_token
+	}
+        if (acl_id) {
+            body["acl_id"] = acl_id;
+        }
+        const response = await fetch(this.apiURL + "/asset/count", {
+	    method: "POST",
+	    body: JSON.stringify(body),
+	    headers: {
+		"Content-type": "application/json; charset=UTF-8"
+	    }
+	});
+	const response_json = await response.json();
+	this.message = response_json.message;
+	return response_json.count;
+    }
+  
     async asset_list(session_token, acl_id = null) {
         var body = {
   	    session_token: session_token

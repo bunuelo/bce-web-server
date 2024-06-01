@@ -178,11 +178,15 @@ export default class BceSession {
         return result;
     }
   
+    async assets_count(acl_id = null) {
+        this.update_session_from_cookie();
+        let result = await bce_rest_api.asset_count(get(user_session_token), acl_id);
+        return result;
+    }
+
     async assets(acl_id = null) {
-        //console.log("BceSession.assets: here.")
         this.update_session_from_cookie();
         let result = await bce_rest_api.asset_list(get(user_session_token), acl_id);
-        //console.log("BceSession.assets: user_email = \"" + get(user_email) + "\", acl_id = \"" + acl_id + "\", result = " + result);
         return result;
     }
 

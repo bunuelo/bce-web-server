@@ -10,6 +10,7 @@
     let bce_session = new BceSession();
 
     let acls = [];
+    let assets_count = 0;
     let assets = [];
 
     let acl_selected = "0";
@@ -39,6 +40,7 @@
         if (acl_id == "0") {
             acl_id = null;
         }
+        assets_count = await bce_session.assets_count(acl_id);
         assets = await bce_session.assets(acl_id);
     }
     
@@ -67,14 +69,16 @@
       </select>
   </label>
   
-<ul>
-    {#each assets as asset}
-      <li>
-          <a href="https://bce.center:8000/asset/download?name={asset.name}">{asset.display_name}</a>
-      </li>
-    {/each}
-</ul>
+  <p>Total asset count: {asset_count}</p>
 
+  <ul>
+      {#each assets as asset}
+        <li>
+            <a href="https://bce.center:8000/asset/download?name={asset.name}">{asset.display_name}</a>
+        </li>
+      {/each}
+    </ul>
+  
 {/if}
 
 
