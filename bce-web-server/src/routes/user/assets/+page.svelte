@@ -73,8 +73,8 @@
   <p>{bce_lang($user_language, "page_assets_label_total_assets_count")}: {assets_count}</p>
 
   {#each assets as asset}
-    <div style="display: inline-block; background: #7f7f7f; width: 272px; height:272px;">
-        <img style="width: 256px; height: 256px; padding: 8px 0; display: block; margin: auto;" src="https://bce.center:8000/asset/download?session_token={$user_session_token}&name={asset.name}" alt="{asset.display_name}">
+    <div class="asset_preview">
+        <img class="asset_preview" src="https://bce.center:8000/asset/download?session_token={$user_session_token}&name={asset.name}" alt="{asset.display_name}">
     </div>
   {/each}
   
