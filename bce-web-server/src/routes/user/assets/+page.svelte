@@ -74,7 +74,7 @@
 
   {#each assets as asset}
     <div class="asset_preview">
-        <img width="256px" height="256px" class="asset_preview" src="https://bce.center:8000/asset/download?session_token={$user_session_token}&name={asset.name}&q={Math.random()}" alt="{asset.display_name}">
+        <img class="asset_preview" src="https://bce.center:8000/asset/download?session_token={$user_session_token}&name={asset.name}&q={Math.random()}" alt="{asset.display_name}">
     </div>
   {/each}
   
