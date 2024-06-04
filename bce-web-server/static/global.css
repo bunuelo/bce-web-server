@@ -161,4 +161,5 @@ div.asset_preview {
   background: var(--surface3);
   width: 272px;
   height:272px;
+  float: left;
 }
