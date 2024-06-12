@@ -75,6 +75,9 @@
 	          <option value="">
 	              {bce_lang($user_language, "page_settings_label_system_default_language")}
 	          </option>
+	          <option value="ar">
+	              اللغة العربية
+	          </option>
 	          <option value="en">
 	              English Language
 	          </option>
