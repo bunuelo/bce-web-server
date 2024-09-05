@@ -37,14 +37,12 @@
     }
     
     async function on_click_request_chat_user() {
-        //let success = await bce_session.create_acl(new_acl_display_name);
-        //if (success) {
-        //    $alert = bce_lang($user_language, "page_acls_alert_create_acl_success");
-        //    reset_new_acl();
-        //    await update_acl_list();
-        //} else {
-        $alert = bce_lang($user_language, "page_chats_alert_create_chat_request_failure");
-        //}
+        let success = await bce_session.request_chat(new_request_chat_user_email);
+        if (success) {
+            $alert = bce_lang($user_language, "page_chats_alert_create_chat_request_success");
+        } else {
+            $alert = bce_lang($user_language, "page_chats_alert_create_chat_request_failure");
+        }
     }
     
 </script>

@@ -190,4 +190,12 @@ export default class BceSession {
         return result;
     }
 
+    async request_chat(user_email) {
+        console.log("BceSession.request_chat: user_email=\"" + user_email + "\"")
+        this.update_session_from_cookie();
+        let result = await bce_rest_api.chat_request(get(user_session_token), user_email);
+        //console.log("BceSession.create_acl: user_email = \"" + get(user_email) + "\", user_session_token = \"" + get(user_session_token) + "\", result = " + result);
+        return result;
+    }
+    
 }
