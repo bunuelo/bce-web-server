@@ -27,9 +27,14 @@ SOURCE_FILES = \
   bce-web-server/src/routes/user/dashboard/+page.svelte \
   bce-web-server/src/routes/user/settings/+page.svelte \
   bce-web-server/src/routes/user/assets/+page.svelte \
+  bce-web-server/src/routes/user/chats/+page.svelte \
   test \
   start \
   bootstrap \
+  start_bce_redirect_server \
+  start_bce_web_server \
+  bce-http-redirect-server/start \
+  bce-http-redirect-server/bce_http_redirect.py \
   README.md \
   makefile
 
