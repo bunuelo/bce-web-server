@@ -138,6 +138,7 @@
     "page_chats_title": "Chats",
     "page_chats_label_total_assets_count": "total chats",
     "page_chats_label_request_chat": "request chat",
+    "page_chats_alert_create_chat_request_failure": "Failed to request chat.",
     "page_docs_title": "Docs",
     "page_docs_description": "The BCE website is an example web-based client application that accesses the BCE REST API.",
     "page_docs_rest_api_link_description": "See the BCE REST API OpenAPI documentation.",
