@@ -9,7 +9,9 @@
     import { bce_lang } from '$lib/bce_locale.js'
     import BceSession from "$lib/bce_session.js";
     let bce_session = new BceSession();
-
+    
+    let chat_request_list = [];
+    
     let chats = [];
     let chats_count = 0;
 
@@ -29,11 +31,16 @@
             goto("/user/dashboard");
         }
         await update_chat_list();
+        await update_chat_request_list();
     });
 
     async function update_chat_list() {
         chats = await bce_session.chats();
         chat_selected = "0";
+    }
+    
+    async function update_chat_request_list() {
+        chat_request_list = await bce_session.chat_request_list();
     }
     
     async function on_click_request_chat_user() {
@@ -58,13 +65,17 @@
   
   <p>{bce_lang($user_language, "page_chats_label_total_assets_count")}: {chats_count}</p>
   
+      {#key acls}
+        {#each acls as acl}
+        {/each}
+      {/key}
   <p>
     <input type="text" bind:value="{new_request_chat_user_email}" style="width: 150px;" />
     <a href="#" on:click={on_click_request_chat_user}>{bce_lang($user_language, "page_chats_label_request_chat")}</a>
   </p>
   
-  {#each chats as chat}
-    {chat}
+  {#each chat_request_list as chat_request_user_id}
+    <p>Request User Id: {chat_request_user_id}</p>
   {/each}
   
 {/if}

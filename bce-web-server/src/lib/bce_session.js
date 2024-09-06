@@ -198,4 +198,11 @@ export default class BceSession {
         return result;
     }
     
+    async chat_request_list() {
+        console.log("BceSession.chat_request_list: here.")
+        this.update_session_from_cookie();
+        let result = await bce_rest_api.chat_request_list(get(user_session_token);
+        return result;
+    }
+    
 }
