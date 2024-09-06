@@ -63,7 +63,7 @@
 
   <h1>{bce_lang($user_language, "page_chats_title")}</h1>
     
-  <p>
+  <div>
       {#if chat_request_list}
           The following users have requested to chat with you:
       {/if}
@@ -82,7 +82,7 @@
           </tr>
       {/each}
   </table>
-  </p>
+  </div>
   
   <p>{bce_lang($user_language, "page_chats_label_total_assets_count")}: {chats_count}</p>
   
