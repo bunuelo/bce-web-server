@@ -70,10 +70,10 @@
                   User {chat_request_user_id} is requesting to chat with you.  Would you like to accept user {chat_request_user_id}'s request to chat?
               </td>
               <td>
-                  <a href+"#">Accept</a>
+                  <a href="#">Accept</a>
               </td>
               <td>
-                  <a href+"#">Reject</a>
+                  <a href="#">Reject</a>
               </td>
           </tr>
       {/each}
