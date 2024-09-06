@@ -64,10 +64,10 @@
   <h1>{bce_lang($user_language, "page_chats_title")}</h1>
   
   <table>
-      {#each chat_request_list as chat_request_user_id}
+      {#each chat_request_list as chat_request_user}
           <tr>
               <td>
-                  User {chat_request_user_id} is requesting to chat with you.  Would you like to accept user {chat_request_user_id}'s request to chat?
+                  User {chat_request_user.user_id} is requesting to chat with you.  Would you like to accept this request to chat?
               </td>
               <td>
                   <a href="#">Accept</a>
