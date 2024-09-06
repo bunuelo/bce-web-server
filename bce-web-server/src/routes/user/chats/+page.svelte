@@ -63,6 +63,22 @@
 
   <h1>{bce_lang($user_language, "page_chats_title")}</h1>
   
+  <table>
+      {#each chat_request_list as chat_request_user_id}
+          <tr>
+              <td>
+                  User {chat_request_user_id} is requesting to chat with you.  Would you like to accept user {chat_request_user_id}'s request to chat?
+              </td>
+              <td>
+                  <a href+"#">Accept</a>
+              </td>
+              <td>
+                  <a href+"#">Reject</a>
+              </td>
+          </tr>
+      {/each}
+  </table>
+  
   <p>{bce_lang($user_language, "page_chats_label_total_assets_count")}: {chats_count}</p>
   
       {#key acls}
@@ -73,10 +89,6 @@
     <input type="text" bind:value="{new_request_chat_user_email}" style="width: 150px;" />
     <a href="#" on:click={on_click_request_chat_user}>{bce_lang($user_language, "page_chats_label_request_chat")}</a>
   </p>
-  
-  {#each chat_request_list as chat_request_user_id}
-    <p>Request User Id: {chat_request_user_id}</p>
-  {/each}
   
 {/if}
 
