@@ -62,12 +62,16 @@
 {#if $user_session_is_valid && $user_security_level >= 25}
 
   <h1>{bce_lang($user_language, "page_chats_title")}</h1>
-  
+    
+  <p>
+      {#if chat_request_list}
+          The following users have requested to chat with you:
+      {/if}
   <table>
       {#each chat_request_list as chat_request_user}
           <tr>
               <td>
-                  <i>{chat_request_user.email}</i>: User requests to chat with you.  Would you like to accept?
+                  <i>{chat_request_user.email}</i>: 
               </td>
               <td>
                   <a href="#">Accept</a>
@@ -78,6 +82,7 @@
           </tr>
       {/each}
   </table>
+  </p>
   
   <p>{bce_lang($user_language, "page_chats_label_total_assets_count")}: {chats_count}</p>
   
