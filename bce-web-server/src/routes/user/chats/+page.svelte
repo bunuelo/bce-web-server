@@ -71,6 +71,9 @@
       {#each chat_request_list as chat_request_user}
           <tr>
               <td>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              </td>
+              <td>
                   <i>{chat_request_user.email}</i>: 
               </td>
               <td>
