@@ -205,4 +205,11 @@ export default class BceSession {
         return result;
     }
     
+    async chat_request_response(email, accept) {
+        console.log("BceSession.chat_request_response: here.")
+        this.update_session_from_cookie();
+        let result = await bce_rest_api.chat_request_response(get(user_session_token), email, accept);
+        return result;
+    }
+    
 }

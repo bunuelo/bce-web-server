@@ -373,4 +373,21 @@ export default class BceRestApi {
 	return response_json.success;
     }
     
+  async chat_request_response(session_token, email, accept) {
+	const response = await fetch(this.apiURL + "/chat/request/response", {
+	    method: "POST",
+	    body: JSON.stringify({
+    	        session_token: session_token,
+                email: email,
+                accept: accept
+	    }),
+	    headers: {
+		"Content-type": "application/json; charset=UTF-8"
+	    }
+	});
+	const response_json = await response.json();
+	this.message = response_json.message;
+	return response_json.success;
+    }
+    
 }
