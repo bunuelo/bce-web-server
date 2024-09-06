@@ -67,7 +67,7 @@
       {#each chat_request_list as chat_request_user}
           <tr>
               <td>
-                  {chat_request_user.email}: User requests to chat with you.  Would you like to accept?
+                  <i>{chat_request_user.email}</i>: User requests to chat with you.  Would you like to accept?
               </td>
               <td>
                   <a href="#">Accept</a>
