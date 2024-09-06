@@ -52,6 +52,16 @@
         }
     }
     
+    async function on_click_chat_request_response(email, accept) {
+        let success = await bce_session.chat_request_response(email, accept);
+        if (success) {
+            $alert = bce_lang($user_language, "page_chats_alert_chat_request_response_success");
+            await update_acl_list();
+        } else {
+            $alert = bce_lang($user_language, "page_chats_alert_chat_request_response_failure");
+        }
+    }
+    
 </script>
 
 
@@ -77,10 +87,10 @@
                   <i>{chat_request_user.email}</i>: 
               </td>
               <td>
-                  <a href="#">Accept</a>
+                  <a href="#" on:click={() => on_click_chat_request_response(chat_request_user.email, true)}>Accept</a>
               </td>
               <td>
-                  <a href="#">Reject</a>
+                  <a href="#" on:click={() => on_click_chat_request_response(chat_request_user.email, false)}>Reject</a>
               </td>
           </tr>
       {/each}
