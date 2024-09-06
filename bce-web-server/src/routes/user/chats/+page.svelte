@@ -89,10 +89,6 @@
   
   <p>{bce_lang($user_language, "page_chats_label_total_assets_count")}: {chats_count}</p>
   
-      {#key acls}
-        {#each acls as acl}
-        {/each}
-      {/key}
   <p>
     <input type="text" bind:value="{new_request_chat_user_email}" style="width: 150px;" />
     <a href="#" on:click={on_click_request_chat_user}>{bce_lang($user_language, "page_chats_label_request_chat")}</a>
