@@ -22,6 +22,8 @@
     let new_request_chat_user_email = "";
 
     let chat_user_selected = ""
+
+    let new_chat_text = ""
     
     onMount(async () => {
         if (! $user_session_is_valid) {
@@ -104,6 +106,7 @@
     }
     
     async function on_click_create_chat() {
+        
     }
 
 </script>
@@ -177,7 +180,7 @@
   </table>
   
   <p>
-  <textarea rows="4" cols="50">{bce_lang($user_language, "page_chats_message_default_text")}</textarea>
+  <textarea rows="4" cols="50" bind:value={new_chat_text}>{bce_lang($user_language, "page_chats_message_default_text")}</textarea>
   </p>
 
   <p>
