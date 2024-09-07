@@ -85,7 +85,7 @@
         if (chat_user_selected && chat_user_selected != "") {
             var already_in_list = false
             for (var i = 0; i < chat_recipients.length; i ++) {
-                email = chat_recipients[i]
+                var email = chat_recipients[i]
                 console.log("email = " + email)
                 if (email == chat_user_selected) {
                     already_in_list = true
