@@ -106,7 +106,7 @@
     }
     
     async function on_click_create_chat() {
-        
+        console.log("new_chat_text = " + new_chat_text)
     }
 
 </script>
