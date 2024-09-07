@@ -110,7 +110,7 @@ input:-webkit-autofill {
   transition: background 2s;
 }
 
-input[type=text], [type=textarea], input[type=email], input[type=password] {
+input[type=text], input[type=textarea], input[type=email], input[type=password] {
   background-color: var(--surface1);
   color: var(--element1)
   background: var(--surface1);
