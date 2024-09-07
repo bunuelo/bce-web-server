@@ -97,6 +97,8 @@
                 new_chat_recipients.push(chat_user_selected)
                 $alert = bce_lang($user_language, "page_chats_alert_add_recipient_success");
                 chat_recipients = new_chat_recipients
+            } else {
+                $alert = "";
             }
         }
     }
