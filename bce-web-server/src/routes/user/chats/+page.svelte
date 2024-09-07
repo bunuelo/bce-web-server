@@ -64,7 +64,9 @@
         let success = await bce_session.chat_request_response(email, accept);
         if (success) {
             $alert = bce_lang($user_language, "page_chats_alert_chat_request_response_success");
-            await update_acl_list();
+            await update_chat_request_list();
+            await update_chat_user_list();
+            await update_chat_list();
         } else {
             $alert = bce_lang($user_language, "page_chats_alert_chat_request_response_failure");
         }
