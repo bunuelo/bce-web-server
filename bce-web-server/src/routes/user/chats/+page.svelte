@@ -79,9 +79,13 @@
         }
     }
 
-
+    let chat_recipients = []
+    
     async function on_click_add_recipient() {
-        $alert = bce_lang($user_language, "page_chats_alert_add_recipient_success");
+        if (chat_user_selected && chat_user_selected != "") {
+            chat_recipients.push(chat_user_selected)
+            $alert = bce_lang($user_language, "page_chats_alert_add_recipient_success");
+        }
     }
     
 </script>
@@ -141,6 +145,12 @@
   <a href="#" on:click={on_click_add_recipient}>{bce_lang($user_language, "page_chats_label_add_recipient")}</a>
   </p>
 
+  {#each chat_recipients as chat_recipient}
+    <p>
+	{chat_recipient}
+    </p>
+  {/each}
+  
   <p>{bce_lang($user_language, "page_chats_label_total_assets_count")}: {chats_count}</p>
   
 {/if}
