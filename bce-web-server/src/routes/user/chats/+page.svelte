@@ -74,7 +74,7 @@
   <h1>{bce_lang($user_language, "page_chats_title")}</h1>
     
   <div>
-      {#if chat_request_list}
+      {#if chat_request_list && chat_request_list.length > 0}
           The following users have requested to chat with you:
       {/if}
   <table>
