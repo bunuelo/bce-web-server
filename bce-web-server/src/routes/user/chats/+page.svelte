@@ -125,19 +125,6 @@
       </select>
   </label>
 
-  <table>
-      {#each chat_user_list as chat_user}
-          <tr>
-              <td>
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              </td>
-              <td>
-                  {chat_user.email}
-              </td>
-          </tr>
-      {/each}
-  </table>
-
   <p>{bce_lang($user_language, "page_chats_label_total_assets_count")}: {chats_count}</p>
   
   <p>
