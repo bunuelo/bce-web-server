@@ -78,6 +78,11 @@
             $alert = bce_lang($user_language, "page_chats_alert_chat_request_response_failure");
         }
     }
+
+
+    async function on_click_add_recipient() {
+        $alert = bce_lang($user_language, "page_chats_alert_add_recipient_success");
+    }
     
 </script>
 
@@ -133,6 +138,7 @@
           {/each}
       </select>
   </label>
+  <a href="#" on:click={on_click_add_recipient}>{bce_lang($user_language, "page_chats_label_add_recipient")}</a>
   </p>
 
   <p>{bce_lang($user_language, "page_chats_label_total_assets_count")}: {chats_count}</p>
