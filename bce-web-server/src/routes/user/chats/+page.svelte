@@ -39,6 +39,7 @@
 
     async function update_chat_request_list() {
         chat_request_list = await bce_session.chat_request_list();
+        console.log("chat_request_list = " + chat_request_list)
     }
     
     async function update_chat_user_list() {
