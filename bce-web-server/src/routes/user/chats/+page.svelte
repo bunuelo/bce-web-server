@@ -37,17 +37,17 @@
         await update_chat_list();
     });
 
-    async function update_chat_list() {
-        chats = await bce_session.chats();
-        chat_selected = "0";
-    }
-    
     async function update_chat_request_list() {
         chat_request_list = await bce_session.chat_request_list();
     }
     
     async function update_chat_user_list() {
         chat_user_list = await bce_session.chat_user_list();
+    }
+    
+    async function update_chat_list() {
+        chats = [];
+        chat_selected = "0";
     }
     
     async function on_click_request_chat_user() {
