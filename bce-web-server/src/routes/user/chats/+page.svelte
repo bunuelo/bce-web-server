@@ -82,11 +82,20 @@
     let chat_recipients = []
     
     async function on_click_add_recipient() {
-        let new_chat_recipients = chat_recipients
-        chat_recipients = null
         if (chat_user_selected && chat_user_selected != "") {
-            new_chat_recipients.push(chat_user_selected)
-            $alert = bce_lang($user_language, "page_chats_alert_add_recipient_success");
+            var already_in_list = false
+            for (var email in new_chat_recipients) {
+                if (email == chat_user_selected) {
+                    already_in_list = true
+                    break
+                }
+            }
+            if (! already_in_list) {
+                let new_chat_recipients = chat_recipients
+                chat_recipients = null
+                new_chat_recipients.push(chat_user_selected)
+                $alert = bce_lang($user_language, "page_chats_alert_add_recipient_success");
+            }
         }
         chat_recipients = new_chat_recipients
     }
@@ -148,11 +157,18 @@
   <a href="#" on:click={on_click_add_recipient}>{bce_lang($user_language, "page_chats_label_add_recipient")}</a>
   </p>
 
-  {#each chat_recipients as chat_recipient}
-    <p>
-	{chat_recipient}
-    </p>
-  {/each}
+  <table>
+      <tr>
+          <td>
+              {bce_lang($user_language, "page_chats_label_recipients")}:
+          </td>
+          <td>
+              {#each chat_recipients as chat_recipient}
+                  {chat_recipient + ", "}
+              {/each}
+            </td>
+      </tr>
+  </table>
   
   <p>{bce_lang($user_language, "page_chats_label_total_assets_count")}: {chats_count}</p>
   
