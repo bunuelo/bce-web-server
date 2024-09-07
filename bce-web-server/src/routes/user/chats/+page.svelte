@@ -58,6 +58,9 @@
         } else {
             $alert = bce_lang($user_language, "page_chats_alert_create_chat_request_failure");
         }
+        await update_chat_request_list();
+        await update_chat_user_list();
+        await update_chat_list();
     }
     
     async function on_click_chat_request_response(email, accept) {
