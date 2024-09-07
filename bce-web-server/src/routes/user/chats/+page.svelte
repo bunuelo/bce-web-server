@@ -23,7 +23,7 @@
 
     let chat_user_selected = ""
 
-    let new_chat_text = ""
+    let new_chat_text = bce_lang($user_language, "page_chats_message_default_text")
     
     onMount(async () => {
         if (! $user_session_is_valid) {
@@ -180,7 +180,7 @@
   </table>
   
   <p>
-  <textarea rows="4" cols="50" bind:value={new_chat_text}>{bce_lang($user_language, "page_chats_message_default_text")}</textarea>
+  <textarea rows="4" cols="50" bind:value={new_chat_text}></textarea>
   </p>
 
   <p>
