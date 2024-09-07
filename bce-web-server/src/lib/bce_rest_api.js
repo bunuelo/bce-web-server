@@ -370,7 +370,7 @@ export default class BceRestApi {
 	});
 	const response_json = await response.json();
 	this.message = response_json.message;
-	return response_json.success;
+	return response_json.chat_requests;
     }
     
   async chat_request_response(session_token, email, accept) {
@@ -402,7 +402,7 @@ export default class BceRestApi {
 	});
 	const response_json = await response.json();
 	this.message = response_json.message;
-	return response_json.success;
+	return response_json.chat_users;
     }
     
 }
