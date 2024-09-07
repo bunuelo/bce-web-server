@@ -86,7 +86,6 @@
             var already_in_list = false
             for (var i = 0; i < chat_recipients.length; i ++) {
                 var email = chat_recipients[i]
-                console.log("email = " + email)
                 if (email == chat_user_selected) {
                     already_in_list = true
                     break
@@ -166,7 +165,7 @@
           </td>
           <td>
               {#each chat_recipients as chat_recipient}
-                  {chat_recipient + ", "}
+                  {(chat_recipient != chat_recipients[0] ? ", " : "") + chat_recipient}
               {/each}
             </td>
       </tr>
