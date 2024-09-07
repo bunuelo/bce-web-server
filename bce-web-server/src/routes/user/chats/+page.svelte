@@ -12,6 +12,8 @@
     
     let chat_request_list = [];
     
+    let chat_user_list = [];
+    
     let chats = [];
     let chats_count = 0;
 
@@ -31,6 +33,7 @@
             goto("/user/dashboard");
         }
         await update_chat_request_list();
+        await update_chat_user_list();
         await update_chat_list();
     });
 
@@ -41,6 +44,10 @@
     
     async function update_chat_request_list() {
         chat_request_list = await bce_session.chat_request_list();
+    }
+    
+    async function update_chat_user_list() {
+        chat_user_list = await bce_session.chat_user_list();
     }
     
     async function on_click_request_chat_user() {
@@ -96,6 +103,8 @@
       {/each}
   </table>
   </div>
+
+  <p>chat_user_list = {chat_user_list}</p>
   
   <p>{bce_lang($user_language, "page_chats_label_total_assets_count")}: {chats_count}</p>
   
