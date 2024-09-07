@@ -82,10 +82,13 @@
     let chat_recipients = []
     
     async function on_click_add_recipient() {
+        new_chat_recipients = chat_recipients
+        chat_recipients = null
         if (chat_user_selected && chat_user_selected != "") {
-            chat_recipients.push(chat_user_selected)
+            new_chat_recipients.push(chat_user_selected)
             $alert = bce_lang($user_language, "page_chats_alert_add_recipient_success");
         }
+        chat_recipients = new_chat_recipients
     }
     
 </script>
