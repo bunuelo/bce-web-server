@@ -137,7 +137,7 @@
     "page_assets_label_total_assets_count": "total assets",
     "page_chats_title": "Chats",
     "page_chats_label_add_recipient": "add recipient",
-    "page_chats_label_chat_user": "chat recipient",
+    "page_chats_label_chat_user": "allowed chat recipient",
     "page_chats_label_create_chat": "create chat",
     "page_chats_label_total_assets_count": "total chats",
     "page_chats_label_request_chat": "request chat",
