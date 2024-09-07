@@ -114,10 +114,11 @@
   </table>
   </div>
 
-  <p>
-    <input type="text" bind:value="{new_request_chat_user_email}" style="width: 150px;" />
-    <a href="#" on:click={on_click_request_chat_user}>{bce_lang($user_language, "page_chats_label_request_chat")}</a>
-  </p>
+  <label>
+      {bce_lang($user_language, "page_chats_label_chat_request_email")}: 
+      <input type="text" bind:value="{new_request_chat_user_email}" style="width: 150px;" />
+      <a href="#" on:click={on_click_request_chat_user}>{bce_lang($user_language, "page_chats_label_request_chat")}</a>
+  </label>
   
   <label>
       {bce_lang($user_language, "page_chats_label_chat_user")}: 
