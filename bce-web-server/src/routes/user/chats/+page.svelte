@@ -85,6 +85,7 @@
         if (chat_user_selected && chat_user_selected != "") {
             var already_in_list = false
             for (var email in chat_recipients) {
+                console.log("email = " + email)
                 if (email == chat_user_selected) {
                     already_in_list = true
                     break
