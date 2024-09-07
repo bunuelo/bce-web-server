@@ -82,7 +82,7 @@
     let chat_recipients = []
     
     async function on_click_add_recipient() {
-        new_chat_recipients = chat_recipients
+        let new_chat_recipients = chat_recipients
         chat_recipients = null
         if (chat_user_selected && chat_user_selected != "") {
             new_chat_recipients.push(chat_user_selected)
