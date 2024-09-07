@@ -20,6 +20,8 @@
     let chat_selected = "0";
     
     let new_request_chat_user_email = "";
+
+    let chat_user_selected = ""
     
     onMount(async () => {
         if (! $user_session_is_valid) {
