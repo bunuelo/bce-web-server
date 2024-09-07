@@ -32,9 +32,7 @@
         if ($user_security_level < 25) {
             goto("/user/dashboard");
         }
-        await update_chat_request_list();
-        await update_chat_user_list();
-        await update_chat_list();
+        await update_all();
     });
 
     async function update_chat_request_list() {
