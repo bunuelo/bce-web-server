@@ -177,7 +177,7 @@
   </table>
   
   <p>
-  <textarea rows="4" cols="50">Your chat message here.</textarea>
+  <textarea rows="4" cols="50">{bce_lang($user_language, "page_chats_message_default_text")}</textarea>
   </p>
 
   <p>
