@@ -112,8 +112,17 @@
   </table>
   </div>
 
-  <p>chat_user_list = {chat_user_list}</p>
-  
+  <label>
+      {bce_lang($user_language, "page_chats_label_chat_user")}: 
+      <select bind:value={chat_user_selected} on:change={update_chat_user_list}>
+          {#each chat_user_list as chat_user}
+	    <option value={chat_user.email}>
+	        {chat_user.email}
+	    </option>
+          {/each}
+      </select>
+  </label>
+
   <table>
       {#each chat_user_list as chat_user}
           <tr>
@@ -121,7 +130,7 @@
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               </td>
               <td>
-                  <i>{chat_user.email}</i>: 
+                  {chat_user.email}
               </td>
           </tr>
       {/each}
