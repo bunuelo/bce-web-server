@@ -56,14 +56,14 @@
     }
     
     async function on_click_request_chat_user() {
-        request_chat_user_email = new_request_chat_user_email
+        let request_chat_user_email = new_request_chat_user_email
+        new_request_chat_user_email = ""
         let success = await bce_session.request_chat(request_chat_user_email);
         if (success) {
             $alert = bce_lang($user_language, "page_chats_alert_create_chat_request_success");
         } else {
             $alert = bce_lang($user_language, "page_chats_alert_create_chat_request_failure");
         }
-        new_request_chat_user_email = ""
         await update_all();
     }
     
