@@ -103,6 +103,9 @@
         }
     }
     
+    async function on_click_create_chat() {
+    }
+
 </script>
 
 
@@ -173,7 +176,13 @@
       </tr>
   </table>
   
+  <p>
   <textarea rows="4" cols="50">Your chat message here.</textarea>
+  </p>
+
+  <p>
+  <a href="#" on:click={on_click_create_chat}>{bce_lang($user_language, "page_chats_label_create_chat")}</a>
+  </p>
   
   <p>{bce_lang($user_language, "page_chats_label_total_assets_count")}: {chats_count}</p>
   
