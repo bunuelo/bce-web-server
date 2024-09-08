@@ -202,13 +202,13 @@
   <table>
         <tr>
             <td>
-                {bce_lang($user_language, "page_chats_label_sender")}
+                <i>{bce_lang($user_language, "page_chats_label_sender")}</i>
             </td>
             <td>
-                {bce_lang($user_language, "page_chats_label_recipients")}
+                <i>{bce_lang($user_language, "page_chats_label_recipients")}</i>
             </td>
             <td>
-                {bce_lang($user_language, "page_chats_label_text")}
+                <i>{bce_lang($user_language, "page_chats_label_text")}</i>
             </td>
         </tr>
       {#each chat_list as chat}
