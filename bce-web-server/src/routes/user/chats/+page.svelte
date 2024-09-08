@@ -122,7 +122,7 @@
     }
     
     function format_json_datetime(json_datetime) {
-        return "" + (new Date(json_datetime))
+        return "" + (new Date(json_datetime + "Z"))
     }
     
 </script>
