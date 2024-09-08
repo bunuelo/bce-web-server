@@ -127,7 +127,7 @@
             var s = "000000000" + num;
             return s.substr(s.length-size);
         }
-        return "" + date.getFullYear() + "-" + pad(date.getMonth(), 2) + "-" + pad(date.getDate(), 2) + " " + pad(date.getHours(), 2) + ":" + pad(date.getMinutes(), 2) + ":" + pad(date.getSeconds(), 2)
+        return "" + date.getFullYear() + "-" + pad(date.getMonth(), 2) + "-" + pad(date.getDate(), 2) + " " + date.getHours() + ":" + pad(date.getMinutes(), 2) + ":" + pad(date.getSeconds(), 2)
     }
     
 </script>
