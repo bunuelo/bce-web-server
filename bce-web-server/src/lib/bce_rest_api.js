@@ -434,7 +434,7 @@ export default class BceRestApi {
 	});
 	const response_json = await response.json();
 	this.message = response_json.message;
-	return response_json.chat_users;
+	return response_json.chats;
     }
     
 }
