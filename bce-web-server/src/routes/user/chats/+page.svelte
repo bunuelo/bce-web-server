@@ -114,6 +114,7 @@
         } else {
             $alert = "";
         }
+        await update_all();
     }
 
 </script>
