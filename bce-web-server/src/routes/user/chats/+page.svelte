@@ -189,7 +189,7 @@
   </table>
   
   <h2>
-      {bce_lang($user_language, "page_chats_title_existing_chats")}
+      {bce_lang($user_language, "page_chats_title_create_chat")}
   </h2>
   
   <p>
