@@ -120,7 +120,11 @@
         }
         await update_all();
     }
-
+    
+    function format_json_datetime(json_datetime) {
+        return "" + (new Date(json_datetime))
+    }
+    
 </script>
 
 
@@ -175,7 +179,7 @@
       {#each chat_list as chat}
         <tr>
             <td>
-                {chat.create_time}
+                {format_json_datetime(chat.create_time)}
             </td>
             <td>
                 {(function () {
