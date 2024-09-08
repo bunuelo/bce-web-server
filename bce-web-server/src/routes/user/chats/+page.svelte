@@ -160,6 +160,9 @@
   <table>
         <tr>
             <td>
+                <i>{bce_lang($user_language, "page_chats_label_time")}</i>
+            </td>
+            <td>
                 <i>{bce_lang($user_language, "page_chats_label_sender")}</i>
             </td>
             <td>
@@ -171,6 +174,9 @@
         </tr>
       {#each chat_list as chat}
         <tr>
+            <td>
+                {chat.create_time}
+            </td>
             <td>
                 {(function () {
                     var short_name = chat.sender.split("@")[0]
