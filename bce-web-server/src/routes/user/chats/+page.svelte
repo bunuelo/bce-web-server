@@ -220,6 +220,9 @@
                 {(function (recipients) {
                      var recipients_text = ""
                      for (var i = 0; i < recipients.length; i ++) {
+                         if (i != 0) {
+                             recipients_text += ", "
+                         }
                          recipients_text += recipients[i]
                      }
                      return recipients_text
