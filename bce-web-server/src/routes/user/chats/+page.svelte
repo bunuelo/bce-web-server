@@ -200,6 +200,17 @@
   </h2>
   
   <table>
+        <tr>
+            <td>
+                {bce_lang($user_language, "page_chats_label_sender")}
+            </td>
+            <td>
+                {bce_lang($user_language, "page_chats_label_reccipients")}
+            </td>
+            <td>
+                {bce_lang($user_language, "page_chats_label_text")}
+            </td>
+        </tr>
       {#each chat_list as chat}
         <tr>
             <td>
