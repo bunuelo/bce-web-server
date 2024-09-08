@@ -177,7 +177,9 @@
                          if (i != 0) {
                              recipients_text += ", "
                          }
-                         recipients_text += recipients[i]
+                         var recipient = recipients[i]
+                         short_name = recipient.split("@")[0]
+                         recipients_text += short_name
                      }
                      return recipients_text
                   })(chat.recipients)}
