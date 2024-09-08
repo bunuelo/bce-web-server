@@ -129,7 +129,7 @@
         }
         let am_pm = date.getHours() < 12 ? "AM" : "PM"
         let am_pm_hours = date.getHours() % 12
-        return "" + date.getFullYear() + "-" + pad(date.getMonth(), 2) + "-" + pad(date.getDate(), 2) + " " + am_pm_hours + ":" + pad(date.getMinutes(), 2) + ":" + pad(date.getSeconds(), 2) + " " + am_pm
+        return "" + date.getFullYear() + "-" + pad(date.getMonth() + 1, 2) + "-" + pad(date.getDate(), 2) + " " + am_pm_hours + ":" + pad(date.getMinutes(), 2) + ":" + pad(date.getSeconds(), 2) + " " + am_pm
     }
     
 </script>
