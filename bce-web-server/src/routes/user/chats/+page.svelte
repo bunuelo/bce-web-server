@@ -128,7 +128,7 @@
             var s = "000000000" + num;
             return s.substr(s.length-size);
         }
-        let am_pm = date.getHours() < 12 ? "AM" : "PM"
+        let am_pm = date.getHours() < 12 ? "am" : "pm"
         let am_pm_hours = date.getHours() % 12
         var final_string = ""
         if (now.getFullYear() != date.getFullYear()) {
