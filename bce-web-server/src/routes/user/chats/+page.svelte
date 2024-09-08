@@ -217,7 +217,14 @@
                 {chat.sender}
             </td>
             <td>
-                {chat.recipients}
+                {(function (recipients) {
+                     var recipients_text = ""
+                     for (var i = 0; i < recipients.length; i ++) {
+                         recipients_text += recipients[i]
+                     }
+                     return recipients_text
+                  }
+                })(chat.recipients)}
             </td>
             <td>
                 {chat.text}
