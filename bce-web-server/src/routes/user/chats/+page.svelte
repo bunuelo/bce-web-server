@@ -134,11 +134,8 @@
         if (now.getFullYear() != date.getFullYear()) {
             final_string += "" + date.getFullYear() + "-"
         }
-        if (now.getMonth() != date.getMonth() || now.getFullYear() != date.getFullYear()) {
-            final_string += pad(date.getMonth() + 1, 2) + "-"
-        }
         if (now.getDate() != date.getDate() || now.getMonth() != date.getMonth() || now.getFullYear() != date.getFullYear()) {
-            final_string += pad(date.getDate(), 2) + " "
+            final_string += pad(date.getMonth() + 1, 2) + "-" + pad(date.getDate(), 2) + " "
         }
         final_string += am_pm_hours + ":" + pad(date.getMinutes(), 2) + ":" + pad(date.getSeconds(), 2) + " " + am_pm
         return final_string
