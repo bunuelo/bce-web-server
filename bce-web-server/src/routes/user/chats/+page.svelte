@@ -200,7 +200,7 @@
       {#each chat_list as chat}
         <tr>
             <td>
-                chat: {chat}
+                chat: {chat.text}
             </td>
         </tr>
       {/each}
