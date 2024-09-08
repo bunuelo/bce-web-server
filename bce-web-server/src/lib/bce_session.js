@@ -226,4 +226,11 @@ export default class BceSession {
         return result;
     }
     
+    async chat_list(recipients, text) {
+        console.log("BceSession.chat_list: here.")
+        this.update_session_from_cookie();
+        let result = await bce_rest_api.chat_list(get(user_session_token));
+        return result;
+    }
+    
 }
