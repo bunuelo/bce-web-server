@@ -195,8 +195,6 @@
   <a href="#" on:click={on_click_create_chat}>{bce_lang($user_language, "page_chats_label_create_chat")}</a>
   </p>
   
-  <p>{bce_lang($user_language, "page_chats_label_total_assets_count")}: {chats_count}</p>
-  
   <table>
       {#each chat_list as chat}
         <tr>
