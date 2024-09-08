@@ -109,8 +109,12 @@
         console.log("chat_recipients = " + chat_recipients)
         console.log("new_chat_text = " + new_chat_text)
         if (chat_recipients.length > 0) {
-            await bce_session.chat_create(chat_recipients, new_chat_text)
-            $alert = bce_lang($user_language, "page_chats_alert_chat_create_success");
+            var success = await bce_session.chat_create(chat_recipients, new_chat_text)
+            if (success) {
+                $alert = bce_lang($user_language, "page_chats_alert_chat_create_success");
+            } else {
+                $alert = "";
+            }
         } else {
             $alert = "";
         }
