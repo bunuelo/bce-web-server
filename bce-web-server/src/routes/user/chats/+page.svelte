@@ -203,7 +203,13 @@
       {#each chat_list as chat}
         <tr>
             <td>
-                chat: {chat.text}
+                {chat.sender_user_id}
+            </td>
+            <td>
+                {chat.recipient_user_ids}
+            </td>
+            <td>
+                {chat.text}
             </td>
         </tr>
       {/each}
