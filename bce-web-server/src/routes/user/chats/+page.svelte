@@ -223,8 +223,7 @@
                          recipients_text += recipients[i]
                      }
                      return recipients_text
-                  }
-                })(chat.recipients)}
+                  })(chat.recipients)}
             </td>
             <td>
                 {chat.text}
