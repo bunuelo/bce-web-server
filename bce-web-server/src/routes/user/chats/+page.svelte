@@ -168,7 +168,10 @@
       {#each chat_list as chat}
         <tr>
             <td>
-                {chat.sender}
+                {(function () {
+                    var short_name = chat.sender.split("@")[0]
+                    return short_name
+                })()}
             </td>
             <td>
                 {(function (recipients) {
