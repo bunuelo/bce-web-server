@@ -178,7 +178,7 @@
                              recipients_text += ", "
                          }
                          var recipient = recipients[i]
-                         short_name = recipient.split("@")[0]
+                         var short_name = recipient.split("@")[0]
                          recipients_text += short_name
                      }
                      return recipients_text
