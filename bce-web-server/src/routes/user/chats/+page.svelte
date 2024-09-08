@@ -122,6 +122,7 @@
     }
     
     function format_json_datetime(json_datetime) {
+        let now = new Date()
         let date = new Date(json_datetime + "Z")
         function pad(num, size) {
             var s = "000000000" + num;
@@ -129,7 +130,18 @@
         }
         let am_pm = date.getHours() < 12 ? "AM" : "PM"
         let am_pm_hours = date.getHours() % 12
-        return "" + date.getFullYear() + "-" + pad(date.getMonth() + 1, 2) + "-" + pad(date.getDate(), 2) + " " + am_pm_hours + ":" + pad(date.getMinutes(), 2) + ":" + pad(date.getSeconds(), 2) + " " + am_pm
+        var final_string = ""
+        if (now.getFullYear() != date.getFullYear()) {
+            final_string += "" + date.getFullYear() + "-"
+        }
+        if (now.getMonth() != date.getMonth() || now.getFullYear() != date.getFullYear()) {
+            final_string += pad(date.getMonth() + 1, 2) + "-"
+        }
+        if (now.getDate() != date.getDate() || now.getMonth() != date.getMonth() || now.getFullYear() != date.getFullYear()) {
+            final_string += pad(date.getDate(), 2) + " "
+        }
+        final_string += am_pm_hours + ":" + pad(date.getMinutes(), 2) + ":" + pad(date.getSeconds(), 2) + " " + am_pm
+        return final_string
     }
     
 </script>
