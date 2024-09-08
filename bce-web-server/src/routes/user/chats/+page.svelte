@@ -123,7 +123,11 @@
     
     function format_json_datetime(json_datetime) {
         let date = new Date(json_datetime + "Z")
-        return "" + date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds()
+        function pad(num, size) {
+            var s = "000000000" + num;
+            return s.substr(s.length-size);
+        }
+        return "" + date.getFullYear() + "-" + pad(date.getMonth(), 2) + "-" + pad(date.getDate(), 2) + " " + pad(date.getHours(), 2) + ":" + pad(date.getMinutes(), 2) + ":" + pad(date.getSeconds(), 2)
     }
     
 </script>
