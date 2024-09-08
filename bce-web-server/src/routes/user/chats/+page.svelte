@@ -14,7 +14,7 @@
     
     let chat_user_list = [];
     
-    let chats = [];
+    let chat_list = [];
     let chats_count = 0;
 
     let chat_selected = "0";
@@ -49,7 +49,7 @@
     }
     
     async function update_chat_list() {
-        chats = await bce_session.chat_list();
+        chat_list = await bce_session.chat_list();
         chat_selected = "0";
     }
     
@@ -195,6 +195,16 @@
   </p>
   
   <p>{bce_lang($user_language, "page_chats_label_total_assets_count")}: {chats_count}</p>
+  
+  <table>
+      {#each chat_list as chat}
+        <tr>
+            <td>
+                chat: {chat}
+            </td>
+        </tr>
+      {/each}
+  </table>
   
 {/if}
 
