@@ -203,10 +203,10 @@
       {#each chat_list as chat}
         <tr>
             <td>
-                {chat.sender_user_id}
+                {chat.sender}
             </td>
             <td>
-                {chat.recipient_user_ids}
+                {chat.recipients}
             </td>
             <td>
                 {chat.text}
