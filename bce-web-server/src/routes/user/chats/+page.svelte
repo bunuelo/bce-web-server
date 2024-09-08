@@ -49,7 +49,7 @@
     }
     
     async function update_chat_list() {
-        chats =  = await bce_session.chat_list();
+        chats = await bce_session.chat_list();
         chat_selected = "0";
     }
     
