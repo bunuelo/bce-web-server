@@ -152,6 +152,46 @@
   </table>
   </div>
 
+  <table>
+        <tr>
+            <td>
+                <i>{bce_lang($user_language, "page_chats_label_sender")}</i>
+            </td>
+            <td>
+                <i>{bce_lang($user_language, "page_chats_label_recipients")}</i>
+            </td>
+            <td>
+                <i>{bce_lang($user_language, "page_chats_label_text")}</i>
+            </td>
+        </tr>
+      {#each chat_list as chat}
+        <tr>
+            <td>
+                {chat.sender}
+            </td>
+            <td>
+                {(function (recipients) {
+                     var recipients_text = ""
+                     for (var i = 0; i < recipients.length; i ++) {
+                         if (i != 0) {
+                             recipients_text += ", "
+                         }
+                         recipients_text += recipients[i]
+                     }
+                     return recipients_text
+                  })(chat.recipients)}
+            </td>
+            <td>
+                {chat.text}
+            </td>
+        </tr>
+      {/each}
+  </table>
+  
+  <h2>
+      {bce_lang($user_language, "page_chats_title_existing_chats")}
+  </h2>
+  
   <p>
   <label>
       {bce_lang($user_language, "page_chats_label_chat_request_email")}: 
@@ -195,46 +235,6 @@
   <a href="#" on:click={on_click_create_chat}>{bce_lang($user_language, "page_chats_label_create_chat")}</a>
   </p>
 
-  <h2>
-      {bce_lang($user_language, "page_chats_title_existing_chats")}
-  </h2>
-  
-  <table>
-        <tr>
-            <td>
-                <i>{bce_lang($user_language, "page_chats_label_sender")}</i>
-            </td>
-            <td>
-                <i>{bce_lang($user_language, "page_chats_label_recipients")}</i>
-            </td>
-            <td>
-                <i>{bce_lang($user_language, "page_chats_label_text")}</i>
-            </td>
-        </tr>
-      {#each chat_list as chat}
-        <tr>
-            <td>
-                {chat.sender}
-            </td>
-            <td>
-                {(function (recipients) {
-                     var recipients_text = ""
-                     for (var i = 0; i < recipients.length; i ++) {
-                         if (i != 0) {
-                             recipients_text += ", "
-                         }
-                         recipients_text += recipients[i]
-                     }
-                     return recipients_text
-                  })(chat.recipients)}
-            </td>
-            <td>
-                {chat.text}
-            </td>
-        </tr>
-      {/each}
-  </table>
-  
 {/if}
 
 
