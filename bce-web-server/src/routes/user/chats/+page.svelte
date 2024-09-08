@@ -205,7 +205,7 @@
                 {bce_lang($user_language, "page_chats_label_sender")}
             </td>
             <td>
-                {bce_lang($user_language, "page_chats_label_reccipients")}
+                {bce_lang($user_language, "page_chats_label_recipients")}
             </td>
             <td>
                 {bce_lang($user_language, "page_chats_label_text")}
