@@ -23,7 +23,7 @@
 
     let chat_user_selected = ""
 
-    let new_chat_text = bce_lang($user_language, "page_chats_message_default_text")
+    let new_chat_text = ""
     
     onMount(async () => {
         if (! $user_session_is_valid) {

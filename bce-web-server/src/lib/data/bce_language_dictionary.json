@@ -142,7 +142,6 @@
     "page_chats_label_request_chat": "request chat",
     "page_chats_label_chat_request_email": "chat request email",
     "page_chats_label_recipients": "chat recipients",
-    "page_chats_message_default_text": "Your message here.",
     "page_chats_alert_add_recipient_success": "Recipient added successfully!",
     "page_chats_alert_create_chat_request_success": "Requested chat successfully!",
     "page_chats_alert_create_chat_request_failure": "Failed to request chat.",
