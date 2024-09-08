@@ -152,6 +152,7 @@
   </table>
   </div>
 
+  {#if chat_list.length > 0}
   <table>
         <tr>
             <td>
@@ -187,6 +188,7 @@
         </tr>
       {/each}
   </table>
+  {/if}
   
   <h2>
       {bce_lang($user_language, "page_chats_title_create_chat")}
