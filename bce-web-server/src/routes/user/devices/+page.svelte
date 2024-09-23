@@ -64,7 +64,7 @@
         return final_string
     }
     
-    function format_time_since(date) {
+    function format_time_since_date(date) {
         if (date == null) {
             return "";
         }
@@ -82,6 +82,11 @@
     function format_json_datetime(json_datetime) {
         let date = new Date(json_datetime + "Z")
         return format_date(date)
+    }
+    
+    function format_time_since_json_datetime(json_datetime) {
+        let date = new Date(json_datetime + "Z")
+        return format_time_since_date(date)
     }
     
 </script>
@@ -128,7 +133,7 @@
                 {format_json_datetime(device.last_heartbeat_time)}
             </td>
             <td>
-                {format_time_since(device.last_heartbeat_time)}
+                {format_time_since_json_datetime(device.last_heartbeat_time)}
             </td>
         </tr>
       {/each}
