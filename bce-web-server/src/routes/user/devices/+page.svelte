@@ -83,7 +83,7 @@
       {#each device_list as device}
         <tr>
             <td>
-                {device.device_id}
+                {device.uid}
             </td>
             <td>
                 {format_json_datetime(device.last_heartbeat_time)}
