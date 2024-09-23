@@ -1,5 +1,6 @@
 <script>
     import { onMount } from 'svelte';
+    import { onDestroy } from 'svelte';
     import { goto } from '$app/navigation';
     import { alert } from '$lib/bce_stores.js'
     import { user_session_is_valid } from '$lib/bce_stores.js'
