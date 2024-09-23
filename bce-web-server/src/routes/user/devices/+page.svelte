@@ -75,7 +75,7 @@
       var final_string = ""
       let now = new Date()
       let total_seconds = (now.getTime() - date.getTime()) / 1000.0
-      final_string += "" + total_seconds + "s"
+      final_string += "" + Math.round(total_seconds) + "s"
       return final_string
     }
     
