@@ -127,7 +127,7 @@
                 <i>{bce_lang($user_language, "page_devices_label_cpu_vendor_id")}</i>
             </td>
             <td>
-                <i>{bce_lang($user_language, "page_devices_label_cpu_model_name")}</i>
+                <i>{bce_lang($user_language, "page_devices_label_cpu_model name")}</i>
             </td>
             <td>
                 <i>{bce_lang($user_language, "page_devices_label_last_heartbeat_time")}</i>
