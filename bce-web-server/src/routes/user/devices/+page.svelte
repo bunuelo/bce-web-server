@@ -31,7 +31,7 @@
     }
     
     async function update_all() {
-        await update_device_list();
+        //await update_device_list();
     }
     
     function format_json_datetime(json_datetime) {
