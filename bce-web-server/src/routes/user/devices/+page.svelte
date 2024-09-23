@@ -124,13 +124,13 @@
                 <i>{bce_lang($user_language, "page_devices_label_nprocs_conf")}</i>
             </td>
             <td>
-                <i>{bce_lang($user_language, "page_devices_label_last_heartbeat_time")}</i>
-            </td>
-            <td>
                 <i>{bce_lang($user_language, "page_devices_label_cpu_vendor_id")}</i>
             </td>
             <td>
                 <i>{bce_lang($user_language, "page_devices_label_cpu_model_name")}</i>
+            </td>
+            <td>
+                <i>{bce_lang($user_language, "page_devices_label_last_heartbeat_time")}</i>
             </td>
             <td>
                 <i>{bce_lang($user_language, "page_devices_label_time_since_last_heartbeat")}</i>
