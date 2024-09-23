@@ -127,6 +127,12 @@
                 <i>{bce_lang($user_language, "page_devices_label_last_heartbeat_time")}</i>
             </td>
             <td>
+                <i>{bce_lang($user_language, "page_devices_label_cpu_vendor_id")}</i>
+            </td>
+            <td>
+                <i>{bce_lang($user_language, "page_devices_label_cpu_model_name")}</i>
+            </td>
+            <td>
                 <i>{bce_lang($user_language, "page_devices_label_time_since_last_heartbeat")}</i>
             </td>
         </tr>
@@ -140,6 +146,12 @@
             </td>
             <td>
                 {device.nprocs_conf}
+            </td>
+            <td>
+                {device.cpu_vendor_id}
+            </td>
+            <td>
+                {device.cpu_model_name}
             </td>
             <td>
                 {format_json_datetime(device.last_heartbeat_time)}
