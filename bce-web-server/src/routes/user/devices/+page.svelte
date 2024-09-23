@@ -100,6 +100,9 @@
             <td>
                 <i>{bce_lang($user_language, "page_devices_label_last_heartbeat_time")}</i>
             </td>
+            <td>
+                <i>{bce_lang($user_language, "page_devices_label_time_since_last_heartbeat")}</i>
+            </td>
         </tr>
       {#each device_list as device}
         <tr>
@@ -108,6 +111,9 @@
             </td>
             <td>
                 {format_json_datetime(device.last_heartbeat_time)}
+            </td>
+            <td>
+                {(last_updated_time == null ? (new Date()) : last_updated_time) - device.last_heartbeat_time}
             </td>
         </tr>
       {/each}
