@@ -64,6 +64,21 @@
         return final_string
     }
     
+    function format_time_since(date) {
+        if (date == null) {
+            return "";
+        }
+        function pad(num, size) {
+            var s = "000000000" + num;
+            return s.substr(s.length-size);
+        }
+      var final_string = ""
+      let now = new Date()
+      let total_seconds = (now.getTime() - date.getTime()) / 1000.0
+      final_string += "" + total_seconds + "s"
+      return final_string
+    }
+    
     function format_json_datetime(json_datetime) {
         let date = new Date(json_datetime + "Z")
         return format_date(date)
@@ -113,7 +128,7 @@
                 {format_json_datetime(device.last_heartbeat_time)}
             </td>
             <td>
-                {(last_updated_time == null ? (new Date()) : last_updated_time) - device.last_heartbeat_time}
+                {format_time_since(device.last_heartbeat_time)}
             </td>
         </tr>
       {/each}

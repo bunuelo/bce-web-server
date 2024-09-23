@@ -157,6 +157,7 @@
     "page_devices_title": "Devices",
     "page_devices_label_device_id": "device id",
     "page_devices_label_last_heartbeat_time": "last heartbeat time",
+    "page_devices_label_time_since_last_heartbeat": "time since last heartbeat",
     "page_docs_title": "Docs",
     "page_docs_description": "The BCE website is an example web-based client application that accesses the BCE REST API.",
     "page_docs_rest_api_link_description": "See the BCE REST API OpenAPI documentation.",
