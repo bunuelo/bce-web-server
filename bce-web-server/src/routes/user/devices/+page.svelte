@@ -11,7 +11,7 @@
     let bce_session = new BceSession();
     
     let device_list = [];
-
+    
     onMount(async () => {
         if (! $user_session_is_valid) {
             $user_session_is_valid = await bce_session.session_is_valid()
@@ -33,6 +33,10 @@
     async function update_all() {
         await update_device_list();
     }
+    
+    const interval = setInterval(update_device_list, 1000);
+    
+    onDestroy(() => clearInterval(interval));
     
     function format_json_datetime(json_datetime) {
         let now = new Date()
