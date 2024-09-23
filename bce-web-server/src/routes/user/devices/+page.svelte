@@ -53,6 +53,7 @@
         let am_pm = date.getHours() < 12 ? "am" : "pm"
         let am_pm_hours = date.getHours() % 12
         var final_string = ""
+        let now = new Date()
         if (now.getFullYear() != date.getFullYear()) {
             final_string += "" + date.getFullYear() + "-"
         }
@@ -64,7 +65,6 @@
     }
     
     function format_json_datetime(json_datetime) {
-        let now = new Date()
         let date = new Date(json_datetime + "Z")
         return format_date(date)
     }
