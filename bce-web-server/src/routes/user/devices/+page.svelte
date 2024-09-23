@@ -42,9 +42,7 @@
     
     onDestroy(() => clearInterval(interval));
     
-    function format_json_datetime(json_datetime) {
-        let now = new Date()
-        let date = new Date(json_datetime + "Z")
+    function format_date(date) {
         function pad(num, size) {
             var s = "000000000" + num;
             return s.substr(s.length-size);
@@ -60,6 +58,12 @@
         }
         final_string += am_pm_hours + ":" + pad(date.getMinutes(), 2) + ":" + pad(date.getSeconds(), 2) + " " + am_pm
         return final_string
+    }
+    
+    function format_json_datetime(json_datetime) {
+        let now = new Date()
+        let date = new Date(json_datetime + "Z")
+        return format_date(date)
     }
     
 </script>
@@ -79,7 +83,7 @@
               Current time:
           </td>
           <td>
-              {last_updated_time}
+              {format_date(last_updated_time)}
           </td>
       </tr>
   </table>
