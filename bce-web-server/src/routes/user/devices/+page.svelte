@@ -43,6 +43,9 @@
     onDestroy(() => clearInterval(interval));
     
     function format_date(date) {
+        if (date == null) {
+            return "";
+        }
         function pad(num, size) {
             var s = "000000000" + num;
             return s.substr(s.length-size);
