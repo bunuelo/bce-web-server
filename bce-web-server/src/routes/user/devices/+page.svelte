@@ -130,6 +130,15 @@
                 <i>{bce_lang($user_language, "page_devices_label_cpu_model name")}</i>
             </td>
             <td>
+                <i>{bce_lang($user_language, "page_devices_label_gl_version")}</i>
+            </td>
+            <td>
+                <i>{bce_lang($user_language, "page_devices_label_gl_vendor")}</i>
+            </td>
+            <td>
+                <i>{bce_lang($user_language, "page_devices_label_gl_renderer")}</i>
+            </td>
+            <td>
                 <i>{bce_lang($user_language, "page_devices_label_last_heartbeat_time")}</i>
             </td>
             <td>
@@ -152,6 +161,15 @@
             </td>
             <td>
                 {device.cpu_model_name}
+            </td>
+            <td>
+                {device.gl_version}
+            </td>
+            <td>
+                {device.gl_vendor}
+            </td>
+            <td>
+                {device.gl_renderer}
             </td>
             <td>
                 {format_json_datetime(device.last_heartbeat_time)}
