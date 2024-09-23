@@ -115,7 +115,13 @@
   <table>
         <tr>
             <td>
-                <i>{bce_lang($user_language, "page_devices_label_device_id")}</i>
+                <i>{bce_lang($user_language, "page_devices_label_uid")}</i>
+            </td>
+            <td>
+                <i>{bce_lang($user_language, "page_devices_label_nprocs")}</i>
+            </td>
+            <td>
+                <i>{bce_lang($user_language, "page_devices_label_nprocs_conf")}</i>
             </td>
             <td>
                 <i>{bce_lang($user_language, "page_devices_label_last_heartbeat_time")}</i>
@@ -128,6 +134,12 @@
         <tr>
             <td>
                 {device.uid}
+            </td>
+            <td>
+                {device.nprocs}
+            </td>
+            <td>
+                {device.nprocs_conf}
             </td>
             <td>
                 {format_json_datetime(device.last_heartbeat_time)}
