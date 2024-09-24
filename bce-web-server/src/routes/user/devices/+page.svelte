@@ -118,16 +118,22 @@
                 <i>{bce_lang($user_language, "page_devices_label_uid")}</i>
             </td>
             <td>
-                <i>{bce_lang($user_language, "page_devices_label_nprocs")}</i>
+                <i>{bce_lang($user_language, "page_devices_label_last_heartbeat_time")}</i>
             </td>
             <td>
-                <i>{bce_lang($user_language, "page_devices_label_nprocs_conf")}</i>
+                <i>{bce_lang($user_language, "page_devices_label_time_since_last_heartbeat")}</i>
             </td>
             <td>
                 <i>{bce_lang($user_language, "page_devices_label_cpu_vendor_id")}</i>
             </td>
             <td>
                 <i>{bce_lang($user_language, "page_devices_label_cpu_model name")}</i>
+            </td>
+            <td>
+                <i>{bce_lang($user_language, "page_devices_label_nprocs")}</i>
+            </td>
+            <td>
+                <i>{bce_lang($user_language, "page_devices_label_nprocs_conf")}</i>
             </td>
             <td>
                 <i>{bce_lang($user_language, "page_devices_label_gl_version")}</i>
@@ -138,12 +144,6 @@
             <td>
                 <i>{bce_lang($user_language, "page_devices_label_gl_renderer")}</i>
             </td>
-            <td>
-                <i>{bce_lang($user_language, "page_devices_label_last_heartbeat_time")}</i>
-            </td>
-            <td>
-                <i>{bce_lang($user_language, "page_devices_label_time_since_last_heartbeat")}</i>
-            </td>
         </tr>
       {#each device_list as device}
         <tr>
@@ -151,16 +151,22 @@
                 {device.uid}
             </td>
             <td>
-                {device.nprocs}
+                {format_json_datetime(device.last_heartbeat_time)}
             </td>
             <td>
-                {device.nprocs_conf}
+                {format_time_since_json_datetime(device.last_heartbeat_time)}
             </td>
             <td>
                 {device.cpu_vendor_id}
             </td>
             <td>
                 {device.cpu_model_name}
+            </td>
+            <td>
+                {device.nprocs}
+            </td>
+            <td>
+                {device.nprocs_conf}
             </td>
             <td>
                 {device.gl_version}
@@ -170,12 +176,6 @@
             </td>
             <td>
                 {device.gl_renderer}
-            </td>
-            <td>
-                {format_json_datetime(device.last_heartbeat_time)}
-            </td>
-            <td>
-                {format_time_since_json_datetime(device.last_heartbeat_time)}
             </td>
         </tr>
       {/each}
