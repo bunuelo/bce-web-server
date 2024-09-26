@@ -118,6 +118,9 @@
                 <i>{bce_lang($user_language, "page_devices_label_uid")}</i>
             </td>
             <td>
+                <i>{bce_lang($user_language, "page_devices_label_acl")}</i>
+            </td>
+            <td>
                 <i>{bce_lang($user_language, "page_devices_label_last_heartbeat_time")}</i>
             </td>
             <td>
@@ -149,6 +152,9 @@
         <tr>
             <td>
                 {device.uid}
+            </td>
+            <td>
+                {device.acl_id}
             </td>
             <td>
                 {format_json_datetime(device.last_heartbeat_time)}

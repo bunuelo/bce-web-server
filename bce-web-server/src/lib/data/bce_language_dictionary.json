@@ -156,6 +156,7 @@
     "page_chats_alert_chat_request_response_success": "Chat request response successful!",
     "page_devices_title": "Devices",
     "page_devices_label_uid": "uid",
+    "page_devices_label_acl": "ACL",
     "page_devices_label_nprocs": "nprocs",
     "page_devices_label_nprocs_conf": "nprocs_conf",
     "page_devices_label_cpu_vendor_id": "cpu vendor id",
