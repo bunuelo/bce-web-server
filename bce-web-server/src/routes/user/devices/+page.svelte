@@ -113,7 +113,7 @@
 	  <option value="0">
 	      {bce_lang($user_language, "page_devices_label_all")}
 	  </option>
-          {#each acls as acl}
+          {#each acl_list as acl}
 	    <option value={acl.acl_id}>
 	        {acl.display_name}
 	    </option>
