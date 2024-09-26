@@ -96,6 +96,9 @@
         return format_time_since_date(date)
     }
     
+    async function update_acl_selected() {
+    }
+    
 </script>
 
 
@@ -109,7 +112,7 @@
   
   <label>
       {bce_lang($user_language, "page_devices_label_acl")}: 
-      <select bind:value={acl_selected} on:change={update_asset_list}>
+      <select bind:value={acl_selected} on:change={update_acl_selected}>
 	  <option value="0">
 	      {bce_lang($user_language, "page_devices_label_all")}
 	  </option>
