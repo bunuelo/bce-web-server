@@ -100,6 +100,10 @@
     async function update_acl_selected() {
     }
     
+    async function on_click_use_acl(device_uid) {
+        
+    }
+    
 </script>
 
 
@@ -180,6 +184,7 @@
             </td>
             <td>
                 {device.acl_id}
+                <a href="#" on:click={() => on_click_use_acl(device.uid)}>{bce_lang($user_language, "page_devices_label_use_acl")}</a>
             </td>
             <td>
                 {format_json_datetime(device.last_heartbeat_time)}
