@@ -42,6 +42,7 @@
     }
     
     async function update_all() {
+        await update_acl_list()
         await update_device_list();
     }
     
