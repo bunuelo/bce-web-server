@@ -10,6 +10,9 @@
     import { bce_lang } from '$lib/bce_locale.js'
     import BceSession from "$lib/bce_session.js";
     let bce_session = new BceSession();
+
+    let acl_list = [];
+    let acl_selected = "0";
     
     let device_list = [];
 
@@ -29,6 +32,10 @@
         await update_all();
     });
 
+    async function update_acl_list() {
+        acl_list = await bce_session.acls();
+    }
+    
     async function update_device_list() {
         device_list = await bce_session.device_list();
         last_updated_time = new Date()
@@ -99,6 +106,20 @@
 {#if $user_session_is_valid && $user_security_level >= 25}
 
   <h1>{bce_lang($user_language, "page_devices_title")}</h1>
+  
+  <label>
+      {bce_lang($user_language, "page_devices_label_acl")}: 
+      <select bind:value={acl_selected} on:change={update_asset_list}>
+	  <option value="0">
+	      {bce_lang($user_language, "page_devices_label_all")}
+	  </option>
+          {#each acls as acl}
+	    <option value={acl.acl_id}>
+	        {acl.display_name}
+	    </option>
+          {/each}
+      </select>
+  </label>
   
   <table>
       <tr>
