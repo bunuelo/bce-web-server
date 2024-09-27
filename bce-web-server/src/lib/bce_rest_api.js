@@ -461,7 +461,7 @@ export default class BceRestApi {
        	  session_token: session_token,
       }
       if (acl_id != null) {
-          body["acl_id"] = int(acl_id)
+        body["acl_id"] = parseInt(str(acl_id), 10)
       }
       const response = await fetch(this.apiURL + "/device/update", {
 	    method: "POST",
