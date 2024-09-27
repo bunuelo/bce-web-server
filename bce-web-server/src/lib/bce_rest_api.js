@@ -459,10 +459,10 @@ export default class BceRestApi {
   async device_update(session_token, uid, acl_id) {
       var body = {
        	  session_token: session_token,
-          uid: uid
+          uid: str(uid)
       }
       if (acl_id != null) {
-          body["acl_id"] = acl_id
+          body["acl_id"] = str(acl_id)
       }
       const response = await fetch(this.apiURL + "/device/update", {
 	    method: "POST",
