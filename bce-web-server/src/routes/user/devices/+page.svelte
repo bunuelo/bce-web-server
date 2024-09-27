@@ -15,7 +15,8 @@
     let acl_selected = "0";
 
     function get_acl_by_id(acl_id) {
-        for acl in acl_list {
+        for (var i = 0; i < acl_list.length; i ++) {
+            let acl = acl_list[i]
             if (acl.acl_id == acl_id) {
                 return acl
             }
