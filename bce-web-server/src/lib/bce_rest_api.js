@@ -459,6 +459,7 @@ export default class BceRestApi {
   async device_update(session_token, uid, acl_id) {
       var body = {
        	  session_token: session_token,
+          uid: parseInt("" + uid, 10)
       }
       if (acl_id != null) {
           body["acl_id"] = parseInt("" + acl_id, 10)
