@@ -52,6 +52,9 @@
 
     async function update_acl_list() {
         acl_list = await bce_session.acls(true);
+        if (acl_selected == "0" && acl_list.length > 0) {
+            acl_selected = acl_list[0];
+        }
     }
     
     async function update_device_list() {
