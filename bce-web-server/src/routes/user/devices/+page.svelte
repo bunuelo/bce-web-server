@@ -103,6 +103,16 @@
     async function on_click_use_acl(device_uid) {
         
     }
+
+    let show_device_details = false;
+    
+    async function on_click_show_device_details() {
+        show_device_details = true;
+    }
+    
+    async function on_click_hide_device_details() {
+        show_device_details = false;
+    }
     
 </script>
 
@@ -139,6 +149,12 @@
           </td>
       </tr>
   </table>
+  
+  {#if show_device_details}
+      <a href="#" on:click={() => on_click_hide_device_details()}>{bce_lang($user_language, "page_devices_label_hide_device_details")}</a>
+  {:else}
+      <a href="#" on:click={() => on_click_show_device_details()}>{bce_lang($user_language, "page_devices_label_show_device_details")}</a>
+  {/if}
   
   {#if device_list.length > 0}
   <table>
