@@ -158,6 +158,7 @@
     "page_devices_label_hide_device_details": "hide device details",
     "page_devices_label_show_device_details": "show device details",
     "page_devices_label_uid": "uid",
+    "page_devices_label_email": "email",
     "page_devices_label_acl": "ACL",
     "page_devices_label_acl_none": "none",
     "page_devices_label_use_acl": "use ACL",

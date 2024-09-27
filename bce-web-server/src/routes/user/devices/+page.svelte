@@ -159,8 +159,13 @@
   {#if device_list.length > 0}
   <table>
         <tr>
+            {#if show_device_details}
+                <td>
+                    <i>{bce_lang($user_language, "page_devices_label_uid")}</i>
+                </td>
+            {/if}
             <td>
-                <i>{bce_lang($user_language, "page_devices_label_uid")}</i>
+                <i>{bce_lang($user_language, "page_devices_label_email")}</i>
             </td>
             <td>
                 <i>{bce_lang($user_language, "page_devices_label_acl")}</i>
@@ -199,8 +204,13 @@
         </tr>
       {#each device_list as device}
         <tr>
+            {#if show_device_details}
+                <td>
+                    {device.uid}
+                </td>
+            {/if}
             <td>
-                {device.uid}
+                {device.email}
             </td>
             <td>
                 {device.acl_id}
