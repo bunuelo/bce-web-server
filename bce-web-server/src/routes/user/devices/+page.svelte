@@ -165,33 +165,37 @@
             <td>
                 <i>{bce_lang($user_language, "page_devices_label_acl")}</i>
             </td>
-            <td>
-                <i>{bce_lang($user_language, "page_devices_label_last_heartbeat_time")}</i>
-            </td>
+            {#if show_device_details}
+                <td>
+                    <i>{bce_lang($user_language, "page_devices_label_last_heartbeat_time")}</i>
+                </td>
+            {/if}
             <td>
                 <i>{bce_lang($user_language, "page_devices_label_time_since_last_heartbeat")}</i>
             </td>
-            <td>
-                <i>{bce_lang($user_language, "page_devices_label_cpu_vendor_id")}</i>
-            </td>
-            <td>
-                <i>{bce_lang($user_language, "page_devices_label_cpu_model name")}</i>
-            </td>
-            <td>
-                <i>{bce_lang($user_language, "page_devices_label_nprocs")}</i>
-            </td>
-            <td>
-                <i>{bce_lang($user_language, "page_devices_label_nprocs_conf")}</i>
-            </td>
-            <td>
-                <i>{bce_lang($user_language, "page_devices_label_gl_version")}</i>
-            </td>
-            <td>
-                <i>{bce_lang($user_language, "page_devices_label_gl_vendor")}</i>
-            </td>
-            <td>
-                <i>{bce_lang($user_language, "page_devices_label_gl_renderer")}</i>
-            </td>
+            {#if show_device_details}
+                <td>
+                    <i>{bce_lang($user_language, "page_devices_label_cpu_vendor_id")}</i>
+                </td>
+                <td>
+                    <i>{bce_lang($user_language, "page_devices_label_cpu_model name")}</i>
+                </td>
+                <td>
+                    <i>{bce_lang($user_language, "page_devices_label_nprocs")}</i>
+                </td>
+                <td>
+                    <i>{bce_lang($user_language, "page_devices_label_nprocs_conf")}</i>
+                </td>
+                <td>
+                    <i>{bce_lang($user_language, "page_devices_label_gl_version")}</i>
+                </td>
+                <td>
+                    <i>{bce_lang($user_language, "page_devices_label_gl_vendor")}</i>
+                </td>
+                <td>
+                    <i>{bce_lang($user_language, "page_devices_label_gl_renderer")}</i>
+                </td>
+            {/if}
         </tr>
       {#each device_list as device}
         <tr>
@@ -202,33 +206,37 @@
                 {device.acl_id}
                 <a href="#" on:click={() => on_click_use_acl(device.uid)}>{bce_lang($user_language, "page_devices_label_use_acl")}</a>
             </td>
-            <td>
-                {format_json_datetime(device.last_heartbeat_time)}
-            </td>
+            {#if show_device_details}
+                <td>
+                    {format_json_datetime(device.last_heartbeat_time)}
+                </td>
+            {/if}
             <td>
                 {format_time_since_json_datetime(device.last_heartbeat_time)}
             </td>
-            <td>
-                {device.cpu_vendor_id}
-            </td>
-            <td>
-                {device.cpu_model_name}
-            </td>
-            <td>
-                {device.nprocs}
-            </td>
-            <td>
-                {device.nprocs_conf}
-            </td>
-            <td>
-                {device.gl_version}
-            </td>
-            <td>
-                {device.gl_vendor}
-            </td>
-            <td>
-                {device.gl_renderer}
-            </td>
+            {#if show_device_details}
+                <td>
+                    {device.cpu_vendor_id}
+                </td>
+                <td>
+                    {device.cpu_model_name}
+                </td>
+                <td>
+                    {device.nprocs}
+                </td>
+                <td>
+                    {device.nprocs_conf}
+                </td>
+                <td>
+                    {device.gl_version}
+                </td>
+                <td>
+                    {device.gl_vendor}
+                </td>
+                <td>
+                    {device.gl_renderer}
+                </td>
+            {/if}
         </tr>
       {/each}
   </table>
