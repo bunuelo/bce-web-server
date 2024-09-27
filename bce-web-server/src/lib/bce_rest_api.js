@@ -473,7 +473,7 @@ export default class BceRestApi {
 	});
 	const response_json = await response.json();
 	this.message = response_json.message;
-	return response_json.devices;
+	return response_json.success;
     }
     
 }

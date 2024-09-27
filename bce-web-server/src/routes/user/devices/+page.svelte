@@ -101,7 +101,12 @@
     }
     
     async function on_click_use_acl(device_uid) {
-        await bce_session.device_update(device_uid, acl_selected);
+        let success = await bce_session.device_update(device_uid, acl_selected);
+        if (success) {
+            $alert = bce_lang($user_language, "page_devices_alert_device_use_acl_success");
+        } else {
+            $alert = bce_lang($user_language, "page_devices_alert_device_use_acl_failure");
+        }
     }
 
     let show_device_details = false;
