@@ -33,7 +33,7 @@
     });
 
     async function update_acl_list() {
-        acl_list = await bce_session.acls(writable=true);
+        acl_list = await bce_session.acls(true);
     }
     
     async function update_device_list() {
