@@ -195,6 +195,8 @@
             <td>
                 <i>{bce_lang($user_language, "page_devices_label_acl")}</i>
             </td>
+            <td>
+            </td>
             {#if show_device_details}
                 <td>
                     <i>{bce_lang($user_language, "page_devices_label_last_heartbeat_time")}</i>
@@ -239,6 +241,8 @@
             </td>
             <td>
                 {get_acl_display_name_by_id(device.acl_id)}
+            </td>
+            <td>
                 <a href="#" on:click={() => on_click_use_acl(device.uid)}>{bce_lang($user_language, "page_devices_label_use_acl")}</a>
             </td>
             {#if show_device_details}
