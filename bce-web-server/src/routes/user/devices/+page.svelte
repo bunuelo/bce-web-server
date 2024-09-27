@@ -13,6 +13,23 @@
 
     let acl_list = [];
     let acl_selected = "0";
+
+    function get_acl_by_id(acl_id) {
+        for acl in acl_list {
+            if (acl.acl_id == acl_id) {
+                return acl
+            }
+        }
+        return null
+    }
+
+    function get_acl_display_name_by_id(acl_id) {
+        let acl = get_acl_by_id(acl_id)
+        if (acl == null) {
+            return "none"
+        }
+        return acl.display_name
+    }
     
     let device_list = [];
 
@@ -220,7 +237,7 @@
                 {device.email}
             </td>
             <td>
-                {device.acl_id}
+                {get_acl_display_name_by_id(device.acl_id)}
                 <a href="#" on:click={() => on_click_use_acl(device.uid)}>{bce_lang($user_language, "page_devices_label_use_acl")}</a>
             </td>
             {#if show_device_details}
