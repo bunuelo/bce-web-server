@@ -210,7 +210,7 @@ export default class BceRestApi {
     }
     
     async acl_list(session_token, writable = null) {
-        body = {
+        var body = {
 	    session_token: session_token
 	}
         if (writable != null) {
