@@ -145,16 +145,18 @@
       </select>
   </label>
   
-  <table>
-      <tr>
-          <td>
-              Current time:
-          </td>
-          <td>
-              {format_date(last_updated_time)}
-          </td>
-      </tr>
-  </table>
+  <div>
+      <table>
+          <tr>
+              <td>
+                  Current time:
+              </td>
+              <td>
+                  {format_date(last_updated_time)}
+              </td>
+          </tr>
+      </table>
+  </div>
   
   {#if device_list.length > 0}
   <table>
