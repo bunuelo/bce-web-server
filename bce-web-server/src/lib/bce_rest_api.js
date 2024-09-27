@@ -456,4 +456,23 @@ export default class BceRestApi {
 	return response_json.devices;
     }
     
+  async device_update(session_token, uid, acl_id) {
+      var body = {
+       	  session_token: session_token,
+      }
+      if (acl_id != null) {
+          body["acl_id"] = acl_id
+      }
+      const response = await fetch(this.apiURL + "/device/update", {
+	    method: "POST",
+	    body: JSON.stringify(body),
+	    headers: {
+		"Content-type": "application/json; charset=UTF-8"
+	    }
+	});
+	const response_json = await response.json();
+	this.message = response_json.message;
+	return response_json.devices;
+    }
+    
 }

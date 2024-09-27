@@ -97,11 +97,11 @@
         return format_time_since_date(date)
     }
     
-    async function update_acl_selected() {
+    async function update_acl_selected() {        
     }
     
     async function on_click_use_acl(device_uid) {
-        
+        await bce_session.device_update(device_uid, acl_selected);
     }
 
     let show_device_details = false;
