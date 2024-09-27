@@ -155,6 +155,8 @@
     "page_chats_alert_chat_request_response_failure": "Chat request response failed.",
     "page_chats_alert_chat_request_response_success": "Chat request response successful!",
     "page_devices_title": "Devices",
+    "page_devices_label_hide_device_details": "hide device details",
+    "page_devices_label_show_device_details": "show device details",
     "page_devices_label_uid": "uid",
     "page_devices_label_acl": "ACL",
     "page_devices_label_acl_none": "none",
