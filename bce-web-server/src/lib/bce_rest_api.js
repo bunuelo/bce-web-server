@@ -213,8 +213,8 @@ export default class BceRestApi {
         body = {
 	    session_token: session_token
 	}
-        if writable != null {
-            body["writable"] = writable
+        if (writable != null) {
+            body["writable"] = writable;
         }
         const response = await fetch(this.apiURL + "/acl/list", {
 	    method: "POST",
