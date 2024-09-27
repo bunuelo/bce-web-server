@@ -209,12 +209,16 @@ export default class BceRestApi {
 	return response_json.success;
     }
     
-    async acl_list(session_token) {
-	const response = await fetch(this.apiURL + "/acl/list", {
+    async acl_list(session_token, writable = null) {
+        body = {
+	    session_token: session_token
+	}
+        if writable != null {
+            body["writable"] = writable
+        }
+        const response = await fetch(this.apiURL + "/acl/list", {
 	    method: "POST",
-	    body: JSON.stringify({
-		session_token: session_token
-	    }),
+	    body: JSON.stringify(body),
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }

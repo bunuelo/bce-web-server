@@ -33,7 +33,7 @@
     });
 
     async function update_acl_list() {
-        acl_list = await bce_session.acls();
+        acl_list = await bce_session.acls(writable=true);
     }
     
     async function update_device_list() {
@@ -125,6 +125,12 @@
 
   <h1>{bce_lang($user_language, "page_devices_title")}</h1>
   
+  {#if show_device_details}
+      <a href="#" on:click={() => on_click_hide_device_details()}>{bce_lang($user_language, "page_devices_label_hide_device_details")}</a>
+  {:else}
+      <a href="#" on:click={() => on_click_show_device_details()}>{bce_lang($user_language, "page_devices_label_show_device_details")}</a>
+  {/if}
+  
   <label>
       {bce_lang($user_language, "page_devices_label_acl")}: 
       <select bind:value={acl_selected} on:change={update_acl_selected}>
@@ -149,12 +155,6 @@
           </td>
       </tr>
   </table>
-  
-  {#if show_device_details}
-      <a href="#" on:click={() => on_click_hide_device_details()}>{bce_lang($user_language, "page_devices_label_hide_device_details")}</a>
-  {:else}
-      <a href="#" on:click={() => on_click_show_device_details()}>{bce_lang($user_language, "page_devices_label_show_device_details")}</a>
-  {/if}
   
   {#if device_list.length > 0}
   <table>
