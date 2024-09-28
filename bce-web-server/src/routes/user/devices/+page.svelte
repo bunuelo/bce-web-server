@@ -104,11 +104,11 @@
         var seconds = Math.round(total_seconds);
         var hours = 0;
         var minutes = 0;
-        while (seconds > 3600) {
+        while (seconds >= 3600) {
             seconds -= 3600;
             hours ++;
         }
-        while (seconds > 60) {
+        while (seconds >= 60) {
             seconds -= 60;
             minutes ++;
         }
@@ -123,7 +123,11 @@
             }
         }
         if (seconds > 0 || hours != 0 || minutes != 0 || (minutes == 0 && hours == 0)) {
-            final_string += "" + zero_pad(Math.round(seconds), 2)
+            if (hours == 0 && minutes == 0) {
+                final_string += "" + Math.round(seconds)
+            } else {
+                final_string += "" + zero_pad(Math.round(seconds), 2)
+            }
         }
         return final_string
     }
