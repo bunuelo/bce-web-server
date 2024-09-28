@@ -129,7 +129,7 @@
         if (minutes > 0) {
           final_string += "" + minutes + " minute" + (minutes == 1 ? "" : "s") + " "
         }
-        if (seconds > 0) {
+        if (seconds > 0 || (minutes == 0 && hours == 0 && days == 0)) {
             final_string += "" + Math.round(seconds) + "s"
         }
         return final_string
