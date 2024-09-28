@@ -526,7 +526,7 @@ export default class BceRestApi {
     }
     
     async device_list(session_token) {
-        const response_json = this.fetch_json(this.apiURL + "/device/list", {
+        const response_json = await this.fetch_json(this.apiURL + "/device/list", {
 	    method: "POST",
 	    body: JSON.stringify({
     	        session_token: session_token,
