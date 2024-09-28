@@ -33,12 +33,12 @@ export default class BceRestApi {
             if (response.ok) {
                 return response.json();
             }
-            console.log("rest_call ERROR: ")
+            console.log("fetch_json_with_options ERROR: name = \"" + name + "\"")
             return null
         }).then((responseJson) => {
             return responseJson
         }).catch((error) => {
-            console.log("rest_call ERROR: " + error)
+            console.log("fetch_json_with_options ERROR: name = \"" + name + "\"  error = \"" + error + "\"")
             return null
         });
     }
