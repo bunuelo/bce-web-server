@@ -169,7 +169,7 @@
       <table>
           <tr>
               <td>
-                  Current time:
+                  current time:
               </td>
               <td>
                   {format_date(last_updated_time)}
