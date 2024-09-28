@@ -130,9 +130,8 @@
           final_string += "" + minutes + " minute" + (minutes == 1 ? "" : "s") + " "
         }
         if (seconds > 0) {
-            final_string += "" + seconds + "s"
+            final_string += "" + Math.round(seconds) + "s"
         }
-        final_string += "" + Math.round(total_seconds) + "s"
         return final_string
     }
     
