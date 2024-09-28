@@ -107,6 +107,7 @@
         var seconds = Math.round(total_seconds);
         var days = 0;
         var hours = 0;
+        var minutes = 0;
         while (days > 24 * 3600) {
             seconds -= 24 * 3600;
             days ++;
