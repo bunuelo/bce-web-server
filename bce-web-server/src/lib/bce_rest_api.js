@@ -38,7 +38,10 @@ export default class BceRestApi {
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	});
+	}).catch(function (error) {
+            console.log("user_create error: " + error)
+            return null
+        });
 	const response_json = await response.json();
 	this.message = response_json.message;
 	return response_json.success;
@@ -54,7 +57,10 @@ export default class BceRestApi {
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	});
+	}).catch(function (error) {
+            console.log("user_login error: " + error)
+            return null
+        });
 	const response_json = await response.json();
 	this.message = response_json.message;
 	return response_json.session_token;
@@ -69,7 +75,10 @@ export default class BceRestApi {
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	});
+	}).catch(function (error) {
+            console.log("session_valid error: " + error)
+            return null
+        });
 	const response_json = await response.json();
 	this.message = response_json.message;
 	return response_json.session_token_is_valid;
@@ -84,7 +93,10 @@ export default class BceRestApi {
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	});
+	}).catch(function (error) {
+            console.log("session_security_level error: " + error)
+            return null
+        });
 	const response_json = await response.json();
 	this.message = response_json.message;
 	return response_json.security_level;
@@ -99,7 +111,10 @@ export default class BceRestApi {
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	});
+	}).catch(function (error) {
+            console.log("session_color_theme error: " + error)
+            return null
+        });
 	const response_json = await response.json();
 	this.message = response_json.message;
 	return response_json.color_theme;
@@ -114,7 +129,10 @@ export default class BceRestApi {
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	});
+	}).catch(function (error) {
+            console.log("session_language error: " + error)
+            return null
+        });
 	const response_json = await response.json();
 	this.message = response_json.message;
 	return response_json.language;
@@ -144,7 +162,10 @@ export default class BceRestApi {
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	});
+	}).catch(function (error) {
+            console.log("session_update error: " + error)
+            return null
+        });
 	const response_json = await response.json();
 	this.message = response_json.message;
 	return response_json.success;
@@ -160,7 +181,10 @@ export default class BceRestApi {
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	});
+	}).catch(function (error) {
+            console.log("acl_create error: " + error)
+            return null
+        });
 	const response_json = await response.json();
 	this.message = response_json.message;
 	return response_json.success;
@@ -176,7 +200,10 @@ export default class BceRestApi {
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	});
+	}).catch(function (error) {
+            console.log("acl_delete error: " + error)
+            return null
+        });
 	const response_json = await response.json();
 	this.message = response_json.message;
 	return response_json.success;
@@ -203,7 +230,10 @@ export default class BceRestApi {
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	});
+	}).catch(function (error) {
+            console.log("acl_update error: " + error)
+            return null
+        });
 	const response_json = await response.json();
 	this.message = response_json.message;
 	return response_json.success;
@@ -222,7 +252,10 @@ export default class BceRestApi {
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	});
+	}).catch(function (error) {
+            console.log("acl_list error: " + error)
+            return null
+        });
 	const response_json = await response.json();
 	this.message = response_json.message;
 	return response_json.acls;
@@ -237,7 +270,10 @@ export default class BceRestApi {
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	});
+	}).catch(function (error) {
+            console.log("product_list error: " + error)
+            return null
+        });
 	const response_json = await response.json();
 	this.message = response_json.message;
 	return response_json.products;
@@ -257,7 +293,10 @@ export default class BceRestApi {
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	});
+	}).catch(function (error) {
+            console.log("product_create error: " + error)
+            return null
+        });
 	const response_json = await response.json();
 	this.message = response_json.message;
 	return response_json.success;
@@ -273,7 +312,10 @@ export default class BceRestApi {
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	});
+	}).catch(function (error) {
+            console.log("product_delete error: " + error)
+            return null
+        });
 	const response_json = await response.json();
 	this.message = response_json.message;
 	return response_json.success;
@@ -288,7 +330,10 @@ export default class BceRestApi {
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	});
+	}).catch(function (error) {
+            console.log("product_ingest error: " + error)
+            return null
+        });
 	const response_json = await response.json();
 	this.message = response_json.message;
 	return response_json.success;
@@ -302,6 +347,9 @@ export default class BceRestApi {
         const response = await fetch(this.apiURL + "/asset/upload", {
             method: 'POST',
             body: data
+        }).catch(function (error) {
+            console.log("asset_upload error: " + error)
+            return null
         });
 	const response_json = await response.json();
 	this.message = response_json.message;
@@ -321,7 +369,10 @@ export default class BceRestApi {
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	});
+	}).catch(function (error) {
+            console.log("asset_count error: " + error)
+            return null
+        });
 	const response_json = await response.json();
 	this.message = response_json.message;
 	return response_json.count;
@@ -340,7 +391,10 @@ export default class BceRestApi {
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	});
+	}).catch(function (error) {
+            console.log("asset_list error: " + error)
+            return null
+        });
 	const response_json = await response.json();
 	this.message = response_json.message;
 	return response_json.assets;
@@ -371,7 +425,10 @@ export default class BceRestApi {
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	});
+	}).catch(function (error) {
+            console.log("chat_request_list error: " + error)
+            return null
+        });
 	const response_json = await response.json();
 	this.message = response_json.message;
 	return response_json.chat_requests;
@@ -388,7 +445,10 @@ export default class BceRestApi {
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	});
+	}).catch(function (error) {
+            console.log("chat_request_response error: " + error)
+            return null
+        });
 	const response_json = await response.json();
 	this.message = response_json.message;
 	return response_json.success;
@@ -403,7 +463,10 @@ export default class BceRestApi {
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	});
+	}).catch(function (error) {
+            console.log("chat_user_list error: " + error)
+            return null
+        });
 	const response_json = await response.json();
 	this.message = response_json.message;
 	return response_json.chat_users;
@@ -420,7 +483,10 @@ export default class BceRestApi {
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	});
+	}).catch(function (error) {
+            console.log("chat_create error: " + error)
+            return null
+        });
 	const response_json = await response.json();
 	this.message = response_json.message;
 	return response_json.success;
