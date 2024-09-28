@@ -28,6 +28,21 @@ export default class BceRestApi {
 	return response_json.options;
     }
     
+    async fetch_json(url, options) {
+        return await fetch(url, options).then((response) => {
+            if (response.ok) {
+                return response.json();
+            }
+            console.log("rest_call ERROR: ")
+            return null
+        }).then((responseJson) => {
+            return responseJson
+        }).catch((error) => {
+            console.log("rest_call ERROR: " + error)
+            return null
+        });
+    }
+    
     async user_create(email, password) {
 	const response = await fetch(this.apiURL + "/user/create", {
 	    method: "POST",
@@ -511,7 +526,7 @@ export default class BceRestApi {
     }
     
     async device_list(session_token) {
-	const response = await fetch(this.apiURL + "/device/list", {
+        const response_json = fetch_json(this.apiURL + "/device/list", {
 	    method: "POST",
 	    body: JSON.stringify({
     	        session_token: session_token,
@@ -519,11 +534,7 @@ export default class BceRestApi {
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	}).catch(function (error) {
-            console.log("device_list error: " + error)
-            return null
-        });
-	const response_json = await response.json();
+	});
 	this.message = response_json.message;
 	return response_json.devices;
     }
