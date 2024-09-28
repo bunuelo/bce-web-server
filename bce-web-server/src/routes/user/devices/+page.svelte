@@ -124,13 +124,13 @@
             final_string += "" + days + " day" + (days == 1 ? "" : "s") + " "
         }
         if (hours > 0) {
-            final_string += "" + hours + " hour" + (hours == 1 ? "" : "s") + " "
+          final_string += "" + hours + ":"
         }
         if (minutes > 0) {
-          final_string += "" + minutes + " minute" + (minutes == 1 ? "" : "s") + " "
+          final_string += "" + minutes + ":"
         }
         if (seconds > 0 || (minutes == 0 && hours == 0 && days == 0)) {
-            final_string += "" + Math.round(seconds) + "s"
+            final_string += "" + Math.round(seconds)
         }
         return final_string
     }
