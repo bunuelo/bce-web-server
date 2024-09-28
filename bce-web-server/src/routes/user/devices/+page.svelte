@@ -116,7 +116,7 @@
             seconds -= 3600;
             hours ++;
         }
-        while (minutes > 60) {
+        while (seconds > 60) {
             seconds -= 60;
             minutes ++;
         }
