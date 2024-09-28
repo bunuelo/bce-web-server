@@ -435,8 +435,7 @@ export default class BceRestApi {
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	});
-        response.catch(function (error) {
+	}).catch(function (error) {
             console.log("chat_list error: " + error)
             return null
         });
@@ -454,8 +453,7 @@ export default class BceRestApi {
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	});
-        response.catch(function (error) {
+	}).catch(function (error) {
             console.log("device_list error: " + error)
             return null
         });
@@ -478,8 +476,7 @@ export default class BceRestApi {
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	});
-        response.catch(function (error) {
+	}).catch(function (error) {
             console.log("device_update error: " + error)
             return null
         });
