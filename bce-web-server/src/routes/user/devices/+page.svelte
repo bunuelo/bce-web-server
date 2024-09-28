@@ -116,7 +116,11 @@
             final_string += "" + hours + ":"
         }
         if (minutes > 0 || hours != 0) {
-          final_string += "" + zero_pad(minutes, 2) + ":"
+            if (hours == 0) {
+                final_string += "" + minutes + ":"
+            } else {
+                final_string += "" + zero_pad(minutes, 2) + ":"
+            }
         }
         if (seconds > 0 || hours != 0 || minutes != 0 || (minutes == 0 && hours == 0)) {
             final_string += "" + zero_pad(Math.round(seconds), 2)
