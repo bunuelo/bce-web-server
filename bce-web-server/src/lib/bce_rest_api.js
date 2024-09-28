@@ -44,7 +44,7 @@ export default class BceRestApi {
     }
     
     async user_create(email, password) {
-	const response = await fetch(this.apiURL + "/user/create", {
+	const response_json = await this.fetch_json(this.apiURL + "/user/create", {
 	    method: "POST",
 	    body: JSON.stringify({
 		email: email,
@@ -53,17 +53,13 @@ export default class BceRestApi {
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	}).catch(function (error) {
-            console.log("user_create error: " + error)
-            return null
-        });
-	const response_json = await response.json();
+	});
 	this.message = response_json.message;
 	return response_json.success;
     }
     
     async user_login(email, password) {
-	const response = await fetch(this.apiURL + "/user/login", {
+	const response_json = await this.fetch_json(this.apiURL + "/user/login", {
 	    method: "POST",
 	    body: JSON.stringify({
 		email: email,
@@ -72,17 +68,13 @@ export default class BceRestApi {
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	}).catch(function (error) {
-            console.log("user_login error: " + error)
-            return null
-        });
-	const response_json = await response.json();
+	});
 	this.message = response_json.message;
 	return response_json.session_token;
     }
     
     async session_valid(session_token) {
-	const response = await fetch(this.apiURL + "/session/valid", {
+	const response_json = await this.fetch_json(this.apiURL + "/session/valid", {
 	    method: "POST",
 	    body: JSON.stringify({
 		session_token: session_token
@@ -90,17 +82,13 @@ export default class BceRestApi {
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	}).catch(function (error) {
-            console.log("session_valid error: " + error)
-            return null
-        });
-	const response_json = await response.json();
+	});
 	this.message = response_json.message;
 	return response_json.session_token_is_valid;
     }
     
     async session_security_level(session_token) {
-	const response = await fetch(this.apiURL + "/session/security_level", {
+	const response_json = await this.fetch_json(this.apiURL + "/session/security_level", {
 	    method: "POST",
 	    body: JSON.stringify({
 		session_token: session_token
@@ -108,17 +96,13 @@ export default class BceRestApi {
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	}).catch(function (error) {
-            console.log("session_security_level error: " + error)
-            return null
-        });
-	const response_json = await response.json();
+	});
 	this.message = response_json.message;
 	return response_json.security_level;
     }
     
     async session_color_theme(session_token) {
-	const response = await fetch(this.apiURL + "/session/color_theme", {
+	const response_json = await this.fetch_json(this.apiURL + "/session/color_theme", {
 	    method: "POST",
 	    body: JSON.stringify({
 		session_token: session_token
@@ -126,17 +110,13 @@ export default class BceRestApi {
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	}).catch(function (error) {
-            console.log("session_color_theme error: " + error)
-            return null
-        });
-	const response_json = await response.json();
+	});
 	this.message = response_json.message;
 	return response_json.color_theme;
     }
     
     async session_language(session_token) {
-	const response = await fetch(this.apiURL + "/session/language", {
+	const response_json = await this.fetch_json(this.apiURL + "/session/language", {
 	    method: "POST",
 	    body: JSON.stringify({
 		session_token: session_token
@@ -144,11 +124,7 @@ export default class BceRestApi {
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	}).catch(function (error) {
-            console.log("session_language error: " + error)
-            return null
-        });
-	const response_json = await response.json();
+	});
 	this.message = response_json.message;
 	return response_json.language;
     }
@@ -171,23 +147,19 @@ export default class BceRestApi {
         if (language != null) {
             body["language"] = language;
         }
-	const response = await fetch(this.apiURL + "/session/update", {
+	const response_json = await this.fetch_json(this.apiURL + "/session/update", {
 	    method: "POST",
 	    body: JSON.stringify(body),
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	}).catch(function (error) {
-            console.log("session_update error: " + error)
-            return null
-        });
-	const response_json = await response.json();
+	});
 	this.message = response_json.message;
 	return response_json.success;
     }
     
     async acl_create(session_token, display_name) {
-	const response = await fetch(this.apiURL + "/acl/create", {
+	const response_json = await this.fetch_json(this.apiURL + "/acl/create", {
 	    method: "POST",
 	    body: JSON.stringify({
 	      session_token: session_token,
@@ -196,17 +168,13 @@ export default class BceRestApi {
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	}).catch(function (error) {
-            console.log("acl_create error: " + error)
-            return null
-        });
-	const response_json = await response.json();
+	});
 	this.message = response_json.message;
 	return response_json.success;
     }
     
     async acl_delete(session_token, acl_id) {
-	const response = await fetch(this.apiURL + "/acl/delete", {
+	const response_json = await this.fetch_json(this.apiURL + "/acl/delete", {
 	    method: "POST",
 	    body: JSON.stringify({
 	      session_token: session_token,
@@ -215,11 +183,7 @@ export default class BceRestApi {
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	}).catch(function (error) {
-            console.log("acl_delete error: " + error)
-            return null
-        });
-	const response_json = await response.json();
+	});
 	this.message = response_json.message;
 	return response_json.success;
     }
@@ -239,17 +203,13 @@ export default class BceRestApi {
             body["active"] = active;
         }
         console.log("acl_update: body = " + JSON.stringify(body));
-        const response = await fetch(this.apiURL + "/acl/update", {
+        const response_json = await this.fetch_json(this.apiURL + "/acl/update", {
 	    method: "POST",
 	    body: JSON.stringify(body),
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	}).catch(function (error) {
-            console.log("acl_update error: " + error)
-            return null
-        });
-	const response_json = await response.json();
+	});
 	this.message = response_json.message;
 	return response_json.success;
     }
@@ -261,23 +221,19 @@ export default class BceRestApi {
         if (writable != null) {
             body["writable"] = writable;
         }
-        const response = await fetch(this.apiURL + "/acl/list", {
+        const response_json = await this.fetch_json(this.apiURL + "/acl/list", {
 	    method: "POST",
 	    body: JSON.stringify(body),
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	}).catch(function (error) {
-            console.log("acl_list error: " + error)
-            return null
-        });
-	const response_json = await response.json();
+	});
 	this.message = response_json.message;
 	return response_json.acls;
     }
     
     async product_list(session_token) {
-	const response = await fetch(this.apiURL + "/product/list", {
+	const response_json = await this.fetch_json(this.apiURL + "/product/list", {
 	    method: "POST",
 	    body: JSON.stringify({
 		session_token: session_token
@@ -285,17 +241,13 @@ export default class BceRestApi {
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	}).catch(function (error) {
-            console.log("product_list error: " + error)
-            return null
-        });
-	const response_json = await response.json();
+	});
 	this.message = response_json.message;
 	return response_json.products;
     }
     
   async product_create(session_token, name, display_name, url, quantity, sale_price) {
-	const response = await fetch(this.apiURL + "/product/create", {
+	const response_json = await this.fetch_json(this.apiURL + "/product/create", {
 	    method: "POST",
 	    body: JSON.stringify({
   	        session_token: session_token,
@@ -308,17 +260,13 @@ export default class BceRestApi {
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	}).catch(function (error) {
-            console.log("product_create error: " + error)
-            return null
-        });
-	const response_json = await response.json();
+	});
 	this.message = response_json.message;
 	return response_json.success;
     }
     
     async product_delete(session_token, product_id) {
-	const response = await fetch(this.apiURL + "/product/delete", {
+	const response_json = await this.fetch_json(this.apiURL + "/product/delete", {
 	    method: "POST",
 	    body: JSON.stringify({
   	        session_token: session_token,
@@ -327,17 +275,13 @@ export default class BceRestApi {
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	}).catch(function (error) {
-            console.log("product_delete error: " + error)
-            return null
-        });
-	const response_json = await response.json();
+	});
 	this.message = response_json.message;
 	return response_json.success;
     }
     
     async product_ingest(session_token) {
-	const response = await fetch(this.apiURL + "/product/ingest", {
+	const response_json = await this.fetch_json(this.apiURL + "/product/ingest", {
 	    method: "POST",
 	    body: JSON.stringify({
   	        session_token: session_token
@@ -345,11 +289,7 @@ export default class BceRestApi {
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	}).catch(function (error) {
-            console.log("product_ingest error: " + error)
-            return null
-        });
-	const response_json = await response.json();
+	});
 	this.message = response_json.message;
 	return response_json.success;
     }
@@ -359,14 +299,10 @@ export default class BceRestApi {
         data.append("session_token", session_token);
         data.append("acl_id", Number(acl_id));
         data.append("file", file, file.name);
-        const response = await fetch(this.apiURL + "/asset/upload", {
+        const response_json = await this.fetch_json(this.apiURL + "/asset/upload", {
             method: 'POST',
             body: data
-        }).catch(function (error) {
-            console.log("asset_upload error: " + error)
-            return null
         });
-	const response_json = await response.json();
 	this.message = response_json.message;
 	return response_json.success;
     }
@@ -378,17 +314,13 @@ export default class BceRestApi {
         if (acl_id) {
             body["acl_id"] = acl_id;
         }
-        const response = await fetch(this.apiURL + "/asset/count", {
+        const response_json = await this.fetch_json(this.apiURL + "/asset/count", {
 	    method: "POST",
 	    body: JSON.stringify(body),
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	}).catch(function (error) {
-            console.log("asset_count error: " + error)
-            return null
-        });
-	const response_json = await response.json();
+	});
 	this.message = response_json.message;
 	return response_json.count;
     }
@@ -400,23 +332,19 @@ export default class BceRestApi {
         if (acl_id) {
             body["acl_id"] = acl_id;
         }
-        const response = await fetch(this.apiURL + "/asset/list", {
+        const response_json = await this.fetch_json(this.apiURL + "/asset/list", {
 	    method: "POST",
 	    body: JSON.stringify(body),
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	}).catch(function (error) {
-            console.log("asset_list error: " + error)
-            return null
-        });
-	const response_json = await response.json();
+	});
 	this.message = response_json.message;
 	return response_json.assets;
     }
   
     async chat_request(session_token, user_email) {
-	const response = await fetch(this.apiURL + "/chat/request", {
+	const response_json = await this.fetch_json(this.apiURL + "/chat/request", {
 	    method: "POST",
 	    body: JSON.stringify({
 	      session_token: session_token,
@@ -426,13 +354,12 @@ export default class BceRestApi {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
 	});
-	const response_json = await response.json();
-	this.message = response_json.message;
+        this.message = response_json.message;
 	return response_json.success;
     }
     
     async chat_request_list(session_token) {
-	const response = await fetch(this.apiURL + "/chat/request/list", {
+	const response_json = await this.fetch_json(this.apiURL + "/chat/request/list", {
 	    method: "POST",
 	    body: JSON.stringify({
   	        session_token: session_token,
@@ -440,17 +367,13 @@ export default class BceRestApi {
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	}).catch(function (error) {
-            console.log("chat_request_list error: " + error)
-            return null
-        });
-	const response_json = await response.json();
-	this.message = response_json.message;
+	});
+        this.message = response_json.message;
 	return response_json.chat_requests;
     }
     
   async chat_request_response(session_token, email, accept) {
-	const response = await fetch(this.apiURL + "/chat/request/response", {
+	const response_json = await this.fetch_json(this.apiURL + "/chat/request/response", {
 	    method: "POST",
 	    body: JSON.stringify({
     	        session_token: session_token,
@@ -460,17 +383,13 @@ export default class BceRestApi {
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	}).catch(function (error) {
-            console.log("chat_request_response error: " + error)
-            return null
-        });
-	const response_json = await response.json();
-	this.message = response_json.message;
+	});
+        this.message = response_json.message;
 	return response_json.success;
     }
     
   async chat_user_list(session_token) {
-	const response = await fetch(this.apiURL + "/chat/user/list", {
+	const response_json = await this.fetch_json(this.apiURL + "/chat/user/list", {
 	    method: "POST",
 	    body: JSON.stringify({
     	        session_token: session_token,
@@ -478,17 +397,13 @@ export default class BceRestApi {
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	}).catch(function (error) {
-            console.log("chat_user_list error: " + error)
-            return null
-        });
-	const response_json = await response.json();
-	this.message = response_json.message;
+	});
+        this.message = response_json.message;
 	return response_json.chat_users;
     }
     
   async chat_create(session_token, recipients, text) {
-	const response = await fetch(this.apiURL + "/chat/create", {
+	const response_json = await this.fetch_json(this.apiURL + "/chat/create", {
 	    method: "POST",
 	    body: JSON.stringify({
     	        session_token: session_token,
@@ -498,17 +413,13 @@ export default class BceRestApi {
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	}).catch(function (error) {
-            console.log("chat_create error: " + error)
-            return null
-        });
-	const response_json = await response.json();
-	this.message = response_json.message;
+	});
+        this.message = response_json.message;
 	return response_json.success;
     }
     
-  async chat_list(session_token) {
-	const response = await fetch(this.apiURL + "/chat/list", {
+    async chat_list(session_token) {
+	const response_json = await this.fetch_json(this.apiURL + "/chat/list", {
 	    method: "POST",
 	    body: JSON.stringify({
     	        session_token: session_token,
@@ -516,12 +427,8 @@ export default class BceRestApi {
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	}).catch(function (error) {
-            console.log("chat_list error: " + error)
-            return null
-        });
-        const response_json = await response.json();
-	this.message = response_json.message;
+	});
+        this.message = response_json.message;
 	return response_json.chats;
     }
     
@@ -547,18 +454,14 @@ export default class BceRestApi {
         if (acl_id != null) {
             body["acl_id"] = "" + acl_id
         }
-        const response = await fetch(this.apiURL + "/device/update", {
+        const response_json = await this.fetch_json(this.apiURL + "/device/update", {
 	    method: "POST",
 	    body: JSON.stringify(body),
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
-	}).catch(function (error) {
-            console.log("device_update error: " + error)
-            return null
-        });
-	const response_json = await response.json();
-	this.message = response_json.message;
+	})
+        this.message = response_json.message;
 	return response_json.success;
     }
     
