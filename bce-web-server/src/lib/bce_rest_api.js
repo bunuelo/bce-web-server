@@ -5,29 +5,6 @@ export default class BceRestApi {
 	this.message = "";
     }
     
-    async root() {
-	const response = await fetch(this.apiURL + "/");
-	const response_json = await response.json();
-	this.message = response_json.message;
-	return response_json;
-    }
-    
-    async generate(ipd) {
-	const response = await fetch(this.apiURL + "/generate?" + new URLSearchParams({
-	    ipd: ipd
-	}));
-	const response_json = await response.json();
-	this.message = response_json.message;
-	return response_json.model_url;
-    }
-    
-    async options() {
-	const response = await fetch(this.apiURL + "/options");
-	const response_json = await response.json();
-	this.message = response_json.message;
-	return response_json.options;
-    }
-    
     async fetch_json_with_options(name, options) {
         return await fetch(this.apiURL + name, options).then((response) => {
             if (response.ok) {
@@ -51,6 +28,24 @@ export default class BceRestApi {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
 	});
+    }
+    
+    async root() {
+        const response_json = await this.fetch_json("/", "GET", {});
+	this.message = response_json.message;
+	return response_json;
+    }
+    
+    async generate(ipd) {
+        const response_json = await this.fetch_json("/generate?" + new URLSearchParams({ipd: ipd}), "GET", {});
+	this.message = response_json.message;
+	return response_json.model_url;
+    }
+    
+    async options() {
+        const response_json = await this.fetch_json("/options", "GET", {});
+	this.message = response_json.message;
+	return response_json.options;
     }
     
     async user_create(email, password) {
