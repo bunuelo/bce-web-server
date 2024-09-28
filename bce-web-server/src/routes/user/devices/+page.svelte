@@ -100,12 +100,39 @@
         function pad(num, size) {
             var s = "000000000" + num;
             return s.substr(s.length-size);
+        };
+        var final_string = "";
+        let now = new Date();
+        let total_seconds = (now.getTime() - date.getTime()) / 1000.0;
+        var seconds = Math.round(total_seconds);
+        var days = 0;
+        var hours = 0;
+        while (days > 24 * 3600) {
+            seconds -= 24 * 3600;
+            days ++;
         }
-      var final_string = ""
-      let now = new Date()
-      let total_seconds = (now.getTime() - date.getTime()) / 1000.0
-      final_string += "" + Math.round(total_seconds) + "s"
-      return final_string
+        while (seconds > 3600) {
+            seconds -= 3600;
+            hours ++;
+        }
+        while (minutes > 60) {
+            seconds -= 60;
+            minutes ++;
+        }
+        if (days > 0) {
+            final_string += "" + days + " day" + (days == 1 ? "" : "s") + " "
+        }
+        if (hours > 0) {
+            final_string += "" + hours + " hour" + (hours == 1 ? "" : "s") + " "
+        }
+        if (minutes > 0) {
+          final_string += "" + minutes + " minute" + (minutes == 1 ? "" : "s") + " "
+        }
+        if (seconds > 0) {
+            final_string += "" + seconds + "s"
+        }
+        final_string += "" + Math.round(total_seconds) + "s"
+        return final_string
     }
     
     function format_json_datetime(json_datetime) {
