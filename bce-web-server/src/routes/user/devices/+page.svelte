@@ -71,13 +71,14 @@
     
     onDestroy(() => clearInterval(interval));
     
+    function zero_pad(num, size) {
+        var s = "000000000" + num;
+        return s.substr(s.length-size);
+    };
+
     function format_date(date) {
         if (date == null) {
             return "";
-        }
-        function pad(num, size) {
-            var s = "000000000" + num;
-            return s.substr(s.length-size);
         }
         let am_pm = date.getHours() < 12 ? "am" : "pm"
         let am_pm_hours = date.getHours() % 12
@@ -87,9 +88,9 @@
             final_string += "" + date.getFullYear() + "-"
         }
         if (now.getDate() != date.getDate() || now.getMonth() != date.getMonth() || now.getFullYear() != date.getFullYear()) {
-            final_string += pad(date.getMonth() + 1, 2) + "-" + pad(date.getDate(), 2) + " "
+            final_string += zero_pad(date.getMonth() + 1, 2) + "-" + zero_pad(date.getDate(), 2) + " "
         }
-        final_string += am_pm_hours + ":" + pad(date.getMinutes(), 2) + ":" + pad(date.getSeconds(), 2) + " " + am_pm
+        final_string += am_pm_hours + ":" + zero_pad(date.getMinutes(), 2) + ":" + zero_pad(date.getSeconds(), 2) + " " + am_pm
         return final_string
     }
     
@@ -97,21 +98,12 @@
         if (date == null) {
             return "";
         }
-        function pad(num, size) {
-            var s = "000000000" + num;
-            return s.substr(s.length-size);
-        };
         var final_string = "";
         let now = new Date();
         let total_seconds = (now.getTime() - date.getTime()) / 1000.0;
         var seconds = Math.round(total_seconds);
-        var days = 0;
         var hours = 0;
         var minutes = 0;
-        while (days > 24 * 3600) {
-            seconds -= 24 * 3600;
-            days ++;
-        }
         while (seconds > 3600) {
             seconds -= 3600;
             hours ++;
@@ -120,17 +112,14 @@
             seconds -= 60;
             minutes ++;
         }
-        if (days > 0) {
-            final_string += "" + days + " day" + (days == 1 ? "" : "s") + " "
-        }
         if (hours > 0) {
-          final_string += "" + hours + ":"
+            final_string += "" + hours + ":"
         }
-        if (minutes > 0) {
-          final_string += "" + minutes + ":"
+        if (minutes > 0 || hours != 0) {
+          final_string += "" + zero_pad(minutes, 2) + ":"
         }
-        if (seconds > 0 || (minutes == 0 && hours == 0 && days == 0)) {
-            final_string += "" + Math.round(seconds)
+        if (seconds > 0 || hours != 0 || minutes != 0 || (minutes == 0 && hours == 0)) {
+            final_string += "" + zero_pad(Math.round(seconds), 2)
         }
         return final_string
     }
