@@ -436,12 +436,16 @@ export default class BceRestApi {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
 	});
-	const response_json = await response.json();
+        response.catch(function (error) {
+            console.log("chat_list error: " + error)
+            return null
+        });
+        const response_json = await response.json();
 	this.message = response_json.message;
 	return response_json.chats;
     }
     
-  async device_list(session_token) {
+    async device_list(session_token) {
 	const response = await fetch(this.apiURL + "/device/list", {
 	    method: "POST",
 	    body: JSON.stringify({
@@ -451,26 +455,34 @@ export default class BceRestApi {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
 	});
+        response.catch(function (error) {
+            console.log("device_list error: " + error)
+            return null
+        });
 	const response_json = await response.json();
 	this.message = response_json.message;
 	return response_json.devices;
     }
     
-  async device_update(session_token, uid, acl_id) {
-      var body = {
-       	  session_token: session_token,
-          uid: "" + uid
-      }
-      if (acl_id != null) {
-          body["acl_id"] = "" + acl_id
-      }
-      const response = await fetch(this.apiURL + "/device/update", {
+    async device_update(session_token, uid, acl_id) {
+        var body = {
+            session_token: session_token,
+            uid: "" + uid
+        }
+        if (acl_id != null) {
+            body["acl_id"] = "" + acl_id
+        }
+        const response = await fetch(this.apiURL + "/device/update", {
 	    method: "POST",
 	    body: JSON.stringify(body),
 	    headers: {
 		"Content-type": "application/json; charset=UTF-8"
 	    }
 	});
+        response.catch(function (error) {
+            console.log("device_update error: " + error)
+            return null
+        });
 	const response_json = await response.json();
 	this.message = response_json.message;
 	return response_json.success;
