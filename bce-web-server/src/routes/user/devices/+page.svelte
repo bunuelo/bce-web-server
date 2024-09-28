@@ -81,7 +81,10 @@
             return "";
         }
         let am_pm = date.getHours() < 12 ? "am" : "pm"
-        let am_pm_hours = date.getHours() % 12
+        var am_pm_hours = date.getHours() % 12
+        if (am_pm_hours == 0) {
+            am_pm_hours = 12;
+        }
         var final_string = ""
         let now = new Date()
         if (now.getFullYear() != date.getFullYear()) {
