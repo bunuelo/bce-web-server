@@ -79,7 +79,9 @@
             {#each assets as asset}
                 <tr>
                     <td>
-                        {asset.display_name}
+                        <a hreaf="https://bce.center:8000/asset/download?session_token={$user_session_token}&name={asset.name}&q={Math.round(1000000000* Math.random())}">
+                            {asset.display_name}
+                        </a>
                     </td>
                     <td>
                         {asset.asset_type}
