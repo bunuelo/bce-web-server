@@ -13,8 +13,10 @@
     let acls = [];
     let assets_count = 0;
     let assets = [];
-
+    
     let acl_selected = "0";
+    
+    let view_mode = "LIST";
     
     onMount(async () => {
         if (! $user_session_is_valid) {
@@ -54,29 +56,44 @@
 
 {#if $user_session_is_valid && $user_security_level >= 25}
 
-  <h1>{bce_lang($user_language, "page_assets_title")}</h1>
+    <h1>{bce_lang($user_language, "page_assets_title")}</h1>
   
-  <label>
-      {bce_lang($user_language, "page_assets_label_acl")}: 
-      <select bind:value={acl_selected} on:change={update_asset_list}>
-	  <option value="0">
-	      {bce_lang($user_language, "page_assets_label_all")}
-	  </option>
-          {#each acls as acl}
-	    <option value={acl.acl_id}>
-	        {acl.display_name}
+    <label>
+        {bce_lang($user_language, "page_assets_label_acl")}: 
+        <select bind:value={acl_selected} on:change={update_asset_list}>
+	    <option value="0">
+	        {bce_lang($user_language, "page_assets_label_all")}
 	    </option>
-          {/each}
-      </select>
-  </label>
-  
-  <p>{bce_lang($user_language, "page_assets_label_total_assets_count")}: {assets_count}</p>
-
-  {#each assets as asset}
-    <div class="asset_preview">
-        <img class="asset_preview" src="https://bce.center:8000/asset/download?session_token={$user_session_token}&name={asset.name}&q={Math.random()}" alt="{asset.display_name}">
-    </div>
-  {/each}
+            {#each acls as acl}
+	        <option value={acl.acl_id}>
+	            {acl.display_name} 
+	        </option>
+            {/each}
+        </select>
+    </label>
+    
+    <p>{bce_lang($user_language, "page_assets_label_total_assets_count")}: {assets_count}</p>
+    
+    {#if view_mode == "LIST"}
+        <table>
+            {#each assets as asset}
+                <tr>
+                    <td>
+                        {asset.display_name}
+                    </td>
+                    <td>
+                        {asset.asset_type}
+                    </td>
+                </tr>
+            {/each}
+        </table>  
+    {/else}
+        {#each assets as asset}
+            <div class="asset_preview">
+                <img class="asset_preview" src="https://bce.center:8000/asset/download?session_token={$user_session_token}&name={asset.name}&q={Math.random()}" alt="{asset.display_name}">
+            </div>
+        {/each}
+    {/if}
   
 {/if}
 
