@@ -44,7 +44,7 @@
             acl_id = null;
         }
         assets_count = await bce_session.assets_count(acl_id);
-        assets = await bce_session.assets(acl_id);
+        assets = await bce_session.assets(1, 50, acl_id);
     }
     
 </script>
@@ -76,6 +76,14 @@
     
     {#if view_mode == "LIST"}
         <table>
+            <tr>
+                <td>
+                    <i>{bce_lang($user_language, "page_assets_label_display_name")}</i>
+                </td>
+                <td>
+                    <i>{bce_lang($user_language, "page_assets_label_asset_type")}</i>
+                </td>
+            </tr>
             {#each assets as asset}
                 <tr>
                     <td>

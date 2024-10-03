@@ -234,12 +234,18 @@ export default class BceRestApi {
 	return response_json.count;
     }
   
-    async asset_list(session_token, acl_id = null) {
+  async asset_list(session_token, page = 1, page_size = 50, acl_id = null) {
         var body = {
   	    session_token: session_token
 	}
+        if (page) {
+            body["page"] = page;
+        }
+        if (page_size) {
+            body["page_size"] = page_size;
+        }
         if (acl_id) {
-            body["acl_id"] = acl_id;
+            body["page"] = acl_id;
         }
         const response_json = await this.fetch_json("/asset/list", "POST", body);
 	this.message = response_json.message;

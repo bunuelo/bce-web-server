@@ -184,9 +184,9 @@ export default class BceSession {
         return result;
     }
 
-    async assets(acl_id = null) {
+    async assets(page = 1, page_size = 50, acl_id = null) {
         this.update_session_from_cookie();
-        let result = await bce_rest_api.asset_list(get(user_session_token), acl_id);
+        let result = await bce_rest_api.asset_list(get(user_session_token), page, page_size, acl_id);
         return result;
     }
 
