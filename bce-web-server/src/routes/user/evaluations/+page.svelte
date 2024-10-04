@@ -53,7 +53,7 @@
                 Evaluation:
             </td>
             <td>
-                <AssetSelector bind:minimize=minimize, on_asset_select=on_asset_select />
+                <AssetSelector bind:minimize={minimize} on_asset_select={on_asset_select} />
             </td>
         </tr>
     </table>
