@@ -43,7 +43,7 @@
     <table>
         <tr>
             <td>
-                Evaluation Asset:
+                Evaluation:
             </td>
             <td>
                 <AssetSelector/>
