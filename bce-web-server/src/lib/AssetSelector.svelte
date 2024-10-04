@@ -15,7 +15,11 @@
 
     export let on_asset_select = async function (asset) {
         console.log("Asset selected: " + asset.name + " (" + asset.file_name + ")");
+        selected_asset = asset;
+        minimize = true;
     };
+    
+    export let selected_asset = null;
     
     //<a href="https://bce.center:8000/asset/download?session_token={$user_session_token}&name={asset.name}&q={Math.round(1000000000* Math.random())}">
     //{asset.file_name}
@@ -69,7 +73,22 @@
 
   {#if minimize}
     <div>
-        <a href="#" on:click={on_click_select_evaluation}>{bce_lang($user_language, "component_asset_selector_label_select_evaluation")}</a>
+        <table>
+            <tr>
+                <td>
+                    {#if selected_asset == null}
+                        <i>none</i>
+                    {:else}
+                        {selected_asset.file_name}
+                    {/if}
+                </td>
+                <td>
+                    <a href="#" on:click={on_click_select_evaluation}>
+                        {bce_lang($user_language, "component_asset_selector_label_select_evaluation")}
+                    </a>
+                </td>
+            </tr>
+        </table>
     </div>
   {:else}
   <div>
