@@ -29,10 +29,10 @@
     async function update_all() {
     }
     
-    function download_url(url){
+    function download_url(url, file_name){
         var link = document.createElement('a');
         link.href = url;
-        link.download = url.substr(url.lastIndexOf('/') + 1);
+        link.download = file_name;
         link.click();
     }
     
@@ -42,8 +42,9 @@
     async function on_asset_select(asset) {
         console.log("Asset selected: " + asset.name + " (" + asset.file_name + ")");
         var url = "https://bce.center:8000/asset/download?session_token=" + $user_session_token + "&name=" + asset.name;
+        var file_name = asset.file_name.substr(asset.file_name.lastIndexOf('/') + 1);
         console.log("Downloading asset at: " + url);
-        download_url(url);
+        download_url(url, file_name);
     };
     
 </script>
