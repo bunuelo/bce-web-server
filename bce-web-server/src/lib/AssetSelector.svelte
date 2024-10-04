@@ -51,14 +51,8 @@
 </script>
 
 
-<svelte:head>
-    <title>{bce_lang($user_language, "page_assets_title")}</title>
-</svelte:head>
-
 {#if $user_session_is_valid && $user_security_level >= 25}
 
-    <h1>{bce_lang($user_language, "page_assets_title")}</h1>
-  
     <label>
         {bce_lang($user_language, "page_assets_label_acl")}: 
         <select bind:value={acl_selected} on:change={update_asset_list}>
