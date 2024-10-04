@@ -32,7 +32,7 @@
         await update_acl_list();
         await update_asset_list();
     });
-
+    
     async function update_acl_list() {
         acls = await bce_session.acls();
         acl_selected = "0";
@@ -66,7 +66,7 @@
 	    </option>
             {#each acls as acl}
 	        <option value={acl.acl_id}>
-	            {acl.display_name} 
+	            {acl.file_name} 
 	        </option>
             {/each}
         </select>
@@ -78,7 +78,7 @@
         <table>
             <tr>
                 <td>
-                    <i>{bce_lang($user_language, "page_assets_label_display_name")}</i>
+                    <i>{bce_lang($user_language, "page_assets_label_file_name")}</i>
                 </td>
                 <td>
                     <i>{bce_lang($user_language, "page_assets_label_asset_type")}</i>
@@ -88,7 +88,7 @@
                 <tr>
                     <td>
                         <a href="https://bce.center:8000/asset/download?session_token={$user_session_token}&name={asset.name}&q={Math.round(1000000000* Math.random())}">
-                            {asset.display_name}
+                            {asset.file_name}
                         </a>
                     </td>
                     <td>
@@ -100,7 +100,7 @@
     {:else}
         {#each assets as asset}
             <div class="asset_preview">
-                <img class="asset_preview" src="https://bce.center:8000/asset/download?session_token={$user_session_token}&name={asset.name}&q={Math.random()}" alt="{asset.display_name}">
+                <img class="asset_preview" src="https://bce.center:8000/asset/download?session_token={$user_session_token}&name={asset.name}&q={Math.random()}" alt="{asset.file_name}">
             </div>
         {/each}
     {/if}
