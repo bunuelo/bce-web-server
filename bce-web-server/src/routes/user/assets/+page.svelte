@@ -83,6 +83,9 @@
                 <td>
                     <i>{bce_lang($user_language, "page_assets_label_asset_type")}</i>
                 </td>
+                <td>
+                    <i>{bce_lang($user_language, "page_assets_label_creation_time")}</i>
+                </td>
             </tr>
             {#each assets as asset}
                 <tr>
@@ -93,6 +96,9 @@
                     </td>
                     <td>
                         {asset.asset_type}
+                    </td>
+                    <td>
+                        {asset.creation_time}
                     </td>
                 </tr>
             {/each}
