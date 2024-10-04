@@ -14,7 +14,7 @@
     export let minimize = false;
 
     export let on_asset_select = async function (asset) {
-        console.log("Asset selected: " + asset.file_name);
+        console.log("Asset selected: " + asset.name + " (" + asset.file_name + ")");
     };
     
     //<a href="https://bce.center:8000/asset/download?session_token={$user_session_token}&name={asset.name}&q={Math.round(1000000000* Math.random())}">
