@@ -12,6 +12,14 @@
     let bce_session = new BceSession();
 
     export let minimize = false;
+
+    export let on_asset_select = async function (asset) {
+        console.log("Asset selected: " + asset.file_name);
+    };
+    
+    //<a href="https://bce.center:8000/asset/download?session_token={$user_session_token}&name={asset.name}&q={Math.round(1000000000* Math.random())}">
+    //{asset.file_name}
+    //</a>
     
     let acls = [];
     let assets_count = 0;
@@ -97,7 +105,7 @@
             {#each assets as asset}
                 <tr>
                     <td>
-                        <a href="https://bce.center:8000/asset/download?session_token={$user_session_token}&name={asset.name}&q={Math.round(1000000000* Math.random())}">
+                        <a href="#" on:click={on_asset_select}>
                             {asset.file_name}
                         </a>
                     </td>
