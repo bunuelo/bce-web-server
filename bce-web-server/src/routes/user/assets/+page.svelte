@@ -66,7 +66,7 @@
 	    </option>
             {#each acls as acl}
 	        <option value={acl.acl_id}>
-	            {acl.file_name} 
+	            {acl.display_name} 
 	        </option>
             {/each}
         </select>
