@@ -97,6 +97,7 @@
     "component_asset_selector_label_file_name": "file name",
     "component_asset_selector_label_asset_type": "asset type",
     "component_asset_selector_label_creation_time": "creation time",
+    "component_asset_selector_label_select_evaluation": "select evaluation",
     "page_home_title": "Home",
     "page_login_title": "Login",
     "page_login_alert_login_successful": "Login successful!",

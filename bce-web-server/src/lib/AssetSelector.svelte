@@ -50,6 +50,10 @@
         assets = await bce_session.assets(1, 50, acl_id);
     }
     
+    async function on_click_select_evaluation() {
+        minimize = false;
+    }
+
 </script>
 
 
@@ -57,7 +61,7 @@
 
   {#if minimize}
     <div>
-        <a href="#">select evaluation</a>
+        <a href="#" on:click={on_click_select_evaluation}>{bce_lang($user_language, "component_asset_selector_label_select_evaluation")}</a>
     </div>
   {:else}
   <div>
