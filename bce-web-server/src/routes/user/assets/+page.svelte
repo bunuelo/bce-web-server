@@ -39,7 +39,9 @@
 {#if $user_session_is_valid && $user_security_level >= 25}
 
     <h1>{bce_lang($user_language, "page_assets_title")}</h1>
-  
+
+    AssetSelector:
+    
     <AssetSelector/>
   
 {/if}
