@@ -10,7 +10,8 @@
     import { zero_pad, format_date, format_time_since_date, format_json_datetime, format_time_since_json_datetime } from '$lib/bce_time.js'
     import BceSession from "$lib/bce_session.js";
     let bce_session = new BceSession();
-
+    import AssetSelector from '$lib/AssetSelector.svelte'
+    
     onMount(async () => {
         if (! $user_session_is_valid) {
             $user_session_is_valid = await bce_session.session_is_valid()
@@ -39,7 +40,10 @@
 
     <h1>{bce_lang($user_language, "page_evaluations_title")}</h1>
   
-  
+    <AssetSelector/>
+
+    Left Retina / Right Retina
+    
 {/if}
 
 
