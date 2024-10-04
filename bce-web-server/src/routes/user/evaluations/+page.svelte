@@ -84,7 +84,7 @@
         </tr>
     </table>
 
-    evaluation = {json.dumps(evaluation)}
+    evaluation = {JSON.stringify(evaluation)}
     
     <table>
         <tr>
