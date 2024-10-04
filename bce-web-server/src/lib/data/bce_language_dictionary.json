@@ -82,6 +82,7 @@
     "menu_assets": "assets",
     "menu_chats": "chats",
     "menu_devices": "devices",
+    "menu_evaluations": "evaluations",
     "menu_login": "login",
     "menu_create_account": "create account",
     "menu_design": "design",
@@ -180,6 +181,7 @@
     "page_docs_rest_api_link_description": "See the BCE REST API OpenAPI documentation.",
     "page_inventory_title": "Inventory",
     "page_design_title": "Design",
+    "page_evaluations_title": "Evaluations",
     "page_terms_title": "Terms of Service",
     "page_contact_title": "Contact"
   },
