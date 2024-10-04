@@ -84,7 +84,7 @@
         </tr>
     </table>
 
-    <textarea rows="50" cols="100" >
+    <textarea rows="20" cols="50" >
 evaluation = {JSON.stringify(evaluation, null, 4)}
     </textarea>
     
