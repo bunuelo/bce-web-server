@@ -4,9 +4,11 @@ SOURCE_FILES = \
   bce-web-server/static/global.css \
   bce-web-server/src/lib/data/bce_language_dictionary.json \
   bce-web-server/src/lib/bce_inventory.js \
+  bce-web-server/src/lib/bce_locale.js \
   bce-web-server/src/lib/bce_rest_api.js \
   bce-web-server/src/lib/bce_session.js \
   bce-web-server/src/lib/bce_stores.js \
+  bce-web-server/src/lib/bce_time.js \
   bce-web-server/src/routes/Edit.svelte \
   bce-web-server/src/routes/Logo.svelte \
   bce-web-server/src/routes/Menu.svelte \
