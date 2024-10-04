@@ -32,7 +32,7 @@
     let selected_asset = null;
     let minimize = true;
 
-    let evaluation_json = "";
+    let evaluation = "";
     
     async function fetch_evaluation(url) {
         return await fetch(url, {
@@ -59,7 +59,7 @@
         selected_asset = asset;
         minimize = true;
         var url = "https://bce.center:8000/asset/download?session_token=" + $user_session_token + "&name=" + asset.name;
-        evaluation_json = await fetch_evaluation(url);
+        evaluation = await fetch_evaluation(url);
     };
 
 </script>
@@ -84,7 +84,7 @@
         </tr>
     </table>
 
-    evaluation_json = {evaluation_json}
+    evaluation = {json.dumps(evaluation)}
     
     <table>
         <tr>
