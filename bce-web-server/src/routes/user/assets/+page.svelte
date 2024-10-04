@@ -40,8 +40,6 @@
 
     <h1>{bce_lang($user_language, "page_assets_title")}</h1>
 
-    AssetSelector:
-    
     <AssetSelector/>
   
 {/if}

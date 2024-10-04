@@ -55,10 +55,10 @@
 
     <div>
     <label>
-        {bce_lang($user_language, "page_assets_label_acl")}: 
+        {bce_lang($user_language, "component_asset_selector_label_acl")}: 
         <select bind:value={acl_selected} on:change={update_asset_list}>
 	    <option value="0">
-	        {bce_lang($user_language, "page_assets_label_all")}
+	        {bce_lang($user_language, "component_asset_selector_label_all")}
 	    </option>
             {#each acls as acl}
 	        <option value={acl.acl_id}>
@@ -68,19 +68,19 @@
         </select>
     </label>
     
-    <p>{bce_lang($user_language, "page_assets_label_total_assets_count")}: {assets_count}</p>
+    <p>{bce_lang($user_language, "component_asset_selector_label_total_assets_count")}: {assets_count}</p>
     
     {#if view_mode == "LIST"}
         <table>
             <tr>
                 <td>
-                    <i>{bce_lang($user_language, "page_assets_label_file_name")}</i>
+                    <i>{bce_lang($user_language, "component_asset_selector_label_file_name")}</i>
                 </td>
                 <td>
-                    <i>{bce_lang($user_language, "page_assets_label_asset_type")}</i>
+                    <i>{bce_lang($user_language, "component_asset_selector_label_asset_type")}</i>
                 </td>
                 <td>
-                    <i>{bce_lang($user_language, "page_assets_label_creation_time")}</i>
+                    <i>{bce_lang($user_language, "component_asset_selector_label_creation_time")}</i>
                 </td>
             </tr>
             {#each assets as asset}
