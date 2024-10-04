@@ -105,7 +105,7 @@
             {#each assets as asset}
                 <tr>
                     <td>
-                        <a href="#" on:click={on_asset_select}>
+                        <a href="#" on:click={async function () {await on_asset_select(asset);}}>
                             {asset.file_name}
                         </a>
                     </td>
