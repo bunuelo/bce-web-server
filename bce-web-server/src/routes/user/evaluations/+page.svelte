@@ -28,7 +28,14 @@
 
     async function update_all() {
     }
+
+    let minimize = true;
     
+    async function on_asset_select(asset) {
+        console.log("Asset selected: " + asset.name + " (" + asset.file_name + ")");
+        minimize = true;
+    };
+
 </script>
 
 
@@ -46,7 +53,7 @@
                 Evaluation:
             </td>
             <td>
-                <AssetSelector minimize=true />
+                <AssetSelector bind:minimize=minimize, on_asset_select=on_asset_select />
             </td>
         </tr>
     </table>
