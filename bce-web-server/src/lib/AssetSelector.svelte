@@ -11,6 +11,8 @@
     import BceSession from "$lib/bce_session.js";
     let bce_session = new BceSession();
 
+    export let minimize = false;
+    
     let acls = [];
     let assets_count = 0;
     let assets = [];
@@ -53,7 +55,12 @@
 
 {#if $user_session_is_valid && $user_security_level >= 25}
 
+  {#if minimize}
     <div>
+        <a href="#">select evaluation</a>
+    </div>
+  {:else}
+  <div>
     <label>
         {bce_lang($user_language, "component_asset_selector_label_acl")}: 
         <select bind:value={acl_selected} on:change={update_asset_list}>
@@ -108,4 +115,5 @@
     {/if}
   
     </div>
+  {/if}
 {/if}
