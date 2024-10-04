@@ -29,9 +29,14 @@
     async function update_all() {
     }
     
+    //<a href="https://bce.center:8000/asset/download?session_token={$user_session_token}&name={asset.name}&q={Math.round(1000000000* Math.random())}">
+    //{asset.file_name}
+    //</a>
     async function on_asset_select(asset) {
         console.log("Asset selected: " + asset.name + " (" + asset.file_name + ")");
-        
+        var url = "https://bce.center:8000/asset/download?session_token=" + $user_session_token + "&name=" + asset.name;
+        console.log("Downloading asset at: " + url);
+        goto(url);
     };
     
 </script>
