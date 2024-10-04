@@ -84,7 +84,7 @@
         </tr>
     </table>
 
-    evaluation = {JSON.stringify(evaluation)}
+    evaluation = {JSON.stringify(evaluation, null, 4)}
     
     <table>
         <tr>
