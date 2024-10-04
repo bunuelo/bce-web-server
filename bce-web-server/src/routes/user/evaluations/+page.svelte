@@ -31,11 +31,15 @@
 
     let selected_asset = null;
     let minimize = true;
+
+    let evaluation_json = "";
     
     async function on_asset_select(asset) {
         console.log("Asset selected: " + asset.name + " (" + asset.file_name + ")");
         selected_asset = asset;
         minimize = true;
+        var url = "https://bce.center:8000/asset/download?session_token=" + $user_session_token + "&name=" + asset.name;
+        evaluation_json = await fetch(url);
     };
 
 </script>
@@ -59,6 +63,8 @@
             </td>
         </tr>
     </table>
+
+    evaluation_json = {evaluation_json}
     
     <table>
         <tr>

@@ -37,7 +37,7 @@
     
     async function on_asset_select(asset) {
         console.log("Download asset: " + asset.name + " (" + asset.file_name + ")");
-        var url = "https://bce.center:8000/asset/download?session_token=" + $user_session_token + "&name=" + asset.name + "&file_name=" + file_name;
+        var url = "https://bce.center:8000/asset/download?session_token=" + $user_session_token + "&name=" + asset.name;
         download_url(url);
     };
     
