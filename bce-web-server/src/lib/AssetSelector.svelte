@@ -53,6 +53,7 @@
 
 {#if $user_session_is_valid && $user_security_level >= 25}
 
+    <div>
     <label>
         {bce_lang($user_language, "page_assets_label_acl")}: 
         <select bind:value={acl_selected} on:change={update_asset_list}>
@@ -106,4 +107,5 @@
         {/each}
     {/if}
   
+    </div>
 {/if}
