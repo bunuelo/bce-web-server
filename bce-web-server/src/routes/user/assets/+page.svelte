@@ -29,6 +29,13 @@
     async function update_all() {
     }
     
+    function download_url(url){
+        var link = document.createElement('a');
+        link.href = url;
+        link.download = url.substr(url.lastIndexOf('/') + 1);
+        link.click();
+    }
+    
     //<a href="https://bce.center:8000/asset/download?session_token={$user_session_token}&name={asset.name}&q={Math.round(1000000000* Math.random())}">
     //{asset.file_name}
     //</a>
@@ -36,7 +43,7 @@
         console.log("Asset selected: " + asset.name + " (" + asset.file_name + ")");
         var url = "https://bce.center:8000/asset/download?session_token=" + $user_session_token + "&name=" + asset.name;
         console.log("Downloading asset at: " + url);
-        goto(url);
+        download_url(url);
     };
     
 </script>
