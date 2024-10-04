@@ -29,6 +29,11 @@
     async function update_all() {
     }
     
+    async function on_asset_select(asset) {
+        console.log("Asset selected: " + asset.name + " (" + asset.file_name + ")");
+        
+    };
+    
 </script>
 
 
@@ -40,7 +45,7 @@
 
     <h1>{bce_lang($user_language, "page_assets_title")}</h1>
 
-    <AssetSelector/>
+    <AssetSelector on_asset_select={on_asset_select} />
   
 {/if}
 
