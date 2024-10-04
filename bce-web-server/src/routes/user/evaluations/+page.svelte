@@ -46,7 +46,7 @@
                 Evaluation:
             </td>
             <td>
-                <AssetSelector/>
+                <AssetSelector minimize=true />
             </td>
         </tr>
     </table>
