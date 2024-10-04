@@ -34,7 +34,7 @@
 
     let evaluation_json = "";
     
-    async fetch_evaluation(url) {
+    async function fetch_evaluation(url) {
         return await fetch(url, {
             "method": "GET",
 	    "headers": {
