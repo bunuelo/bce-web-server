@@ -40,9 +40,27 @@
 
     <h1>{bce_lang($user_language, "page_evaluations_title")}</h1>
   
-    <AssetSelector/>
-
-    Left Retina / Right Retina
+    <table>
+        <tr>
+            <td>
+                Evaluation Asset:
+            </td>
+            <td>
+                <AssetSelector/>
+            </td>
+        </tr>
+    </table>
+    
+    <table>
+        <tr>
+            <td>
+                Left Retina
+            </td>
+            <td>
+                Right Retina
+            </td>
+        </tr>
+    </table>
     
 {/if}
 
