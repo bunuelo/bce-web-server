@@ -52,7 +52,7 @@
     <table>
         <tr>
             <td>
-                Evaluation:
+                <i>Evaluation:</i>
             </td>
             <td>
                 <AssetSelector bind:minimize={minimize} bind:selected_asset={selected_asset} on_asset_select={on_asset_select} />
