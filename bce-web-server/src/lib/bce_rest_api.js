@@ -239,7 +239,7 @@ export default class BceRestApi {
   	    session_token: session_token
 	}
         if (acl_id) {
-            body["page"] = acl_id;
+            body["acl_id"] = acl_id;
         }
         if (page) {
             body["page"] = page;
