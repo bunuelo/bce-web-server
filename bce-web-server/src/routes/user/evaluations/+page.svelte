@@ -34,12 +34,32 @@
 
     let evaluation_json = "";
     
+    async fetch_evaluation(url) {
+        return await fetch(url, {
+            "method": "GET",
+	    "headers": {
+		"Content-type": "application/json; charset=UTF-8"
+	    }
+        }).then((response) => {
+            if (response.ok) {
+                return response.json();
+            }
+            console.log("fetch_evaluation ERROR: bad response.")
+            return null
+        }).then((responseJson) => {
+            return responseJson
+        }).catch((error) => {
+            console.log("fetch_evaluation ERROR: error = \"" + error + "\"")
+            return null
+        });
+    }
+    
     async function on_asset_select(asset) {
         console.log("Asset selected: " + asset.name + " (" + asset.file_name + ")");
         selected_asset = asset;
         minimize = true;
         var url = "https://bce.center:8000/asset/download?session_token=" + $user_session_token + "&name=" + asset.name;
-        evaluation_json = await fetch(url);
+        evaluation_json = await fetch_evaluation(url);
     };
 
 </script>
