@@ -50,35 +50,26 @@
     
     function update_eye(canvas, ctx, eye_index) {
         console.log("update_eye: beginning.  eye_index = " + eye_index);
-
-        const maximum_alpha = 60;
+        
+        const maximum_alpha = 45;
         const alpha_resolution = 5;
         for (let alpha = 0; alpha <= maximum_alpha; alpha += alpha_resolution) {
-            ctx.strokeStyle = "red";
+            ctx.strokeStyle = "rgb(" + color_axes[0] + "," + color_axes[1] + "," + color_axes[2] + ")";
             ctx.beginPath();
             ctx.arc(0.5 * canvas.width, 0.5 * canvas.height, 0.5 * canvas.height * alpha / maximum_alpha, 0, 2 * Math.PI);
             ctx.stroke();
         }
-      
+        
         if (evaluation != null) {
-            console.log("debug 0");
             for (var response_i = 0; response_i < evaluation.responses.length; response_i ++) {
-                console.log("debug 1");
                 const response = evaluation.responses[response_i];
                 if (response.canSee != null) {
-                    console.log("debug 2");
                     if (response.canSee) {
                         const response_alpha = response.stimulus.direction.alpha * 180.0 / Math.PI;
                         const response_omega = response.stimulus.direction.omega * 180.0 / Math.PI;
                         const response_radius = 0.5 * response.stimulus.direction.diameter * 180.0 / Math.PI;
-                        console.log("debug 3: response_alpha = " + response_alpha + ", response_omega = " + response_omega + ", response_radius = " + response_radius);
-                        //if (alpha >= response_alpha - response_radius && alpha <= response_alpha + response_radius &&
-                        //    omega >= response_omega - response_radius && omega <= response_omega + response_radius) {
-                        //    console.log("debug 4");
-                        //    r = color_can_see[0];
-                        //    g = color_can_see[1];
-                        //    b = color_can_see[2];
-                        //}
+                        console.log("response_alpha = " + response_alpha + ", response_omega = " + response_omega + ", response_radius = " + response_radius);
+                        
                     }
                 }
             }
