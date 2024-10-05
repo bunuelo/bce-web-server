@@ -13,24 +13,6 @@
     let bce_session = new BceSession();
     import AssetSelector from '$lib/AssetSelector.svelte'
     
-    onMount(async () => {
-        if (! $user_session_is_valid) {
-            $user_session_is_valid = await bce_session.session_is_valid()
-        }
-        if (! $user_session_is_valid) {
-            goto("/user/login");
-        }
-        $user_security_level = await bce_session.security_level()
-        if ($user_security_level < 25) {
-            goto("/user/dashboard");
-        }
-        await update_all();
-    });
-
-    async function update_all() {
-        update_eye_canvases();
-    }
-
     let selected_asset = null;
     let minimize = true;
 
@@ -128,6 +110,24 @@
         }
         update_eye_canvases();
     };
+
+    onMount(async () => {
+        if (! $user_session_is_valid) {
+            $user_session_is_valid = await bce_session.session_is_valid()
+        }
+        if (! $user_session_is_valid) {
+            goto("/user/login");
+        }
+        $user_security_level = await bce_session.security_level()
+        if ($user_security_level < 25) {
+            goto("/user/dashboard");
+        }
+        await update_all();
+    });
+
+    async function update_all() {
+        update_eye_canvases();
+    }
 
 </script>
 
