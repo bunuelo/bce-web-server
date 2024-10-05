@@ -16,7 +16,7 @@
     let selected_asset = null;
     let minimize = true;
 
-    let evaluation = "";
+    let evaluation = null;
     
     async function fetch_evaluation(url) {
         return await fetch(url, {
@@ -46,6 +46,7 @@
 
     var color_background = [0, 0, 0];
     var color_axes       = [63, 63, 63];
+    var color_can_see    = [191, 191, 191];
     
     function update_eye(canvas, ctx, eye_index) {
         const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
@@ -70,7 +71,26 @@
                     b = color_axes[2];
                 }
             }
-            
+
+            if (evaluation != null) {
+                for (var response_i = 0; response_i < evaluation.responses.length; response_i ++) {
+                    const response = evaluation.responses[response_i];
+                    if (response.canSee != null) {
+                        if (response.canSee) {
+                          const response_alpha = response.stimulus.direction.alpha;
+                          const response_omega = response.stimulus.direction.omega;
+                          const response_radius = 0.5 * response.stimulus.direction.diameter * 180.0 / Math.PI;
+                          if (alpha >= response_alpha - response_radius && alpha <= response_alpha + response_radius &&
+                              omega >= response_omega - response_radius && omega <= response_omega + response_radius) {
+                                r = color_can_see[0];
+                                g = color_can_see[1];
+                                b = color_can_see[2];
+                            }
+                        }
+                    }
+                }
+            }
+          
 	    imageData.data[p + 0] = r;
 	    imageData.data[p + 1] = g;
 	    imageData.data[p + 2] = b;
@@ -89,9 +109,11 @@
         if (color_theme == "dark") {
             color_background = [0, 0, 0];
             color_axes       = [63, 63, 63];
+            color_can_see    = [191, 191, 191];
         } else {
             color_background = [255, 255, 255];
             color_axes       = [191, 191, 191];
+            color_can_see    = [63, 63, 63];
         }
 
         update_eye(left_eye_canvas, left_eye_canvas_ctx, 0)
