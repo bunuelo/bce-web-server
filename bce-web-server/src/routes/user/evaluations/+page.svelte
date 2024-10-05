@@ -49,11 +49,21 @@
     var color_can_see    = [191, 191, 191];
     var color_cannot_see = [31, 31, 31];
 
+    let eye_total_stimulus_count = [0, 0];
+    let eye_total_response_count = [0, 0];
+    let left_eye_total_stimulus_count = 0;
+    let left_eye_total_response_count = 0;
+    let right_eye_total_stimulus_count = 0;
+    let right_eye_total_response_count = 0;
+    
     let show_details = false;
     
     function update_eye(canvas, ctx, eye_index) {
         //console.log("update_eye: beginning.  eye_index = " + eye_index);
 
+        eye_total_stimulus_count[eye_index] = 0;
+        eye_total_response_count[eye_index] = 0;
+      
         const center_x             = 0.5 * canvas.width;
         const center_y             = 0.5 * canvas.height;
         const maximum_alpha_radius = 0.5 * canvas.height - 1;
@@ -82,7 +92,9 @@
             for (var response_i = 0; response_i < evaluation.responses.length; response_i ++) {
                 const response = evaluation.responses[response_i];
                 if (response.stimulus.eye == eye_index) {
+                    eye_total_stimulus_count[eye_index] ++;
                     if (response.canSee != null) {
+                        eye_total_response_count[eye_index] ++;
                         const response_alpha           = response.stimulus.direction.alpha * 180.0 / Math.PI;
                         const response_omega           = response.stimulus.direction.omega * 180.0 / Math.PI;
                         const response_radius          = 0.5 * response.stimulus.diameter * 180.0 / Math.PI;
@@ -112,6 +124,10 @@
             }
         }
         
+        left_eye_total_stimulus_count = eye_total_stimulus_count[0];
+        left_eye_total_response_count = eye_total_response_count[0];
+        right_eye_total_stimulus_count = eye_total_stimulus_count[1];
+        right_eye_total_response_count = eye_total_response_count[1];
         //console.log("update_eye: success!  eye_index = " + eye_index);
     }
     
@@ -201,10 +217,10 @@
     <table>
         <tr>
             <td>
-                Left Eye
+                Left Eye ({left_eye_total_response_count} / {left_eye_total_stimulus_count})
             </td>
             <td>
-                Right Eye
+                Right Eye ({right_eye_total_response_count} / {right_eye_total_stimulus_count})
             </td>
         </tr>
         <tr>
