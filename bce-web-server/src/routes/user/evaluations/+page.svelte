@@ -6,6 +6,7 @@
     import { user_session_token } from '$lib/bce_stores.js'
     import { user_security_level } from '$lib/bce_stores.js'
     import { user_language } from '$lib/bce_stores.js'
+    import { user_color_theme } from '$lib/bce_stores.js'
     import { bce_lang } from '$lib/bce_locale.js'
     import { zero_pad, format_date, format_time_since_date, format_json_datetime, format_time_since_json_datetime } from '$lib/bce_time.js'
     import BceSession from "$lib/bce_session.js";
@@ -61,6 +62,9 @@
     let right_eye_canvas;
     var right_eye_canvas_ctx = null;
 
+    var color_background = [0, 0, 0];
+    var color_axes       = [127, 127, 127];
+    
     function update_eye(canvas, ctx, eye_index) {
         const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
         for (let p = 0; p < imageData.data.length; p += 4) {
@@ -73,13 +77,15 @@
             const alpha = Math.atan2(radius, 1.0) * 180.0 / Math.PI;
             const omega = Math.atan2(y, x) * 180.0 / Math.PI;
             
-	    var r = 0;
-	    var g = 0;
-	    var b = 0;
+	    var r = color_background[0];
+	    var g = color_background[1];
+	    var b = color_background[2];
             
             for (let alpha_circle = 0.0; alpha_circle <= 60.0; alpha_circle += 5.0) {
                 if (alpha >= alpha_circle - 0.3 && alpha <= alpha_circle + 0.3) {
-                    b = 255;
+                    r = color_axes[0];
+                    g = color_axes[1];
+                    b = color_axes[2];
                 }
             }
             
@@ -97,8 +103,17 @@
             left_eye_canvas_ctx  = left_eye_canvas.getContext("2d");
             right_eye_canvas_ctx = right_eye_canvas.getContext("2d");
         }
-      update_eye(left_eye_canvas, left_eye_canvas_ctx, 0)
-      update_eye(right_eye_canvas, right_eye_canvas_ctx, 1)
+        const color_theme = $user_color_theme;
+        if (color_theme == "dark") {
+            color_background = [0, 0, 0];
+            color_axes = [127, 127, 127];
+        } else {
+            color_background = [255, 255, 255];
+            color_axes = [127, 127, 127];
+        }
+
+        update_eye(left_eye_canvas, left_eye_canvas_ctx, 0)
+        update_eye(right_eye_canvas, right_eye_canvas_ctx, 1)
     }
     
     async function on_asset_select(asset) {
