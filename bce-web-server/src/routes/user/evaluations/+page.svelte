@@ -85,11 +85,11 @@
             </td>
         </tr>
     </table>
-
+<!--
     <textarea rows="20" cols="50" >
 evaluation = {JSON.stringify(evaluation, null, 4)}
     </textarea>
-    
+/!-->
     <table>
         <tr>
             <td>
@@ -97,6 +97,14 @@ evaluation = {JSON.stringify(evaluation, null, 4)}
             </td>
             <td>
                 Right Retina
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <canvas id="left_retina_canvas" width="400" height="400"></canvas>
+            </td>
+            <td>
+                <canvas id="right_retina_canvas" width="400" height="400"></canvas>
             </td>
         </tr>
     </table>
