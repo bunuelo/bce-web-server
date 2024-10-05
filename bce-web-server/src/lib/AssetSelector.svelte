@@ -17,6 +17,7 @@
         console.log("Asset selected: " + asset.name + " (" + asset.file_name + ")");
         selected_asset = asset;
         minimize = true;
+        return false;
     };
     
     export let selected_asset = null;
@@ -64,6 +65,7 @@
     
     async function on_click_select_evaluation() {
         minimize = false;
+        return false;
     }
 
 </script>
@@ -124,7 +126,7 @@
             {#each assets as asset}
                 <tr>
                     <td>
-                        <a href="#" on:click={async function () {await on_asset_select(asset);}}>
+                        <a href="#" on:click={async function () {return await on_asset_select(asset);}}>
                             {asset.file_name}
                         </a>
                     </td>
