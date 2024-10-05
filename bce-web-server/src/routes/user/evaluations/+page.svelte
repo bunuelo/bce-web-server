@@ -217,10 +217,10 @@
     <table>
         <tr>
             <td>
-                Left Eye ({left_eye_total_response_count} / {left_eye_total_stimulus_count})
+                {bce_lang($user_language, "page_evaluations_label_left_eye")} ({left_eye_total_response_count} / {left_eye_total_stimulus_count})
             </td>
             <td>
-                Right Eye ({right_eye_total_response_count} / {right_eye_total_stimulus_count})
+                {bce_lang($user_language, "page_evaluations_label_right_eye")} ({right_eye_total_response_count} / {right_eye_total_stimulus_count})
             </td>
         </tr>
         <tr>
