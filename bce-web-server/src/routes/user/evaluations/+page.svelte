@@ -77,8 +77,8 @@
                     const response = evaluation.responses[response_i];
                     if (response.canSee != null) {
                         if (response.canSee) {
-                          const response_alpha = response.stimulus.direction.alpha;
-                          const response_omega = response.stimulus.direction.omega;
+                          const response_alpha = response.stimulus.direction.alpha * 180.0 / Math.PI;
+                          const response_omega = response.stimulus.direction.omega * 180.0 / Math.PI;
                           const response_radius = 0.5 * response.stimulus.direction.diameter * 180.0 / Math.PI;
                           if (alpha >= response_alpha - response_radius && alpha <= response_alpha + response_radius &&
                               omega >= response_omega - response_radius && omega <= response_omega + response_radius) {
