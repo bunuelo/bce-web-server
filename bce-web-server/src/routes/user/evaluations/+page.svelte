@@ -72,9 +72,9 @@
             const alpha = Math.atan2(r, 1.0);
             const omega = Math.atan2(y, x);
             
-	    const r = 0;
-	    const g = 0;
-	    const b = 0;
+	    var r = 0;
+	    var g = 0;
+	    var b = 0;
             if (alpha > 0.25 && alpha < 0.3) {
                 b = 255;
             }
