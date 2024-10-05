@@ -60,27 +60,25 @@
     let right_retina_canvas;
     var right_retina_canvas_ctx = null;
 
-    function update_eye(eye_index) {
-        if (eye_index == 0) {
-            var canvas = left_retina_canvas;
-            var ctx = left_retina_canvas_ctx;
-        } else {
-            var canvas = right_retina_canvas;
-            var ctx = right_retina_canvas_ctx;
-        }
+    function update_eye(canvas, ctx, eye_index) {
         const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-      
         for (let p = 0; p < imageData.data.length; p += 4) {
 	    const i = p / 4;
-	    const x = i % canvas.width;
-	    const y = (i / canvas.height) >>> 0;
+	    const ix = i % canvas.width;
+	    const iy = (i / canvas.height) >>> 0;
+            const x = 2.0 * (ix / (canvas.width - 1)) - 1.0; 
+            const y = 2.0 * (iy / (canvas.height - 1)) - 1.0;
+            const r = Math.sqrt(x*x + y*y);
+            const alpha = Math.atan2(r, 1.0);
+            const omega = Math.atan2(y, x);
             
-	    const t = window.performance.now();
-            
-	    const r = 64 + (128 * x) / canvas.width + 64 * Math.sin(t / 1000);
-	    const g = 64 + (128 * y) / canvas.height + 64 * Math.cos(t / 1400);
-	    const b = 128;
-            
+	    const r = 0;
+	    const g = 0;
+	    const b = 0;
+            if (alpha > 0.25 && alpha < 0.3) {
+                b = 255;
+            }
+              
 	    imageData.data[p + 0] = r;
 	    imageData.data[p + 1] = g;
 	    imageData.data[p + 2] = b;
@@ -95,8 +93,8 @@
             left_retina_canvas_ctx  = left_retina_canvas.getContext("2d");
             right_retina_canvas_ctx = right_retina_canvas.getContext("2d");
         }
-        update_eye(0)
-        update_eye(1)
+      update_eye(left_retina_canvas, left_retina_canvas_ctx, 0)
+      update_eye(right_retina_canvas, right_retina_canvas_ctx, 1)
     }
     
     async function on_asset_select(asset) {
