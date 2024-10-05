@@ -80,7 +80,7 @@
                         console.log("response_alpha = " + response_alpha + ", response_omega = " + response_omega + ", response_radius = " + response_radius);
                         ctx.fillStyle = "rgb(" + color_can_see[0] + "," + color_can_see[1] + "," + color_can_see[2] + ")";
                         ctx.beginPath();
-                        ctx.arc(center_x + response_radial_distance * Math.cos(response.stimulus.direction.omega), center_y + response_radial_distance * Math.sin(response.stimulus.direction.omega), maximum_alpha_radius * response_radius / maimum_alpha, 0, 2 * Math.PI);
+                        ctx.arc(center_x + response_radial_distance * Math.cos(response.stimulus.direction.omega), center_y + response_radial_distance * Math.sin(response.stimulus.direction.omega), maximum_alpha_radius * response_radius / maximum_alpha, 0, 2 * Math.PI);
                         ctx.fill();
                     }
                 }
