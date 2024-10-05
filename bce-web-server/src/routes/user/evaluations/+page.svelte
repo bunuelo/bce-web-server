@@ -58,8 +58,10 @@
         console.log("Asset selected: " + asset.name + " (" + asset.file_name + ")");
         selected_asset = asset;
         minimize = true;
-        var url = "https://bce.center:8000/asset/download?session_token=" + $user_session_token + "&name=" + asset.name;
-        evaluation = await fetch_evaluation(url);
+        if (asset != null) {
+            var url = "https://bce.center:8000/asset/download?session_token=" + $user_session_token + "&name=" + asset.name;
+            evaluation = await fetch_evaluation(url);
+        }
     };
 
 </script>
