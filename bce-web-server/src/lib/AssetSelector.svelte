@@ -79,7 +79,16 @@
                     {#if selected_asset == null}
                         <i>none</i>
                     {:else}
-                        {selected_asset.file_name}
+                        <table>
+                            <tr>
+                                <td>
+                                    {selected_asset.file_name}
+                                </td>
+                                <td>
+                                    {format_json_datetime(selected_asset.creation_time)}
+                                </td>
+                            </tr>
+                        </table>
                     {/if}
                 </td>
                 <td>
