@@ -17,7 +17,6 @@
         console.log("Asset selected: " + asset.name + " (" + asset.file_name + ")");
         selected_asset = asset;
         minimize = true;
-        return false;
     };
     
     export let selected_asset = null;
@@ -65,7 +64,6 @@
     
     async function on_click_select_evaluation() {
         minimize = false;
-        return false;
     }
 
 </script>
@@ -85,7 +83,7 @@
                     {/if}
                 </td>
                 <td>
-                    <a href="#" on:click={on_click_select_evaluation}>
+                    <a href="#" on:click|preventDefault={on_click_select_evaluation}>
                         {bce_lang($user_language, "component_asset_selector_label_select_evaluation")}
                     </a>
                 </td>
@@ -126,7 +124,7 @@
             {#each assets as asset}
                 <tr>
                     <td>
-                        <a href="#" on:click={async function () {return await on_asset_select(asset);}}>
+                        <a href="#" on:click|preventDefault={async function () {return await on_asset_select(asset);}}>
                             {asset.file_name}
                         </a>
                     </td>
