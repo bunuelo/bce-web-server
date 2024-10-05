@@ -49,36 +49,16 @@
     var color_can_see    = [191, 191, 191];
     
     function update_eye(canvas, ctx, eye_index) {
-        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
         console.log("update_eye: beginning.  eye_index = " + eye_index);
-        for (let p = 0; p < imageData.data.length; p += 4) {
-	    const i = p / 4;
-	    const ix = i % canvas.width;
-	    const iy = (i / canvas.height) >>> 0;
-            const x = 2.0 * (ix / (canvas.width - 1)) - 1.0; 
-            const y = 2.0 * (iy / (canvas.height - 1)) - 1.0;
-            const radius = Math.sqrt(x*x + y*y);
-            const alpha = Math.atan2(radius, 1.0) * 180.0 / Math.PI;
-            const omega = Math.atan2(y, x) * 180.0 / Math.PI;
-            
-	    var r = color_background[0];
-	    var g = color_background[1];
-	    var b = color_background[2];
-            
-            for (let alpha_circle = 0.0; alpha_circle <= 60.0; alpha_circle += 5.0) {
-                if (alpha >= alpha_circle - 0.3 && alpha <= alpha_circle + 0.3) {
-                    r = color_axes[0];
-                    g = color_axes[1];
-                    b = color_axes[2];
-                }
-            }
 
-	    imageData.data[p + 0] = r;
-	    imageData.data[p + 1] = g;
-	    imageData.data[p + 2] = b;
-	    imageData.data[p + 3] = 255;
+        const maximum_alpha = 60;
+        const alpha_resolution = 5;
+        for (let alpha = 0; alpha <= maximum_alpha; alpha += alpha_resolution) {
+            ctx.beginPath();
+            ctx.arc(0.5 * canvas.width, 0.5 * canvas.height, 0.5 * canvas.height * alpha / maximum_alpha, 0, 2 * Math.PI);
+            ctx.stroke();
         }
-        
+      
         if (evaluation != null) {
             console.log("debug 0");
             for (var response_i = 0; response_i < evaluation.responses.length; response_i ++) {
@@ -103,7 +83,36 @@
             }
         }
         
-        ctx.putImageData(imageData, 0, 0);
+        //const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        //for (let p = 0; p < imageData.data.length; p += 4) {
+	//    const i = p / 4;
+	//    const ix = i % canvas.width;
+	//    const iy = (i / canvas.height) >>> 0;
+        //    const x = 2.0 * (ix / (canvas.width - 1)) - 1.0; 
+        //    const y = 2.0 * (iy / (canvas.height - 1)) - 1.0;
+        //    const radius = Math.sqrt(x*x + y*y);
+        //    const alpha = Math.atan2(radius, 1.0) * 180.0 / Math.PI;
+        //    const omega = Math.atan2(y, x) * 180.0 / Math.PI;
+        //    
+	//    var r = color_background[0];
+	//    var g = color_background[1];
+	//    var b = color_background[2];
+        //    
+        //    for (let alpha_circle = 0.0; alpha_circle <= 60.0; alpha_circle += 5.0) {
+        //        if (alpha >= alpha_circle - 0.3 && alpha <= alpha_circle + 0.3) {
+        //            r = color_axes[0];
+        //            g = color_axes[1];
+        //            b = color_axes[2];
+        //        }
+        //    }
+        //
+	//    imageData.data[p + 0] = r;
+	//    imageData.data[p + 1] = g;
+	//    imageData.data[p + 2] = b;
+	//    imageData.data[p + 3] = 255;
+        //}
+        //ctx.putImageData(imageData, 0, 0);
+        
         console.log("update_eye: success!  eye_index = " + eye_index);
     }
     
