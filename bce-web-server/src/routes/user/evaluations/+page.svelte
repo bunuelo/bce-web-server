@@ -27,6 +27,7 @@
     });
 
     async function update_all() {
+        update_eye_canvases();
     }
 
     let selected_asset = null;
