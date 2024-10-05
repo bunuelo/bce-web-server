@@ -73,34 +73,34 @@
                 }
             }
 
-            if (evaluation != null) {
-                console.log("debug 0");
-                for (var response_i = 0; response_i < evaluation.responses.length; response_i ++) {
-                    console.log("debug 1");
-                    const response = evaluation.responses[response_i];
-                    if (response.canSee != null) {
-                        console.log("debug 2");
-                        if (response.canSee) {
-                            const response_alpha = response.stimulus.direction.alpha * 180.0 / Math.PI;
-                            const response_omega = response.stimulus.direction.omega * 180.0 / Math.PI;
-                            const response_radius = 0.5 * response.stimulus.direction.diameter * 180.0 / Math.PI;
-                            console.log("debug 3: response_alpha = " + response_alpha + ", response_omega = " + response_omega + ", response_radius = " + response_radius);
-                            if (alpha >= response_alpha - response_radius && alpha <= response_alpha + response_radius &&
-                                omega >= response_omega - response_radius && omega <= response_omega + response_radius) {
-                                  console.log("debug 4");
-                                  r = color_can_see[0];
-                                  g = color_can_see[1];
-                                  b = color_can_see[2];
-                            }
-                        }
-                    }
-                }
-            }
-          
 	    imageData.data[p + 0] = r;
 	    imageData.data[p + 1] = g;
 	    imageData.data[p + 2] = b;
 	    imageData.data[p + 3] = 255;
+        }
+        
+        if (evaluation != null) {
+            console.log("debug 0");
+            for (var response_i = 0; response_i < evaluation.responses.length; response_i ++) {
+                console.log("debug 1");
+                const response = evaluation.responses[response_i];
+                if (response.canSee != null) {
+                    console.log("debug 2");
+                    if (response.canSee) {
+                        const response_alpha = response.stimulus.direction.alpha * 180.0 / Math.PI;
+                        const response_omega = response.stimulus.direction.omega * 180.0 / Math.PI;
+                        const response_radius = 0.5 * response.stimulus.direction.diameter * 180.0 / Math.PI;
+                        console.log("debug 3: response_alpha = " + response_alpha + ", response_omega = " + response_omega + ", response_radius = " + response_radius);
+                        //if (alpha >= response_alpha - response_radius && alpha <= response_alpha + response_radius &&
+                        //    omega >= response_omega - response_radius && omega <= response_omega + response_radius) {
+                        //    console.log("debug 4");
+                        //    r = color_can_see[0];
+                        //    g = color_can_see[1];
+                        //    b = color_can_see[2];
+                        //}
+                    }
+                }
+            }
         }
         
         ctx.putImageData(imageData, 0, 0);
