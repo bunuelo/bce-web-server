@@ -63,7 +63,7 @@
     var right_eye_canvas_ctx = null;
 
     var color_background = [0, 0, 0];
-    var color_axes       = [127, 127, 127];
+    var color_axes       = [63, 63, 63];
     
     function update_eye(canvas, ctx, eye_index) {
         const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
@@ -106,10 +106,10 @@
         const color_theme = $user_color_theme;
         if (color_theme == "dark") {
             color_background = [0, 0, 0];
-            color_axes = [127, 127, 127];
+            color_axes       = [63, 63, 63];
         } else {
             color_background = [255, 255, 255];
-            color_axes = [127, 127, 127];
+            color_axes       = [191, 191, 191];
         }
 
         update_eye(left_eye_canvas, left_eye_canvas_ctx, 0)
