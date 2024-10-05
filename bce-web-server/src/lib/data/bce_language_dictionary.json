@@ -185,6 +185,8 @@
     "page_inventory_title": "Inventory",
     "page_design_title": "Design",
     "page_evaluations_title": "Evaluations",
+    "page_evaluations_label_hide_details": "hide details",
+    "page_evaluations_label_show_details": "show details",
     "page_terms_title": "Terms of Service",
     "page_contact_title": "Contact"
   },

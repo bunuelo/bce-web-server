@@ -48,6 +48,8 @@
     var color_axes       = [63, 63, 63];
     var color_can_see    = [191, 191, 191];
     var color_cannot_see = [31, 31, 31];
+
+    let show_details = false;
     
     function update_eye(canvas, ctx, eye_index) {
         //console.log("update_eye: beginning.  eye_index = " + eye_index);
@@ -166,6 +168,14 @@
         update_eye_canvases();
     }
 
+    async function on_click_hide_details() {
+        show_details = false;
+    }
+    
+    async function on_click_show_details() {
+        show_details = true;
+    }
+    
 </script>
 
 
@@ -211,10 +221,19 @@
 a comment
 /!-->
 
-    <textarea rows="20" cols="50" >
+    {#if show_details}
+        <a href="#" on:click|preventDefault={on_click_hide_details}>
+            {bce_lang($user_language, "page_evaluations_label_hide_details")}
+        </a>
+        <textarea rows="20" cols="50" >
 evaluation = {JSON.stringify(evaluation, null, 4)}
-    </textarea>
-
+        </textarea>
+    {:else}
+        <a href="#" on:click|preventDefault={on_click_show_details}>
+            {bce_lang($user_language, "page_evaluations_label_show_details")}
+        </a>
+    {/if}
+    
 {/if}
 
 
