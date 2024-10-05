@@ -44,7 +44,7 @@
             if (response.ok) {
                 return response.json();
             }
-            console.log("fetch_evaluation ERROR: bad response.")
+            console.log("fetch_evaluation ERROR: response not ok.")
             return null
         }).then((responseJson) => {
             return responseJson
@@ -54,14 +54,62 @@
         });
     }
     
+    let left_retina_canvas;
+    var left_retina_canvas_ctx = null;
+    
+    let right_retina_canvas;
+    var right_retina_canvas_ctx = null;
+
+    function update_eye(eye_index) {
+        if (eye_index == 0) {
+            var canvas = left_retina_canvas;
+            var ctx = left_retina_canvas_ctx;
+        } else {
+            var canvas = right_retina_canvas;
+            var ctx = right_retina_canvas_ctx;
+        }
+        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      
+        for (let p = 0; p < imageData.data.length; p += 4) {
+	    const i = p / 4;
+	    const x = i % canvas.width;
+	    const y = (i / canvas.height) >>> 0;
+            
+	    const t = window.performance.now();
+            
+	    const r = 64 + (128 * x) / canvas.width + 64 * Math.sin(t / 1000);
+	    const g = 64 + (128 * y) / canvas.height + 64 * Math.cos(t / 1400);
+	    const b = 128;
+            
+	    imageData.data[p + 0] = r;
+	    imageData.data[p + 1] = g;
+	    imageData.data[p + 2] = b;
+	    imageData.data[p + 3] = 255;
+        }
+        
+        ctx.putImageData(imageData, 0, 0);
+    }
+    
+    function update_retina_canvases() {
+        if (left_retina_canvas_ctx == null) {
+            left_retina_canvas_ctx  = left_retina_canvas.getContext("2d");
+            right_retina_canvas_ctx = right_retina_canvas.getContext("2d");
+        }
+        update_eye(0)
+        update_eye(1)
+    }
+    
     async function on_asset_select(asset) {
         console.log("Asset selected: " + asset.name + " (" + asset.file_name + ")");
         selected_asset = asset;
         minimize = true;
-        if (asset != null) {
+        if (asset == null) {
+            evaluation = null;
+        } else {
             var url = "https://bce.center:8000/asset/download?session_token=" + $user_session_token + "&name=" + asset.name;
             evaluation = await fetch_evaluation(url);
         }
+        update_retina_canvases();
     };
 
 </script>
@@ -85,11 +133,7 @@
             </td>
         </tr>
     </table>
-<!--
-    <textarea rows="20" cols="50" >
-evaluation = {JSON.stringify(evaluation, null, 4)}
-    </textarea>
-/!-->
+
     <table>
         <tr>
             <td>
@@ -101,14 +145,22 @@ evaluation = {JSON.stringify(evaluation, null, 4)}
         </tr>
         <tr>
             <td>
-                <canvas id="left_retina_canvas" width="400" height="400"></canvas>
+                <canvas bind:this={left_retina_canvas} width="400" height="400"></canvas>
             </td>
             <td>
-                <canvas id="right_retina_canvas" width="400" height="400"></canvas>
+                <canvas bind:this={right_retina_canvas} width="400" height="400"></canvas>
             </td>
         </tr>
     </table>
     
+<!--
+a comment
+/!-->
+
+    <textarea rows="20" cols="50" >
+evaluation = {JSON.stringify(evaluation, null, 4)}
+    </textarea>
+
 {/if}
 
 
