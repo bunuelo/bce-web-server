@@ -50,17 +50,21 @@
     
     function update_eye(canvas, ctx, eye_index) {
         console.log("update_eye: beginning.  eye_index = " + eye_index);
+
+        const center_x             = 0.5 * canvas.width;
+        const center_y             = 0.5 * canvas.height;
+        const maximum_alpha_radius = 0.5 * canvas.height - 1;
         
         const maximum_alpha = 45;
         const alpha_resolution = 5;
         ctx.strokeStyle = "rgb(" + color_axes[0] + "," + color_axes[1] + "," + color_axes[2] + ")";
         ctx.fillStyle   = "rgb(" + color_axes[0] + "," + color_axes[1] + "," + color_axes[2] + ")";
         ctx.beginPath();
-        ctx.arc(0.5 * canvas.width, 0.5 * canvas.height, 1, 0, 2 * Math.PI);
+        ctx.arc(center_x, center_y, 1, 0, 2 * Math.PI);
         ctx.fill();
         for (let alpha = alpha_resolution; alpha <= maximum_alpha; alpha += alpha_resolution) {
             ctx.beginPath();
-            ctx.arc(0.5 * canvas.width, 0.5 * canvas.height, (0.5 * canvas.height - 1) * alpha / maximum_alpha, 0, 2 * Math.PI);
+            ctx.arc(center_x, center_y, maximum_alpha_radius * alpha / maximum_alpha, 0, 2 * Math.PI);
             ctx.stroke();
         }
         
@@ -69,11 +73,15 @@
                 const response = evaluation.responses[response_i];
                 if (response.canSee != null) {
                     if (response.canSee) {
-                        const response_alpha = response.stimulus.direction.alpha * 180.0 / Math.PI;
-                        const response_omega = response.stimulus.direction.omega * 180.0 / Math.PI;
-                        const response_radius = 0.5 * response.stimulus.direction.diameter * 180.0 / Math.PI;
+                        const response_alpha           = response.stimulus.direction.alpha * 180.0 / Math.PI;
+                        const response_omega           = response.stimulus.direction.omega * 180.0 / Math.PI;
+                        const response_radius          = 0.5 * response.stimulus.direction.diameter * 180.0 / Math.PI;
+                        const response_radial_distance = maximum_alpha_radius * response_alpha / maximum_alpha;
                         console.log("response_alpha = " + response_alpha + ", response_omega = " + response_omega + ", response_radius = " + response_radius);
-                        
+                        ctx.fillStyle = "rgb(" + color_can_see[0] + "," + color_can_see[1] + "," + color_can_see[2] + ")";
+                        ctx.beginPath();
+                        ctx.arc(center_x + response_radial_distance * cos(response.stimulus.direction.omega), center_y + response_radial_distance * sin(response.stimulus.direction.omega), maximum_alpha_radius * response_radius / maimum_alpha, 0, 2 * Math.PI);
+                        ctx.fill();
                     }
                 }
             }
