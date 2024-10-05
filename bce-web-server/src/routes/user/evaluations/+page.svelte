@@ -54,6 +54,7 @@
         const maximum_alpha = 60;
         const alpha_resolution = 5;
         for (let alpha = 0; alpha <= maximum_alpha; alpha += alpha_resolution) {
+            ctx.strokeStyle = "red";
             ctx.beginPath();
             ctx.arc(0.5 * canvas.width, 0.5 * canvas.height, 0.5 * canvas.height * alpha / maximum_alpha, 0, 2 * Math.PI);
             ctx.stroke();
