@@ -53,8 +53,10 @@
         
         const maximum_alpha = 45;
         const alpha_resolution = 5;
-        for (let alpha = 0; alpha <= maximum_alpha; alpha += alpha_resolution) {
-            ctx.strokeStyle = "rgb(" + color_axes[0] + "," + color_axes[1] + "," + color_axes[2] + ")";
+        ctx.strokeStyle = "rgb(" + color_axes[0] + "," + color_axes[1] + "," + color_axes[2] + ")";
+        ctx.fillStyle   = "rgb(" + color_axes[0] + "," + color_axes[1] + "," + color_axes[2] + ")";
+        ctx.fillRect(0.5 * canvas.width, 0.5 * canvas.height, 1, 1)
+        for (let alpha = alpha_resolution; alpha <= maximum_alpha; alpha += alpha_resolution) {
             ctx.beginPath();
             ctx.arc(0.5 * canvas.width, 0.5 * canvas.height, (0.5 * canvas.height - 1) * alpha / maximum_alpha, 0, 2 * Math.PI);
             ctx.stroke();
