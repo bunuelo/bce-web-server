@@ -76,8 +76,8 @@
 	    var g = 0;
 	    var b = 0;
             
-            for (let alpha_circle = 0.0; alpha_circle <= 45.0; alpha_circle += 5.0) {
-                if (alpha > alpha_circle - 0.1 && alpha < alpha_circle + 0.1) {
+            for (let alpha_circle = 0.0; alpha_circle <= 60.0; alpha_circle += 5.0) {
+                if (alpha > alpha_circle - 0.2 && alpha < alpha_circle + 0.2) {
                     b = 255;
                 }
             }
