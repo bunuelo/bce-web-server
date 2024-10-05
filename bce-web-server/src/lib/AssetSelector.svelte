@@ -68,6 +68,12 @@
 
 </script>
 
+<style>
+    div.scrollingDiv {
+        overflow:scroll;
+        max-height: 200px;
+    }
+</style>
 
 {#if $user_session_is_valid && $user_security_level >= 25}
 
@@ -117,6 +123,7 @@
     
     <p>{bce_lang($user_language, "component_asset_selector_label_total_assets_count")}: {assets_count}</p>
     
+    <div class="scrollingDiv">
     {#if view_mode == "LIST"}
         <table>
             <tr>
@@ -153,7 +160,8 @@
             </div>
         {/each}
     {/if}
-  
+    </div>
+    
     </div>
   {/if}
 {/if}
