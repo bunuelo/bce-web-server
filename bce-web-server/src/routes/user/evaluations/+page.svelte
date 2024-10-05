@@ -54,11 +54,11 @@
         });
     }
     
-    let left_retina_canvas;
-    var left_retina_canvas_ctx = null;
+    let left_eye_canvas;
+    var left_eye_canvas_ctx = null;
     
-    let right_retina_canvas;
-    var right_retina_canvas_ctx = null;
+    let right_eye_canvas;
+    var right_eye_canvas_ctx = null;
 
     function update_eye(canvas, ctx, eye_index) {
         const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
@@ -88,13 +88,13 @@
         ctx.putImageData(imageData, 0, 0);
     }
     
-    function update_retina_canvases() {
-        if (left_retina_canvas_ctx == null) {
-            left_retina_canvas_ctx  = left_retina_canvas.getContext("2d");
-            right_retina_canvas_ctx = right_retina_canvas.getContext("2d");
+    function update_eye_canvases() {
+        if (left_eye_canvas_ctx == null) {
+            left_eye_canvas_ctx  = left_eye_canvas.getContext("2d");
+            right_eye_canvas_ctx = right_eye_canvas.getContext("2d");
         }
-      update_eye(left_retina_canvas, left_retina_canvas_ctx, 0)
-      update_eye(right_retina_canvas, right_retina_canvas_ctx, 1)
+      update_eye(left_eye_canvas, left_eye_canvas_ctx, 0)
+      update_eye(right_eye_canvas, right_eye_canvas_ctx, 1)
     }
     
     async function on_asset_select(asset) {
@@ -107,7 +107,7 @@
             var url = "https://bce.center:8000/asset/download?session_token=" + $user_session_token + "&name=" + asset.name;
             evaluation = await fetch_evaluation(url);
         }
-        update_retina_canvases();
+        update_eye_canvases();
     };
 
 </script>
@@ -135,18 +135,18 @@
     <table>
         <tr>
             <td>
-                Left Retina
+                Left Eye
             </td>
             <td>
-                Right Retina
+                Right Eye
             </td>
         </tr>
         <tr>
             <td>
-                <canvas bind:this={left_retina_canvas} width="400" height="400"></canvas>
+                <canvas bind:this={left_eye_canvas} width="400" height="400"></canvas>
             </td>
             <td>
-                <canvas bind:this={right_retina_canvas} width="400" height="400"></canvas>
+                <canvas bind:this={right_eye_canvas} width="400" height="400"></canvas>
             </td>
         </tr>
     </table>
