@@ -81,10 +81,10 @@
                     if (response.canSee != null) {
                         console.log("debug 2");
                         if (response.canSee) {
-                            console.log("debug 3");
                             const response_alpha = response.stimulus.direction.alpha * 180.0 / Math.PI;
                             const response_omega = response.stimulus.direction.omega * 180.0 / Math.PI;
                             const response_radius = 0.5 * response.stimulus.direction.diameter * 180.0 / Math.PI;
+                            console.log("debug 3: response_alpha = " + response_alpha + ", response_omega = " + response_omega + ", response_radius = " + response_radius);
                             if (alpha >= response_alpha - response_radius && alpha <= response_alpha + response_radius &&
                                 omega >= response_omega - response_radius && omega <= response_omega + response_radius) {
                                   console.log("debug 4");
