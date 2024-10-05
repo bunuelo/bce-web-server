@@ -47,6 +47,7 @@
     var color_background = [0, 0, 0];
     var color_axes       = [63, 63, 63];
     var color_can_see    = [191, 191, 191];
+    var color_cannot_see = [31, 31, 31];
     
     function update_eye(canvas, ctx, eye_index) {
         console.log("update_eye: beginning.  eye_index = " + eye_index);
@@ -57,6 +58,12 @@
         
         const maximum_alpha = 45;
         const alpha_resolution = 5;
+
+        // background
+        ctx.fillStyle = "rgb(" + color_background[0] + "," + color_background[1] + "," + color_background[2] + ")";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        
+        // axes
         ctx.strokeStyle = "rgb(" + color_axes[0] + "," + color_axes[1] + "," + color_axes[2] + ")";
         ctx.fillStyle   = "rgb(" + color_axes[0] + "," + color_axes[1] + "," + color_axes[2] + ")";
         ctx.beginPath();
@@ -68,17 +75,22 @@
             ctx.stroke();
         }
         
+        // can/cannot see stimilus responses
         if (evaluation != null) {
             for (var response_i = 0; response_i < evaluation.responses.length; response_i ++) {
                 const response = evaluation.responses[response_i];
-                if (response.canSee != null) {
-                    if (response.canSee) {
+                if (response.stimulus.eye == eye_index) {
+                    if (response.canSee != null) {
                         const response_alpha           = response.stimulus.direction.alpha * 180.0 / Math.PI;
                         const response_omega           = response.stimulus.direction.omega * 180.0 / Math.PI;
                         const response_radius          = 0.5 * response.stimulus.diameter * 180.0 / Math.PI;
                         const response_radial_distance = maximum_alpha_radius * response_alpha / maximum_alpha;
                         console.log("response_alpha = " + response_alpha + ", response_omega = " + response_omega + ", response_radius = " + response_radius);
-                        ctx.fillStyle = "rgb(" + color_can_see[0] + "," + color_can_see[1] + "," + color_can_see[2] + ")";
+                        if (response.canSee) {
+                            ctx.fillStyle = "rgb(" + color_can_see[0] + "," + color_can_see[1] + "," + color_can_see[2] + ")";
+                        } else {
+                            ctx.fillStyle = "rgb(" + color_cannot_see[0] + "," + color_cannot_see[1] + "," + color_cannot_see[2] + ")";
+                        }
                         ctx.beginPath();
                         ctx.arc(center_x + response_radial_distance * Math.cos(response.stimulus.direction.omega), center_y + response_radial_distance * Math.sin(response.stimulus.direction.omega), maximum_alpha_radius * response_radius / maximum_alpha, 0, 2 * Math.PI);
                         ctx.fill();
@@ -86,36 +98,6 @@
                 }
             }
         }
-        
-        //const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-        //for (let p = 0; p < imageData.data.length; p += 4) {
-	//    const i = p / 4;
-	//    const ix = i % canvas.width;
-	//    const iy = (i / canvas.height) >>> 0;
-        //    const x = 2.0 * (ix / (canvas.width - 1)) - 1.0; 
-        //    const y = 2.0 * (iy / (canvas.height - 1)) - 1.0;
-        //    const radius = Math.sqrt(x*x + y*y);
-        //    const alpha = Math.atan2(radius, 1.0) * 180.0 / Math.PI;
-        //    const omega = Math.atan2(y, x) * 180.0 / Math.PI;
-        //    
-	//    var r = color_background[0];
-	//    var g = color_background[1];
-	//    var b = color_background[2];
-        //    
-        //    for (let alpha_circle = 0.0; alpha_circle <= 60.0; alpha_circle += 5.0) {
-        //        if (alpha >= alpha_circle - 0.3 && alpha <= alpha_circle + 0.3) {
-        //            r = color_axes[0];
-        //            g = color_axes[1];
-        //            b = color_axes[2];
-        //        }
-        //    }
-        //
-	//    imageData.data[p + 0] = r;
-	//    imageData.data[p + 1] = g;
-	//    imageData.data[p + 2] = b;
-	//    imageData.data[p + 3] = 255;
-        //}
-        //ctx.putImageData(imageData, 0, 0);
         
         console.log("update_eye: success!  eye_index = " + eye_index);
     }
@@ -130,10 +112,12 @@
             color_background = [0, 0, 0];
             color_axes       = [63, 63, 63];
             color_can_see    = [191, 191, 191];
+            color_cannot_see = [31, 31, 31];
         } else {
             color_background = [255, 255, 255];
             color_axes       = [191, 191, 191];
             color_can_see    = [63, 63, 63];
+            color_cannot_see = [223, 223, 223];
         }
 
         update_eye(left_eye_canvas, left_eye_canvas_ctx, 0)
