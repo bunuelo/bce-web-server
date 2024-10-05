@@ -221,19 +221,30 @@
 a comment
 /!-->
 
-    {#if show_details}
-        <a href="#" on:click|preventDefault={on_click_hide_details}>
-            {bce_lang($user_language, "page_evaluations_label_hide_details")}
-        </a>
-        <textarea rows="20" cols="50" >
+    <table>
+        <tr>
+            <td>
+                {#if show_details}
+                    <a href="#" on:click|preventDefault={on_click_hide_details}>
+                        {bce_lang($user_language, "page_evaluations_label_hide_details")}
+                    </a>
+                {:else}
+                    <a href="#" on:click|preventDefault={on_click_show_details}>
+                        {bce_lang($user_language, "page_evaluations_label_show_details")}
+                    </a>
+                {/if}
+            </td>
+        </tr>
+        {#if show_details}
+            <tr>
+                <td>
+                    <textarea rows="20" cols="50" >
 evaluation = {JSON.stringify(evaluation, null, 4)}
-        </textarea>
-    {:else}
-        <a href="#" on:click|preventDefault={on_click_show_details}>
-            {bce_lang($user_language, "page_evaluations_label_show_details")}
-        </a>
-    {/if}
-    
+                    </textarea>
+                </td>
+            </tr>
+        {/if}
+    </table>
 {/if}
 
 
