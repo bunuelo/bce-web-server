@@ -50,6 +50,7 @@
     
     function update_eye(canvas, ctx, eye_index) {
         const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        console.log("update_eye: beginning.  eye_index = " + eye_index);
         for (let p = 0; p < imageData.data.length; p += 4) {
 	    const i = p / 4;
 	    const ix = i % canvas.width;
@@ -98,6 +99,7 @@
         }
         
         ctx.putImageData(imageData, 0, 0);
+        console.log("update_eye: success!  eye_index = " + eye_index);
     }
     
     function update_eye_canvases() {
