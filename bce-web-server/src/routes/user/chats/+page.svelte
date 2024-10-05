@@ -166,10 +166,10 @@
                   <i>{chat_request_user.email}</i>: 
               </td>
               <td>
-                  <a href="#" on:click={() => on_click_chat_request_response(chat_request_user.email, true)}>Accept</a>
+                  <a href="#" on:click|preventDefault={() => on_click_chat_request_response(chat_request_user.email, true)}>Accept</a>
               </td>
               <td>
-                  <a href="#" on:click={() => on_click_chat_request_response(chat_request_user.email, false)}>Reject</a>
+                  <a href="#" on:click|preventDefault={() => on_click_chat_request_response(chat_request_user.email, false)}>Reject</a>
               </td>
           </tr>
       {/each}
@@ -233,7 +233,7 @@
   <label>
       {bce_lang($user_language, "page_chats_label_chat_request_email")}: 
       <input type="text" bind:value="{new_request_chat_user_email}" style="width: 150px;" />
-      <a href="#" on:click={on_click_request_chat_user}>{bce_lang($user_language, "page_chats_label_request_chat")}</a>
+      <a href="#" on:click|preventDefault={on_click_request_chat_user}>{bce_lang($user_language, "page_chats_label_request_chat")}</a>
   </label>
   </p>
   
@@ -248,7 +248,7 @@
           {/each}
       </select>
   </label>
-  <a href="#" on:click={on_click_add_recipient}>{bce_lang($user_language, "page_chats_label_add_recipient")}</a>
+  <a href="#" on:click|preventDefault={on_click_add_recipient}>{bce_lang($user_language, "page_chats_label_add_recipient")}</a>
   </p>
 
   <table>
@@ -269,7 +269,7 @@
   </p>
 
   <p>
-  <a href="#" on:click={on_click_create_chat}>{bce_lang($user_language, "page_chats_label_create_chat")}</a>
+  <a href="#" on:click|preventDefault={on_click_create_chat}>{bce_lang($user_language, "page_chats_label_create_chat")}</a>
   </p>
 
 {/if}

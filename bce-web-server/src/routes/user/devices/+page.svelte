@@ -195,7 +195,7 @@
                 {get_acl_display_name_by_id(device.acl_id)}
             </td>
             <td>
-                <a href="#" on:click={() => on_click_use_acl(device.uid)}>{bce_lang($user_language, "page_devices_label_use_acl")}</a>
+                <a href="#" on:click|preventDefault={() => on_click_use_acl(device.uid)}>{bce_lang($user_language, "page_devices_label_use_acl")}</a>
             </td>
             {#if show_device_details}
                 <td>
@@ -233,9 +233,9 @@
   </table>
   
       {#if show_device_details}
-          <a href="#" on:click={() => on_click_hide_device_details()}>{bce_lang($user_language, "page_devices_label_hide_device_details")}</a>
+          <a href="#" on:click|preventDefault={() => on_click_hide_device_details()}>{bce_lang($user_language, "page_devices_label_hide_device_details")}</a>
       {:else}
-          <a href="#" on:click={() => on_click_show_device_details()}>{bce_lang($user_language, "page_devices_label_show_device_details")}</a>
+          <a href="#" on:click|preventDefault={() => on_click_show_device_details()}>{bce_lang($user_language, "page_devices_label_show_device_details")}</a>
       {/if}
   
   {/if}

@@ -163,11 +163,11 @@
                   {#if acl.owner}
                     {#if edit_display_name_acl_id == acl.acl_id}
                       <input type="text" bind:value="{edit_acl_display_name}">
-                      <a href="#" on:click={() => on_click_save_acl_display_name(acl.acl_id)}
+                      <a href="#" on:click|preventDefault={() => on_click_save_acl_display_name(acl.acl_id)}
                           aria-label="{bce_lang($user_language, "page_acls_aria_label_save")}">{bce_lang($user_language, "page_acls_label_save")}</a>
                     {:else}
                       {acl.display_name}
-                      <a href="#" on:click={() => on_click_edit_acl_display_name(acl.acl_id, acl.display_name)}
+                      <a href="#" on:click|preventDefault={() => on_click_edit_acl_display_name(acl.acl_id, acl.display_name)}
                           aria-label="{bce_lang($user_language, "page_acls_aria_label_edit")}">{bce_lang($user_language, "page_acls_label_edit")}</a>
                     {/if}
                   {:else}
@@ -206,10 +206,10 @@
               </td>
               <td>
                   {#if acl.owner}
-                    <a href="#" on:click={() => on_click_delete_acl(acl.acl_id)}>{bce_lang($user_language, "page_acls_label_delete")}</a>
+                    <a href="#" on:click|preventDefault={() => on_click_delete_acl(acl.acl_id)}>{bce_lang($user_language, "page_acls_label_delete")}</a>
                   {/if}
                   {#if acl.owner}
-                    <a href="#" on:click={() => on_click_upload_asset(acl.acl_id)}>{bce_lang($user_language, "page_acls_label_upload")}</a>
+                    <a href="#" on:click|preventDefault={() => on_click_upload_asset(acl.acl_id)}>{bce_lang($user_language, "page_acls_label_upload")}</a>
                   {/if}
               </td>
           </tr>
@@ -219,7 +219,7 @@
   
   <p>
     <input type="text" bind:value="{new_acl_display_name}" style="width: 150px;" />
-    <a href="#" on:click={on_click_create_acl}>{bce_lang($user_language, "page_acls_label_create_acl")}</a>
+    <a href="#" on:click|preventDefault={on_click_create_acl}>{bce_lang($user_language, "page_acls_label_create_acl")}</a>
   </p>
 
 {/if}
