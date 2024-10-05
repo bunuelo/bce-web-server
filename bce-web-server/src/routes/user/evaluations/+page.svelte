@@ -69,16 +69,19 @@
             const x = 2.0 * (ix / (canvas.width - 1)) - 1.0; 
             const y = 2.0 * (iy / (canvas.height - 1)) - 1.0;
             const radius = Math.sqrt(x*x + y*y);
-            const alpha = Math.atan2(radius, 1.0);
-            const omega = Math.atan2(y, x);
+            const alpha = Math.atan2(radius, 1.0) * 180.0 / Math.PI;
+            const omega = Math.atan2(y, x) * 180.0 / Math.PI;
             
 	    var r = 0;
 	    var g = 0;
 	    var b = 0;
-            if (alpha > 0.25 && alpha < 0.3) {
-                b = 255;
+            
+            for (let alpha_circle = 0.0; alpha_circle <= 45.0; alpha_circle += 5.0) {
+                if (alpha > alpha_circle - 0.1 && alpha < alpha_circle + 0.1) {
+                    b = 255;
+                }
             }
-              
+            
 	    imageData.data[p + 0] = r;
 	    imageData.data[p + 1] = g;
 	    imageData.data[p + 2] = b;
