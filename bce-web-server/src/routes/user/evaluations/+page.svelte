@@ -68,8 +68,8 @@
 	    const iy = (i / canvas.height) >>> 0;
             const x = 2.0 * (ix / (canvas.width - 1)) - 1.0; 
             const y = 2.0 * (iy / (canvas.height - 1)) - 1.0;
-            const r = Math.sqrt(x*x + y*y);
-            const alpha = Math.atan2(r, 1.0);
+            const radius = Math.sqrt(x*x + y*y);
+            const alpha = Math.atan2(radius, 1.0);
             const omega = Math.atan2(y, x);
             
 	    var r = 0;
