@@ -50,7 +50,7 @@
     var color_cannot_see = [31, 31, 31];
     
     function update_eye(canvas, ctx, eye_index) {
-        console.log("update_eye: beginning.  eye_index = " + eye_index);
+        //console.log("update_eye: beginning.  eye_index = " + eye_index);
 
         const center_x             = 0.5 * canvas.width;
         const center_y             = 0.5 * canvas.height;
@@ -85,7 +85,7 @@
                         const response_omega           = response.stimulus.direction.omega * 180.0 / Math.PI;
                         const response_radius          = 0.5 * response.stimulus.diameter * 180.0 / Math.PI;
                         const response_radial_distance = maximum_alpha_radius * response_alpha / maximum_alpha;
-                        console.log("response_alpha = " + response_alpha + ", response_omega = " + response_omega + ", response_radius = " + response_radius);
+                        //console.log("response_alpha = " + response_alpha + ", response_omega = " + response_omega + ", response_radius = " + response_radius);
                         if (response.canSee) {
                             ctx.fillStyle   = "rgb(" + color_can_see[0] + "," + color_can_see[1] + "," + color_can_see[2] + ")";
                             ctx.strokeStyle = "rgb(" + color_can_see[0] + "," + color_can_see[1] + "," + color_can_see[2] + ")";
@@ -110,7 +110,7 @@
             }
         }
         
-        console.log("update_eye: success!  eye_index = " + eye_index);
+        //console.log("update_eye: success!  eye_index = " + eye_index);
     }
     
     function update_eye_canvases() {
