@@ -75,7 +75,7 @@
                     if (response.canSee) {
                         const response_alpha           = response.stimulus.direction.alpha * 180.0 / Math.PI;
                         const response_omega           = response.stimulus.direction.omega * 180.0 / Math.PI;
-                        const response_radius          = 0.5 * response.stimulus.direction.diameter * 180.0 / Math.PI;
+                        const response_radius          = 0.5 * response.stimulus.diameter * 180.0 / Math.PI;
                         const response_radial_distance = maximum_alpha_radius * response_alpha / maximum_alpha;
                         console.log("response_alpha = " + response_alpha + ", response_omega = " + response_omega + ", response_radius = " + response_radius);
                         ctx.fillStyle = "rgb(" + color_can_see[0] + "," + color_can_see[1] + "," + color_can_see[2] + ")";
