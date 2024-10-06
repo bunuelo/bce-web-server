@@ -121,7 +121,6 @@
 
 {#if $user_session_is_valid && $user_security_level >= 25}
 
-  {#if minimize}
     <div>
         <table>
             <tr>
@@ -149,7 +148,6 @@
             </tr>
         </table>
     </div>
-  {/if}
 
   {#if !minimize}
   <div class="overlayDiv">
