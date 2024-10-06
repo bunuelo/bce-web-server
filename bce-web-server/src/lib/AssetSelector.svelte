@@ -29,6 +29,7 @@
     let assets_count = 0;
     let assets_loaded_count = 0;
     let assets = [];
+    const assets_page_size = 10;
     
     let acl_selected = "0";
     
@@ -60,8 +61,8 @@
             acl_id = null;
         }
         assets_count = await bce_session.assets_count(acl_id);
-        assets = await bce_session.assets(1, 50, acl_id);
-        assets_loaded_count = 50;
+        assets = await bce_session.assets(1, assets_page_size, acl_id);
+        assets_loaded_count = assets_page_size;
     }
     
     async function on_click_select_evaluation() {
@@ -70,14 +71,14 @@
 
     async function fetch_more_assets() {
         if (assets_loaded_count < assets_count) {
-            const next_page = Math.round(assets_loaded_count / 50) + 1;
+            const next_page = Math.round(assets_loaded_count / assets_page_size) + 1;
             console.log("fetching page " + next_page + " of assets!");
-            let more_assets = await bce_session.assets(next_page, 50, acl_selected);
+            let more_assets = await bce_session.assets(next_page, assets_page_size, acl_selected);
             for (var i = 0; i < more_assets.length; i ++) {
                 console.log("adding another asset!");
                 assets.push(more_assets[i]);
             }
-            assets_loaded_count += 50;
+            assets_loaded_count += assets_page_size;
         }
     }
     
