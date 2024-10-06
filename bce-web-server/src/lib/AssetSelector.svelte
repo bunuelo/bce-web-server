@@ -115,6 +115,8 @@
         background-color: rgba(0,0,0,0.5);
         z-index: 2;
         cursor: pointer;
+        overflow-y: hidden;
+        overflow-x: hidden;
     }
      
     div.popupDiv {
