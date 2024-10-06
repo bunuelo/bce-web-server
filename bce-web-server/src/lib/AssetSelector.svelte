@@ -78,7 +78,7 @@
                 acl_id = null;
             }
             var temp_assets = assets;
-            assets = null;
+            assets = [];
             let more_assets = await bce_session.assets(next_page, assets_page_size, acl_id);
             for (var i = 0; i < more_assets.length; i ++) {
                 console.log("adding another asset!");
