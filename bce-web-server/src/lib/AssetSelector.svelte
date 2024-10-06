@@ -121,11 +121,11 @@
      
     div.popupDiv {
         position: fixed;
-        width: 50%;
-        height: 50%;
+        width: 75%;
+        height: 75%;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-75%, -75%);
         background-color: var(--surface1);
      }
      
