@@ -155,7 +155,7 @@
     </div>
   {/if}
 
-  <div bind:this={overlay_div}>
+  <div bind:this={overlay_div} class="overlayDiv">
   {#if !minimize}
   <div>
     <label>
