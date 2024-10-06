@@ -68,7 +68,10 @@
 
     let scrolling_div;
     async function on_scroll_scrolling_div() {
-        console.log("scrolling_div.scrollHeight = " + scrolling_div.scrollHeight);
+        console.log("scrolling_div.scrollHeight = " + scrolling_div.scrollHeight + ", scrolling_div.scrollTop = " + scrolling_div.scrollTop);
+        if (Math.abs(scrolling_div.scrollHeight - scrolling_div.clientHeight - scrolling_div.scrollTop) <= 1) {
+            console.log("totally scrolled.");
+        }
     }
     
 </script>
