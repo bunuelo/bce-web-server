@@ -125,7 +125,7 @@
         height: 75%;
         top: 50%;
         left: 50%;
-        transform: translate(-75%, -75%);
+        transform: translate(-50%, -50%);
         background-color: var(--surface1);
      }
      
