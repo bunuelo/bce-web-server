@@ -66,6 +66,11 @@
         minimize = false;
     }
 
+    let scrolling_div;
+    async function on_scroll_scrolling_div() {
+        console.log("scrolling_div.scrollHeight = " + scrolling_div.scrollHeight);
+    }
+    
 </script>
 
 <style>
@@ -123,7 +128,7 @@
     
     <p>{bce_lang($user_language, "component_asset_selector_label_total_assets_count")}: {assets_count}</p>
     
-    <div class="scrollingDiv">
+    <div bind:this={scrolling_div} class="scrollingDiv" on:scroll={on_scroll_scrolling_div}>
     {#if view_mode == "LIST"}
         <table>
             <tr>
