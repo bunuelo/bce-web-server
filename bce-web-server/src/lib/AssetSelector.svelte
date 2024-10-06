@@ -29,7 +29,7 @@
     let assets_count = 0;
     let assets_loaded_count = 0;
     let assets = [];
-    const assets_page_size = 10;
+    const assets_page_size = 50;
     
     let acl_selected = "0";
     
@@ -72,7 +72,6 @@
     async function fetch_more_assets() {
         if (assets_loaded_count < assets_count) {
             const next_page = Math.round(assets_loaded_count / assets_page_size) + 1;
-            console.log("fetching page " + next_page + " of assets!");
             var acl_id = acl_selected;
             if (acl_id == "0") {
                 acl_id = null;
@@ -81,7 +80,6 @@
             assets = [];
             let more_assets = await bce_session.assets(next_page, assets_page_size, acl_id);
             for (var i = 0; i < more_assets.length; i ++) {
-                console.log("adding another asset!");
                 temp_assets.push(more_assets[i]);
             }
             assets = temp_assets;
@@ -91,9 +89,7 @@
     
     let scrolling_div;
     async function on_scroll_scrolling_div() {
-        console.log("scrolling_div.scrollHeight = " + scrolling_div.scrollHeight + ", scrolling_div.scrollTop = " + scrolling_div.scrollTop);
         if (Math.abs(scrolling_div.scrollHeight - scrolling_div.clientHeight - scrolling_div.scrollTop) <= 1) {
-            console.log("totally scrolled.");
             await fetch_more_assets();
         }
     }
