@@ -29,6 +29,8 @@
     
     let view_mode = "LIST";
     
+    let overlay_div;
+    
     onMount(async () => {
         if (! $user_session_is_valid) {
             $user_session_is_valid = await bce_session.session_is_valid()
@@ -58,7 +60,7 @@
         assets = await bce_session.assets(1, assets_page_size, acl_id);
         assets_loaded_count = assets_page_size;
     }
-    
+
     async function on_click_select_evaluation() {
         minimize = false;
         overlay_div.style.display = "block";
