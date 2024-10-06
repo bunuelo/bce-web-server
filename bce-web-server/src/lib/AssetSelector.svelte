@@ -27,6 +27,7 @@
     
     let acls = [];
     let assets_count = 0;
+    let assets_loaded_count = 0;
     let assets = [];
     
     let acl_selected = "0";
@@ -60,17 +61,30 @@
         }
         assets_count = await bce_session.assets_count(acl_id);
         assets = await bce_session.assets(1, 50, acl_id);
+        assets_loaded_count = 50;
     }
     
     async function on_click_select_evaluation() {
         minimize = false;
     }
 
+    async function fetch_more_assets() {
+        if (assets_loaded_count < assets_count) {
+            const next_page = assets_loaded_count / 50 + 1;
+            let more_assets = await bce_session.assets(next_page, 50, acl_id);
+            for (var i = 0; i < more_assets.length; i ++) {
+                assets.push(more_assets[i]);
+            }
+            assets_loaded_count += 50;
+        }
+    }
+    
     let scrolling_div;
     async function on_scroll_scrolling_div() {
         console.log("scrolling_div.scrollHeight = " + scrolling_div.scrollHeight + ", scrolling_div.scrollTop = " + scrolling_div.scrollTop);
         if (Math.abs(scrolling_div.scrollHeight - scrolling_div.clientHeight - scrolling_div.scrollTop) <= 1) {
             console.log("totally scrolled.");
+            await fetch_more_assets();
         }
     }
     
