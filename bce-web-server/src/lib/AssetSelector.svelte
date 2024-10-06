@@ -77,11 +77,14 @@
             if (acl_id == "0") {
                 acl_id = null;
             }
+            var temp_assets = assets;
+            assets = null;
             let more_assets = await bce_session.assets(next_page, assets_page_size, acl_id);
             for (var i = 0; i < more_assets.length; i ++) {
                 console.log("adding another asset!");
-                assets.push(more_assets[i]);
+                temp_assets.push(more_assets[i]);
             }
+            assets = temp_assets;
             assets_loaded_count += assets_page_size;
         }
     }
