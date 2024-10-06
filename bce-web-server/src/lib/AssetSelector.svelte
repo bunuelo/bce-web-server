@@ -117,13 +117,13 @@
         cursor: pointer;
     }
      
-     div.popupDiv {
+    div.popupDiv {
         position: fixed;
-        display: block;
-        width: 100%;
-        height: 100%;
-        top: 16;
-        left: 16;
+        width: 50%;
+        height: 50%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         background-color: var(--surface1);
      }
      
