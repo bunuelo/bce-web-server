@@ -29,8 +29,6 @@
     
     let view_mode = "LIST";
     
-    let overlay_div;
-    
     onMount(async () => {
         if (! $user_session_is_valid) {
             $user_session_is_valid = await bce_session.session_is_valid()
@@ -63,13 +61,11 @@
 
     async function on_click_select_evaluation() {
         minimize = false;
-        overlay_div.style.display = "block";
     }
 
     export let on_asset_select = async function (asset) {
         console.log("Asset selected: " + asset.name + " (" + asset.file_name + ")");
         selected_asset = asset;
-        overlay_div.style.display = "none";
         minimize = true;
     };
     
@@ -155,8 +151,8 @@
     </div>
   {/if}
 
-  <div bind:this={overlay_div} class="overlayDiv">
   {#if !minimize}
+  <div class="overlayDiv">
   <div>
     <label>
         {bce_lang($user_language, "component_asset_selector_label_acl")}: 
@@ -214,6 +210,6 @@
     </div>
     
     </div>
-  {/if}
   </div>
+  {/if}
 {/if}
