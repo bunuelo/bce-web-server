@@ -104,18 +104,28 @@
     }
 
     div.overlayDiv {
-        position: fixed; /* Sit on top of the page content */
-        display: block; /* Hidden by default */
-        width: 100%; /* Full width (cover the whole page) */
-        height: 100%; /* Full height (cover the whole page) */
+        position: fixed;
+        display: block;
+        width: 100%;
+        height: 100%;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: rgba(0,0,0,0.5); /* Black background with opacity */
-        z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-        cursor: pointer; /* Add a pointer on hover */
+        background-color: rgba(0,0,0,0.5);
+        z-index: 2;
+        cursor: pointer;
     }
+     
+     div.popupDiv {
+        position: fixed;
+        display: block;
+        width: 100%;
+        height: 100%;
+        top: 16;
+        left: 16;
+        background-color: var(--surface1);
+     }
      
 </style>
 
@@ -151,7 +161,7 @@
 
   {#if !minimize}
   <div class="overlayDiv">
-  <div>
+  <div class="popupDiv">
     <label>
         {bce_lang($user_language, "component_asset_selector_label_acl")}: 
         <select bind:value={acl_selected} on:change={update_asset_list}>
