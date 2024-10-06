@@ -13,12 +13,6 @@
 
     export let minimize = false;
 
-    export let on_asset_select = async function (asset) {
-        console.log("Asset selected: " + asset.name + " (" + asset.file_name + ")");
-        selected_asset = asset;
-        minimize = true;
-    };
-    
     export let selected_asset = null;
     
     //<a href="https://bce.center:8000/asset/download?session_token={$user_session_token}&name={asset.name}&q={Math.round(1000000000* Math.random())}">
@@ -67,8 +61,16 @@
     
     async function on_click_select_evaluation() {
         minimize = false;
+        overlay_div.style.display = "block";
     }
 
+    export let on_asset_select = async function (asset) {
+        console.log("Asset selected: " + asset.name + " (" + asset.file_name + ")");
+        selected_asset = asset;
+        minimize = true;
+        overlay_div.style.display = "none";
+    };
+    
     async function fetch_more_assets() {
         if (assets_loaded_count < assets_count) {
             const next_page = Math.round(assets_loaded_count / assets_page_size) + 1;
@@ -93,6 +95,7 @@
             await fetch_more_assets();
         }
     }
+
     
 </script>
 
@@ -102,7 +105,7 @@
         max-height: 200px;
     }
 
-    #overlay {
+    div.overlayDiv {
         position: fixed; /* Sit on top of the page content */
         display: none; /* Hidden by default */
         width: 100%; /* Full width (cover the whole page) */
@@ -149,7 +152,7 @@
         </table>
     </div>
   {:else}
-  <div id="overlay"></div>
+  <div bind:this={overlay_div} class="overlayDiv"></div>
   <div>
     <label>
         {bce_lang($user_language, "component_asset_selector_label_acl")}: 
