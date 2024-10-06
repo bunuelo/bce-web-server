@@ -69,8 +69,8 @@
     export let on_asset_select = async function (asset) {
         console.log("Asset selected: " + asset.name + " (" + asset.file_name + ")");
         selected_asset = asset;
-        minimize = true;
         overlay_div.style.display = "none";
+        minimize = true;
     };
     
     async function fetch_more_assets() {
