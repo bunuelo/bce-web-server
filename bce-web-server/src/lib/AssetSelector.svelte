@@ -76,9 +76,9 @@
             if (acl_id == "0") {
                 acl_id = null;
             }
+            let more_assets = await bce_session.assets(next_page, assets_page_size, acl_id);
             var temp_assets = assets;
             assets = [];
-            let more_assets = await bce_session.assets(next_page, assets_page_size, acl_id);
             for (var i = 0; i < more_assets.length; i ++) {
                 temp_assets.push(more_assets[i]);
             }
