@@ -70,7 +70,7 @@
 
     async function fetch_more_assets() {
         if (assets_loaded_count < assets_count) {
-            const next_page = Nath.round(assets_loaded_count / 50) + 1;
+            const next_page = Math.round(assets_loaded_count / 50) + 1;
             console.log("fetching page " + next_page + " of assets!");
             let more_assets = await bce_session.assets(next_page, 50, acl_selected);
             for (var i = 0; i < more_assets.length; i ++) {
