@@ -125,7 +125,6 @@
 
 {#if $user_session_is_valid && $user_security_level >= 25}
 
-  <div bind:this={overlay_div} class="overlayDiv"></div>
   {#if minimize}
     <div>
         <table>
@@ -154,7 +153,10 @@
             </tr>
         </table>
     </div>
-  {:else}
+  {/if}
+
+  <div bind:this={overlay_div}>
+  {#if !minimize}
   <div>
     <label>
         {bce_lang($user_language, "component_asset_selector_label_acl")}: 
@@ -213,4 +215,5 @@
     
     </div>
   {/if}
+  </div>
 {/if}
