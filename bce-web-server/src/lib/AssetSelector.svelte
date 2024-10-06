@@ -73,7 +73,11 @@
         if (assets_loaded_count < assets_count) {
             const next_page = Math.round(assets_loaded_count / assets_page_size) + 1;
             console.log("fetching page " + next_page + " of assets!");
-            let more_assets = await bce_session.assets(next_page, assets_page_size, acl_selected);
+            var acl_id = acl_selected;
+            if (acl_id == "0") {
+                acl_id = null;
+            }
+            let more_assets = await bce_session.assets(next_page, assets_page_size, acl_id);
             for (var i = 0; i < more_assets.length; i ++) {
                 console.log("adding another asset!");
                 assets.push(more_assets[i]);
