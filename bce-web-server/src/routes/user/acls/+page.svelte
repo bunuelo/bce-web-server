@@ -36,7 +36,7 @@
             await on_click_create_acl(); 
             console.log("create_acl: Done creating ACL.");
         }
-    });
+    }
 
     async function update_acl_list() {
         acls = null;
