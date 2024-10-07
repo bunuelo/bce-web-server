@@ -9,6 +9,7 @@ SOURCE_FILES = \
   bce-web-server/src/lib/bce_session.js \
   bce-web-server/src/lib/bce_stores.js \
   bce-web-server/src/lib/bce_time.js \
+  bce-web-server/src/lib/AssetSelector.svelte \
   bce-web-server/src/routes/Edit.svelte \
   bce-web-server/src/routes/Logo.svelte \
   bce-web-server/src/routes/Menu.svelte \
