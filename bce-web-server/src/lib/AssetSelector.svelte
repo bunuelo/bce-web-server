@@ -14,7 +14,7 @@
 
     export let minimize = false;
     
-    let selected_asset;
+    export let selected_asset;
     
     onMount(async () => {
         if (! $user_session_is_valid) {
