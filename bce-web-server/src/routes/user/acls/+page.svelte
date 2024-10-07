@@ -32,8 +32,9 @@
 
 	create_acl_input.addEventListener("keyup", async function (event) {
             if (event.key === "Enter") {
-                console.log('create_acl: Enter key pressed');
-                await on_click_create_acl();
+                console.log({"create_acl: Enter key pressed."); 
+                await on_click_create_acl(); 
+                console.log("create_acl: Done creating ACL.");
             }
         });
     });
