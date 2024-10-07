@@ -90,7 +90,6 @@
 <style>
     div.scrollingDiv {
         overflow:scroll;
-        max-height: 200px;
     }
 </style>
 
