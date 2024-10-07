@@ -89,11 +89,9 @@
 
 <style>
     div.scrollingDiv {
-        //overflow:scroll;
-        //max-height: 200px;
    	top: 10px;
         bottom: 10px;
-        width: 100%; //Do not forget width
+        width: 100%;
         overflow-y: auto;
    }
 </style>
