@@ -89,8 +89,13 @@
 
 <style>
     div.scrollingDiv {
-        overflow:scroll;
-    }
+        //overflow:scroll;
+        //max-height: 200px;
+   	top: 10px;
+        bottom: 10px;
+        width: 100%; //Do not forget width
+        overflow-y: auto;
+   }
 </style>
 
 {#if $user_session_is_valid && $user_security_level >= 25}
