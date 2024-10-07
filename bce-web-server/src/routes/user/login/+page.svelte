@@ -28,15 +28,17 @@
             goto("/user/dashboard", { invalidateAll: true });
         }
 
-        user_email_input.addEventListener("keyup", (event) => {
+        user_email_input.addEventListener("keyup", async function (event) {
             if (event.key === "Enter") {
-                console.log('user_email: Enter key pressed')
+                console.log('user_email: Enter key pressed');
+                await login();
             }
         });
 
-        password_input.addEventListener("keyup", (event) => {
+        password_input.addEventListener("keyup", async function (event) {
             if (event.key === "Enter") {
-                console.log('password: Enter key pressed')
+                console.log('password: Enter key pressed');
+                await login();
             }
         });
     });
