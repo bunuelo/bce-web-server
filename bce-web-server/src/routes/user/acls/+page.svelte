@@ -15,8 +15,6 @@
     
     let acls = null;
 
-    let create_acl_input;
-    
     onMount(async () => {
         if (! $user_session_is_valid) {
             $user_session_is_valid = await bce_session.session_is_valid()
@@ -30,13 +28,14 @@
         }
         await update_acl_list();
 
-	create_acl_input.addEventListener("keyup", async function (event) {
-            if (event.key === "Enter") {
-                console.log({"create_acl: Enter key pressed."); 
-                await on_click_create_acl(); 
-                console.log("create_acl: Done creating ACL.");
-            }
-        });
+    });
+
+    async function on_keyup_create_acl_input (event) {
+        if (event.key === "Enter") {
+            console.log({"create_acl: Enter key pressed."); 
+            await on_click_create_acl(); 
+            console.log("create_acl: Done creating ACL.");
+        }
     });
 
     async function update_acl_list() {
@@ -228,7 +227,7 @@
   </table>
   
   <p>
-    <input bind:this={create_acl_input} type="text" bind:value="{new_acl_display_name}" style="width: 150px;" />
+    <input type="text" bind:value="{new_acl_display_name}" on:keyup={on_keyup_create_acl_input} style="width: 150px;" />
     <a href="#" on:click|preventDefault={on_click_create_acl}>{bce_lang($user_language, "page_acls_label_create_acl")}</a>
   </p>
 
