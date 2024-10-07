@@ -16,6 +16,9 @@
     let bce_session = new BceSession();
 
     let password;
+
+    let user_email_input;
+    let password_input;
     
     onMount(async () => {
         if (! $user_session_is_valid) {
@@ -24,6 +27,18 @@
         if ($user_session_is_valid) {
             goto("/user/dashboard", { invalidateAll: true });
         }
+
+        user_email_input.addEventListener("keyup", (event) => {
+            if (event.key === "Enter") {
+                console.log('user_email: Enter key pressed')
+            }
+        });
+
+        password_input.addEventListener("keyup", (event) => {
+            if (event.key === "Enter") {
+                console.log('password: Enter key pressed')
+            }
+        });
     });
   
     async function login() {
@@ -41,21 +56,6 @@
             $alert = "Login failed.";
         }
     }
-
-    let user_email_input;
-    let password_input;
-    
-    user_email_input.addEventListener("keyup", (event) => {
-        if (event.key === "Enter") {
-            console.log('user_email: Enter key pressed')
-        }
-    });
-
-    password_input.addEventListener("keyup", (event) => {
-        if (event.key === "Enter") {
-            console.log('password: Enter key pressed')
-        }
-    });
 
     
 </script>
