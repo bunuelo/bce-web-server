@@ -14,6 +14,8 @@
     let edit_acl_display_name = null;
     
     let acls = null;
+
+    let create_acl_input;
     
     onMount(async () => {
         if (! $user_session_is_valid) {
@@ -27,6 +29,13 @@
             goto("/user/dashboard");
         }
         await update_acl_list();
+
+	create_acl_input.addEventListener("keyup", async function (event) {
+            if (event.key === "Enter") {
+                console.log('create_acl: Enter key pressed');
+                await on_click_create_acl();
+            }
+        });
     });
 
     async function update_acl_list() {
@@ -218,7 +227,7 @@
   </table>
   
   <p>
-    <input type="text" bind:value="{new_acl_display_name}" style="width: 150px;" />
+    <input bind:this={create_acl_input} type="text" bind:value="{new_acl_display_name}" style="width: 150px;" />
     <a href="#" on:click|preventDefault={on_click_create_acl}>{bce_lang($user_language, "page_acls_label_create_acl")}</a>
   </p>
 
