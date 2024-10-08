@@ -122,7 +122,6 @@
         <div class="overlayDiv">
             <div class="popupDiv">
 	        <i>{bce_lang($user_language, "component_asset_selector_label_select_an_asset")}</i>
-  	        <div class="cancelButton">
                 <div class="cancelDiv">
                     <a href="#" on:click|preventDefault={on_click_cancel}>
                         {bce_lang($user_language, "component_asset_selector_label_cancel")}
