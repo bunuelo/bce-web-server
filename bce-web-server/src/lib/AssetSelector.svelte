@@ -78,6 +78,7 @@
     }
 
     div.cancelDiv {
+        width: 100px;
         text-align: center;
         border: 2px solid var(--element2);
     }
@@ -121,7 +122,7 @@
 		        <td style="width:99%">
 			    <i>{bce_lang($user_language, "component_asset_selector_label_select_an_asset")}</i>
 		        </td>
-		        <td style="width:1%">
+ 		        <td style="width:1%">
 		            <div class="cancelButton">
 		        </td>
 		    </tr>
