@@ -60,7 +60,10 @@
     
     function update_eye(canvas, ctx, eye_index) {
         //console.log("update_eye: beginning.  eye_index = " + eye_index);
-
+	
+	ctx.canvas.width  = 0.25 * window.innerWidth;
+	ctx.canvas.height = 0.25 * window.innerWidth;
+	
         eye_total_stimulus_count[eye_index] = 0;
         eye_total_response_count[eye_index] = 0;
       
@@ -157,7 +160,6 @@
             color_can_see    = [63, 63, 63];
             color_cannot_see = [223, 223, 223];
         }
-
         update_eye(left_eye_canvas, left_eye_canvas_ctx, 0)
         update_eye(right_eye_canvas, right_eye_canvas_ctx, 1)
     }
@@ -234,10 +236,10 @@
         </tr>
         <tr>
             <td>
-                <canvas bind:this={left_eye_canvas} width="400" height="400"></canvas>
+                <canvas bind:this={left_eye_canvas}></canvas>
             </td>
             <td>
-                <canvas bind:this={right_eye_canvas} width="400" height="400"></canvas>
+                <canvas bind:this={right_eye_canvas}></canvas>
             </td>
         </tr>
     </table>

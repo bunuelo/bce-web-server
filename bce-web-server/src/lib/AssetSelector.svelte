@@ -49,8 +49,7 @@
 
     async function on_key_down(event) {
 	switch(event.keyCode) {
-	case 27: // scape
-	    console.log("escape");
+	case 27: // escape
             minimize = true;
 	    break;
 	case 38: // up
