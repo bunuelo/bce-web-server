@@ -97,8 +97,6 @@
         position: sticky;
         top: 0px;
         background: var(--surface1);
-        overflow:scroll;
-        max-height: 50vh;
 	white-space: nowrap;
     }
 </style>
