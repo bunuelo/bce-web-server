@@ -213,18 +213,10 @@
 {#if $user_session_is_valid && $user_security_level >= 25}
 
     <h1>{bce_lang($user_language, "page_evaluations_title")}</h1>
-  
-    <table>
-        <tr>
-            <td>
-                <i>Evaluation:</i>
-            </td>
-            <td>
-                <AssetSelector bind:minimize={minimize} bind:selected_asset={selected_asset} on_asset_select={on_asset_select} />
-            </td>
-        </tr>
-    </table>
-
+    
+    <i>Evaluation:</i>
+    <AssetSelector bind:minimize={minimize} bind:selected_asset={selected_asset} on_asset_select={on_asset_select} />
+    
     <table>
         <tr>
             <td>

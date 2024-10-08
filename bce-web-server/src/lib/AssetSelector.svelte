@@ -132,14 +132,15 @@
                     {/if}
                 </td>
                 <td>
-                    <a href="#" on:click|preventDefault={on_click_select_evaluation}>
-                        {bce_lang($user_language, "component_asset_selector_label_select_evaluation")}
-                    </a>
                 </td>
             </tr>
         </table>
     </div>
 
+    <a href="#" on:click|preventDefault={on_click_select_evaluation}>
+        {bce_lang($user_language, "component_asset_selector_label_select_evaluation")}
+    </a>
+		     
     {#if !minimize}
         <div class="overlayDiv">
             <div class="popupDiv">
