@@ -103,7 +103,7 @@
     }
 </style>
 
-
+<svelte:window on:keydown|preventDefault={on_key_down} />
 
 {#if $user_session_is_valid && $user_security_level >= 25}
 
@@ -136,7 +136,6 @@
     </div>
 
     {#if !minimize}
-        <svelte:window on:keydown|preventDefault={on_key_down} />
         <div class="overlayDiv">
             <div class="popupDiv">
                 <div class="cancelDiv">
