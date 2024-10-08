@@ -116,12 +116,21 @@
     {#if !minimize}
         <div class="overlayDiv">
             <div class="popupDiv">
-                <AssetList on_asset_select={on_asset_select} bind:selected_asset={selected_asset}/>
-                <div class="cancelButton">
+                <table>
+		    <tr>
+		        <td style="width:99%">
+			    <i>{bce_lang($user_language, "component_asset_selector_label_select_an_asset")}</i>
+		        </td>
+		        <td style="width:1%">
+		            <div class="cancelButton">
+		        </td>
+		    </tr>
+		</table>
                     <a href="#" on:click|preventDefault={on_click_cancel}>
                         {bce_lang($user_language, "component_asset_selector_label_cancel")}
                     </a>
                 </div>
+                <AssetList on_asset_select={on_asset_select} bind:selected_asset={selected_asset}/>
             </div>
         </div>
     {/if}

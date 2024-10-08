@@ -99,6 +99,7 @@
 	"component_asset_selector_label_creation_time": "creation time",
 	"component_asset_selector_label_select_evaluation": "select evaluation",
 	"component_asset_selector_label_cancel": "cancel",
+	"component_asset_selector_label_select_an_asset": "select an asset",
 	"page_home_title": "Home",
 	"page_login_title": "Login",
 	"page_login_alert_login_successful": "Login successful!",
