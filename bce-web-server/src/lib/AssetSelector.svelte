@@ -74,10 +74,12 @@
         left: 50%;
         transform: translate(-50%, -50%);
         background-color: var(--surface1);
+        border: 2px solid var(--element2);
     }
 
     div.cancelButton {
         text-align: center;
+        border: 2px solid var(--element2);
     }
 </style>
 
