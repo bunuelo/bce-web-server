@@ -81,8 +81,12 @@
         width: 100px;
         text-align: center;
         border: 2px solid var(--element2);
+        margin-left: auto; 
+        margin-right: 0;
     }
 </style>
+
+
 
 {#if $user_session_is_valid && $user_security_level >= 25}
 
@@ -117,16 +121,8 @@
     {#if !minimize}
         <div class="overlayDiv">
             <div class="popupDiv">
-                <table>
-		    <tr>
-		        <td style="width:99%">
-			    <i>{bce_lang($user_language, "component_asset_selector_label_select_an_asset")}</i>
-		        </td>
- 		        <td style="width:1%">
-		            <div class="cancelButton">
-		        </td>
-		    </tr>
-		</table>
+	        <i>{bce_lang($user_language, "component_asset_selector_label_select_an_asset")}</i>
+  	        <div class="cancelButton">
                 <div class="cancelDiv">
                     <a href="#" on:click|preventDefault={on_click_cancel}>
                         {bce_lang($user_language, "component_asset_selector_label_cancel")}
