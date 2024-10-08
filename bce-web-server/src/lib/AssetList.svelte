@@ -109,7 +109,9 @@
         </select>
     </label>
     
-    <p>{bce_lang($user_language, "component_asset_selector_label_total_assets_count")}: {assets_count}</p>
+    <div>
+        {bce_lang($user_language, "component_asset_selector_label_total_assets_count")}: {assets_count}
+    </div>
     
     <div bind:this={scrolling_div} class="scrollingDiv" on:scroll={on_scroll_scrolling_div}>
     {#if view_mode == "LIST"}

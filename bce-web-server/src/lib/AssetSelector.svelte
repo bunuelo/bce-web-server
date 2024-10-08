@@ -95,7 +95,7 @@
 
     div.floatingHeaderDiv {
         float: left;
-        border: 16px solid var(--surface1);
+        border: 4px solid var(--surface1);
     }
 
     div.cancelDiv {
