@@ -91,7 +91,13 @@
         overflow:scroll;
         max-height: 50vh;
 	white-space: nowrap;
-   }
+    }
+
+    th {
+        position: sticky;
+        top: 0px;
+        background: var(--surface1);
+    }
 </style>
 
 {#if $user_session_is_valid && $user_security_level >= 25}
@@ -120,15 +126,15 @@
     {#if view_mode == "LIST"}
         <table>
             <tr>
-                <td>
+                <th>
                     <i>{bce_lang($user_language, "component_asset_selector_label_file_name")}</i>
-                </td>
-                <td>
+                </th>
+                <th>
                     <i>{bce_lang($user_language, "component_asset_selector_label_asset_type")}</i>
-                </td>
-                <td>
+                </th>
+                <th>
                     <i>{bce_lang($user_language, "component_asset_selector_label_creation_time")}</i>
-                </td>
+                </th>
             </tr>
             {#each assets as asset}
                 <tr>
