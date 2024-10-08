@@ -97,17 +97,19 @@
 {#if $user_session_is_valid && $user_security_level >= 25}
 
     <label>
-        {bce_lang($user_language, "component_asset_selector_label_acl")}: 
-        <select bind:value={acl_selected} on:change={update_asset_list}>
-	    <option value="0">
-	        {bce_lang($user_language, "component_asset_selector_label_all")}
-	    </option>
-            {#each acls as acl}
-	        <option value={acl.acl_id}>
-	            {acl.display_name} 
+        <div>
+            {bce_lang($user_language, "component_asset_selector_label_acl")}: 
+            <select bind:value={acl_selected} on:change={update_asset_list}>
+	        <option value="0">
+	            {bce_lang($user_language, "component_asset_selector_label_all")}
 	        </option>
-            {/each}
-        </select>
+                {#each acls as acl}
+	            <option value={acl.acl_id}>
+	                {acl.display_name} 
+	            </option>
+                {/each}
+            </select>
+	</div>
     </label>
     
     <div>
