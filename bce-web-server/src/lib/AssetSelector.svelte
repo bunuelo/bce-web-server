@@ -47,6 +47,23 @@
         minimize = true;
     }
 
+    async function on_key_down(event) {
+	switch(event.keyCode) {
+	case 27: // scape
+	    console.log("escape");
+            minimize = true;
+	    break;
+	case 38: // up
+	    break;
+	case 40: // down
+	    break;
+	case 37: // left
+	    break;
+	case 39: // right
+	    break;
+	}
+    }
+
 </script>
 
 <style>
@@ -119,6 +136,7 @@
     </div>
 
     {#if !minimize}
+        <svelte:window on:keydown|preventDefault={on_key_down} />
         <div class="overlayDiv">
             <div class="popupDiv">
                 <div class="cancelDiv">
