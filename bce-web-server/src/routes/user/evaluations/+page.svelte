@@ -177,6 +177,10 @@
         update_eye_canvases();
     };
 
+    const on_window_resize = async function() {
+        update_eye_canvases();
+    };
+	
     onMount(async () => {
         if (! $user_session_is_valid) {
             $user_session_is_valid = await bce_session.session_is_valid()
@@ -189,6 +193,10 @@
             goto("/user/dashboard");
         }
         await update_all();
+	window.addEventListener('resize', on_window_resize);
+	return () => {
+	     window.removeEventListener('resize', on_window_resize);
+	}
     });
 
     async function update_all() {
