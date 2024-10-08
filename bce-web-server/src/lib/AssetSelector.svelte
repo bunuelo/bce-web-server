@@ -77,7 +77,7 @@
         border: 2px solid var(--element2);
     }
 
-    div.cancelButton {
+    div.cancelDiv {
         text-align: center;
         border: 2px solid var(--element2);
     }
@@ -126,6 +126,7 @@
 		        </td>
 		    </tr>
 		</table>
+                <div class="cancelDiv">
                     <a href="#" on:click|preventDefault={on_click_cancel}>
                         {bce_lang($user_language, "component_asset_selector_label_cancel")}
                     </a>
