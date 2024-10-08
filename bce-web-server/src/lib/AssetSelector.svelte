@@ -74,7 +74,11 @@
         left: 50%;
         transform: translate(-50%, -50%);
         background-color: var(--surface1);
-     }
+    }
+
+    div.cancelButton {
+        text-align: center;
+    }
 </style>
 
 {#if $user_session_is_valid && $user_security_level >= 25}
@@ -111,9 +115,11 @@
         <div class="overlayDiv">
             <div class="popupDiv">
                 <AssetList on_asset_select={on_asset_select} bind:selected_asset={selected_asset}/>
-                <a href="#" on:click|preventDefault={on_click_cancel}>
-                    {bce_lang($user_language, "component_asset_selector_label_cancel")}
-                </a>
+                <div class="cancelButton">
+                    <a href="#" on:click|preventDefault={on_click_cancel}>
+                        {bce_lang($user_language, "component_asset_selector_label_cancel")}
+                    </a>
+                </div>
             </div>
         </div>
     {/if}
