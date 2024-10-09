@@ -110,6 +110,24 @@
 	    </td>
 	</tr>
     </table>
+    Number.isFinite
+    {:else if Number.isFinite(expression)}
+    <i>Number</i>
+    <table>
+        <tr>
+	    <td width="50px">
+	    </td>
+	    <td>
+	    </td>
+	</tr>
+        <tr>
+	    <td>
+	    </td>
+	    <td>
+	        <tt>{expression}</tt>
+	    </td>
+	</tr>
+    </table>
     {:else}
     <table>
         <tr>
