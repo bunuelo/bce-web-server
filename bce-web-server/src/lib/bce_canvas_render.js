@@ -28,9 +28,6 @@ export const bce_canvas_render__evaluation_eye = function(canvas, ctx, evaluatio
     ctx.canvas.width  = 0.25 * window.innerWidth;
     ctx.canvas.height = 0.25 * window.innerWidth;
     
-    eye_total_stimulus_count[eye_index] = 0;
-    eye_total_response_count[eye_index] = 0;
-    
     const center_x             = 0.5 * canvas.width;
     const center_y             = 0.5 * canvas.height;
     const maximum_alpha_radius = 0.5 * canvas.height - 1;
