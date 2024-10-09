@@ -110,7 +110,6 @@
 	    </td>
 	</tr>
     </table>
-    Number.isFinite
     {:else if Number.isFinite(expression)}
     <i>Number</i>
     <table>
