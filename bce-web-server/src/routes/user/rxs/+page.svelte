@@ -21,11 +21,14 @@
 
         let rx = stimrx.new_stimrx_select_expression([
 	    stimrx.new_stimrx_sequence_expression([
-	    ]),
+	        stimrx.new_stimrx_get_variable_expression(null, null, "initialized"),
+	        100
+            ]),
 	    stimrx.new_stimrx_sequence_expression([
+	        stimrx.new_stimrx_get_variable_expression(null, null, "battery_low"),
+	        10
 	    ]),
-	    stimrx.new_stimrx_sequence_expression([
-	    ])
+	    0
 	]);
     
     async function fetch_rx(url) {

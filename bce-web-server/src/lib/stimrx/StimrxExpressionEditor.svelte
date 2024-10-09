@@ -56,10 +56,10 @@
 
 <div class="stimrxExpression">
     {#if stimrx.stimrx_sequence_expression__is_type(expression)}
+    <i>Sequence</i>
     <table>
         <tr>
-	    <td>
-	      <i>Sequence</i>
+	    <td width="50px">
 	    </td>
 	    <td>
 	    </td>
@@ -75,10 +75,10 @@
 	{/each}
     </table>
     {:else if stimrx.stimrx_select_expression__is_type(expression)}
+    <i>Select</i>
     <table>
         <tr>
-	    <td>
-	      <i>Select</i>
+	    <td width="50px">
 	    </td>
 	    <td>
 	    </td>
@@ -92,6 +92,23 @@
 	    </td>
 	</tr>
 	{/each}
+    </table>
+    {:else if stimrx.stimrx_get_variable_expression__is_type(expression)}
+    <i>Get Variable</i>
+    <table>
+        <tr>
+	    <td width="50px">
+	    </td>
+	    <td>
+	    </td>
+	</tr>
+        <tr>
+	    <td>
+	    </td>
+	    <td>
+	        <tt>{expression.name}</tt>
+	    </td>
+	</tr>
     </table>
     {:else}
     <table>
