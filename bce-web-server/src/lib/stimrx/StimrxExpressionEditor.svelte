@@ -57,7 +57,8 @@
 
 <style>
     div.stimrxExpression {
-	float: center;
+        float: left;
+        vertical-align: top;
         background-color: var(--surface1);
         border: 2px solid var(--element2);
     }
