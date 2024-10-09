@@ -81,6 +81,6 @@ export const stimrx = {
     new_stimrx_get_variable_expression: new_stimrx_get_variable_expression,
     stimrx_get_variable_expression__is_type: stimrx_get_variable_expression__is_type,
     
-    new_stimrx_get_variable_expression: new_stimrx_set_variable_expression,
-    stimrx_get_variable_expression__is_type: stimrx_set_variable_expression__is_type,
+    new_stimrx_set_variable_expression: new_stimrx_set_variable_expression,
+    stimrx_set_variable_expression__is_type: stimrx_set_variable_expression__is_type,
 };
