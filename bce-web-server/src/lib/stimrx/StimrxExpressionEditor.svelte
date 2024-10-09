@@ -61,18 +61,12 @@
         <tr>
 	    <td width="50px">
 	    </td>
-	    <td>
-	    </td>
+            {#each expression.children as child}
+	        <td>
+	            <StimrxExpressionEditor bind:expression={child}/>
+	        </td>
+    	    {/each}
 	</tr>
-        {#each expression.children as child}
-        <tr>
-	    <td>
-	    </td>
-	    <td>
-	        <StimrxExpressionEditor bind:expression={child}/>
-	    </td>
-	</tr>
-	{/each}
     </table>
     {:else if stimrx.stimrx_select_expression__is_type(expression)}
     <i>Select</i>
