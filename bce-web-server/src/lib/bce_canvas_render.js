@@ -1,6 +1,46 @@
 import { get } from 'svelte/store'
 import { user_color_theme } from './bce_stores.js'
 
+export const bce_canvas_render__draw_radial_eye = function(canvas, ctx) {
+    const color_theme = get(user_color_theme);
+    var color_background;
+    var color_axes;
+    if (color_theme == "dark") {
+        color_background = [0, 0, 0];
+        color_axes       = [63, 63, 63];
+    } else {
+        color_background = [255, 255, 255];
+        color_axes       = [191, 191, 191];
+    }
+    
+    //console.log("update_eye: beginning.  eye_index = " + eye_index);
+    
+    ctx.canvas.width  = 0.25 * window.innerWidth;
+    ctx.canvas.height = 0.25 * window.innerWidth;
+    
+    const center_x             = 0.5 * canvas.width;
+    const center_y             = 0.5 * canvas.height;
+    const maximum_alpha_radius = 0.5 * canvas.height - 1;
+    
+    const maximum_alpha = 45;
+    const alpha_resolution = 5;
+    
+    // background
+    ctx.fillStyle = "rgb(" + color_background[0] + "," + color_background[1] + "," + color_background[2] + ")";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    // axes
+    ctx.strokeStyle = "rgb(" + color_axes[0] + "," + color_axes[1] + "," + color_axes[2] + ")";
+    ctx.fillStyle   = "rgb(" + color_axes[0] + "," + color_axes[1] + "," + color_axes[2] + ")";
+    ctx.beginPath();
+    ctx.arc(center_x, center_y, 1, 0, 2 * Math.PI);
+    ctx.fill();
+    for (let alpha = alpha_resolution; alpha <= maximum_alpha; alpha += alpha_resolution) {
+        ctx.beginPath();
+        ctx.arc(center_x, center_y, maximum_alpha_radius * alpha / maximum_alpha, 0, 2 * Math.PI);
+        ctx.stroke();
+    }
+}
 
 export const bce_canvas_render__evaluation_eye = function(canvas, ctx, evaluation, eye_index) {
     const color_theme = get(user_color_theme);
@@ -24,9 +64,6 @@ export const bce_canvas_render__evaluation_eye = function(canvas, ctx, evaluatio
     var eye_total_response_count = 0;
     
     //console.log("update_eye: beginning.  eye_index = " + eye_index);
-    
-    ctx.canvas.width  = 0.25 * window.innerWidth;
-    ctx.canvas.height = 0.25 * window.innerWidth;
     
     const center_x             = 0.5 * canvas.width;
     const center_y             = 0.5 * canvas.height;

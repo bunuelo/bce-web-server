@@ -69,6 +69,10 @@
             left_eye_canvas_ctx  = left_eye_canvas.getContext("2d");
             right_eye_canvas_ctx = right_eye_canvas.getContext("2d");
         }
+	left_eye_canvas.width   = 0.25 * window.innerWidth;
+	left_eye_canvas.height  = 0.25 * window.innerWidth;
+	right_eye_canvas.width  = 0.25 * window.innerWidth;
+	right_eye_canvas.height = 0.25 * window.innerWidth;
         update_eye(left_eye_canvas, left_eye_canvas_ctx, 0)
         update_eye(right_eye_canvas, right_eye_canvas_ctx, 1)
     }

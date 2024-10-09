@@ -9,7 +9,7 @@
     import { user_color_theme } from '$lib/bce_stores.js'
     import { bce_lang } from '$lib/bce_locale.js'
     import { zero_pad, format_date, format_time_since_date, format_json_datetime, format_time_since_json_datetime } from '$lib/bce_time.js'
-    import { bce_canvas_render__evaluation_eye } from '$lib/bce_canvas_render.js';
+    import { bce_canvas_render__draw_radial_eye } from '$lib/bce_canvas_render.js';
     import BceSession from "$lib/bce_session.js";
     let bce_session = new BceSession();
     import AssetSelector from '$lib/AssetSelector.svelte'
@@ -45,31 +45,19 @@
     let right_eye_canvas;
     var right_eye_canvas_ctx = null;
 
-    let left_eye_total_stimulus_count = 0;
-    let left_eye_total_response_count = 0;
-    let right_eye_total_stimulus_count = 0;
-    let right_eye_total_response_count = 0;
-    
     let show_details = false;
-    
-    function update_eye(canvas, ctx, eye_index) {
-	let stats = bce_canvas_render__evaluation_eye(canvas, ctx, evaluation, eye_index);
-	if (eye_index == 0) {
-            left_eye_total_stimulus_count = stats["eye_total_stimulus_count"];
-            left_eye_total_response_count = stats["eye_total_response_count"];
-	} else {
-            right_eye_total_stimulus_count = stats["eye_total_stimulus_count"];
-            right_eye_total_response_count = stats["eye_total_response_count"];
-	}
-    }
     
     function update_eye_canvases() {
         if (left_eye_canvas_ctx == null) {
             left_eye_canvas_ctx  = left_eye_canvas.getContext("2d");
             right_eye_canvas_ctx = right_eye_canvas.getContext("2d");
         }
-        update_eye(left_eye_canvas, left_eye_canvas_ctx, 0)
-        update_eye(right_eye_canvas, right_eye_canvas_ctx, 1)
+	left_eye_canvas.width   = 0.25 * window.innerWidth;
+	left_eye_canvas.height  = 0.25 * window.innerWidth;
+	right_eye_canvas.width  = 0.25 * window.innerWidth;
+	right_eye_canvas.height = 0.25 * window.innerWidth;
+	bce_canvas_render__draw_radial_eye(left_eye_canvas, left_eye_canvas_ctx);
+	bce_canvas_render__draw_radial_eye(right_eye_canvas, right_eye_canvas_ctx);
     }
     
     async function on_asset_select(asset) {
@@ -136,10 +124,10 @@
     <table>
         <tr>
             <td>
-                {bce_lang($user_language, "page_rxs_label_left_eye")} ({left_eye_total_response_count} / {left_eye_total_stimulus_count})
+                {bce_lang($user_language, "page_rxs_label_left_eye")}
             </td>
             <td>
-                {bce_lang($user_language, "page_rxs_label_right_eye")} ({right_eye_total_response_count} / {right_eye_total_stimulus_count})
+                {bce_lang($user_language, "page_rxs_label_right_eye")}
             </td>
         </tr>
         <tr>
