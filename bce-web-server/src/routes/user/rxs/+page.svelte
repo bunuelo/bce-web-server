@@ -14,6 +14,7 @@
     import BceSession from "$lib/bce_session.js";
     let bce_session = new BceSession();
     import AssetSelector from '$lib/AssetSelector.svelte'
+    import StimrxExpressionEditor from '$lib/stimrx/StimrxExpressionEditor.svelte'
     
     let selected_asset = null;
     let minimize = true;
@@ -140,35 +141,14 @@
             </td>
         </tr>
     </table>
-    
+
+
+    <StimrxExpressionEditor bind:expression=rx />
+
 <!--
 a comment
 /!-->
 
-    <table>
-        <tr>
-            <td>
-                {#if show_details}
-                    <a href="#" on:click|preventDefault={on_click_hide_details}>
-                        {bce_lang($user_language, "page_rxs_label_hide_details")}
-                    </a>
-                {:else}
-                    <a href="#" on:click|preventDefault={on_click_show_details}>
-                        {bce_lang($user_language, "page_rxs_label_show_details")}
-                    </a>
-                {/if}
-            </td>
-        </tr>
-        {#if show_details}
-            <tr>
-                <td>
-                    <textarea rows="20" cols="50" >
-rx = {JSON.stringify(rx, null, 4)}
-                    </textarea>
-                </td>
-            </tr>
-        {/if}
-    </table>
 {/if}
 
 
