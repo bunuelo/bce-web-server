@@ -54,9 +54,13 @@
 	    <td>
 	      <i>Sequence</i>
 	    </td>
+	    <td>
+	    </td>
 	</tr>
         {#each expression.children as child}
         <tr>
+	    <td>
+	    </td>
 	    <td>
 	        <StimrxExpressionEditor bind:expression={child}/>
 	    </td>
@@ -69,9 +73,13 @@
 	    <td>
 	      <i>Select</i>
 	    </td>
+	    <td>
+	    </td>
 	</tr>
         {#each expression.children as child}
         <tr>
+	    <td>
+	    </td>
 	    <td>
 	        <StimrxExpressionEditor bind:expression={child}/>
 	    </td>
