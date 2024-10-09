@@ -19,7 +19,8 @@
     export let expression;
     
     let view_selected;
-    
+    let light_projection_canvas;
+
     onMount(async () => {
         if (! $user_session_is_valid) {
             $user_session_is_valid = await bce_session.session_is_valid()
