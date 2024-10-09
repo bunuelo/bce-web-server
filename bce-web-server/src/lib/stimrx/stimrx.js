@@ -85,6 +85,39 @@ function stimrx_light_angle__is_type(x) {
 // LightAngle END
 
 
+// LightTriangle BEGIN
+
+function new_stimrx_light_triangle(a, b, c) {
+    return {
+	"type": "LightTriangle",
+	"a": a,
+	"b": b,
+	"c": c
+    };
+}
+
+function stimrx_light_triangle__is_type(x) {
+    return x && typeof x === "object" && "type" in x && x.type === "LightTriangle";
+};
+
+// LightTriangle END
+
+
+// LightTriangleProjection BEGIN
+
+function new_stimrx_light_triangle_projection(from, to) {
+    return {
+	"type": "LightTriangleProjection",
+	"from": from,
+	"to": to
+    };
+}
+
+function stimrx_light_triangle_projection__is_type(x) {
+    return x && typeof x === "object" && "type" in x && x.type === "LightTriangleProjection";
+};
+
+// LightTriangleProjection END
 
 
 
@@ -103,4 +136,10 @@ export const stimrx = {
     
     new_stimrx_light_angle: new_stimrx_light_angle,
     stimrx_light_angle__is_type: stimrx_light_angle__is_type,
+    
+    new_stimrx_light_triangle: new_stimrx_light_triangle,
+    stimrx_light_triangle__is_type: stimrx_light_triangle__is_type,
+    
+    new_stimrx_light_triangle_projection: new_stimrx_light_triangle_projection,
+    stimrx_light_triangle_projection__is_type: stimrx_light_triangle_projection__is_type,
 };
