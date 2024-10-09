@@ -67,11 +67,11 @@
     {#if stimrx.stimrx_sequence_expression__is_type(expression)}
     <i>Sequence</i>
     <select bind:value={view_selected}>
-        <option value="minimal">
-	    {bce_lang($user_language, "component_stimrx_expression_editor_label_minimal")}
-	</option>
         <option value="expand">
 	    {bce_lang($user_language, "component_stimrx_expression_editor_label_expand")}
+	</option>
+        <option value="minimal">
+	    {bce_lang($user_language, "component_stimrx_expression_editor_label_minimal")}
 	</option>
         <option value="code">
 	    {bce_lang($user_language, "component_stimrx_expression_editor_label_code")}
@@ -93,11 +93,11 @@
     {:else if stimrx.stimrx_select_expression__is_type(expression)}
     <i>Select</i>
     <select bind:value={view_selected}>
-        <option value="minimal">
-	    {bce_lang($user_language, "component_stimrx_expression_editor_label_minimal")}
-	</option>
         <option value="expand">
 	    {bce_lang($user_language, "component_stimrx_expression_editor_label_expand")}
+	</option>
+        <option value="minimal">
+	    {bce_lang($user_language, "component_stimrx_expression_editor_label_minimal")}
 	</option>
         <option value="code">
 	    {bce_lang($user_language, "component_stimrx_expression_editor_label_code")}
