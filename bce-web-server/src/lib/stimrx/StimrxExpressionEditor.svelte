@@ -70,6 +70,13 @@
 	      <i>Select</i>
 	    </td>
 	</tr>
+        {#each expression.children as child}
+        <tr>
+	    <td>
+	        <StimrxExpression bind:expression={child}/>
+	    </td>
+	</tr>
+	{/each}
     </table>
     {:else}
     <table>

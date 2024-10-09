@@ -19,7 +19,14 @@
     let selected_asset = null;
     let minimize = true;
 
-    let rx = stimrx.new_stimrx_sequence_expression([]);
+        let rx = stimrx.new_stimrx_select_expression([
+	    stimrx.new_stimrx_sequence_expression([
+	    ]),
+	    stimrx.new_stimrx_sequence_expression([
+	    ]),
+	    stimrx.new_stimrx_sequence_expression([
+	    ])
+	]);
     
     async function fetch_rx(url) {
         return await fetch(url, {
