@@ -47,7 +47,14 @@
     
 </script>
 
-<div>
+<style>
+    div.stimrxExpression {
+        background-color: var(--surface1);
+        border: 2px solid var(--element2);
+    }
+</style>
+
+<div class="stimrxExpression">
     {#if stimrx.stimrx_sequence_expression__is_type(expression)}
     <table>
         <tr>
