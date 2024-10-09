@@ -121,6 +121,11 @@
     
 </script>
 
+<style>
+    div.floatLeftDiv {
+	float: left;
+    }
+</style>
 
 <svelte:head>
     <title>{bce_lang($user_language, "page_rxs_title")}</title>
@@ -152,8 +157,10 @@
         </tr>
     </table>
 
-    <StimrxExpressionEditor bind:expression={rx}/>
-
+    <div class="floatLeftDiv">
+        <StimrxExpressionEditor bind:expression={rx}/>
+    </div>
+    
 <!--
 a comment
 /!-->
