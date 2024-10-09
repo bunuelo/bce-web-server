@@ -61,7 +61,7 @@ function new_stimrx_set_variable_expression(location, frame, name, value) {
     };
 }
 
-function stimrx_get_variable_expression__is_type(expression) {
+function stimrx_set_variable_expression__is_type(expression) {
     return expression && typeof expression === "object" && "type" in expression && expression.type === "SetVariableExpression";
 };
 
