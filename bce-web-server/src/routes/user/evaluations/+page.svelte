@@ -222,7 +222,7 @@
 
     <h1>{bce_lang($user_language, "page_evaluations_title")}</h1>
     
-    <i>Evaluation:</i>
+    <i>{bce_lang($user_language, "page_evaluations_label_evaluation")}:</i>
     <AssetSelector bind:minimize={minimize} bind:selected_asset={selected_asset} on_asset_select={on_asset_select} />
     
     <table>
