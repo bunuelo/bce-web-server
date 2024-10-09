@@ -147,6 +147,39 @@
 	    </td>
 	</tr>
     </table>
+    {:else if stimrx.stimrx_set_variable_expression__is_type(expression)}
+    <i>Set Variable</i>
+    <select bind:value={view_selected}>
+        <option value="expand">
+	    {bce_lang($user_language, "component_stimrx_expression_editor_label_expand")}
+	</option>
+        <option value="minimal">
+	    {bce_lang($user_language, "component_stimrx_expression_editor_label_minimal")}
+	</option>
+        <option value="code">
+	    {bce_lang($user_language, "component_stimrx_expression_editor_label_code")}
+	</option>
+    </select>
+    <table>
+        <tr>
+	    <td width="50px">
+	    </td>
+	    <td>
+	    </td>
+	</tr>
+        <tr>
+	    <td>
+	    </td>
+	    <td>
+	        <tt>{expression.name}</tt>
+	    </td>
+	    {#if view_selected === "expand"}
+	        <td>
+	            <StimrxExpressionEditor bind:expression={expression.value}/>
+	        </td>
+	    {/if}
+	</tr>
+    </table>
     {:else if Number.isFinite(expression)}
     <i>Number</i>
     <select bind:value={view_selected}>
