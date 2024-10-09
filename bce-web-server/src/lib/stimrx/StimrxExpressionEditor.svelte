@@ -55,6 +55,13 @@
 	      <i>Sequence</i>
 	    </td>
 	</tr>
+        {#each expression.children as child}
+        <tr>
+	    <td>
+	        <StimrxExpression bind:expression={child}/>
+	    </td>
+	</tr>
+	{/each}
     </table>
     {:else if stimrx.stimrx_select_expression__is_type(expression)}
     <table>
