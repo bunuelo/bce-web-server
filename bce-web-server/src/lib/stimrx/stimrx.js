@@ -68,6 +68,23 @@ function stimrx_set_variable_expression__is_type(expression) {
 // SetVariableExpression END
 
 
+// LightAngle BEGIN
+
+function new_stimrx_light_angle(alpha, omega) {
+    return {
+	"type": "LightAngle",
+	"alpha": alpha,
+	"omega": omega
+    };
+}
+
+function stimrx_light_angle__is_type(x) {
+    return x && typeof x === "object" && "type" in x && x.type === "LightAngle";
+};
+
+// LightAngle END
+
+
 
 
 
@@ -83,4 +100,7 @@ export const stimrx = {
     
     new_stimrx_set_variable_expression: new_stimrx_set_variable_expression,
     stimrx_set_variable_expression__is_type: stimrx_set_variable_expression__is_type,
+    
+    new_stimrx_light_angle: new_stimrx_light_angle,
+    stimrx_light_angle__is_type: stimrx_light_angle__is_type,
 };
