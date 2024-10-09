@@ -67,16 +67,18 @@
 <div class="stimrxExpression">
     {#if stimrx.stimrx_sequence_expression__is_type(expression)}
     <i>Sequence</i>
-    {#if show_details}
-        <a href="#" on:click|preventDefault={on_click_hide_details}>
-            {bce_lang($user_language, "page_rxs_label_hide_details")}
-        </a>
-    {:else}
-        <a href="#" on:click|preventDefault={on_click_show_details}>
-            {bce_lang($user_language, "page_rxs_label_show_details")}
-        </a>
-    {/if}
-    {#if show_details}
+    <select bind:value={view_selected}>
+        <option value="minimal">
+	    {bce_lang($user_language, "component_stimrx_expression_editor_label_minimal")}
+	</option>
+        <option value="expand">
+	    {bce_lang($user_language, "component_stimrx_expression_editor_label_expand")}
+	</option>
+        <option value="code">
+	    {bce_lang($user_language, "component_stimrx_expression_editor_label_code")}
+	</option>
+    </select>
+    {#if view_selected === "expand"}
         <table>
             <tr>
 	        <td width="50px">
