@@ -35,6 +35,10 @@
     });
 
     async function update_all() {
+	if (light_projection_canvas != null) {
+	    light_projection_canvas.width = 100;
+	    light_projection_canvas.height = 100;
+	}
     }
 
     async function on_click_hide_details() {
@@ -194,6 +198,7 @@
 	        {bce_lang($user_language, "component_stimrx_expression_editor_label_code")}
 	    </option>
         </select>
+        <canvas bind:this={light_projection_canvas}></canvas>
     {:else if Number.isFinite(expression)}
     <i>Number</i>
     <select bind:value={view_selected}>
