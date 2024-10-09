@@ -19,19 +19,9 @@
     let selected_asset = null;
     let minimize = true;
 
-        let rx = stimrx.new_stimrx_select_expression([
-	    stimrx.new_stimrx_sequence_expression([
-	        stimrx.new_stimrx_get_variable_expression(null, null, "initialized"),
-	        100
-            ]),
-	    stimrx.new_stimrx_sequence_expression([
-	        stimrx.new_stimrx_get_variable_expression(null, null, "battery_low"),
-  	        stimrx.new_stimrx_sequence_expression([
-	            stimrx.new_stimrx_set_variable_expression(null, null, "battery_low", 1),
-	            10
-	        ]),
-	    ]),
-	    0
+        let rx = stimrx.new_stimrx_sequence_expression([
+            stimrx.new_stimrx_set_variable_expression(null, null, "left_eye_lens",  1),
+            stimrx.new_stimrx_set_variable_expression(null, null, "right_eye_lens", 1),
 	]);
     
     async function fetch_rx(url) {
