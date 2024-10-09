@@ -37,8 +37,8 @@
 
     async function update_all() {
 	if (light_projection_canvas != null) {
-	    light_projection_canvas.width = 100;
-	    light_projection_canvas.height = 100;
+	    light_projection_canvas.width = 0.25 * window.innerWidth;
+	    light_projection_canvas.height = 0.25 * window.innerWidth;
 	}
     }
 
