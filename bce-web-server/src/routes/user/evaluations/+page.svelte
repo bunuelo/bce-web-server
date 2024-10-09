@@ -11,8 +11,9 @@
     import { zero_pad, format_date, format_time_since_date, format_json_datetime, format_time_since_json_datetime } from '$lib/bce_time.js'
     import BceSession from "$lib/bce_session.js";
     let bce_session = new BceSession();
-    import AssetSelector from '$lib/AssetSelector.svelte'
-    
+    import AssetSelector from '$lib/AssetSelector.svelte';
+    import bce_canvas_render__evaluation_eye from '$lib/bce_canvas_render.js';
+
     let selected_asset = null;
     let minimize = true;
 
@@ -59,87 +60,11 @@
     let show_details = false;
     
     function update_eye(canvas, ctx, eye_index) {
-        //console.log("update_eye: beginning.  eye_index = " + eye_index);
-	
-	ctx.canvas.width  = 0.25 * window.innerWidth;
-	ctx.canvas.height = 0.25 * window.innerWidth;
-	
-        eye_total_stimulus_count[eye_index] = 0;
-        eye_total_response_count[eye_index] = 0;
-      
-        const center_x             = 0.5 * canvas.width;
-        const center_y             = 0.5 * canvas.height;
-        const maximum_alpha_radius = 0.5 * canvas.height - 1;
-        
-        const maximum_alpha = 45;
-        const alpha_resolution = 5;
-
-        // background
-        ctx.fillStyle = "rgb(" + color_background[0] + "," + color_background[1] + "," + color_background[2] + ")";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        
-        // axes
-        ctx.strokeStyle = "rgb(" + color_axes[0] + "," + color_axes[1] + "," + color_axes[2] + ")";
-        ctx.fillStyle   = "rgb(" + color_axes[0] + "," + color_axes[1] + "," + color_axes[2] + ")";
-        ctx.beginPath();
-        ctx.arc(center_x, center_y, 1, 0, 2 * Math.PI);
-        ctx.fill();
-        for (let alpha = alpha_resolution; alpha <= maximum_alpha; alpha += alpha_resolution) {
-            ctx.beginPath();
-            ctx.arc(center_x, center_y, maximum_alpha_radius * alpha / maximum_alpha, 0, 2 * Math.PI);
-            ctx.stroke();
-        }
-        
-        // can/cannot see stimilus responses
-        if (evaluation != null) {
-            for (var response_i = 0; response_i < evaluation.responses.length; response_i ++) {
-                const response = evaluation.responses[response_i];
-                if (response.stimulus.eye == eye_index) {
-                    eye_total_stimulus_count[eye_index] ++;
-                    const response_alpha           = response.stimulus.direction.alpha * 180.0 / Math.PI;
-                    const response_omega           = response.stimulus.direction.omega * 180.0 / Math.PI;
-                    const response_radius          = 0.5 * response.stimulus.diameter * 180.0 / Math.PI;
-                    const response_radial_distance = maximum_alpha_radius * response_alpha / maximum_alpha;
-                    if (response.canSee == null) {
-                        ctx.fillStyle   = "rgb(" + color_cannot_see[0] + "," + color_cannot_see[1] + "," + color_cannot_see[2] + ")";
-                        ctx.strokeStyle = "rgb(" + color_cannot_see[0] + "," + color_cannot_see[1] + "," + color_cannot_see[2] + ")";
-                        ctx.beginPath();
-                        ctx.arc(center_x + response_radial_distance * Math.cos(response.stimulus.direction.omega),
-                                center_y + response_radial_distance * Math.sin(response.stimulus.direction.omega),
-                                maximum_alpha_radius * response_radius / maximum_alpha, 0, 2 * Math.PI);
-                        ctx.fill();
-                        ctx.stroke();
-                    } else {
-                        eye_total_response_count[eye_index] ++;
-                        //console.log("response_alpha = " + response_alpha + ", response_omega = " + response_omega + ", response_radius = " + response_radius);
-                        if (response.canSee) {
-                            ctx.fillStyle   = "rgb(" + color_can_see[0] + "," + color_can_see[1] + "," + color_can_see[2] + ")";
-                            ctx.strokeStyle = "rgb(" + color_can_see[0] + "," + color_can_see[1] + "," + color_can_see[2] + ")";
-                            ctx.beginPath();
-                            ctx.arc(center_x + response_radial_distance * Math.cos(response.stimulus.direction.omega),
-                                    center_y + response_radial_distance * Math.sin(response.stimulus.direction.omega),
-                                    maximum_alpha_radius * response_radius / maximum_alpha, 0, 2 * Math.PI);
-                            ctx.fill();
-                            ctx.stroke();
-                        } else {
-                            ctx.fillStyle = "rgb(" + color_cannot_see[0] + "," + color_cannot_see[1] + "," + color_cannot_see[2] + ")";
-                            ctx.strokeStyle = "rgb(" + color_can_see[0] + "," + color_can_see[1] + "," + color_can_see[2] + ")";
-                            ctx.beginPath();
-                            ctx.arc(center_x + response_radial_distance * Math.cos(response.stimulus.direction.omega),
-                                    center_y + response_radial_distance * Math.sin(response.stimulus.direction.omega),
-                                    maximum_alpha_radius * response_radius / maximum_alpha, 0, 2 * Math.PI);
-                            ctx.fill();
-                            ctx.stroke();
-                        }
-                    }
-                }
-            }
-        }
-        
-        left_eye_total_stimulus_count = eye_total_stimulus_count[0];
-        left_eye_total_response_count = eye_total_response_count[0];
-        right_eye_total_stimulus_count = eye_total_stimulus_count[1];
-        right_eye_total_response_count = eye_total_response_count[1];
+	let stats = bce_canvas_render__evaluation_eye(canvas, ctx, evaluation, eye_index);
+        left_eye_total_stimulus_count = stats["eye_total_stimulus_count"][0];
+        left_eye_total_response_count = stats["eye_total_response_count"][0];
+        right_eye_total_stimulus_count = stats["eye_total_stimulus_count"][1];
+        right_eye_total_response_count = stats["eye_total_response_count"][1];
         //console.log("update_eye: success!  eye_index = " + eye_index);
     }
     
@@ -147,18 +72,6 @@
         if (left_eye_canvas_ctx == null) {
             left_eye_canvas_ctx  = left_eye_canvas.getContext("2d");
             right_eye_canvas_ctx = right_eye_canvas.getContext("2d");
-        }
-        const color_theme = $user_color_theme;
-        if (color_theme == "dark") {
-            color_background = [0, 0, 0];
-            color_axes       = [63, 63, 63];
-            color_can_see    = [191, 191, 191];
-            color_cannot_see = [31, 31, 31];
-        } else {
-            color_background = [255, 255, 255];
-            color_axes       = [191, 191, 191];
-            color_can_see    = [63, 63, 63];
-            color_cannot_see = [223, 223, 223];
         }
         update_eye(left_eye_canvas, left_eye_canvas_ctx, 0)
         update_eye(right_eye_canvas, right_eye_canvas_ctx, 1)
