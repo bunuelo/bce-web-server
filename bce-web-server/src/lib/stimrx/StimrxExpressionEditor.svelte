@@ -67,36 +67,58 @@
 <div class="stimrxExpression">
     {#if stimrx.stimrx_sequence_expression__is_type(expression)}
     <i>Sequence</i>
-    <table>
-        <tr>
-	    <td width="50px">
-	    </td>
-            {#each expression.children as child}
-	        <td>
-	            <StimrxExpressionEditor bind:expression={child}/>
+    {#if show_details}
+        <a href="#" on:click|preventDefault={on_click_hide_details}>
+            {bce_lang($user_language, "page_rxs_label_hide_details")}
+        </a>
+    {:else}
+        <a href="#" on:click|preventDefault={on_click_show_details}>
+            {bce_lang($user_language, "page_rxs_label_show_details")}
+        </a>
+    {/if}
+    {#if show_details}
+        <table>
+            <tr>
+	        <td width="50px">
 	        </td>
-    	    {/each}
-	</tr>
-    </table>
+                {#each expression.children as child}
+	            <td>
+	                <StimrxExpressionEditor bind:expression={child}/>
+	            </td>
+    	        {/each}
+	    </tr>
+        </table>
+    {/if}
     {:else if stimrx.stimrx_select_expression__is_type(expression)}
     <i>Select</i>
-    <table>
-        <tr>
-	    <td width="50px">
-	    </td>
-	    <td>
-	    </td>
-	</tr>
-        {#each expression.children as child}
-        <tr>
-	    <td>
-	    </td>
-	    <td>
-	        <StimrxExpressionEditor bind:expression={child}/>
-	    </td>
-	</tr>
-	{/each}
-    </table>
+    {#if show_details}
+        <a href="#" on:click|preventDefault={on_click_hide_details}>
+            {bce_lang($user_language, "page_rxs_label_hide_details")}
+        </a>
+    {:else}
+        <a href="#" on:click|preventDefault={on_click_show_details}>
+            {bce_lang($user_language, "page_rxs_label_show_details")}
+        </a>
+    {/if}
+    {#if show_details}
+        <table>
+            <tr>
+	        <td width="50px">
+	        </td>
+	        <td>
+	        </td>
+	    </tr>
+            {#each expression.children as child}
+                <tr>
+	            <td>
+	            </td>
+	            <td>
+	                <StimrxExpressionEditor bind:expression={child}/>
+	            </td>
+	        </tr>
+	    {/each}
+        </table>
+    {/if}
     {:else if stimrx.stimrx_get_variable_expression__is_type(expression)}
     <i>Get Variable</i>
     <table>
@@ -147,7 +169,7 @@
                     <a href="#" on:click|preventDefault={on_click_hide_more_details}>
                         {bce_lang($user_language, "page_rxs_label_hide_more_details")}
                     </a>
-            {:else}
+                {:else}
                      <a href="#" on:click|preventDefault={on_click_show_more_details}>
                          {bce_lang($user_language, "page_rxs_label_show_more_details")}
                      </a>
