@@ -9,7 +9,7 @@ function new_stimrx_sequence_expression(children) {
 }
 
 function stimrx_sequence_expression__is_type(expression) {
-    return expression && "type" in expression && expression.type === "SequenceExpression";
+    return expression && typeof expression === "object" && "type" in expression && expression.type === "SequenceExpression";
 };
 
 // SequenceExpression END
@@ -25,7 +25,7 @@ function new_stimrx_select_expression(children) {
 }
 
 function stimrx_select_expression__is_type(expression) {
-    return expression && "type" in expression && expression.type === "SelectExpression";
+    return expression && typeof expression === "object" && "type" in expression && expression.type === "SelectExpression";
 };
 
 // SelectExpression END
@@ -43,7 +43,7 @@ function new_stimrx_get_variable_expression(location, frame, name) {
 }
 
 function stimrx_get_variable_expression__is_type(expression) {
-    return expression && "type" in expression && expression.type === "GetVariableExpression";
+    return expression && typeof expression === "object" && "type" in expression && expression.type === "GetVariableExpression";
 };
 
 // GetVariableExpression END
