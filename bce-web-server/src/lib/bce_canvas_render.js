@@ -20,8 +20,8 @@ export const bce_canvas_render__evaluation_eye = function(canvas, ctx, evaluatio
         color_cannot_see = [223, 223, 223];
     }
     
-    var eye_total_stimulus_count = [0, 0];
-    var eye_total_response_count = [0, 0];
+    var eye_total_stimulus_count = 0;
+    var eye_total_response_count = 0;
     
     //console.log("update_eye: beginning.  eye_index = " + eye_index);
     
@@ -59,7 +59,7 @@ export const bce_canvas_render__evaluation_eye = function(canvas, ctx, evaluatio
         for (var response_i = 0; response_i < evaluation.responses.length; response_i ++) {
             const response = evaluation.responses[response_i];
             if (response.stimulus.eye == eye_index) {
-                eye_total_stimulus_count[eye_index] ++;
+                eye_total_stimulus_count ++;
                 const response_alpha           = response.stimulus.direction.alpha * 180.0 / Math.PI;
                 const response_omega           = response.stimulus.direction.omega * 180.0 / Math.PI;
                 const response_radius          = 0.5 * response.stimulus.diameter * 180.0 / Math.PI;
@@ -74,7 +74,7 @@ export const bce_canvas_render__evaluation_eye = function(canvas, ctx, evaluatio
                     ctx.fill();
                     ctx.stroke();
                 } else {
-                    eye_total_response_count[eye_index] ++;
+                    eye_total_response_count ++;
                     //console.log("response_alpha = " + response_alpha + ", response_omega = " + response_omega + ", response_radius = " + response_radius);
                     if (response.canSee) {
                         ctx.fillStyle   = "rgb(" + color_can_see[0] + "," + color_can_see[1] + "," + color_can_see[2] + ")";

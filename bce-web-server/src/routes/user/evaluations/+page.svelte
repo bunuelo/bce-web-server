@@ -45,13 +45,6 @@
     let right_eye_canvas;
     var right_eye_canvas_ctx = null;
 
-    var color_background = [0, 0, 0];
-    var color_axes       = [63, 63, 63];
-    var color_can_see    = [191, 191, 191];
-    var color_cannot_see = [31, 31, 31];
-
-    let eye_total_stimulus_count = [0, 0];
-    let eye_total_response_count = [0, 0];
     let left_eye_total_stimulus_count = 0;
     let left_eye_total_response_count = 0;
     let right_eye_total_stimulus_count = 0;
@@ -61,10 +54,13 @@
     
     function update_eye(canvas, ctx, eye_index) {
 	let stats = bce_canvas_render__evaluation_eye(canvas, ctx, evaluation, eye_index);
-        left_eye_total_stimulus_count = stats["eye_total_stimulus_count"][0];
-        left_eye_total_response_count = stats["eye_total_response_count"][0];
-        right_eye_total_stimulus_count = stats["eye_total_stimulus_count"][1];
-        right_eye_total_response_count = stats["eye_total_response_count"][1];
+	if (eye_index == 0) {
+            left_eye_total_stimulus_count = stats["eye_total_stimulus_count"];
+            left_eye_total_response_count = stats["eye_total_response_count"];
+	} else {
+            right_eye_total_stimulus_count = stats["eye_total_stimulus_count"];
+            right_eye_total_response_count = stats["eye_total_response_count"];
+	}
         //console.log("update_eye: success!  eye_index = " + eye_index);
     }
     
