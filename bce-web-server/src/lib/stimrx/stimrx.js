@@ -53,7 +53,7 @@ function stimrx_get_variable_expression__is_type(expression) {
 
 function new_stimrx_set_variable_expression(location, frame, name, value) {
     return {
-	"type": "GetVariableExpression",
+	"type": "SetVariableExpression",
 	"location": location,
 	"frame": frame,
 	"name": name,
