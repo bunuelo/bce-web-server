@@ -20,8 +20,8 @@
     let minimize = true;
 
         let rx = stimrx.new_stimrx_sequence_expression([
-            stimrx.new_stimrx_set_variable_expression(null, null, "left_eye_lens",  1),
-            stimrx.new_stimrx_set_variable_expression(null, null, "right_eye_lens", 1),
+            stimrx.new_stimrx_set_variable_expression(null, null, "left_eye_lens",  stimrx.new_stimrx_light_projection([])),
+            stimrx.new_stimrx_set_variable_expression(null, null, "right_eye_lens", stimrx.new_stimrx_light_projection([])),
 	]);
     
     async function fetch_rx(url) {

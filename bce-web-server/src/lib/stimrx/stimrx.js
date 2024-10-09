@@ -120,6 +120,22 @@ function stimrx_light_triangle_projection__is_type(x) {
 // LightTriangleProjection END
 
 
+// LightProjection BEGIN
+
+function new_stimrx_light_projection(triangles) {
+    return {
+	"type": "LightProjection",
+	"triangles": triangles
+    };
+}
+
+function stimrx_light_projection__is_type(x) {
+    return x && typeof x === "object" && "type" in x && x.type === "LightProjection";
+};
+
+// LightProjection END
+
+
 
 export const stimrx = {
     new_stimrx_sequence_expression: new_stimrx_sequence_expression,
@@ -142,4 +158,7 @@ export const stimrx = {
     
     new_stimrx_light_triangle_projection: new_stimrx_light_triangle_projection,
     stimrx_light_triangle_projection__is_type: stimrx_light_triangle_projection__is_type,
+    
+    new_stimrx_light_projection: new_stimrx_light_projection,
+    stimrx_light_projection__is_type: stimrx_light_projection__is_type,
 };
