@@ -49,6 +49,28 @@ function stimrx_get_variable_expression__is_type(expression) {
 // GetVariableExpression END
 
 
+// SetVariableExpression BEGIN
+
+function new_stimrx_set_variable_expression(location, frame, name, value) {
+    return {
+	"type": "GetVariableExpression",
+	"location": location,
+	"frame": frame,
+	"name": name,
+	"value": value
+    };
+}
+
+function stimrx_get_variable_expression__is_type(expression) {
+    return expression && typeof expression === "object" && "type" in expression && expression.type === "SetVariableExpression";
+};
+
+// SetVariableExpression END
+
+
+
+
+
 export const stimrx = {
     new_stimrx_sequence_expression: new_stimrx_sequence_expression,
     stimrx_sequence_expression__is_type: stimrx_sequence_expression__is_type,
@@ -58,4 +80,7 @@ export const stimrx = {
     
     new_stimrx_get_variable_expression: new_stimrx_get_variable_expression,
     stimrx_get_variable_expression__is_type: stimrx_get_variable_expression__is_type,
+    
+    new_stimrx_get_variable_expression: new_stimrx_set_variable_expression,
+    stimrx_get_variable_expression__is_type: stimrx_set_variable_expression__is_type,
 };

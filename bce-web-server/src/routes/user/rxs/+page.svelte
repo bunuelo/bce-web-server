@@ -26,7 +26,10 @@
             ]),
 	    stimrx.new_stimrx_sequence_expression([
 	        stimrx.new_stimrx_get_variable_expression(null, null, "battery_low"),
-	        10
+  	        stimrx.new_stimrx_sequence_expression([
+	            stimrx.new_stimrx_set_variable_expression(null, null, "battery_low", 1),
+	            10
+	        ]),
 	    ]),
 	    0
 	]);
