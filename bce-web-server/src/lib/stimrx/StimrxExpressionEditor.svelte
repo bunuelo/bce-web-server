@@ -162,28 +162,30 @@
 	</tr>
     </table>
     {/if}
-    <table>
-        <tr>
-            <td>
-                {#if show_more_details}
-                    <a href="#" on:click|preventDefault={on_click_hide_more_details}>
-                        {bce_lang($user_language, "page_rxs_label_hide_more_details")}
-                    </a>
-                {:else}
-                     <a href="#" on:click|preventDefault={on_click_show_more_details}>
-                         {bce_lang($user_language, "page_rxs_label_show_more_details")}
-                     </a>
-                 {/if}
-             </td>
-         </tr>
-         {#if show_more_details}
-             <tr>
-                 <td>
-                     <textarea rows="20" cols="50" >
+    {#if show_details}
+        <table>
+            <tr>
+                <td>
+                    {#if show_more_details}
+                        <a href="#" on:click|preventDefault={on_click_hide_more_details}>
+                            {bce_lang($user_language, "page_rxs_label_hide_more_details")}
+                        </a>
+                    {:else}
+                        <a href="#" on:click|preventDefault={on_click_show_more_details}>
+                            {bce_lang($user_language, "page_rxs_label_show_more_details")}
+                        </a>
+                    {/if}
+                </td>
+            </tr>
+            {#if show_more_details}
+                <tr>
+                    <td>
+                        <textarea rows="20" cols="50" >
 {JSON.stringify(expression, null, 4)}
-                     </textarea>
-                 </td>
-             </tr>
-         {/if}
-     </table>
+                        </textarea>
+                    </td>
+                </tr>
+            {/if}
+        </table>
+    {/if}
 </div>
