@@ -181,6 +181,19 @@
 	    {/if}
 	</tr>
     </table>
+    {:else if stimrx.stimrx_light_projection__is_type(expression)}
+        <i>Light Projection</i>
+        <select bind:value={view_selected}>
+            <option value="expand">
+	        {bce_lang($user_language, "component_stimrx_expression_editor_label_expand")}
+	    </option>
+            <option value="minimal">
+	        {bce_lang($user_language, "component_stimrx_expression_editor_label_minimal")}
+	    </option>
+            <option value="code">
+	        {bce_lang($user_language, "component_stimrx_expression_editor_label_code")}
+	    </option>
+        </select>
     {:else if Number.isFinite(expression)}
     <i>Number</i>
     <select bind:value={view_selected}>
