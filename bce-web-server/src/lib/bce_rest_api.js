@@ -32,18 +32,27 @@ export default class BceRestApi {
     
     async root() {
         const response_json = await this.fetch_json("/", "GET", {});
+	if (response_json == null) {
+	    return null;
+	}
 	this.message = response_json.message;
 	return response_json;
     }
     
     async generate(ipd) {
         const response_json = await this.fetch_json("/generate?" + new URLSearchParams({ipd: ipd}), "GET", {});
+	if (response_json == null) {
+	    return null;
+	}
 	this.message = response_json.message;
 	return response_json.model_url;
     }
     
     async options() {
         const response_json = await this.fetch_json("/options", "GET", {});
+	if (response_json == null) {
+	    return null;
+	}
 	this.message = response_json.message;
 	return response_json.options;
     }
@@ -53,6 +62,9 @@ export default class BceRestApi {
 	    email: email,
 	    password: password
 	});
+	if (response_json == null) {
+	    return null;
+	}
 	this.message = response_json.message;
 	return response_json.success;
     }
@@ -62,6 +74,9 @@ export default class BceRestApi {
 	    email: email,
 	    password: password
 	});
+	if (response_json == null) {
+	    return null;
+	}
 	this.message = response_json.message;
 	return response_json.session_token;
     }
@@ -70,6 +85,9 @@ export default class BceRestApi {
 	const response_json = await this.fetch_json("/session/valid", "POST", {
 	    session_token: session_token
 	});
+	if (response_json == null) {
+	    return null;
+	}
 	this.message = response_json.message;
 	return response_json.session_token_is_valid;
     }
@@ -78,6 +96,9 @@ export default class BceRestApi {
         const response_json = await this.fetch_json("/session/security_level", "POST", {
 	    session_token: session_token
 	});
+	if (response_json == null) {
+	    return null;
+	}
 	this.message = response_json.message;
 	return response_json.security_level;
     }
@@ -86,6 +107,9 @@ export default class BceRestApi {
 	const response_json = await this.fetch_json("/session/color_theme", "POST", {
   	    session_token: session_token
 	});
+	if (response_json == null) {
+	    return null;
+	}
 	this.message = response_json.message;
 	return response_json.color_theme;
     }
@@ -94,6 +118,9 @@ export default class BceRestApi {
 	const response_json = await this.fetch_json("/session/language", "POST", {
   	    session_token: session_token
 	});
+	if (response_json == null) {
+	    return null;
+	}
 	this.message = response_json.message;
 	return response_json.language;
     }
@@ -117,6 +144,9 @@ export default class BceRestApi {
             body["language"] = language;
         }
 	const response_json = await this.fetch_json("/session/update", "POST", body);
+	if (response_json == null) {
+	    return null;
+	}
 	this.message = response_json.message;
 	return response_json.success;
     }
@@ -126,6 +156,9 @@ export default class BceRestApi {
   	    session_token: session_token,
             display_name: display_name
 	});
+	if (response_json == null) {
+	    return null;
+	}
 	this.message = response_json.message;
 	return response_json.success;
     }
@@ -135,6 +168,9 @@ export default class BceRestApi {
  	    session_token: session_token,
             acl_id: acl_id
 	});
+	if (response_json == null) {
+	    return null;
+	}
 	this.message = response_json.message;
 	return response_json.success;
     }
@@ -155,6 +191,9 @@ export default class BceRestApi {
         }
         console.log("acl_update: body = " + JSON.stringify(body));
         const response_json = await this.fetch_json("/acl/update", "POST", body);
+	if (response_json == null) {
+	    return null;
+	}
 	this.message = response_json.message;
 	return response_json.success;
     }
@@ -167,6 +206,9 @@ export default class BceRestApi {
             body["writable"] = writable;
         }
         const response_json = await this.fetch_json("/acl/list", "POST", body);
+	if (response_json == null) {
+	    return null;
+	}
 	this.message = response_json.message;
 	return response_json.acls;
     }
@@ -175,6 +217,9 @@ export default class BceRestApi {
 	const response_json = await this.fetch_json("/product/list", "POST", {
 	    session_token: session_token
 	});
+	if (response_json == null) {
+	    return null;
+	}
 	this.message = response_json.message;
 	return response_json.products;
     }
@@ -188,6 +233,9 @@ export default class BceRestApi {
             quantity: quantity,
             sale_price: sale_price
 	});
+	if (response_json == null) {
+	    return null;
+	}
 	this.message = response_json.message;
 	return response_json.success;
     }
@@ -197,6 +245,9 @@ export default class BceRestApi {
   	    session_token: session_token,
             product_id: product_id
 	});
+	if (response_json == null) {
+	    return null;
+	}
 	this.message = response_json.message;
 	return response_json.success;
     }
@@ -205,6 +256,9 @@ export default class BceRestApi {
 	const response_json = await this.fetch_json("/product/ingest", "POST", {
   	    session_token: session_token
 	});
+	if (response_json == null) {
+	    return null;
+	}
 	this.message = response_json.message;
 	return response_json.success;
     }
@@ -218,6 +272,9 @@ export default class BceRestApi {
             method: 'POST',
             body: data
         });
+	if (response_json == null) {
+	    return null;
+	}
 	this.message = response_json.message;
 	return response_json.success;
     }
@@ -230,6 +287,9 @@ export default class BceRestApi {
             body["acl_id"] = acl_id;
         }
         const response_json = await this.fetch_json("/asset/count", "POST", body);
+	if (response_json == null) {
+	    return null;
+	}
 	this.message = response_json.message;
 	return response_json.count;
     }
@@ -248,6 +308,9 @@ export default class BceRestApi {
             body["page_size"] = page_size;
         }
         const response_json = await this.fetch_json("/asset/list", "POST", body);
+	if (response_json == null) {
+	    return null;
+	}
 	this.message = response_json.message;
 	return response_json.assets;
     }
@@ -257,6 +320,9 @@ export default class BceRestApi {
 	    session_token: session_token,
             user_email: user_email
 	});
+	if (response_json == null) {
+	    return null;
+	}
         this.message = response_json.message;
 	return response_json.success;
     }
@@ -265,6 +331,9 @@ export default class BceRestApi {
 	const response_json = await this.fetch_json("/chat/request/list", "POST", {
   	    session_token: session_token,
 	});
+	if (response_json == null) {
+	    return null;
+	}
         this.message = response_json.message;
 	return response_json.chat_requests;
     }
@@ -275,6 +344,9 @@ export default class BceRestApi {
             email: email,
             accept: accept
 	});
+	if (response_json == null) {
+	    return null;
+	}
         this.message = response_json.message;
 	return response_json.success;
     }
@@ -283,6 +355,9 @@ export default class BceRestApi {
 	const response_json = await this.fetch_json("/chat/user/list", "POST", {
     	    session_token: session_token,
 	});
+	if (response_json == null) {
+	    return null;
+	}
         this.message = response_json.message;
 	return response_json.chat_users;
     }
@@ -293,6 +368,9 @@ export default class BceRestApi {
             recipients: recipients,
             text: text
 	});
+	if (response_json == null) {
+	    return null;
+	}
         this.message = response_json.message;
 	return response_json.success;
     }
@@ -301,6 +379,9 @@ export default class BceRestApi {
 	const response_json = await this.fetch_json("/chat/list", "POST", {
     	    session_token: session_token,
 	});
+	if (response_json == null) {
+	    return null;
+	}
         this.message = response_json.message;
 	return response_json.chats;
     }
@@ -309,6 +390,9 @@ export default class BceRestApi {
         const response_json = await this.fetch_json("/device/list", "POST", {
     	    session_token: session_token,
 	});
+	if (response_json == null) {
+	    return null;
+	}
 	this.message = response_json.message;
 	return response_json.devices;
     }
@@ -322,6 +406,9 @@ export default class BceRestApi {
             body["acl_id"] = "" + acl_id
         }
         const response_json = await this.fetch_json("/device/update", "POST", body);
+	if (response_json == null) {
+	    return null;
+	}
         this.message = response_json.message;
 	return response_json.success;
     }
