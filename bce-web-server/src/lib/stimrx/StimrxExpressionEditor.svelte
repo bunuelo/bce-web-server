@@ -14,6 +14,7 @@
     import BceSession from "$lib/bce_session.js";
     let bce_session = new BceSession();
     import AssetSelector from '$lib/AssetSelector.svelte'
+    import StimrxExpressionEditor from '$lib/stimrx/StimrxExpressionEditor.svelte'
     
     export let expression;
     
@@ -58,7 +59,7 @@
         {#each expression.children as child}
         <tr>
 	    <td>
-	        <StimrxExpression bind:expression={child}/>
+	        <StimrxExpressionEditor bind:expression={child}/>
 	    </td>
 	</tr>
 	{/each}
@@ -73,7 +74,7 @@
         {#each expression.children as child}
         <tr>
 	    <td>
-	        <StimrxExpression bind:expression={child}/>
+	        <StimrxExpressionEditor bind:expression={child}/>
 	    </td>
 	</tr>
 	{/each}
