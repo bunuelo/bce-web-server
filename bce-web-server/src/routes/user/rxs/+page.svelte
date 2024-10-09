@@ -122,9 +122,6 @@
 </script>
 
 <style>
-    div.floatLeftDiv {
-	float: left;
-    }
 </style>
 
 <svelte:head>
@@ -157,9 +154,7 @@
         </tr>
     </table>
 
-    <div class="floatLeftDiv">
-        <StimrxExpressionEditor bind:expression={rx}/>
-    </div>
+    <StimrxExpressionEditor bind:expression={rx}/>
     
 <!--
 a comment
