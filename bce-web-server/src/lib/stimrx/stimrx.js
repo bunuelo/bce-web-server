@@ -36,8 +36,8 @@ function stimrx_select_expression__is_type(expression) {
 function new_stimrx_get_variable_expression(location, frame, name) {
     return {
 	"type": "GetVariableExpression",
-	"location": location
-	"frame": frame
+	"location": location,
+	"frame": frame,
 	"name": name
     };
 }
