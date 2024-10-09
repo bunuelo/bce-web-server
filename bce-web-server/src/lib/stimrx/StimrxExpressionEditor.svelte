@@ -48,7 +48,6 @@
 </script>
 
 <div>
-    StimrxExpressionEditor
     {#if stimrx.stimrx_sequence_expression__is_type(expression)}
     <table>
         <tr>
