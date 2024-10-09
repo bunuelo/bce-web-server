@@ -98,7 +98,7 @@
 	"component_asset_selector_label_file_name": "file name",
 	"component_asset_selector_label_asset_type": "asset type",
 	"component_asset_selector_label_creation_time": "creation time",
-	"component_asset_selector_label_select_evaluation": "select evaluation",
+	"component_asset_selector_label_select_asset": "select asset",
 	"component_asset_selector_label_cancel": "cancel",
 	"component_asset_selector_label_select_an_asset": "select an asset",
 	"page_home_title": "Home",

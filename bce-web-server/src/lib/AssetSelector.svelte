@@ -33,7 +33,7 @@
     async function update_all() {
     }
     
-    async function on_click_select_evaluation() {
+    async function on_click_select_asset() {
         minimize = false;
     }
 
@@ -137,8 +137,8 @@
         </table>
     </div>
 
-    <a href="#" on:click|preventDefault={on_click_select_evaluation}>
-        {bce_lang($user_language, "component_asset_selector_label_select_evaluation")}
+    <a href="#" on:click|preventDefault={on_click_select_asset}>
+        {bce_lang($user_language, "component_asset_selector_label_select_asset")}
     </a>
 		     
     {#if !minimize}
