@@ -67,18 +67,6 @@
             left_eye_canvas_ctx  = left_eye_canvas.getContext("2d");
             right_eye_canvas_ctx = right_eye_canvas.getContext("2d");
         }
-        const color_theme = $user_color_theme;
-        if (color_theme == "dark") {
-            color_background = [0, 0, 0];
-            color_axes       = [63, 63, 63];
-            color_can_see    = [191, 191, 191];
-            color_cannot_see = [31, 31, 31];
-        } else {
-            color_background = [255, 255, 255];
-            color_axes       = [191, 191, 191];
-            color_can_see    = [63, 63, 63];
-            color_cannot_see = [223, 223, 223];
-        }
         update_eye(left_eye_canvas, left_eye_canvas_ctx, 0)
         update_eye(right_eye_canvas, right_eye_canvas_ctx, 1)
     }
