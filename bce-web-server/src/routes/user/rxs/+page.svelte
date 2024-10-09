@@ -142,7 +142,6 @@
         </tr>
     </table>
 
-
     <StimrxExpressionEditor bind:expression={rx}/>
 
 <!--

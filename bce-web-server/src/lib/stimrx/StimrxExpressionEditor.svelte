@@ -48,7 +48,31 @@
 
 <div>
     StimrxExpressionEditor
-
+    {#if stimrx.stimrx_sequence_expression__is_type(expression)}
+    <table>
+        <tr>
+	    <td>
+	      <i>Sequence</i>
+	    </td>
+	</tr>
+    </table>
+    {:else if stimrx.stimrx_select_expression__is_type(expression)}
+    <table>
+        <tr>
+	    <td>
+	      <i>Select</i>
+	    </td>
+	</tr>
+    </table>
+    {:else}
+    <table>
+        <tr>
+	    <td>
+	      <i>Unknown StimrxExpression type</i>
+	    </td>
+	</tr>
+    </table>
+    {/if}
     <table>
         <tr>
             <td>
