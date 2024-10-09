@@ -18,9 +18,6 @@
     
     export let expression;
     
-    let show_details      = false;
-    let show_more_details = false;
-    
     let view_selected;
     
     onMount(async () => {
@@ -95,16 +92,18 @@
     {/if}
     {:else if stimrx.stimrx_select_expression__is_type(expression)}
     <i>Select</i>
-    {#if show_details}
-        <a href="#" on:click|preventDefault={on_click_hide_details}>
-            {bce_lang($user_language, "page_rxs_label_hide_details")}
-        </a>
-    {:else}
-        <a href="#" on:click|preventDefault={on_click_show_details}>
-            {bce_lang($user_language, "page_rxs_label_show_details")}
-        </a>
-    {/if}
-    {#if show_details}
+    <select bind:value={view_selected}>
+        <option value="minimal">
+	    {bce_lang($user_language, "component_stimrx_expression_editor_label_minimal")}
+	</option>
+        <option value="expand">
+	    {bce_lang($user_language, "component_stimrx_expression_editor_label_expand")}
+	</option>
+        <option value="code">
+	    {bce_lang($user_language, "component_stimrx_expression_editor_label_code")}
+	</option>
+    </select>
+    {#if view_selected === "expand"}
         <table>
             <tr>
 	        <td width="50px">
@@ -125,6 +124,14 @@
     {/if}
     {:else if stimrx.stimrx_get_variable_expression__is_type(expression)}
     <i>Get Variable</i>
+    <select bind:value={view_selected}>
+        <option value="minimal">
+	    {bce_lang($user_language, "component_stimrx_expression_editor_label_minimal")}
+	</option>
+        <option value="code">
+	    {bce_lang($user_language, "component_stimrx_expression_editor_label_code")}
+	</option>
+    </select>
     <table>
         <tr>
 	    <td width="50px">
@@ -142,6 +149,14 @@
     </table>
     {:else if Number.isFinite(expression)}
     <i>Number</i>
+    <select bind:value={view_selected}>
+        <option value="minimal">
+	    {bce_lang($user_language, "component_stimrx_expression_editor_label_minimal")}
+	</option>
+        <option value="code">
+	    {bce_lang($user_language, "component_stimrx_expression_editor_label_code")}
+	</option>
+    </select>
     <table>
         <tr>
 	    <td width="50px">
@@ -158,6 +173,14 @@
 	</tr>
     </table>
     {:else}
+    <select bind:value={view_selected}>
+        <option value="minimal">
+	    {bce_lang($user_language, "component_stimrx_expression_editor_label_minimal")}
+	</option>
+        <option value="code">
+	    {bce_lang($user_language, "component_stimrx_expression_editor_label_code")}
+	</option>
+    </select>
     <table>
         <tr>
 	    <td>
@@ -166,30 +189,9 @@
 	</tr>
     </table>
     {/if}
-    {#if show_details}
-        <table>
-            <tr>
-                <td>
-                    {#if show_more_details}
-                        <a href="#" on:click|preventDefault={on_click_hide_more_details}>
-                            {bce_lang($user_language, "page_rxs_label_hide_more_details")}
-                        </a>
-                    {:else}
-                        <a href="#" on:click|preventDefault={on_click_show_more_details}>
-                            {bce_lang($user_language, "page_rxs_label_show_more_details")}
-                        </a>
-                    {/if}
-                </td>
-            </tr>
-            {#if show_more_details}
-                <tr>
-                    <td>
-                        <textarea rows="20" cols="50" >
+    {#if view_selected === "code"}
+        <textarea rows="20" cols="50" >
 {JSON.stringify(expression, null, 4)}
-                        </textarea>
-                    </td>
-                </tr>
-            {/if}
-        </table>
+        </textarea>
     {/if}
 </div>
