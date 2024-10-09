@@ -2,7 +2,7 @@ import { get } from 'svelte/store'
 import { user_color_theme } from './bce_stores.js'
 
 
-function bce_canvas_render__evaluation_eye(canvas, ctx, evaluation, eye_index) {
+export const bce_canvas_render__evaluation_eye = function(canvas, ctx, evaluation, eye_index) {
     const color_theme = get(user_color_theme);
     var color_background;
     var color_axes;
