@@ -61,6 +61,9 @@
                         <li class="menu">
                             <a href="/user/evaluations" aria-current={$page.url.pathname === "/user/evaluations"}>{bce_lang($user_language, "menu_evaluations")}</a>
                         </li>
+                        <li class="menu">
+                            <a href="/user/rxs" aria-current={$page.url.pathname === "/user/rxs"}>{bce_lang($user_language, "menu_rxs")}</a>
+                        </li>
                       {/if}
                     {/if}
                 </ul>
