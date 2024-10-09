@@ -18,7 +18,8 @@
     
     export let expression;
     
-    let show_details = false;
+    let show_details      = false;
+    let show_more_details = false;
     
     onMount(async () => {
         if (! $user_session_is_valid) {
@@ -43,6 +44,14 @@
     
     async function on_click_show_details() {
         show_details = true;
+    }
+    
+    async function on_click_hide_more_details() {
+        show_more_details = false;
+    }
+    
+    async function on_click_show_more_details() {
+        show_more_details = true;
     }
     
 </script>
@@ -134,18 +143,18 @@
     <table>
         <tr>
             <td>
-                {#if show_details}
-                    <a href="#" on:click|preventDefault={on_click_hide_details}>
-                        {bce_lang($user_language, "page_rxs_label_hide_details")}
+                {#if show_more_details}
+                    <a href="#" on:click|preventDefault={on_click_hide_more_details}>
+                        {bce_lang($user_language, "page_rxs_label_hide_more_details")}
                     </a>
             {:else}
-                     <a href="#" on:click|preventDefault={on_click_show_details}>
-                         {bce_lang($user_language, "page_rxs_label_show_details")}
+                     <a href="#" on:click|preventDefault={on_click_show_more_details}>
+                         {bce_lang($user_language, "page_rxs_label_show_more_details")}
                      </a>
                  {/if}
              </td>
          </tr>
-         {#if show_details}
+         {#if show_more_details}
              <tr>
                  <td>
                      <textarea rows="20" cols="50" >
