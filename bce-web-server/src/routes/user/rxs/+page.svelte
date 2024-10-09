@@ -18,7 +18,7 @@
     let selected_asset = null;
     let minimize = true;
 
-    let rx = null;
+    let rx = stimrx.new_stimrx_sequence_expression([]);
     
     async function fetch_rx(url) {
         return await fetch(url, {
