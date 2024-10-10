@@ -29,21 +29,33 @@
 
 {#if done_loading}
 
-  <h1>{bce_lang($user_language, "page_dashboard_title")}</h1>
+    <h1>{bce_lang($user_language, "page_dashboard_title")}</h1>
   
-  <ul>
-      <li>
-	  <a href="/user/settings">{bce_lang($user_language, "page_dashboard_label_settings")}</a>: {bce_lang($user_language, "page_dashboard_description_settings")}
-      </li>
-      {#if $user_security_level >= 25}
+    <ul>
         <li>
-	    <a href="/user/acls">{bce_lang($user_language, "page_dashboard_label_acls")}</a>: {bce_lang($user_language, "page_dashboard_description_acls")}
+	    <a href="/user/settings">{bce_lang($user_language, "page_dashboard_label_settings")}</a>: {bce_lang($user_language, "page_dashboard_description_settings")}
         </li>
-        <li>
-            <a href="/user/assets">{bce_lang($user_language, "page_dashboard_label_assets")}</a>: {bce_lang($user_language, "page_dashboard_description_assets")}
-        </li>
-      {/if}
-  </ul>
+        {#if $user_security_level >= 25}
+            <li>
+	        <a href="/user/acls">{bce_lang($user_language, "page_dashboard_label_acls")}</a>: {bce_lang($user_language, "page_dashboard_description_acls")}
+            </li>
+            <li>
+                <a href="/user/assets">{bce_lang($user_language, "page_dashboard_label_assets")}</a>: {bce_lang($user_language, "page_dashboard_description_assets")}
+            </li>
+            <li>
+                <a href="/user/chats">{bce_lang($user_language, "page_dashboard_label_chats")}</a>: {bce_lang($user_language, "page_dashboard_description_chats")}
+            </li>
+            <li>
+                <a href="/user/devices">{bce_lang($user_language, "page_dashboard_label_devices")}</a>: {bce_lang($user_language, "page_dashboard_description_devices")}
+            </li>
+            <li>
+                <a href="/user/evaluations">{bce_lang($user_language, "page_dashboard_label_evaluations")}</a>: {bce_lang($user_language, "page_dashboard_description_evaluations")}
+            </li>
+            <li>
+                <a href="/user/rxs">{bce_lang($user_language, "page_dashboard_label_prescriptions")}</a>: {bce_lang($user_language, "page_dashboard_description_prescriptions")}
+            </li>
+        {/if}
+    </ul>
   
 {/if}
 
