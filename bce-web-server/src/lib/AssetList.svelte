@@ -100,7 +100,7 @@
 	white-space: nowrap;
         background: var(--surface2);
         text-color: var(--element2);
-        border: 2px solid var(--element3);
+        border: 2px solid var(--surface3);
     }
 
     th {
