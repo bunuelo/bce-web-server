@@ -51,7 +51,9 @@
         <div class="menu_icon">
             <a href="#" on:click|preventDefault={on_click_menu_icon}>☰</a>
 	</div>
-        {#if !minimize}
+        {#if minimize}
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        {:else}
         <ul class="menu">
             <li class="menu">
 	        <a href="/" aria-current={$page.url.pathname === "/"}>{bce_lang($user_language, "menu_home")}</a>
