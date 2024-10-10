@@ -33,10 +33,13 @@
 
 <style>
     div.menu_icon {
-         float: right;
-         width: 50px;
-         height: 50px;
-         font-size: 46px;
+        float: right;
+        width: 50px;
+        height: 50px;
+        font-size: 46px;
+    }
+    a {
+        text-decoration: none;
     }
 </style>
 
