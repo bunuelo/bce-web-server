@@ -52,7 +52,12 @@
             <a href="#" on:click|preventDefault={on_click_menu_icon}>☰</a>
 	</div>
         {#if minimize}
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </p>
+            <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </p>
         {:else}
         <ul class="menu">
             <li class="menu">
