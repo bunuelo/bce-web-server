@@ -149,7 +149,7 @@
 	        <div class="headerDiv">
 		     <i>{bce_lang($user_language, "component_asset_selector_label_select_an_asset")}</i>
 		</div>
-                <AssetList on_asset_select={on_asset_select} bind:selected_asset={selected_asset} height={popup_div.height - 200} />
+                <AssetList on_asset_select={on_asset_select} bind:selected_asset={selected_asset} />
                 <div class="cancelDiv">
                     <a href="#" on:click|preventDefault={on_click_cancel}>
                         {bce_lang($user_language, "component_asset_selector_label_cancel")}
