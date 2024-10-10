@@ -36,13 +36,16 @@
     });
 
     async function update_all() {
+    }
+
+    $: (function () {
 	if (light_projection_canvas != null) {
 	    light_projection_canvas.width = 0.25 * window.innerWidth;
 	    light_projection_canvas.height = 0.25 * window.innerWidth;
 	    let ctx = light_projection_canvas.getContext("2d");
    	    bce_canvas_render__draw_radial_eye(light_projection_canvas, ctx);
 	}
-    }
+    })();
 
     async function on_click_hide_details() {
         show_details = false;
