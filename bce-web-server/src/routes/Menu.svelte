@@ -43,7 +43,7 @@
         float: right;
         width: 50px;
         height: 50px;
-        font-size: 46px;
+        font-size: 32px;
     }
     a {
         text-decoration: none;
