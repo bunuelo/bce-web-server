@@ -111,7 +111,7 @@
         left: 50%;
         transform: translate(-50%, -50%);
         background-color: var(--surface1);
-        border: 2px solid var(--element2);
+        border: 2px solid var(--surface3);
     }
 
     div.headerDiv {
@@ -122,7 +122,7 @@
     div.cancelDiv {
         width: 100px;
         text-align: center;
-        border: 2px solid var(--element2);
+        border: 2px solid var(--surface3);
         margin-left: auto; 
         margin-right: 0;
 	display: block-inline;
