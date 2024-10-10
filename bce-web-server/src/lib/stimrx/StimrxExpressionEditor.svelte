@@ -88,8 +88,6 @@
     {#if view_selected === "expand"}
         <table>
             <tr>
-	        <td width="50px">
-	        </td>
                 {#each expression.children as child}
 	            <td>
 	                <StimrxExpressionEditor bind:expression={child}/>
@@ -142,12 +140,6 @@
     </select>
     <table>
         <tr>
-	    <td width="50px">
-	    </td>
-	    <td>
-	    </td>
-	</tr>
-        <tr>
 	    <td>
 	    </td>
 	    <td>
@@ -169,12 +161,6 @@
 	</option>
     </select>
     <table>
-        <tr>
-	    <td width="50px">
-	    </td>
-	    <td>
-	    </td>
-	</tr>
         <tr>
 	    <td>
 	    </td>
