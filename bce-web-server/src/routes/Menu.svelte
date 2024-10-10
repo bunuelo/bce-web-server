@@ -31,11 +31,22 @@
     
 </script>
 
+<style>
+    div.menu_icon {
+         width: 50px;
+         height: 50px;
+         font-size: 46px;
+    }
+</style>
+
+
 {#if done_loading}
 <nav aria-labelledby="mainmenulabel">
     <div id="mainmenulabel" hidden>Main Menu</div>
     <div class="menu_container">
-        <a href="#" on:click|preventDefault={on_click_menu_icon}><h1>&nbsp&nbsp☰&nbsp&nbsp</h1></a>
+        <div class="menu_icon">
+            <a href="#" on:click|preventDefault={on_click_menu_icon}>☰</a>
+	</div>
         {#if !minimize}
         <ul class="menu">
             <li class="menu">
