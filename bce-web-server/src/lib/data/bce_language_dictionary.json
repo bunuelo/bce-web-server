@@ -112,7 +112,7 @@
 	"page_logout_alert_logout_successful": "Logout successful!",
 	"page_dashboard_title": "Dashboard",
 	"page_dashboard_label_settings": "settings",
-	"page_dashboard_description_settings": "Display and language can be configured.",
+	"page_dashboard_description_settings": "Color theme and language can be configured.",
 	"page_dashboard_label_acls": "ACLs",
 	"page_dashboard_description_acls": "ACLs (Access Control Lists) can be created for uploading and sharing assets.",
 	"page_dashboard_label_assets": "assets",
