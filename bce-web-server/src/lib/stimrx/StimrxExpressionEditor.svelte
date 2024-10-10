@@ -86,9 +86,17 @@
 	    </option>
         </select>
         {#if view_selected === "expand"}
-            {#each expression.children as child}
-	        <StimrxExpressionEditor bind:expression={child}/>
-    	    {/each}
+            <table>
+                <tr>
+                    <td width="50px">
+                    </td>
+                    <td>
+                        {#each expression.children as child}
+	                    <StimrxExpressionEditor bind:expression={child}/>
+    	                {/each}
+                    </td>
+	        </tr>
+	    </table>
         {/if}
     {:else if stimrx.stimrx_select_expression__is_type(expression)}
         <i>Select</i>
@@ -104,9 +112,17 @@
 	    </option>
         </select>
         {#if view_selected === "expand"}
-            {#each expression.children as child}
-                <StimrxExpressionEditor bind:expression={child}/>
-            {/each}
+            <table>
+                <tr>
+                    <td width="50px">
+                    </td>
+                    <td>
+                        {#each expression.children as child}
+	                    <StimrxExpressionEditor bind:expression={child}/>
+    	                {/each}
+                    </td>
+	        </tr>
+	    </table>
         {/if}
     {:else if stimrx.stimrx_get_variable_expression__is_type(expression)}
         <i>Get Variable</i>
