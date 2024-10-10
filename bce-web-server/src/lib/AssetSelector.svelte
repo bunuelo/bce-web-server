@@ -16,6 +16,8 @@
     
     export let selected_asset;
 
+    let popup_div;
+    
     onMount(async () => {
         if (! $user_session_is_valid) {
             $user_session_is_valid = await bce_session.session_is_valid()
@@ -143,11 +145,11 @@
 		     
     {#if !minimize}
         <div class="overlayDiv">
-            <div class="popupDiv">
+            <div bind:this={popup_div} class="popupDiv">
 	        <div class="headerDiv">
 		     <i>{bce_lang($user_language, "component_asset_selector_label_select_an_asset")}</i>
 		</div>
-                <AssetList on_asset_select={on_asset_select} bind:selected_asset={selected_asset}/>
+                <AssetList on_asset_select={on_asset_select} bind:selected_asset={selected_asset} height={popup_div.height - 200} />
                 <div class="cancelDiv">
                     <a href="#" on:click|preventDefault={on_click_cancel}>
                         {bce_lang($user_language, "component_asset_selector_label_cancel")}

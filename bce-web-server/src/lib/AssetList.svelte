@@ -12,6 +12,8 @@
     let bce_session = new BceSession();
 
     export let selected_asset = null;
+
+    export let height = window.clientHeight;
     
     let acls = [];
     let assets_count = 0;
@@ -21,6 +23,8 @@
     
     let acl_selected = "0";
     
+    let scrolling_div;
+
     onMount(async () => {
         if (! $user_session_is_valid) {
             $user_session_is_valid = await bce_session.session_is_valid()
@@ -75,12 +79,15 @@
         }
     }
     
-    let scrolling_div;
     async function on_scroll_scrolling_div() {
         if (Math.abs(scrolling_div.scrollHeight - scrolling_div.clientHeight - scrolling_div.scrollTop) <= 1) {
             await fetch_more_assets();
         }
     }
+
+    $: (function () {
+	scrollin_div.height = height;
+    })()
 
 </script>
 
