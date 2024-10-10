@@ -104,7 +104,7 @@
         border: 2px solid var(--element2);
         margin-left: auto; 
         margin-right: 0;
-	float: left;
+	float: block-inline;
     }
 </style>
 
