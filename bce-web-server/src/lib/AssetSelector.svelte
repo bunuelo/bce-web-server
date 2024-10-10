@@ -20,6 +20,13 @@
 
     let asset_list_height = 200;
 
+    const on_window_resize = async function() {
+	// trigger reflective monitor for popup_div
+	let temp = popup_div;
+	popup_div = null;
+	popup_div = temp;
+    };
+	
     onMount(async () => {
         if (! $user_session_is_valid) {
             $user_session_is_valid = await bce_session.session_is_valid()
@@ -32,6 +39,10 @@
             goto("/user/dashboard");
         }
         await update_all();
+	window.addEventListener('resize', on_window_resize);
+	return () => {
+	     window.removeEventListener('resize', on_window_resize);
+	}
     });
     
     async function update_all() {
