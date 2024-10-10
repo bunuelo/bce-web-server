@@ -93,8 +93,8 @@
         border: 2px solid var(--element2);
     }
 
-    div.floatingHeaderDiv {
-        float: left;
+    div.headerDiv {
+        display: block-inline;
         border: 4px solid var(--surface1);
     }
 
@@ -144,7 +144,7 @@
     {#if !minimize}
         <div class="overlayDiv">
             <div class="popupDiv">
-	        <div class="floatingHeaderDiv">
+	        <div class="headerDiv">
 		     <i>{bce_lang($user_language, "component_asset_selector_label_select_an_asset")}</i>
 		</div>
                 <div class="cancelDiv">
