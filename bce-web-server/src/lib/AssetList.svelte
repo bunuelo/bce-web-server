@@ -23,7 +23,7 @@
     
     let acl_selected = "0";
     
-    let scrolling_div;
+    let scrolling_div = null;
 
     onMount(async () => {
         if (! $user_session_is_valid) {
@@ -86,7 +86,9 @@
     }
 
     $: (function () {
-	scrolling_div.height = height;
+	if (scrolling_div != null) {
+	    scrolling_div.height = height;
+	}
     })()
 
 </script>
