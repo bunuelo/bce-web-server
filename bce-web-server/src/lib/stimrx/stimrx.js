@@ -9,7 +9,7 @@ function new_stimrx_sequence_expression(children) {
 }
 
 function stimrx_sequence_expression__is_type(expression) {
-    return expression && typeof expression === "object" && "type" in expression && expression.type === "SequenceExpression";
+    return expression && typeof expression === "object" && expression.hasOwnProperty("type") && expression.type === "SequenceExpression";
 };
 
 // SequenceExpression END
@@ -25,7 +25,7 @@ function new_stimrx_select_expression(children) {
 }
 
 function stimrx_select_expression__is_type(expression) {
-    return expression && typeof expression === "object" && "type" in expression && expression.type === "SelectExpression";
+    return expression && typeof expression === "object" && expression.hasOwnProperty("type") && expression.type === "SelectExpression";
 };
 
 // SelectExpression END
@@ -43,7 +43,7 @@ function new_stimrx_get_variable_expression(location, frame, name) {
 }
 
 function stimrx_get_variable_expression__is_type(expression) {
-    return expression && typeof expression === "object" && "type" in expression && expression.type === "GetVariableExpression";
+    return expression && typeof expression === "object" && expression.hasOwnProperty("type") && expression.type === "GetVariableExpression";
 };
 
 // GetVariableExpression END
@@ -62,7 +62,7 @@ function new_stimrx_set_variable_expression(location, frame, name, value) {
 }
 
 function stimrx_set_variable_expression__is_type(expression) {
-    return expression && typeof expression === "object" && "type" in expression && expression.type === "SetVariableExpression";
+    return expression && typeof expression === "object" && expression.hasOwnProperty("type") && expression.type === "SetVariableExpression";
 };
 
 // SetVariableExpression END
@@ -79,7 +79,7 @@ function new_stimrx_light_angle(alpha, omega) {
 }
 
 function stimrx_light_angle__is_type(x) {
-    return x && typeof x === "object" && "type" in x && x.type === "LightAngle";
+    return x && typeof x === "object" && x.hasOwnProperty("type") && x.type === "LightAngle";
 };
 
 // LightAngle END
@@ -97,7 +97,7 @@ function new_stimrx_light_triangle(a, b, c) {
 }
 
 function stimrx_light_triangle__is_type(x) {
-    return x && typeof x === "object" && "type" in x && x.type === "LightTriangle";
+    return x && typeof x === "object" && x.hasOwnProperty("type") && x.type === "LightTriangle";
 };
 
 // LightTriangle END
@@ -114,7 +114,7 @@ function new_stimrx_light_triangle_projection(from, to) {
 }
 
 function stimrx_light_triangle_projection__is_type(x) {
-    return x && typeof x === "object" && "type" in x && x.type === "LightTriangleProjection";
+    return x && typeof x === "object" && x.hasOwnProperty("type") && x.type === "LightTriangleProjection";
 };
 
 // LightTriangleProjection END
