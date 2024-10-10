@@ -31,6 +31,7 @@
 
     $: (function () {
 	if ($navigating) {
+	    console.log("pathname = \"" + $navigating.to.url.pathname + "\"");
 	    minimize = true;
 	}
     }) ();
