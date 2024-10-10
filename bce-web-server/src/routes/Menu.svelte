@@ -33,6 +33,7 @@
 
 <style>
     div.menu_icon {
+         float: right;
          width: 50px;
          height: 50px;
          font-size: 46px;
