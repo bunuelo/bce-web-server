@@ -26,7 +26,7 @@
     })();
 
     function on_click_menu_icon() {
-	minimized = !minimized;
+	minimize = !minimize;
     }
     
 </script>
