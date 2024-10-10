@@ -35,7 +35,7 @@
 <nav aria-labelledby="mainmenulabel">
     <div id="mainmenulabel" hidden>Main Menu</div>
     <div class="menu_container">
-        <a href="#" on:click|preventDefault={on_click_menu_icon}><h1>☰</h1></a>
+        <a href="#" on:click|preventDefault={on_click_menu_icon}><h1>&nbsp&nbsp☰&nbsp&nbsp</h1></a>
         {#if !minimize}
         <ul class="menu">
             <li class="menu">
