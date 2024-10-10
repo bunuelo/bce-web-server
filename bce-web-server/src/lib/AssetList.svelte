@@ -98,6 +98,8 @@
         overflow:scroll;
         max-height: 50vh;
 	white-space: nowrap;
+        background: var(--surface2);
+        text-color: var(--element2);
     }
 
     th {
