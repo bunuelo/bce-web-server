@@ -21,8 +21,6 @@
     
     let acl_selected = "0";
     
-    let view_mode = "LIST";
-    
     onMount(async () => {
         if (! $user_session_is_valid) {
             $user_session_is_valid = await bce_session.session_is_valid()
@@ -103,28 +101,22 @@
 
 {#if $user_session_is_valid && $user_security_level >= 25}
 
-    <label>
-        <div>
-            {bce_lang($user_language, "component_asset_selector_label_acl")}: 
-            <select bind:value={acl_selected} on:change={update_asset_list}>
-	        <option value="0">
-	            {bce_lang($user_language, "component_asset_selector_label_all")}
-	        </option>
-                {#each acls as acl}
-	            <option value={acl.acl_id}>
-	                {acl.display_name} 
-	            </option>
-                {/each}
-            </select>
-	</div>
-    </label>
-    
     <div>
+        {bce_lang($user_language, "component_asset_selector_label_acl")}: 
+        <select bind:value={acl_selected} on:change={update_asset_list}>
+            <option value="0">
+                {bce_lang($user_language, "component_asset_selector_label_all")}
+	    </option>
+            {#each acls as acl}
+	        <option value={acl.acl_id}>
+	            {acl.display_name} 
+	        </option>
+            {/each}
+        </select>
         {bce_lang($user_language, "component_asset_selector_label_total_assets_count")}: {assets_count}
     </div>
     
     <div bind:this={scrolling_div} class="scrollingDiv" on:scroll={on_scroll_scrolling_div}>
-    {#if view_mode == "LIST"}
         <table>
             <tr>
                 <th>
@@ -152,14 +144,7 @@
                     </td>
                 </tr>
             {/each}
-        </table>  
-    {:else}
-        {#each assets as asset}
-            <div class="asset_preview">
-                <img class="asset_preview" src="https://bce.center:8000/asset/download?session_token={$user_session_token}&name={asset.name}&q={Math.random()}" alt="{asset.file_name}">
-            </div>
-        {/each}
-    {/if}
+        </table>
     </div>
     
 {/if}
