@@ -1,7 +1,7 @@
 <script lang="ts">
     import { onMount } from 'svelte';
     import Transition from 'svelte-transition'
-    import { page } from '$app/stores';
+    import { page, navigating } from '$app/stores';
     import Logo from './Logo.svelte'
     import Edit from './Edit.svelte'
     import { user_session_is_valid, user_security_level, user_language } from '$lib/bce_stores.js'
@@ -28,6 +28,12 @@
     function on_click_menu_icon() {
 	minimize = !minimize;
     }
+
+    $: (function () {
+	if ($navigating) {
+	    minimize = true;
+	}
+    }) ();
     
 </script>
 
