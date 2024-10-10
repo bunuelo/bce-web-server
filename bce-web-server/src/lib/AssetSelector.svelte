@@ -70,7 +70,7 @@
     $: (function () {
 	console.log("Trying to updating asset_list_height from popup_div.");
 	if (popup_div != null) {
-	    asset_list_height = popup_div.clientHeight - 100;
+	    asset_list_height = popup_div.clientHeight - 75;
 	    console.log("Updating asset_list_height from popup_div!  (" + asset_list_height + ")");
 	} else {
 	    console.log("Not updating asset_list_height from popup_div because it is null.");
