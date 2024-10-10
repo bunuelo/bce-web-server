@@ -104,7 +104,7 @@
         border: 2px solid var(--element2);
         margin-left: auto; 
         margin-right: 0;
-	float: right;
+	float: left;
     }
 </style>
 
@@ -147,12 +147,12 @@
 	        <div class="headerDiv">
 		     <i>{bce_lang($user_language, "component_asset_selector_label_select_an_asset")}</i>
 		</div>
+                <AssetList on_asset_select={on_asset_select} bind:selected_asset={selected_asset}/>
                 <div class="cancelDiv">
                     <a href="#" on:click|preventDefault={on_click_cancel}>
                         {bce_lang($user_language, "component_asset_selector_label_cancel")}
                     </a>
                 </div>
-                <AssetList on_asset_select={on_asset_select} bind:selected_asset={selected_asset}/>
             </div>
         </div>
     {/if}
