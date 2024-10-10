@@ -177,7 +177,7 @@
 	    <td>
 	    </td>
 	    <td>
-	        <tt>{expression.name}&nbsp;=</tt>
+	        <tt>{expression.name}&nbsp;=&nbsp;</tt>
 	    </td>
 	    {#if view_selected === "expand"}
 	        <td>
