@@ -73,29 +73,23 @@
 
 <div class="stimrxExpression">
     {#if stimrx.stimrx_sequence_expression__is_type(expression)}
-    <i>Sequence</i>
-    <select bind:value={view_selected}>
-        <option value="expand">
-	    {bce_lang($user_language, "component_stimrx_expression_editor_label_expand")}
-	</option>
-        <option value="minimal">
-	    {bce_lang($user_language, "component_stimrx_expression_editor_label_minimal")}
-	</option>
-        <option value="code">
-	    {bce_lang($user_language, "component_stimrx_expression_editor_label_code")}
-	</option>
-    </select>
-    {#if view_selected === "expand"}
-        <table>
-            <tr>
-                {#each expression.children as child}
-	            <td>
-	                <StimrxExpressionEditor bind:expression={child}/>
-	            </td>
-    	        {/each}
-	    </tr>
-        </table>
-    {/if}
+        <i>Sequence</i>
+        <select bind:value={view_selected}>
+            <option value="expand">
+	        {bce_lang($user_language, "component_stimrx_expression_editor_label_expand")}
+	    </option>
+            <option value="minimal">
+	        {bce_lang($user_language, "component_stimrx_expression_editor_label_minimal")}
+	    </option>
+            <option value="code">
+	        {bce_lang($user_language, "component_stimrx_expression_editor_label_code")}
+	    </option>
+        </select>
+        {#if view_selected === "expand"}
+            {#each expression.children as child}
+	        <StimrxExpressionEditor bind:expression={child}/>
+    	    {/each}
+        {/if}
     {:else if stimrx.stimrx_select_expression__is_type(expression)}
         <i>Select</i>
         <select bind:value={view_selected}>
@@ -110,62 +104,40 @@
 	    </option>
         </select>
         {#if view_selected === "expand"}
-            <table>
-                <tr>
-	            <td width="50px">
-	            </td>
-	            <td>
-	            </td>
-	        </tr>
-                {#each expression.children as child}
-                    <tr>
-	                <td>
-	                </td>
-	                <td>
-	                    <StimrxExpressionEditor bind:expression={child}/>
-	                </td>
-	            </tr>
-	        {/each}
-            </table>
+            {#each expression.children as child}
+                <StimrxExpressionEditor bind:expression={child}/>
+            {/each}
         {/if}
     {:else if stimrx.stimrx_get_variable_expression__is_type(expression)}
-    <i>Get Variable</i>
-    <select bind:value={view_selected}>
-        <option value="minimal">
-	    {bce_lang($user_language, "component_stimrx_expression_editor_label_minimal")}
-	</option>
-        <option value="code">
-	    {bce_lang($user_language, "component_stimrx_expression_editor_label_code")}
-	</option>
-    </select>
-    <table>
-        <tr>
-	    <td>
-	    </td>
-	    <td>
-	        <tt>{expression.name}</tt>
-	    </td>
-	</tr>
-    </table>
+        <i>Get Variable</i>
+        <select bind:value={view_selected}>
+            <option value="minimal">
+	        {bce_lang($user_language, "component_stimrx_expression_editor_label_minimal")}
+	    </option>
+            <option value="code">
+	        {bce_lang($user_language, "component_stimrx_expression_editor_label_code")}
+	    </option>
+        </select>
+        <tt>{expression.name}</tt>
     {:else if stimrx.stimrx_set_variable_expression__is_type(expression)}
-    <i>Set Variable</i>
-    <select bind:value={view_selected}>
-        <option value="expand">
-	    {bce_lang($user_language, "component_stimrx_expression_editor_label_expand")}
-	</option>
-        <option value="minimal">
-	    {bce_lang($user_language, "component_stimrx_expression_editor_label_minimal")}
-	</option>
-        <option value="code">
-	    {bce_lang($user_language, "component_stimrx_expression_editor_label_code")}
-	</option>
-    </select>
-    <tt>{expression.name}&nbsp;=&nbsp;</tt>
-    {#if view_selected === "expand"}
-        <td>
-            <StimrxExpressionEditor bind:expression={expression.value}/>
-        </td>
-    {/if}
+        <i>Set Variable</i>
+        <select bind:value={view_selected}>
+            <option value="expand">
+	        {bce_lang($user_language, "component_stimrx_expression_editor_label_expand")}
+	    </option>
+            <option value="minimal">
+	        {bce_lang($user_language, "component_stimrx_expression_editor_label_minimal")}
+	    </option>
+            <option value="code">
+	        {bce_lang($user_language, "component_stimrx_expression_editor_label_code")}
+	    </option>
+        </select>
+        <tt>{expression.name}&nbsp;=&nbsp;</tt>
+        {#if view_selected === "expand"}
+            <td>
+                <StimrxExpressionEditor bind:expression={expression.value}/>
+            </td>
+        {/if}
     {:else if stimrx.stimrx_light_projection__is_type(expression)}
         <table>
 	    <tr>
