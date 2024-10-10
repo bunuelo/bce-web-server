@@ -86,7 +86,7 @@
     }
 
     $: (function () {
-	scrollin_div.height = height;
+	scrolling_div.height = height;
     })()
 
 </script>
