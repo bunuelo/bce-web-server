@@ -67,7 +67,7 @@
         float: left;
         vertical-align: top;
         background-color: var(--surface1);
-        border: 2px solid var(--element2);
+        border: 2px solid var(--element3);
     }
 </style>
 
