@@ -98,12 +98,15 @@
         overflow:scroll;
         max-height: 50vh;
 	white-space: nowrap;
+        background: var(--surface2);
+        text-color: var(--element2);
+        border: 2px solid var(--element3);
     }
 
     th {
         position: sticky;
         top: 0px;
-        background: var(--surface1);
+        background: var(--surface2);
 	white-space: nowrap;
     }
 </style>
