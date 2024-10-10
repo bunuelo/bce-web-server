@@ -127,6 +127,10 @@
         margin-right: 0;
 	display: block-inline;
     }
+
+    td.nowrap {
+	white-space: nowrap;
+    }
 </style>
 
 <svelte:window on:keydown|preventDefault={on_key_down} />
@@ -142,10 +146,10 @@
                     {:else}
                         <table>
                             <tr>
-                                <td>
+                                <td class="nowrap">
                                     {selected_asset.file_name}
                                 </td>
-                                <td>
+                                <td class="nowrap">
                                     {format_json_datetime(selected_asset.creation_time)}
                                 </td>
                             </tr>
