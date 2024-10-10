@@ -87,11 +87,11 @@
 
     $: (function () {
 	console.log("Trying to update scrolling_div from height.");
-	if (scrolling_div != null) {
-	    console.log("Updating scrolling_div from height!");
+	if (scrolling_div !== null) {
 	    scrolling_div.height = height;
+	    console.log("Updating scrolling_div from height!  (" + height + ")");
 	} else {
-	    console.log("Not updating scrolling_div from height.");
+	    console.log("Not updating scrolling_div from height because it is null.");
 	}
     })()
 
