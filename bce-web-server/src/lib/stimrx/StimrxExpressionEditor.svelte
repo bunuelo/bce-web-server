@@ -99,37 +99,37 @@
         </table>
     {/if}
     {:else if stimrx.stimrx_select_expression__is_type(expression)}
-    <i>Select</i>
-    <select bind:value={view_selected}>
-        <option value="expand">
-	    {bce_lang($user_language, "component_stimrx_expression_editor_label_expand")}
-	</option>
-        <option value="minimal">
-	    {bce_lang($user_language, "component_stimrx_expression_editor_label_minimal")}
-	</option>
-        <option value="code">
-	    {bce_lang($user_language, "component_stimrx_expression_editor_label_code")}
-	</option>
-    </select>
-    {#if view_selected === "expand"}
-        <table>
-            <tr>
-	        <td width="50px">
-	        </td>
-	        <td>
-	        </td>
-	    </tr>
-            {#each expression.children as child}
+        <i>Select</i>
+        <select bind:value={view_selected}>
+            <option value="expand">
+	        {bce_lang($user_language, "component_stimrx_expression_editor_label_expand")}
+	    </option>
+            <option value="minimal">
+	        {bce_lang($user_language, "component_stimrx_expression_editor_label_minimal")}
+	    </option>
+            <option value="code">
+	        {bce_lang($user_language, "component_stimrx_expression_editor_label_code")}
+	    </option>
+        </select>
+        {#if view_selected === "expand"}
+            <table>
                 <tr>
-	            <td>
+	            <td width="50px">
 	            </td>
 	            <td>
-	                <StimrxExpressionEditor bind:expression={child}/>
 	            </td>
 	        </tr>
-	    {/each}
-        </table>
-    {/if}
+                {#each expression.children as child}
+                    <tr>
+	                <td>
+	                </td>
+	                <td>
+	                    <StimrxExpressionEditor bind:expression={child}/>
+	                </td>
+	            </tr>
+	        {/each}
+            </table>
+        {/if}
     {:else if stimrx.stimrx_get_variable_expression__is_type(expression)}
     <i>Get Variable</i>
     <select bind:value={view_selected}>
@@ -206,11 +206,13 @@
                     </select>
                 </td>
             </tr>
-            <tr>
-	        <td>
-                    <canvas bind:this={light_projection_canvas}></canvas>
-	        </td>
-	    </tr>
+            {#if view_selected === "expand"}
+                <tr>
+	            <td>
+                        <canvas bind:this={light_projection_canvas}></canvas>
+	            </td>
+	        </tr>
+	    {/if}
         </table>
     {:else if Number.isFinite(expression)}
         <i>Number</i>
