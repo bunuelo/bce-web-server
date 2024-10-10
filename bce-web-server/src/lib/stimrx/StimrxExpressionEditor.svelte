@@ -189,11 +189,32 @@
 	</tr>
     </table>
     {:else if stimrx.stimrx_light_projection__is_type(expression)}
-        <i>Light Projection</i>
+        <table>
+	    <tr>
+	        <td>
+                    <i>Light Projection</i>
+                    <select bind:value={view_selected}>
+                        <option value="expand">
+	                    {bce_lang($user_language, "component_stimrx_expression_editor_label_expand")}
+	                </option>
+                        <option value="minimal">
+	                    {bce_lang($user_language, "component_stimrx_expression_editor_label_minimal")}
+	                </option>
+                        <option value="code">
+	                    {bce_lang($user_language, "component_stimrx_expression_editor_label_code")}
+	                </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+	        <td>
+                    <canvas bind:this={light_projection_canvas}></canvas>
+	        </td>
+	    </tr>
+        </table>
+    {:else if Number.isFinite(expression)}
+        <i>Number</i>
         <select bind:value={view_selected}>
-            <option value="expand">
-	        {bce_lang($user_language, "component_stimrx_expression_editor_label_expand")}
-	    </option>
             <option value="minimal">
 	        {bce_lang($user_language, "component_stimrx_expression_editor_label_minimal")}
 	    </option>
@@ -201,32 +222,21 @@
 	        {bce_lang($user_language, "component_stimrx_expression_editor_label_code")}
 	    </option>
         </select>
-        <canvas bind:this={light_projection_canvas}></canvas>
-    {:else if Number.isFinite(expression)}
-    <i>Number</i>
-    <select bind:value={view_selected}>
-        <option value="minimal">
-	    {bce_lang($user_language, "component_stimrx_expression_editor_label_minimal")}
-	</option>
-        <option value="code">
-	    {bce_lang($user_language, "component_stimrx_expression_editor_label_code")}
-	</option>
-    </select>
-    <table>
-        <tr>
-	    <td width="50px">
-	    </td>
-	    <td>
-	    </td>
-	</tr>
-        <tr>
-	    <td>
-	    </td>
-	    <td>
-	        <tt>{expression}</tt>
-	    </td>
-	</tr>
-    </table>
+        <table>
+            <tr>
+	        <td width="50px">
+	        </td>
+	        <td>
+	        </td>
+	    </tr>
+            <tr>
+	        <td>
+	        </td>
+	        <td>
+	            <tt>{expression}</tt>
+	        </td>
+	    </tr>
+        </table>
     {:else}
     <select bind:value={view_selected}>
         <option value="minimal">
