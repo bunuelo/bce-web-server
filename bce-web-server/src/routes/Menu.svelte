@@ -10,6 +10,7 @@
     
     let bce_session = new BceSession();
 
+    let minimize      = true;
     let user_tab_open = false;
 
     let done_loading = false;
@@ -23,6 +24,10 @@
     $: (function () {
         user_tab_open = ($page.url.pathname).includes("/user");
     })();
+
+    function on_click_menu_icon() {
+	minimized = !minimized;
+    }
     
 </script>
 
@@ -30,6 +35,8 @@
 <nav aria-labelledby="mainmenulabel">
     <div id="mainmenulabel" hidden>Main Menu</div>
     <div class="menu_container">
+        <a href="#" on:click|preventDefault={on_click_menu_icon}><h1>☰</h1></a>
+        {#if !minimize}
         <ul class="menu">
             <li class="menu">
 	        <a href="/" aria-current={$page.url.pathname === "/"}>{bce_lang($user_language, "menu_home")}</a>
@@ -96,6 +103,7 @@
 	        <a href="/contact" aria-current={$page.url.pathname === "/contact"}>{bce_lang($user_language, "menu_contact")}</a>
             </li>
         </ul>
+        {/if}
     </div>
 </nav>
 {/if}
