@@ -73,7 +73,7 @@
 
     $: (function () {
 	if (popup_div != null) {
-	    asset_list_height = popup_div.clientHeight - 200;
+	    asset_list_height = popup_div.clientHeight - 100;
 	}
     })()
 
