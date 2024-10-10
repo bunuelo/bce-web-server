@@ -75,29 +75,29 @@
 	        <a href="/user/dashboard" aria-current={$page.url.pathname === "/user/dashboard"}>{bce_lang($user_language, "menu_dashboard")}</a>
                 <ul class="menu">
                     {#if user_tab_open}
-                      <li class="menu">
-	                  <a href="/user/settings" aria-current={$page.url.pathname === "/user/settings"}>{bce_lang($user_language, "menu_settings")}</a>
-                      </li>
-                      {#if $user_security_level >= 25}
                         <li class="menu">
-	                    <a href="/user/acls" aria-current={$page.url.pathname === "/user/acls"}>{bce_lang($user_language, "menu_acls")}</a>
+	                    <a href="/user/settings" aria-current={$page.url.pathname === "/user/settings"}>{bce_lang($user_language, "menu_settings")}</a>
                         </li>
-                        <li class="menu">
-                            <a href="/user/assets" aria-current={$page.url.pathname === "/user/assets"}>{bce_lang($user_language, "menu_assets")}</a>
-                        </li>
-                        <li class="menu">
-                            <a href="/user/chats" aria-current={$page.url.pathname === "/user/chats"}>{bce_lang($user_language, "menu_chats")}</a>
-                        </li>
-                        <li class="menu">
-                            <a href="/user/devices" aria-current={$page.url.pathname === "/user/devices"}>{bce_lang($user_language, "menu_devices")}</a>
-                        </li>
-                        <li class="menu">
-                            <a href="/user/evaluations" aria-current={$page.url.pathname === "/user/evaluations"}>{bce_lang($user_language, "menu_evaluations")}</a>
-                        </li>
-                        <li class="menu">
-                            <a href="/user/rxs" aria-current={$page.url.pathname === "/user/rxs"}>{bce_lang($user_language, "menu_rxs")}</a>
-                        </li>
-                      {/if}
+                        {#if $user_security_level >= 25}
+                            <li class="menu">
+                                <a href="/user/chats" aria-current={$page.url.pathname === "/user/chats"}>{bce_lang($user_language, "menu_chats")}</a>
+                            </li>
+                            <li class="menu">
+	                        <a href="/user/acls" aria-current={$page.url.pathname === "/user/acls"}>{bce_lang($user_language, "menu_acls")}</a>
+                            </li>
+                            <li class="menu">
+                                <a href="/user/assets" aria-current={$page.url.pathname === "/user/assets"}>{bce_lang($user_language, "menu_assets")}</a>
+                            </li>
+                            <li class="menu">
+                                <a href="/user/devices" aria-current={$page.url.pathname === "/user/devices"}>{bce_lang($user_language, "menu_devices")}</a>
+                            </li>
+                            <li class="menu">
+                                <a href="/user/evaluations" aria-current={$page.url.pathname === "/user/evaluations"}>{bce_lang($user_language, "menu_evaluations")}</a>
+                            </li>
+                            <li class="menu">
+                                <a href="/user/rxs" aria-current={$page.url.pathname === "/user/rxs"}>{bce_lang($user_language, "menu_rxs")}</a>
+                            </li>
+                        {/if}
                     {/if}
                 </ul>
             </li>
