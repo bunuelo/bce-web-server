@@ -26,6 +26,12 @@
 
 <link rel="icon" href="/favicon.png" />
 
+<style>
+    div.menuDiv {
+	float: right
+    }
+</style>
+
 {#if done_loading}
   <header>
       <a href="#content" class="skip-link">Skip to main content</a>
@@ -38,7 +44,9 @@
       
       <Logo />
 
-      <Menu />
+       <div class="menuDiv">
+           <Menu />
+       </div>
       
   </header>
   
