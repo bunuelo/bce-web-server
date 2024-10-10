@@ -160,20 +160,12 @@
 	    {bce_lang($user_language, "component_stimrx_expression_editor_label_code")}
 	</option>
     </select>
-    <table>
-        <tr>
-	    <td>
-	    </td>
-	    <td>
-	        <tt>{expression.name}&nbsp;=&nbsp;</tt>
-	    </td>
-	    {#if view_selected === "expand"}
-	        <td>
-	            <StimrxExpressionEditor bind:expression={expression.value}/>
-	        </td>
-	    {/if}
-	</tr>
-    </table>
+    <tt>{expression.name}&nbsp;=&nbsp;</tt>
+    {#if view_selected === "expand"}
+        <td>
+            <StimrxExpressionEditor bind:expression={expression.value}/>
+        </td>
+    {/if}
     {:else if stimrx.stimrx_light_projection__is_type(expression)}
         <table>
 	    <tr>
