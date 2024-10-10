@@ -98,25 +98,6 @@
     <i>{bce_lang($user_language, "page_rxs_label_prescription")}:</i>
     <AssetSelector bind:minimize={minimize} bind:selected_asset={selected_asset} on_asset_select={on_asset_select} />
     
-    <table>
-        <tr>
-            <td>
-                {bce_lang($user_language, "page_rxs_label_left_eye")}
-            </td>
-            <td>
-                {bce_lang($user_language, "page_rxs_label_right_eye")}
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <canvas bind:this={left_eye_canvas}></canvas>
-            </td>
-            <td>
-                <canvas bind:this={right_eye_canvas}></canvas>
-            </td>
-        </tr>
-    </table>
-
     <StimrxExpressionEditor bind:expression={rx}/>
     
 <!--
