@@ -19,10 +19,10 @@
     let selected_asset = null;
     let minimize = true;
 
-        let rx = stimrx.new_stimrx_sequence_expression([
-            stimrx.new_stimrx_set_variable_expression(null, null, "left_eye_lens",  stimrx.new_stimrx_light_projection([])),
-            stimrx.new_stimrx_set_variable_expression(null, null, "right_eye_lens", stimrx.new_stimrx_light_projection([])),
-	]);
+    let rx = stimrx.new_stimrx_sequence_expression([
+        stimrx.new_stimrx_set_variable_expression(null, null, "left_eye_lens",  stimrx.new_stimrx_light_projection([])),
+        stimrx.new_stimrx_set_variable_expression(null, null, "right_eye_lens", stimrx.new_stimrx_light_projection([])),
+    ]);
     
     async function fetch_rx(url) {
         return await fetch(url, {
@@ -44,26 +44,7 @@
         });
     }
     
-    let left_eye_canvas;
-    var left_eye_canvas_ctx = null;
-    
-    let right_eye_canvas;
-    var right_eye_canvas_ctx = null;
-
     let show_details = false;
-    
-    function update_eye_canvases() {
-        if (left_eye_canvas_ctx == null) {
-            left_eye_canvas_ctx  = left_eye_canvas.getContext("2d");
-            right_eye_canvas_ctx = right_eye_canvas.getContext("2d");
-        }
-	left_eye_canvas.width   = 0.25 * window.innerWidth;
-	left_eye_canvas.height  = 0.25 * window.innerWidth;
-	right_eye_canvas.width  = 0.25 * window.innerWidth;
-	right_eye_canvas.height = 0.25 * window.innerWidth;
-	bce_canvas_render__draw_radial_eye(left_eye_canvas, left_eye_canvas_ctx);
-	bce_canvas_render__draw_radial_eye(right_eye_canvas, right_eye_canvas_ctx);
-    }
     
     async function on_asset_select(asset) {
         console.log("Asset selected: " + asset.name + " (" + asset.file_name + ")");
@@ -75,11 +56,9 @@
             var url = "https://bce.center:8000/asset/download?session_token=" + $user_session_token + "&name=" + asset.name;
             rx = await fetch_rx(url);
         }
-        update_eye_canvases();
     };
 
     const on_window_resize = async function() {
-        update_eye_canvases();
     };
 	
     onMount(async () => {
@@ -101,17 +80,8 @@
     });
 
     async function update_all() {
-        update_eye_canvases();
     }
 
-    async function on_click_hide_details() {
-        show_details = false;
-    }
-    
-    async function on_click_show_details() {
-        show_details = true;
-    }
-    
 </script>
 
 <style>
