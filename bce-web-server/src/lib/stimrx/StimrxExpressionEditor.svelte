@@ -49,7 +49,7 @@
     }
 
     async function update_view_selected() {
-	view_selected = timrx_editor.stimrx_editor__get_meta_var(editor, path, "view_selected");
+	view_selected = stimrx_editor.stimrx_editor__get_meta_var(editor, path, "view_selected");
     }
 
     $: (function () {
