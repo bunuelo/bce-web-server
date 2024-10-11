@@ -11,6 +11,7 @@
     import { zero_pad, format_date, format_time_since_date, format_json_datetime, format_time_since_json_datetime } from '$lib/bce_time.js'
     import { bce_canvas_render__draw_radial_eye } from '$lib/bce_canvas_render.js';
     import { stimrx } from '$lib/stimrx/stimrx.js';
+    import { stimrx_editor } from '$lib/stimrx/stimrx_editor.js';
     import BceSession from "$lib/bce_session.js";
     let bce_session = new BceSession();
     import AssetSelector from '$lib/AssetSelector.svelte'
@@ -208,7 +209,7 @@
 	        </td>
 	    </tr>
         </table>
-    {:else if stimrx.stimrx_editor__is_type(expression)}
+    {:else if stimrx_editor.stimrx_editor__is_type(expression)}
         <table>
 	    <tr>
 	        <td>
