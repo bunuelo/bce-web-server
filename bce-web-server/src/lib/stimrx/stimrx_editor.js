@@ -12,7 +12,7 @@ function new_stimrx_editor() {
 	"rxs": [
 	    rx
 	],
-	"_meta": {
+	"meta": {
 	}
     };
 }
@@ -21,22 +21,22 @@ function stimrx_editor__is_type(x) {
     return x && typeof x === "object" && x.hasOwnProperty("type") && x.type === "Editor";
 }
 
-function stimrx_editor__get_meta(self, path) {
+function stimrx_editor__get_meta(_self, path) {
     let path_string = "" + path;
-    if (! (path_string in self._meta)) {
-	self._meta[path_string] = {};
+    if (! (path_string in _self.meta)) {
+	_self._meta[path_string] = {};
     }
-    return self._meta[path_string];
+    return _self.meta[path_string];
 }
 				 
-function stimrx_editor__get_meta_var(self, path, name) {
-    var _meta = stimrx_editor__get_meta(self, path);
-    return _meta[name];
+function stimrx_editor__get_meta_var(_self, path, name) {
+    var meta = stimrx_editor__get_meta(_self, path);
+    return meta[name];
 }
 
-function stimrx_editor__set_meta_var(self, path, name, value) {
-    var _meta = stimrx_editor__get_meta(self, path);
-    _meta[name] = value;
+function stimrx_editor__set_meta_var(_self, path, name, value) {
+    var meta = stimrx_editor__get_meta(_self, path);
+    meta[name] = value;
 }
 
 // Editor END
