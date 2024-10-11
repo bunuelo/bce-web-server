@@ -18,6 +18,7 @@
     
     let selected_asset = null;
     let minimize = true;
+    let rx_editor_state = null;
 
     let rx = stimrx.new_stimrx_sequence_expression([
         stimrx.new_stimrx_set_variable_expression(null, null, "left_eye_lens",  stimrx.new_stimrx_light_projection([])),
@@ -43,8 +44,6 @@
             return null
         });
     }
-    
-    let show_details = false;
     
     async function on_asset_select(asset) {
         console.log("Asset selected: " + asset.name + " (" + asset.file_name + ")");
@@ -80,6 +79,11 @@
     });
 
     async function update_all() {
+	await update_rx_editor_state();
+    }
+
+    async function update_rx_editor_state() {
+	rx_editor_state = await bce_session.rx_editor_state();
     }
 
 </script>

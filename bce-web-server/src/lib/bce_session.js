@@ -126,6 +126,11 @@ export default class BceSession {
         return result;
     }
     
+    async rx_editor_state() {
+        this.update_session_from_cookie();
+        return await bce_rest_api.session_rx_editor_state(get(user_session_token));
+    }
+    
     async update(payload = {}) {
         //console.log("BceSession.update: color_theme=\"" + color_theme + "\"")
         this.update_session_from_cookie();

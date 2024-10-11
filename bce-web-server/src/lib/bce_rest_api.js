@@ -125,14 +125,29 @@ export default class BceRestApi {
 	return response_json.language;
     }
     
+    async session_rx_editor_state(session_token) {
+	const response_json = await this.fetch_json("/session/rx_editor_state", "POST", {
+  	    session_token: session_token
+	});
+	if (response_json == null) {
+	    return null;
+	}
+	this.message = response_json.message;
+	return response_json.rx_editor_state;
+    }
+    
     async session_update(session_token, payload) {
         var color_theme = null;
         var language = null;
+        var rx_editor_state = null;
         if ("color_theme" in payload) {
             color_theme = payload.color_theme;
         }
         if ("language" in payload) {
             language = payload.language;
+        }
+        if ("rx_editor_state" in payload) {
+            rx_editor_state = payload.rx_editor_state;
         }
         var body = {
     	    session_token: session_token
@@ -142,6 +157,9 @@ export default class BceRestApi {
         }
         if (language != null) {
             body["language"] = language;
+        }
+        if (rx_editor_state != null) {
+            body["rx_editor_state"] = rx_editor_state;
         }
 	const response_json = await this.fetch_json("/session/update", "POST", body);
 	if (response_json == null) {
