@@ -98,7 +98,7 @@
                     </td>
                     <td>
                         {#each expression.children as child, i}
-	                    <StimrxExpressionEditor bind:expression={child} editor={editor} path={[...path, i]}/>
+	                    <StimrxExpressionEditor bind:expression={child} editor={editor} path={[...path, "children", i]}/>
     	                {/each}
                     </td>
 	        </tr>
@@ -124,7 +124,7 @@
                     </td>
                     <td>
                         {#each expression.children as child, i}
-	                    <StimrxExpressionEditor bind:expression={child} editor={editor} path={[...path, i]}/>
+	                    <StimrxExpressionEditor bind:expression={child} editor={editor} path={[...path, "children", i]}/>
     	                {/each}
                     </td>
 	        </tr>
