@@ -18,7 +18,7 @@
     import StimrxExpressionEditor from '$lib/stimrx/StimrxExpressionEditor.svelte'
     
     export let expression;
-    export let editor;
+    export let editor = null;
     export let path = [];
     
     let view_selected;

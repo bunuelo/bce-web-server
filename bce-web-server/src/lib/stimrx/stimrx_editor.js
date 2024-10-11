@@ -24,7 +24,7 @@ function stimrx_editor__is_type(x) {
 function stimrx_editor__get_meta(_self, path) {
     let path_string = "" + path;
     if (! (path_string in _self.meta)) {
-	_self._meta[path_string] = {};
+	_self.meta[path_string] = {};
     }
     return _self.meta[path_string];
 }
