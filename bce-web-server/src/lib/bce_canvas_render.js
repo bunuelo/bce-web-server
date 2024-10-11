@@ -1,6 +1,7 @@
 import { get } from 'svelte/store'
 import { user_color_theme } from './bce_stores.js'
-import { bce_session } from './bce_session.js'
+import BceSession from "$lib/bce_session.js";
+let bce_session = new BceSession();
 
 export const bce_canvas_render__draw_radial_eye = function(canvas, ctx) {
     bce_session.update_session_from_cookie();
