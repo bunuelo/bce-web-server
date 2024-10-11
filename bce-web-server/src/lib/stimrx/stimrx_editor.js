@@ -11,12 +11,32 @@ function new_stimrx_editor() {
 	"type": "Editor",
 	"rxs": [
 	    rx
-	]
+	],
+	"meta": {
+	}
     };
 }
 
-function stimrx_editor__is_type(expression) {
-    return expression && typeof expression === "object" && expression.hasOwnProperty("type") && expression.type === "Editor";
+function stimrx_editor__is_type(x) {
+    return x && typeof x === "object" && x.hasOwnProperty("type") && x.type === "Editor";
+}
+
+function stimrx_editor__get_meta(self, path) {
+    let path_string = "" + path;
+    if (! (path_string in self.meta)) {
+	self.meta[path_string] = {};
+    }
+    return self.meta[path_string];
+}
+				 
+function stimrx_editor__get_meta_var(self, path, name) {
+    var meta = stimrx_editor__get_meta(self, path);
+    return meta[name];
+}
+
+function stimrx_editor__set_meta_var(self, path, name, value) {
+    var meta = stimrx_editor__get_meta(self, path);
+    meta[name] = value;
 }
 
 // Editor END
@@ -25,4 +45,7 @@ function stimrx_editor__is_type(expression) {
 export let stimrx_editor = {
     "new_stimrx_editor": new_stimrx_editor,
     "stimrx_editor__is_type": stimrx_editor__is_type,
+    "stimrx_editor__get_meta": stimrx_editor__get_meta,
+    "stimrx_editor__get_meta_var": stimrx_editor__get_meta_var,
+    "stimrx_editor__set_meta_var": stimrx_editor__set_meta_var,
 };
