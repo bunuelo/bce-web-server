@@ -11,6 +11,7 @@
     import { zero_pad, format_date, format_time_since_date, format_json_datetime, format_time_since_json_datetime } from '$lib/bce_time.js'
     import { bce_canvas_render__draw_radial_eye } from '$lib/bce_canvas_render.js';
     import { stimrx } from '$lib/stimrx/stimrx.js';
+    import { stimrx_editor } from '$lib/stimrx/stimrx_editor.js';
     import BceSession from "$lib/bce_session.js";
     let bce_session = new BceSession();
     import AssetSelector from '$lib/AssetSelector.svelte'
@@ -18,7 +19,7 @@
     
     let selected_asset = null;
     let minimize = true;
-    let rx_editor_state = null;
+    let rx_editor_state = stimrx_editor.new_stimrx_editor();
 
     let rx = stimrx.new_stimrx_sequence_expression([
         stimrx.new_stimrx_set_variable_expression(null, null, "left_eye_lens",  stimrx.new_stimrx_light_projection([])),
@@ -83,7 +84,10 @@
     }
 
     async function update_rx_editor_state() {
-	rx_editor_state = await bce_session.rx_editor_state();
+	var stored_rx_editor_state = await bce_session.rx_editor_state();
+	if (stored_rx_editor_state !== null && stored_rx_editor_state !== "") {
+	    rx_editor_state = stored_rx_editor_state;
+	}
     }
 
 </script>
