@@ -219,7 +219,7 @@
             <tr>
                 <td>
 		    {#if expression.rxs.length > 0}
-                        <StimrxExpressionEditor expression:{expression.rxs[0]}/>
+                        <StimrxExpressionEditor expression={expression.rxs[0]}/>
                     {/if}
                 </td>
             </tr>
