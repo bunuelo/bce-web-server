@@ -245,6 +245,7 @@
     {/if}
     {#if view_selected === "code"}
         <textarea rows="20" cols="50" >
+{path}
 {JSON.stringify(expression, null, 4)}
         </textarea>
     {/if}
