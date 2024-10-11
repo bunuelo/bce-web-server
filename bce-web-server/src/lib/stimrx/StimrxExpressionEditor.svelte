@@ -24,6 +24,12 @@
     let view_selected;
     let light_projection_canvas;
     
+    $: (function () {
+        if (editor && view_selected) {
+	    stimrx_editor.stimrx_editor__set_meta_var(editor, path, "view_selected", view_selected);
+	}
+    })();
+
     onMount(async () => {
         if (! $user_session_is_valid) {
             $user_session_is_valid = await bce_session.session_is_valid()
@@ -39,6 +45,11 @@
     });
 
     async function update_all() {
+        update_view_selected();
+    }
+
+    async function update_view_selected() {
+	view_selected = timrx_editor.stimrx_editor__get_meta_var(editor, path, "view_selected");
     }
 
     $: (function () {
