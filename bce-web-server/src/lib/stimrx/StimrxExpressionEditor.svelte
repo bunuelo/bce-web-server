@@ -21,16 +21,12 @@
     export let editor = null;
     export let path = [];
     
-    let view_selected = null;
+    let view_selected = editor ? stimrx_editor.stimrx_editor__get_meta_var(editor, path, "view_selected") : null;
     let light_projection_canvas;
     
     $: (function () {
         if (editor && view_selected) {
-            if (view_selected === null) {
-    		view_selected = stimrx_editor.stimrx_editor__get_meta_var(editor, path, "view_selected");
-	    } else {
-		stimrx_editor.stimrx_editor__set_meta_var(editor, path, "view_selected", view_selected);
-	    }
+	    stimrx_editor.stimrx_editor__set_meta_var(editor, path, "view_selected", view_selected);
 	}
     })();
 
