@@ -18,10 +18,11 @@
     import StimrxExpressionEditor from '$lib/stimrx/StimrxExpressionEditor.svelte'
     
     export let expression;
+    export let editor;
     
     let view_selected;
     let light_projection_canvas;
-
+    
     onMount(async () => {
         if (! $user_session_is_valid) {
             $user_session_is_valid = await bce_session.session_is_valid()
@@ -96,7 +97,7 @@
                     </td>
                     <td>
                         {#each expression.children as child}
-	                    <StimrxExpressionEditor bind:expression={child}/>
+	                    <StimrxExpressionEditor bind:expression={child} editor={editor}/>
     	                {/each}
                     </td>
 	        </tr>
@@ -122,7 +123,7 @@
                     </td>
                     <td>
                         {#each expression.children as child}
-	                    <StimrxExpressionEditor bind:expression={child}/>
+	                    <StimrxExpressionEditor bind:expression={child} editor={editor}/>
     	                {/each}
                     </td>
 	        </tr>
@@ -155,7 +156,7 @@
         <tt>{expression.name}&nbsp;=&nbsp;</tt>
         {#if view_selected === "expand"}
             <td>
-                <StimrxExpressionEditor bind:expression={expression.value}/>
+                <StimrxExpressionEditor bind:expression={expression.value} editor={editor}/>
             </td>
         {/if}
     {:else if stimrx.stimrx_light_projection__is_type(expression)}
@@ -219,7 +220,7 @@
             <tr>
                 <td>
 		    {#if expression.rxs.length > 0}
-                        <StimrxExpressionEditor expression={expression.rxs[0]}/>
+                        <StimrxExpressionEditor expression={expression.rxs[0]} editor={expression}/>
                     {/if}
                 </td>
             </tr>
