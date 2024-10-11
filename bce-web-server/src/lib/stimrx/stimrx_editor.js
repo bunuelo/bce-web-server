@@ -23,5 +23,6 @@ function stimrx_editor__is_type(expression) {
 
 
 export let stimrx_editor = {
-    "new_stimrx_editor": new_stimrx_editor
+    "new_stimrx_editor": new_stimrx_editor,
+    "stimrx_editor__is_type": stimrx_editor__is_type,
 };
