@@ -12,7 +12,7 @@ function new_stimrx_editor() {
 	"rxs": [
 	    rx
 	],
-	"meta": {
+	"_meta": {
 	}
     };
 }
@@ -23,20 +23,20 @@ function stimrx_editor__is_type(x) {
 
 function stimrx_editor__get_meta(self, path) {
     let path_string = "" + path;
-    if (! (path_string in self.meta)) {
-	self.meta[path_string] = {};
+    if (! (path_string in self._meta)) {
+	self._meta[path_string] = {};
     }
-    return self.meta[path_string];
+    return self._meta[path_string];
 }
 				 
 function stimrx_editor__get_meta_var(self, path, name) {
-    var meta = stimrx_editor__get_meta(self, path);
-    return meta[name];
+    var _meta = stimrx_editor__get_meta(self, path);
+    return _meta[name];
 }
 
 function stimrx_editor__set_meta_var(self, path, name, value) {
-    var meta = stimrx_editor__get_meta(self, path);
-    meta[name] = value;
+    var _meta = stimrx_editor__get_meta(self, path);
+    _meta[name] = value;
 }
 
 // Editor END
