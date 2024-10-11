@@ -19,6 +19,7 @@
     
     export let expression;
     export let editor;
+    export let path = [];
     
     let view_selected;
     let light_projection_canvas;
@@ -96,8 +97,8 @@
                     <td width="50px">
                     </td>
                     <td>
-                        {#each expression.children as child}
-	                    <StimrxExpressionEditor bind:expression={child} editor={editor}/>
+                        {#each expression.children as child, i}
+	                    <StimrxExpressionEditor bind:expression={child} editor={editor} path={[...path, i]}/>
     	                {/each}
                     </td>
 	        </tr>
@@ -122,8 +123,8 @@
                     <td width="50px">
                     </td>
                     <td>
-                        {#each expression.children as child}
-	                    <StimrxExpressionEditor bind:expression={child} editor={editor}/>
+                        {#each expression.children as child, i}
+	                    <StimrxExpressionEditor bind:expression={child} editor={editor} path={[...path, i]}/>
     	                {/each}
                     </td>
 	        </tr>
@@ -156,7 +157,7 @@
         <tt>{expression.name}&nbsp;=&nbsp;</tt>
         {#if view_selected === "expand"}
             <td>
-                <StimrxExpressionEditor bind:expression={expression.value} editor={editor}/>
+                <StimrxExpressionEditor bind:expression={expression.value} editor={editor} path={[...path, "value"]}/>
             </td>
         {/if}
     {:else if stimrx.stimrx_light_projection__is_type(expression)}
@@ -220,7 +221,7 @@
             <tr>
                 <td>
 		    {#if expression.rxs.length > 0}
-                        <StimrxExpressionEditor expression={expression.rxs[0]} editor={expression}/>
+                        <StimrxExpressionEditor expression={expression.rxs[0]} editor={expression} path={[...path, "rxs", 0]}/>
                     {/if}
                 </td>
             </tr>
