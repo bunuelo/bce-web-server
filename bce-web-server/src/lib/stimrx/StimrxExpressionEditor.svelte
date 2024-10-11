@@ -208,6 +208,21 @@
 	        </td>
 	    </tr>
         </table>
+    {:else if stimrx.stimrx_editor__is_type(expression)}
+        <table>
+	    <tr>
+	        <td>
+                    <i>Prescription Editor</i>
+                </td>
+            </tr>
+            <tr>
+                <td>
+		    {#if expression:expression.rxs.length > 0}
+                        <StimrxExpressionEditor expression:{expression.rxs[0]}/>
+                    {/if}
+                </td>
+            </tr>
+        </table>
     {:else}
     <select bind:value={view_selected}>
         <option value="minimal">
