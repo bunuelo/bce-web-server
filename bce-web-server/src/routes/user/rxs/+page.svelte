@@ -21,11 +21,6 @@
     let minimize = true;
     let rx_editor_state = stimrx_editor.new_stimrx_editor();
 
-    let rx = stimrx.new_stimrx_sequence_expression([
-        stimrx.new_stimrx_set_variable_expression(null, null, "left_eye_lens",  stimrx.new_stimrx_light_projection([])),
-        stimrx.new_stimrx_set_variable_expression(null, null, "right_eye_lens", stimrx.new_stimrx_light_projection([])),
-    ]);
-    
     async function fetch_rx(url) {
         return await fetch(url, {
             "method": "GET",
@@ -54,7 +49,8 @@
             rx = null;
         } else {
             var url = "https://bce.center:8000/asset/download?session_token=" + $user_session_token + "&name=" + asset.name;
-            rx = await fetch_rx(url);
+            var rx = await fetch_rx(url);
+	    rx_editor_state.rxs.push(rx);
         }
     };
 
@@ -108,7 +104,7 @@
         <AssetSelector bind:minimize={minimize} bind:selected_asset={selected_asset} on_asset_select={on_asset_select} />
     </div>
     
-    <StimrxExpressionEditor bind:expression={rx}/>
+    <StimrxExpressionEditor bind:expression={rx_editor_state}/>
     
 <!--
 a comment
