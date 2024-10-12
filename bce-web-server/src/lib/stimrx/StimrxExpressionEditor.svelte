@@ -24,7 +24,7 @@
     let view_selected = editor ? stimrx_editor.stimrx_editor__get_meta_var(editor, path, "view_selected") : null;
     let light_projection_canvas;
 
-    let adding_evaluation = false;
+    let minimize_evaluation_asset_selector = true;
     let selected_evaluation = null;
 
     $: (function () {
@@ -87,7 +87,7 @@
     let on_evaluation_asset_select = async function (asset) {
         console.log("Evaluation asset selected: " + asset.name + " (" + asset.file_name + ")");
         //selected_asset = asset;
-	adding_evaluation = false;
+	minimize_evaluation_asset_selector = true;
     };
 
 </script>
@@ -102,9 +102,7 @@
 </style>
 
 <div class="stimrxExpression">
-    {#if adding_evaluation}
-        <AssetSelector minimize={false} popup_only={true} bind:selected_asset={selected_evaluation}/>
-    {/if}
+    <AssetSelector bind:minimize={minimize_evaluation_asset_selector} popup_only={true} bind:selected_asset={selected_evaluation}/>
     {#if stimrx.stimrx_sequence_expression__is_type(expression)}
         <i>Sequence</i>
         <select bind:value={view_selected}>
