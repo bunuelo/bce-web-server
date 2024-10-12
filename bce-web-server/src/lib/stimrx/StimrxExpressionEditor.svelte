@@ -88,7 +88,9 @@
     let on_evaluation_asset_select = async function (asset) {
         console.log("Evaluation asset selected: " + asset.name + " (" + asset.file_name + ")");
 	if (editor !== null) {
+            console.log("Fetching evaluation asset.");
             let evaluation = await bce_asset.fetch_asset(asset.name);
+            console.log("Received evaluation asset.  evaluation=" + evaluation);
 	    editor.evaluations.push(evaluation);
 	}
 	minimize_evaluation_asset_selector = true;
