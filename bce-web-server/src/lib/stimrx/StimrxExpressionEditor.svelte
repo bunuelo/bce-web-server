@@ -80,6 +80,7 @@
     }
 
     async function on_click_add_evaluation() {
+	console.log("In the process of adding evaluation.");
 	adding_evaluation = true;
     }
     
@@ -96,7 +97,7 @@
 
 <div class="stimrxExpression">
     {#if adding_evaluation}
-    <AssetSelector minimize=false popup_only=true bind:selected_asset={selected_evaluation}/>
+        <AssetSelector minimize={false} popup_only={true} bind:selected_asset={selected_evaluation}/>
     {/if}
     {#if stimrx.stimrx_sequence_expression__is_type(expression)}
         <i>Sequence</i>
