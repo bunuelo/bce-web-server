@@ -84,7 +84,11 @@
 	console.log("In the process of adding evaluation.");
 	minimize_evaluation_asset_selector = false;
     }
-    
+
+    async upload_rx_editor_state() {
+	await bce_session.update({"rx_editor_state": JSON.stringify(editor)});
+    }
+
     let on_evaluation_asset_select = async function (asset) {
         console.log("Evaluation asset selected: " + asset.name + " (" + asset.file_name + ")");
 	if (editor !== null) {
@@ -92,7 +96,7 @@
             let evaluation = await bce_asset.fetch_asset(asset.name);
             console.log("Received evaluation asset.  evaluation=" + evaluation);
 	    editor.evaluations.push(evaluation);
-	    await bce_session.update({"rx_editor_state": JSON.stringify(editor)});
+	    await upload_rx_editor_state();
 	    let temp = expression;
 	    expression = null;
 	    expression = temp;
@@ -225,7 +229,8 @@
 	                <td>
                             Evaluations:
   	                    {#each editor.evaluations as evaluation, j}
-       	                         <input type="checkbox" id={"" + path + j}><label for={"" + path + j}>Evaluation {j}</label>
+         	                <input type="checkbox" id={"" + path + j}>
+			        <label for={"" + path + j}>Evaluation {j}</label>
 	                    {/each}
 	                </td>
 	            </tr>
@@ -272,6 +277,19 @@
 		    </a> 
                 </td>
             </tr>
+	    <tr>
+	        <td>
+  	            <table>
+			{#each editor.evaluations as evaluation, j}
+		            <tr>
+		                <td>
+			            {"" + path + j}>Evaluation {j}
+		                </td>
+		            </tr>
+	                {/each}
+		    </table>
+		</td>
+	    </tr>
             <tr>
                 <td>
 		    {#if expression.rxs.length > 0}
