@@ -81,7 +81,7 @@
 
     async function on_click_add_evaluation() {
 	console.log("In the process of adding evaluation.");
-	adding_evaluation = true;
+	minimize_evaluation_asset_selector = false;
     }
     
     let on_evaluation_asset_select = async function (asset) {
