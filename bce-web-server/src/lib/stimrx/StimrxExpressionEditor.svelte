@@ -25,6 +25,7 @@
     let light_projection_canvas;
 
     let adding_evaluation = false;
+    let selected_evaluation = null;
 
     $: (function () {
         if (editor && view_selected) {
@@ -95,7 +96,7 @@
 
 <div class="stimrxExpression">
     {#if adding_evaluation}
-        <AssetSelector minimize=false popup_only=true />
+    <AssetSelector minimize=false popup_only=true bind:selected_asset={selected_evaluation}/>
     {/if}
     {#if stimrx.stimrx_sequence_expression__is_type(expression)}
         <i>Sequence</i>
