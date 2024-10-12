@@ -134,10 +134,50 @@ function new_stimrx_light_projection(triangles) {
 }
 
 function stimrx_light_projection__is_type(x) {
-    return x && typeof x === "object" && "type" in x && x.type === "LightProjection";
+    return (x && typeof x === "object" && "type" in x && x.type === "LightProjection") ||
+	stimrx_left_eye_light_projection__is_type(x) ||
+	stimrx_right_eye_light_projection__is_type(x);
 };
 
 // LightProjection END
+
+
+// LeftEyeLightProjection BEGIN
+
+function stimrx_left_eye_light_projection__initialize(self, type, triangles) {
+    stimrx_light_projection__initialize(self, type, triangles);
+}
+
+function new_stimrx_left_eye_light_projection(triangles) {
+    var self = {};
+    stimrx_left_eye_light_projection__initialize(self, "LeftEyeLightProjection", triangles);
+    return self;
+}
+
+function stimrx_left_eye_light_projection__is_type(x) {
+    return x && typeof x === "object" && "type" in x && x.type === "LeftEyeLightProjection";
+};
+
+// LeftEyeLightProjection END
+
+
+// RightEyeLightProjection BEGIN
+
+function stimrx_right_eye_light_projection__initialize(self, type, triangles) {
+    stimrx_light_projection__initialize(self, type, triangles);
+}
+
+function new_stimrx_right_eye_light_projection(triangles) {
+    var self = {};
+    stimrx_right_eye_light_projection__initialize(self, "RightEyeLightProjection", triangles);
+    return self;
+}
+
+function stimrx_right_eye_light_projection__is_type(x) {
+    return x && typeof x === "object" && "type" in x && x.type === "RightEyeLightProjection";
+};
+
+// RightEyeLightProjection END
 
 
 
@@ -165,4 +205,12 @@ export const stimrx = {
     
     new_stimrx_light_projection: new_stimrx_light_projection,
     stimrx_light_projection__is_type: stimrx_light_projection__is_type,
+
+    stimrx_left_eye_light_projection__initialize: stimrx_left_eye_light_projection__initialize,
+    new_stimrx_left_eye_light_projection: new_stimrx_left_eye_light_projection,
+    stimrx_left_eye_light_projection__is_type: stimrx_left_eye_light_projection__is_type,
+    
+    stimrx_right_eye_light_projection__initialize: stimrx_right_eye_light_projection__initialize,
+    new_stimrx_right_eye_light_projection: new_stimrx_right_eye_light_projection,
+    stimrx_right_eye_light_projection__is_type: stimrx_right_eye_light_projection__is_type,
 };
