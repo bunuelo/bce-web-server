@@ -75,6 +75,9 @@
     async function on_click_show_more_details() {
         show_more_details = true;
     }
+
+    async function on_click_add_evaluation() {
+    }
     
 </script>
 
@@ -192,6 +195,9 @@
 	                    {bce_lang($user_language, "component_stimrx_expression_editor_label_code")}
 	                </option>
                     </select>
+		    <a href="#" on:click|preventDefault={on_click_add_evaluation}>
+	                {bce_lang($user_language, "component_stimrx_expression_editor_label_add_evaluation")}
+		    </a> 
                 </td>
             </tr>
             {#if view_selected === "expand"}

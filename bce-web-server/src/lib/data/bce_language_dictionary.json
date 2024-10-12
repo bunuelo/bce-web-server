@@ -104,6 +104,7 @@
 	"component_stimrx_expression_editor_label_minimal": "minimal",
 	"component_stimrx_expression_editor_label_code": "code",
 	"component_stimrx_expression_editor_label_expand": "expand",
+	"component_stimrx_expression_editor_label_add_evaluation": "add evaluation",
 	"page_home_title": "Home",
 	"page_login_title": "Login",
 	"page_login_alert_login_successful": "Login successful!",
