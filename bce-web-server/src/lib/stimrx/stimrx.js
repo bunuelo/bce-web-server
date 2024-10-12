@@ -52,13 +52,17 @@ function stimrx_get_variable_expression__is_type(expression) {
 // SetVariableExpression BEGIN
 
 function new_stimrx_set_variable_expression(location, frame, name, value) {
-    return {
-	"type": "SetVariableExpression",
-	"location": location,
-	"frame": frame,
-	"name": name,
-	"value": value
-    };
+    var self = {};
+    self["type"] = "SetVariableExpression";
+    self["name"] = name;
+    self["value"] = value;
+    if (location !== null) {
+	self["location"] = location;
+    }
+    if (frame !== null) {
+	self["frame"] = frame;
+    }
+    return self;
 }
 
 function stimrx_set_variable_expression__is_type(expression) {

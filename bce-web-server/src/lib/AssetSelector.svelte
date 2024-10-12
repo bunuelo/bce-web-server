@@ -12,8 +12,9 @@
     import AssetList from "$lib/AssetList.svelte";
     let bce_session = new BceSession();
 
-    export let minimize = false;
-    
+    export let minimize   = false;
+    export let popup_only = false;
+
     export let selected_asset;
 
     let popup_div;
@@ -137,34 +138,35 @@
 
 {#if $user_session_is_valid && $user_security_level >= 25}
 
-    <div>
-        <table>
-            <tr>
-                <td>
-                    {#if selected_asset == null}
-                        <i>none</i>
-                    {:else}
-                        <table>
-                            <tr>
-                                <td class="nowrap">
-                                    {selected_asset.file_name}
-                                </td>
-                                <td class="nowrap">
-                                    {format_json_datetime(selected_asset.creation_time)}
-                                </td>
-                            </tr>
-                        </table>
-                    {/if}
-                </td>
-                <td>
-                </td>
-            </tr>
-        </table>
-    </div>
-
-    <a href="#" on:click|preventDefault={on_click_select_asset}>
-        {bce_lang($user_language, "component_asset_selector_label_select_asset")}
-    </a>
+    {#if !popup_only}
+        <div>
+            <table>
+                <tr>
+                    <td>
+                        {#if selected_asset == null}
+                            <i>none</i>
+                        {:else}
+                            <table>
+                                <tr>
+                                    <td class="nowrap">
+                                        {selected_asset.file_name}
+                                    </td>
+                                    <td class="nowrap">
+                                        {format_json_datetime(selected_asset.creation_time)}
+                                    </td>
+                                </tr>
+                            </table>
+                        {/if}
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <a href="#" on:click|preventDefault={on_click_select_asset}>
+            {bce_lang($user_language, "component_asset_selector_label_select_asset")}
+        </a>
+    {/if}
 		      
     {#if !minimize}
         <div class="overlayDiv">

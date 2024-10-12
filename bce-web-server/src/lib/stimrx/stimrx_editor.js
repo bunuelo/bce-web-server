@@ -12,6 +12,8 @@ function new_stimrx_editor() {
 	"rxs": [
 	    rx
 	],
+	"evaluations": [
+	],
 	"meta": {
 	}
     };

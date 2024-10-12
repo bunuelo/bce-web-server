@@ -23,7 +23,9 @@
     
     let view_selected = editor ? stimrx_editor.stimrx_editor__get_meta_var(editor, path, "view_selected") : null;
     let light_projection_canvas;
-    
+
+    let adding_evaluation = false;
+
     $: (function () {
         if (editor && view_selected) {
 	    stimrx_editor.stimrx_editor__set_meta_var(editor, path, "view_selected", view_selected);
@@ -77,6 +79,7 @@
     }
 
     async function on_click_add_evaluation() {
+	adding_evaluation = true;
     }
     
 </script>
@@ -91,6 +94,9 @@
 </style>
 
 <div class="stimrxExpression">
+    {#if adding_evaluation}
+        <AssetSelector minimize=false popup_only=true />
+    {/if}
     {#if stimrx.stimrx_sequence_expression__is_type(expression)}
         <i>Sequence</i>
         <select bind:value={view_selected}>
