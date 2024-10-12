@@ -223,15 +223,9 @@
                     <tr>
 	                <td>
                             Evaluations:
-		            <table>
-		                {#each editor.evaluations as evaluation, j}
-		                    <tr>
-		                        <td>
-       		                            <input type="checkbox" id={"" + path + j}><label for={"" + path + j}>Evaluation {j}</label>
-		                        </td>
-		                    </tr>
-		                {/each}
-		            </table>
+  	                    {#each editor.evaluations as evaluation, j}
+       	                         <input type="checkbox" id={"" + path + j}><label for={"" + path + j}>Evaluation {j}</label>
+	                    {/each}
 	                </td>
 	            </tr>
 		{/if}
