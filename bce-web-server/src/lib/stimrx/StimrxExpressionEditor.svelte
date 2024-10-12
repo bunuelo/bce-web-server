@@ -21,7 +21,7 @@
     export let expression;
     export let editor = null;
     export let path = [];
-    
+
     let view_selected = editor ? stimrx_editor.stimrx_editor__get_meta_var(editor, path, "view_selected") : null;
     let light_projection_canvas;
 
