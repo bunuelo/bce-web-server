@@ -283,7 +283,7 @@
 			{#each editor.evaluations as evaluation, j}
 		            <tr>
 		                <td>
-			            {"" + path + j}>Evaluation {j}
+			            Evaluation {j}
 		                </td>
 		            </tr>
 	                {/each}
