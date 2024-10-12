@@ -53,6 +53,7 @@
         minimize = false;
     }
 
+    // Copy and override this function externally to add custom asset selection handlers.
     export let on_asset_select = async function (asset) {
         console.log("Asset selected: " + asset.name + " (" + asset.file_name + ")");
         selected_asset = asset;

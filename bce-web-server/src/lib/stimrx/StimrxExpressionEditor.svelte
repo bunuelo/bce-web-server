@@ -84,6 +84,12 @@
 	adding_evaluation = true;
     }
     
+    let on_evaluation_asset_select = async function (asset) {
+        console.log("Evaluation asset selected: " + asset.name + " (" + asset.file_name + ")");
+        //selected_asset = asset;
+	adding_evaluation = false;
+    };
+
 </script>
 
 <style>
