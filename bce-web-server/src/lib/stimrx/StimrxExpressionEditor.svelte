@@ -66,8 +66,12 @@
     })();
 
     async function get_json_asset(name) {
+	console.log("get_json_asset: name = \"" + name + "\"");
 	if (! (name in asset_cache)) {
-	    asset_cache[name] = JSON.parse(await bce_asset.fetch_asset(name));
+	    console.log("fetching asset.");
+	    let fetched_asset = await bce_asset.fetch_asset(name);
+	    console.log("fetched asset = " + fetched asset);
+	    asset_cache[name] = JSON.parse(fetched_asset);
 	}
 	return asset_cache[name];
     }
