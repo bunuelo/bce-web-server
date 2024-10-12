@@ -108,7 +108,7 @@
 	minimize_evaluation_asset_selector = true;
     };
 
-    async function on_click_delete_evaluation(evaluation_index) {
+    async function on_click_remove_evaluation(evaluation_index) {
 	editor.evaluations.splice(evaluation_index, 1);
         await changed_rx_editor_state();
     }
@@ -293,8 +293,8 @@
 		            <tr>
 		                <td>
 	                            {bce_lang($user_language, "component_stimrx_expression_editor_label_evaluation")}&nbsp;{j}
-	                            <a href="#" on:click|preventDefault={async function () {await on_click_delete_evaluation(j);}}>
-	                                {bce_lang($user_language, "component_stimrx_expression_editor_label_delete_evaluation")}
+	                            <a href="#" on:click|preventDefault={async function () {await on_click_remove_evaluation(j);}}>
+	                                {bce_lang($user_language, "component_stimrx_expression_editor_label_remove_evaluation")}
 	                            </a>
 		                </td>
 		            </tr>
