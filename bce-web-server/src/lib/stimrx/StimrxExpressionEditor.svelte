@@ -174,7 +174,13 @@
         <table>
 	    <tr>
 	        <td>
-                    <i>Light Projection</i>
+                    {#if stimrx.stimrx_left_eye_light_projection__is_type(expression)}
+                        <i>Left Eye Light Projection</i>
+                    {:else if stimrx.stimrx_right_eye_light_projection__is_type(expression)}
+                        <i>Right Eye Light Projection</i>
+                    {:else}
+                        <i>Light Projection</i>
+                    {/if}
                     <select bind:value={view_selected}>
                         <option value="expand">
 	                    {bce_lang($user_language, "component_stimrx_expression_editor_label_expand")}
@@ -237,21 +243,21 @@
             </tr>
         </table>
     {:else}
-    <select bind:value={view_selected}>
-        <option value="minimal">
-	    {bce_lang($user_language, "component_stimrx_expression_editor_label_minimal")}
-	</option>
-        <option value="code">
-	    {bce_lang($user_language, "component_stimrx_expression_editor_label_code")}
-	</option>
-    </select>
-    <table>
-        <tr>
-	    <td>
-	      <i>Unknown StimrxExpression type</i>
-	    </td>
-	</tr>
-    </table>
+        <select bind:value={view_selected}>
+            <option value="minimal">
+	        {bce_lang($user_language, "component_stimrx_expression_editor_label_minimal")}
+	    </option>
+            <option value="code">
+	        {bce_lang($user_language, "component_stimrx_expression_editor_label_code")}
+	    </option>
+        </select>
+        <table>
+            <tr>
+	        <td>
+	            <i>Unknown StimrxExpression type</i>
+	        </td>
+	    </tr>
+        </table>
     {/if}
     {#if view_selected === "code"}
         <textarea rows="20" cols="50" >
