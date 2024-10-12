@@ -92,7 +92,7 @@
             let evaluation = await bce_asset.fetch_asset(asset.name);
             console.log("Received evaluation asset.  evaluation=" + evaluation);
 	    editor.evaluations.push(evaluation);
-	    await bce_session.update({"rx_editor_state": editor});
+	    await bce_session.update({"rx_editor_state": JSON.stringify(editor)});
 	    let temp = expression;
 	    expression = null;
 	    expression = temp;
