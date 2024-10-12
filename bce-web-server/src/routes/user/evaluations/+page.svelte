@@ -13,31 +13,12 @@
     import BceSession from "$lib/bce_session.js";
     let bce_session = new BceSession();
     import AssetSelector from '$lib/AssetSelector.svelte';
+    import { bce_asset } from '$lib/bce_asset.js'
 
     let selected_asset = null;
     let minimize = true;
 
     let evaluation = null;
-    
-    async function fetch_evaluation(url) {
-        return await fetch(url, {
-            "method": "GET",
-	    "headers": {
-		"Content-type": "application/json; charset=UTF-8"
-	    }
-        }).then((response) => {
-            if (response.ok) {
-                return response.json();
-            }
-            console.log("fetch_evaluation ERROR: response not ok.")
-            return null
-        }).then((responseJson) => {
-            return responseJson
-        }).catch((error) => {
-            console.log("fetch_evaluation ERROR: error = \"" + error + "\"")
-            return null
-        });
-    }
     
     let left_eye_canvas;
     var left_eye_canvas_ctx = null;
@@ -84,8 +65,7 @@
         if (asset == null) {
             evaluation = null;
         } else {
-            var url = "https://bce.center:8000/asset/download?session_token=" + $user_session_token + "&name=" + asset.name;
-            evaluation = await fetch_evaluation(url);
+	    evaluation = bce_asset.fetch_asset(asset.name);
         }
         update_eye_canvases();
     };

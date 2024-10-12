@@ -16,6 +16,7 @@
     let bce_session = new BceSession();
     import AssetSelector from '$lib/AssetSelector.svelte'
     import StimrxExpressionEditor from '$lib/stimrx/StimrxExpressionEditor.svelte'
+    import { bce_asset } from '$lib/bce_asset.js'
     
     export let expression;
     export let editor = null;
@@ -86,7 +87,10 @@
     
     let on_evaluation_asset_select = async function (asset) {
         console.log("Evaluation asset selected: " + asset.name + " (" + asset.file_name + ")");
-        //selected_asset = asset;
+	if (editor !== null) {
+            let evaluation = await bce_asset.fetch_asset(asset.name);
+	    editor.evaluations.push(evaluation);
+	}
 	minimize_evaluation_asset_selector = true;
     };
 

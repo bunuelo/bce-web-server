@@ -21,26 +21,6 @@
     let minimize = true;
     let rx_editor_state = stimrx_editor.new_stimrx_editor();
 
-    async function fetch_rx(url) {
-        return await fetch(url, {
-            "method": "GET",
-	    "headers": {
-		"Content-type": "application/json; charset=UTF-8"
-	    }
-        }).then((response) => {
-            if (response.ok) {
-                return response.json();
-            }
-            console.log("fetch_rx ERROR: response not ok.")
-            return null
-        }).then((responseJson) => {
-            return responseJson
-        }).catch((error) => {
-            console.log("fetch_rx ERROR: error = \"" + error + "\"")
-            return null
-        });
-    }
-    
     async function on_asset_select(asset) {
         console.log("Asset selected: " + asset.name + " (" + asset.file_name + ")");
         selected_asset = asset;
