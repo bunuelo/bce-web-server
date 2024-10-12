@@ -71,7 +71,7 @@
 	    console.log("fetching asset.");
 	    let fetched_asset = await bce_asset.fetch_asset(name);
 	    console.log("fetched asset = " + fetched_asset);
-	    asset_cache[name] = JSON.parse(fetched_asset);
+	    asset_cache[name] = fetched_asset;
 	}
 	return asset_cache[name];
     }
