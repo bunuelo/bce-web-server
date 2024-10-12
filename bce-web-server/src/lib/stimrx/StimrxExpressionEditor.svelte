@@ -106,7 +106,7 @@
 </style>
 
 <div class="stimrxExpression">
-    <AssetSelector bind:minimize={minimize_evaluation_asset_selector} popup_only={true} bind:selected_asset={selected_evaluation}/>
+    <AssetSelector bind:minimize={minimize_evaluation_asset_selector} popup_only={true} bind:selected_asset={selected_evaluation} on_asset_select={on_evaluation_asset_select} />
     {#if stimrx.stimrx_sequence_expression__is_type(expression)}
         <i>Sequence</i>
         <select bind:value={view_selected}>
