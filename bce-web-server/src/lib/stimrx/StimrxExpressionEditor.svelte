@@ -303,8 +303,14 @@
   	            <table>
 			{#each editor.evaluations as evaluation, j}
 		            <tr>
-		                <td>
-	     {bce_lang($user_language, "component_stimrx_expression_editor_label_evaluation")}&nbsp;{(await get_json_asset(evaluation)).type}
+	                        <td>
+	                            {#await get_json_asset(evaluation)}
+	                                ...waiting
+	                            {:then json_asset}
+	                                {bce_lang($user_language, "component_stimrx_expression_editor_label_evaluation")}&nbsp;{json_asset.type}
+ 	                            {:catch error}
+	                                {error.message}
+	                            {/await}
 	                            <a href="#" on:click|preventDefault={async function () {await on_click_remove_evaluation(j);}}>
 	                                {bce_lang($user_language, "component_stimrx_expression_editor_label_remove_evaluation")}
 	                            </a>
