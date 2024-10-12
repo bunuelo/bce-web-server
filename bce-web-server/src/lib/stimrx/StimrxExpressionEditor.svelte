@@ -92,10 +92,10 @@
     let on_evaluation_asset_select = async function (asset) {
         console.log("Evaluation asset selected: " + asset.name + " (" + asset.file_name + ")");
 	if (editor !== null) {
-            console.log("Fetching evaluation asset.");
-            let evaluation = await bce_asset.fetch_asset(asset.name);
-            console.log("Received evaluation asset.  evaluation=" + evaluation);
-	    editor.evaluations.push(evaluation);
+            //console.log("Fetching evaluation asset.");
+            //let evaluation = await bce_asset.fetch_asset(asset.name);
+            //console.log("Received evaluation asset.  evaluation=" + evaluation);
+	    editor.evaluations.push(asset.name);
 	    await upload_rx_editor_state();
 	    let temp = expression;
 	    expression = null;
