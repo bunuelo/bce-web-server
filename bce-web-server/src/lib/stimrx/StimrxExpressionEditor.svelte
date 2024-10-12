@@ -92,6 +92,9 @@
             let evaluation = await bce_asset.fetch_asset(asset.name);
             console.log("Received evaluation asset.  evaluation=" + evaluation);
 	    editor.evaluations.push(evaluation);
+	    let temp = expression;
+	    expression = null;
+	    expression = temp;
 	}
 	minimize_evaluation_asset_selector = true;
     };
