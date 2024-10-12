@@ -122,11 +122,15 @@ function stimrx_light_triangle_projection__is_type(x) {
 
 // LightProjection BEGIN
 
+function stimrx_light_projection__initialize(self, type, triangles) {
+    self["type"]      = type;
+    self["triangles"] = triangles;
+}
+
 function new_stimrx_light_projection(triangles) {
-    return {
-	"type": "LightProjection",
-	"triangles": triangles
-    };
+    var self = {};
+    stimrx_light_projection__initialize(self, "LightProjection", triangles);
+    return self;
 }
 
 function stimrx_light_projection__is_type(x) {
