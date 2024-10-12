@@ -180,7 +180,7 @@
                     </td>
                     <td>
                         {#each expression.children as child, i}
-	                    <StimrxExpressionEditor bind:expression={child} editor={editor} path={[...path, "children", i]} asset_cache={asset_cache/}>
+	 <StimrxExpressionEditor bind:expression={child} editor={editor} path={[...path, "children", i]} asset_cache={asset_cache}/>
     	                {/each}
                     </td>
 	        </tr>
