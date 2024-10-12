@@ -20,6 +20,7 @@
     let selected_asset = null;
     let minimize = true;
     let rx_editor_state = stimrx_editor.new_stimrx_editor();
+    let asset_cache = {};
 
     async function on_asset_select(asset) {
         console.log("Asset selected: " + asset.name + " (" + asset.file_name + ")");
@@ -79,7 +80,7 @@
 
     <h1>{bce_lang($user_language, "page_rxs_title")}</h1>
     
-    <StimrxExpressionEditor bind:expression={rx_editor_state} editor={rx_editor_state}/>
+    <StimrxExpressionEditor bind:expression={rx_editor_state} editor={rx_editor_state} asset_cache={asset_cache}/>
     
 <!--
 a comment

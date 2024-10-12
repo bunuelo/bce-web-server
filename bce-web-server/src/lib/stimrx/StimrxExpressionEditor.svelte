@@ -21,6 +21,7 @@
     export let expression;
     export let editor = null;
     export let path = [];
+    export let asset_cache;
 
     let view_selected = editor ? stimrx_editor.stimrx_editor__get_meta_var(editor, path, "view_selected") : null;
     let light_projection_canvas;
@@ -63,6 +64,13 @@
    	    bce_canvas_render__draw_radial_eye(light_projection_canvas, ctx);
 	}
     })();
+
+    async function get_json_asset(name) {
+	if (! (name in asset_cache)) {
+	    asset_cache[name] = JSON.parse(await fetch_asset(name));
+	}
+	return asset_cache[name];
+    }
 
     async function on_click_hide_details() {
         show_details = false;
@@ -146,7 +154,7 @@
                     </td>
                     <td>
                         {#each expression.children as child, i}
-	                    <StimrxExpressionEditor bind:expression={child} editor={editor} path={[...path, "children", i]}/>
+	                    <StimrxExpressionEditor bind:expression={child} editor={editor} path={[...path, "children", i]} asset_cache={asset_cache}/>
     	                {/each}
                     </td>
 	        </tr>
@@ -172,7 +180,7 @@
                     </td>
                     <td>
                         {#each expression.children as child, i}
-	                    <StimrxExpressionEditor bind:expression={child} editor={editor} path={[...path, "children", i]}/>
+	                    <StimrxExpressionEditor bind:expression={child} editor={editor} path={[...path, "children", i]} asset_cache={asset_cache/}>
     	                {/each}
                     </td>
 	        </tr>
@@ -205,7 +213,7 @@
         <tt>{expression.name}&nbsp;=&nbsp;</tt>
         {#if view_selected === "expand"}
             <td>
-                <StimrxExpressionEditor bind:expression={expression.value} editor={editor} path={[...path, "value"]}/>
+                <StimrxExpressionEditor bind:expression={expression.value} editor={editor} path={[...path, "value"]} asset_cache={asset_cache}/>
             </td>
         {/if}
     {:else if stimrx.stimrx_light_projection__is_type(expression)}
@@ -292,7 +300,7 @@
 			{#each editor.evaluations as evaluation, j}
 		            <tr>
 		                <td>
-	                            {bce_lang($user_language, "component_stimrx_expression_editor_label_evaluation")}&nbsp;{j}
+	                            {bce_lang($user_language, "component_stimrx_expression_editor_label_evaluation")}&nbsp;{get_json_asset(evaluation).type}
 	                            <a href="#" on:click|preventDefault={async function () {await on_click_remove_evaluation(j);}}>
 	                                {bce_lang($user_language, "component_stimrx_expression_editor_label_remove_evaluation")}
 	                            </a>
@@ -305,7 +313,7 @@
             <tr>
                 <td>
 		    {#if expression.rxs.length > 0}
-                        <StimrxExpressionEditor expression={expression.rxs[0]} editor={expression} path={[...path, "rxs", 0]}/>
+                        <StimrxExpressionEditor expression={expression.rxs[0]} editor={expression} path={[...path, "rxs", 0]} asset_cache={asset_cache}/>
                     {/if}
                 </td>
             </tr>
