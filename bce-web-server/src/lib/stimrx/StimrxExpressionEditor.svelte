@@ -89,6 +89,13 @@
 	await bce_session.update({"rx_editor_state": JSON.stringify(editor)});
     }
 
+    async function changed_rx_editor_state() {
+	await upload_rx_editor_state();
+	let temp = expression;
+	expression = null;
+	expression = temp;
+    }
+
     let on_evaluation_asset_select = async function (asset) {
         console.log("Evaluation asset selected: " + asset.name + " (" + asset.file_name + ")");
 	if (editor !== null) {
@@ -96,13 +103,15 @@
             //let evaluation = await bce_asset.fetch_asset(asset.name);
             //console.log("Received evaluation asset.  evaluation=" + evaluation);
 	    editor.evaluations.push(asset.name);
-	    await upload_rx_editor_state();
-	    let temp = expression;
-	    expression = null;
-	    expression = temp;
+            await changed_rx_editor_state();
 	}
 	minimize_evaluation_asset_selector = true;
     };
+
+    async function on_click_delete_evaluation(evaluation_index) {
+	editor.evaluations.splice(evaluation_index, 1);
+        await changed_rx_editor_state();
+    }
 
 </script>
 
@@ -283,7 +292,10 @@
 			{#each editor.evaluations as evaluation, j}
 		            <tr>
 		                <td>
-			            Evaluation {j}
+	                            {bce_lang($user_language, "component_stimrx_expression_editor_label_evaluation")}&nbsp;{j}
+	                            <a href="#" on:click|preventDefault={async function () {await on_click_delete_evaluation(j);}}>
+	                                {bce_lang($user_language, "component_stimrx_expression_editor_label_delete_evaluation")}
+	                            </a>
 		                </td>
 		            </tr>
 	                {/each}
