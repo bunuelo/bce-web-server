@@ -214,6 +214,15 @@
                 </td>
             </tr>
             {#if view_selected === "expand"}
+                {#if editor !== null}
+                    <tr>
+	                <td>
+   		            {#each editor.evaluations as evaluation, j}
+       		                <input type="checkbox" id={"" + path + j}><label for={"" + path + j}>Evaluation {j}</label>
+		            {/each}
+	                </td>
+	            </tr>
+		{/if}
                 <tr>
 	            <td>
                         <canvas bind:this={light_projection_canvas}></canvas>
