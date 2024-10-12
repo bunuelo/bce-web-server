@@ -85,7 +85,7 @@
 	minimize_evaluation_asset_selector = false;
     }
 
-    async upload_rx_editor_state() {
+    async function upload_rx_editor_state() {
 	await bce_session.update({"rx_editor_state": JSON.stringify(editor)});
     }
 
