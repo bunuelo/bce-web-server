@@ -67,7 +67,7 @@
 
     async function get_json_asset(name) {
 	if (! (name in asset_cache)) {
-	    asset_cache[name] = JSON.parse(await fetch_asset(name));
+	    asset_cache[name] = JSON.parse(await bce_asset.fetch_asset(name));
 	}
 	return asset_cache[name];
     }
