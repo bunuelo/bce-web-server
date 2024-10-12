@@ -304,7 +304,7 @@
 			{#each editor.evaluations as evaluation, j}
 		            <tr>
 		                <td>
-	                            {bce_lang($user_language, "component_stimrx_expression_editor_label_evaluation")}&nbsp;{get_json_asset(evaluation).type}
+	     {bce_lang($user_language, "component_stimrx_expression_editor_label_evaluation")}&nbsp;{(await get_json_asset(evaluation)).type}
 	                            <a href="#" on:click|preventDefault={async function () {await on_click_remove_evaluation(j);}}>
 	                                {bce_lang($user_language, "component_stimrx_expression_editor_label_remove_evaluation")}
 	                            </a>
