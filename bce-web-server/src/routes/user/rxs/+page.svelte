@@ -62,7 +62,7 @@
     async function update_rx_editor_state() {
 	var stored_rx_editor_state = await bce_session.rx_editor_state();
 	if (stored_rx_editor_state !== null && stored_rx_editor_state !== "") {
-	    rx_editor_state = stored_rx_editor_state;
+	    rx_editor_state = JSON.parse(stored_rx_editor_state);
 	}
     }
 
