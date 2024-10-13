@@ -44,10 +44,33 @@ function stimrx_editor__set_meta_var(_self, path, name, value) {
 // Editor END
 
 
+// EditorEvaluation BEGIN
+
+function new_stimrx_editor_evaluation(asset_name) {
+    return {
+	"type": "EditorEvaluation",
+	"asset_name": asset_name,
+	"enable_left_eye_overlay": true,
+	"enable_right_eye_overlay": true
+    };
+}
+
+function stimrx_editor_evaluation__is_type(x) {
+    return x && typeof x === "object" && x.hasOwnProperty("type") && x.type === "EditorEvaluation";
+}
+
+// EditorEvaluation END
+
+
+
+
 export let stimrx_editor = {
-    "new_stimrx_editor": new_stimrx_editor,
-    "stimrx_editor__is_type": stimrx_editor__is_type,
-    "stimrx_editor__get_meta": stimrx_editor__get_meta,
-    "stimrx_editor__get_meta_var": stimrx_editor__get_meta_var,
-    "stimrx_editor__set_meta_var": stimrx_editor__set_meta_var,
+    new_stimrx_editor: new_stimrx_editor,
+    stimrx_editor__is_type: stimrx_editor__is_type,
+    stimrx_editor__get_meta: stimrx_editor__get_meta,
+    stimrx_editor__get_meta_var: stimrx_editor__get_meta_var,
+    stimrx_editor__set_meta_var: stimrx_editor__set_meta_var,
+    
+    new_stimrx_editor_evaluation: new_stimrx_editor_evaluation,
+    stimrx_editor_evaluation__is_type: stimrx_editor_evaluation__is_type,
 };

@@ -52,7 +52,7 @@
     async function update_all() {
         update_view_selected();
     }
-
+    
     async function update_view_selected() {
     }
 
@@ -107,7 +107,8 @@
     let on_evaluation_asset_select = async function (asset) {
         console.log("Evaluation asset selected: " + asset.name + " (" + asset.file_name + ")");
 	if (editor !== null) {
-	    editor.evaluations.push(asset.name);
+	    let editor_evaluation = stimrx_editor.new_stimrx_editor_evaluation(asset.name);
+	    editor.evaluations.push(editor_evaluation);
             await changed_rx_editor_state();
 	}
 	minimize_evaluation_asset_selector = true;
@@ -242,7 +243,7 @@
                     <tr>
 	                <td>
   	                    {#each editor.evaluations as evaluation, j}
-         	     <input type="checkbox" id={"evaluation_checkbox_" + path + j} bind:checked={(function () {stimrx_editor.stimrx_editor__set_meta_var("" + [...path, "evaluation", j, "checkbox", null]); return stimrx_editor.stimrx_editor__get_meta("" + [...path, "evaluation", j]);})().checkbox}>
+         	     <input type="checkbox" id={"evaluation_checkbox_" + path + j} bind:checked={evaluation.enable_left_eye_overlay}>
   		                <label for={"evaluation_checkbox_" + path + j}>{bce_lang($user_language, "component_stimrx_expression_editor_label_evaluation")}&nbsp;{j+1}</label>
 	                    {/each}
 	                </td>
