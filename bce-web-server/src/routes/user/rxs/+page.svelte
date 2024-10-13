@@ -22,22 +22,6 @@
     let rx_editor_state = stimrx_editor.new_stimrx_editor();
     let asset_cache = {};
 
-    async function on_asset_select(asset) {
-        console.log("Asset selected: " + asset.name + " (" + asset.file_name + ")");
-        selected_asset = asset;
-        minimize = true;
-        if (asset == null) {
-            rx = null;
-        } else {
-            var url = "https://bce.center:8000/asset/download?session_token=" + $user_session_token + "&name=" + asset.name;
-            var rx = await fetch_rx(url);
-	    rx_editor_state.rxs.push(rx);
-        }
-    };
-
-    const on_window_resize = async function() {
-    };
-	
     onMount(async () => {
         if (! $user_session_is_valid) {
             $user_session_is_valid = await bce_session.session_is_valid()
@@ -50,10 +34,6 @@
             goto("/user/dashboard");
         }
         await update_all();
-	window.addEventListener('resize', on_window_resize);
-	return () => {
-	     window.removeEventListener('resize', on_window_resize);
-	}
     });
 
     async function update_all() {

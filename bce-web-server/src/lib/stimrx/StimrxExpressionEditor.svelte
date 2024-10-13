@@ -90,14 +90,13 @@
     }
 
     async function on_click_add_evaluation() {
-	console.log("In the process of adding evaluation.");
 	minimize_evaluation_asset_selector = false;
     }
 
     async function upload_rx_editor_state() {
 	await bce_session.update({"rx_editor_state": JSON.stringify(editor)});
     }
-
+    
     async function changed_rx_editor_state() {
 	await upload_rx_editor_state();
 	let temp = expression;
@@ -108,9 +107,6 @@
     let on_evaluation_asset_select = async function (asset) {
         console.log("Evaluation asset selected: " + asset.name + " (" + asset.file_name + ")");
 	if (editor !== null) {
-            //console.log("Fetching evaluation asset.");
-            //let evaluation = await bce_asset.fetch_asset(asset.name);
-            //console.log("Received evaluation asset.  evaluation=" + evaluation);
 	    editor.evaluations.push(asset.name);
             await changed_rx_editor_state();
 	}
@@ -245,10 +241,9 @@
                 {#if editor !== null}
                     <tr>
 	                <td>
-                            Evaluations:
   	                    {#each editor.evaluations as evaluation, j}
-         	                <input type="checkbox" id={"" + path + j}>
-			        <label for={"" + path + j}>Evaluation {j}</label>
+         	                <input type="checkbox" id={"evaluation_checkbox_" + path + j}>
+		     <label for={"evaluation_checkbox_" + path + j}>{bce_lang($user_language, "component_stimrx_expression_editor_label_evaluation")}&nbsp;{j+1}</label>
 	                    {/each}
 	                </td>
 	            </tr>
@@ -304,7 +299,7 @@
 	                            {#await get_json_asset(evaluation)}
 	                                ...waiting
 	                            {:then json_asset}
-	                                {bce_lang($user_language, "component_stimrx_expression_editor_label_evaluation")}&nbsp;{json_asset.type}
+	                                {bce_lang($user_language, "component_stimrx_expression_editor_label_evaluation")}&nbsp;{j + 1}
  	                            {:catch error}
 	                                {error.message}
 	                            {/await}
