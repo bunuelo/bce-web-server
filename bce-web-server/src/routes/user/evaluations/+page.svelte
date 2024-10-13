@@ -63,10 +63,10 @@
         console.log("Asset selected: " + asset.name + " (" + asset.file_name + ")");
         selected_asset = asset;
         minimize = true;
-        if (asset == null) {
+        if (asset === null) {
             evaluation = null;
         } else {
-	    let loaded_asset = bce_asset.fetch_asset(asset.name);
+	    let loaded_asset = await bce_asset.fetch_asset(asset.name);
 	    if (! stimrx.stimrx_evaluation__is_type(loaded_asset)) {
 		console.log("Loaded asset is not Evaluation.");
 		console.log("loaded_asset = " + JSON.stringify(loaded_asset));
