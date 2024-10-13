@@ -69,7 +69,7 @@
 	    let loaded_asset = bce_asset.fetch_asset(asset.name);
 	    if (! stimrx.stimrx_evaluation__is_type(loaded_asset)) {
 		console.log("Loaded asset is not Evaluation.");
-		console.log("loaded_asset = " + loaded_asset);
+		console.log("loaded_asset = " + JSON.stringify(loaded_asset));
 		return;
 	    }
 	    evaluation = loaded_asset;
