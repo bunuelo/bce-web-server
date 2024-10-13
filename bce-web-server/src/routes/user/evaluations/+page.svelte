@@ -65,7 +65,12 @@
         if (asset == null) {
             evaluation = null;
         } else {
-	    evaluation = bce_asset.fetch_asset(asset.name);
+	    let loaded_asset = bce_asset.fetch_asset(asset.name);
+	    if (! stimrx.stimrx_evaluation__is_type(loaded_asset)) {
+		console.log("Loaded asset is not Evaluation.");
+		return;
+	    }
+	    evaluation = loaded_asset;
         }
         update_eye_canvases();
     };

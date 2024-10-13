@@ -72,6 +72,21 @@ function stimrx_set_variable_expression__is_type(expression) {
 // SetVariableExpression END
 
 
+// Evaluation BEGIN
+
+//function new_stimrx_evaluation(alpha, omega) {
+//    return {
+//	"type": "Evaluation",
+//    };
+//}
+
+function stimrx_evaluation__is_type(x) {
+    return x && typeof x === "object" && x.hasOwnProperty("type") && x.type === "Evaluation";
+};
+
+// Evaluation END
+
+
 // LightAngle BEGIN
 
 function new_stimrx_light_angle(alpha, omega) {
@@ -185,6 +200,8 @@ function stimrx_right_eye_light_projection__is_type(x) {
 
 
 
+
+
 export const stimrx = {
     new_stimrx_sequence_expression: new_stimrx_sequence_expression,
     stimrx_sequence_expression__is_type: stimrx_sequence_expression__is_type,
@@ -198,6 +215,8 @@ export const stimrx = {
     new_stimrx_set_variable_expression: new_stimrx_set_variable_expression,
     stimrx_set_variable_expression__is_type: stimrx_set_variable_expression__is_type,
     
+    stimrx_evaluation__is_type: stimrx_evaluation__is_type,
+
     new_stimrx_light_angle: new_stimrx_light_angle,
     stimrx_light_angle__is_type: stimrx_light_angle__is_type,
     
