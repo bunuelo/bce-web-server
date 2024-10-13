@@ -242,7 +242,7 @@
                     <tr>
 	                <td>
   	                    {#each editor.evaluations as evaluation, j}
-         	     <input type="checkbox" id={"evaluation_checkbox_" + path + j} bind:checked={stimrx_editor.stimrx_editor__get_meta("" + [...path, "evaluation", j]).checkbox}>
+         	     <input type="checkbox" id={"evaluation_checkbox_" + path + j} bind:checked={(function () {stimrx_editor.stimrx_editor__set_meta_var("" + [...path, "evaluation", j, "checkbox", null]); return stimrx_editor.stimrx_editor__get_meta("" + [...path, "evaluation", j]);})().checkbox}>
   		                <label for={"evaluation_checkbox_" + path + j}>{bce_lang($user_language, "component_stimrx_expression_editor_label_evaluation")}&nbsp;{j+1}</label>
 	                    {/each}
 	                </td>
