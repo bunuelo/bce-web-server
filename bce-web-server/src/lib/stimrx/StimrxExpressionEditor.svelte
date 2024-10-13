@@ -242,8 +242,8 @@
                     <tr>
 	                <td>
   	                    {#each editor.evaluations as evaluation, j}
-         	                <input type="checkbox" id={"evaluation_checkbox_" + path + j}>
-		     <label for={"evaluation_checkbox_" + path + j}>{bce_lang($user_language, "component_stimrx_expression_editor_label_evaluation")}&nbsp;{j+1}</label>
+         	     <input type="checkbox" id={"evaluation_checkbox_" + path + j} bind:checked={stimrx_editor.stimrx_editor__get_meta("" + [...path, "evaluation", j]).checkbox}>
+  		                <label for={"evaluation_checkbox_" + path + j}>{bce_lang($user_language, "component_stimrx_expression_editor_label_evaluation")}&nbsp;{j+1}</label>
 	                    {/each}
 	                </td>
 	            </tr>
