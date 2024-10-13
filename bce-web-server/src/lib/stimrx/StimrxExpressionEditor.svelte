@@ -104,6 +104,10 @@
 	expression = temp;
     }
 
+    async function on_change_evaluation_checkbox() {
+	await changed_rx_editor_state();
+    }
+    
     let on_evaluation_asset_select = async function (asset) {
         console.log("Evaluation asset selected: " + asset.name + " (" + asset.file_name + ")");
 	if (editor !== null) {
@@ -244,9 +248,9 @@
 	                <td>
   	                    {#each editor.evaluations as evaluation, j}
                                 {#if stimrx.stimrx_left_eye_light_projection__is_type(expression)}
-         	                    <input type="checkbox" id={"evaluation_checkbox_" + path + j} bind:checked={evaluation.enable_left_eye_overlay}>
+         	     <input type="checkbox" id={"evaluation_checkbox_" + path + j} bind:checked={evaluation.enable_left_eye_overlay} on:change|preventDefault={on_change_evaluation_checkbox}>
                                 {:else if stimrx.stimrx_right_eye_light_projection__is_type(expression)}
-         	                    <input type="checkbox" id={"evaluation_checkbox_" + path + j} bind:checked={evaluation.enable_right_eye_overlay}>
+         	                    <input type="checkbox" id={"evaluation_checkbox_" + path + j} bind:checked={evaluation.enable_right_eye_overlay} on:change|preventDefault={on_change_evaluation_checkbox}>
                                 {/if}
   		                <label for={"evaluation_checkbox_" + path + j}>{bce_lang($user_language, "component_stimrx_expression_editor_label_evaluation")}&nbsp;{j+1}</label>
 	                    {/each}
