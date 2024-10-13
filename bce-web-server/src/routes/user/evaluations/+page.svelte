@@ -14,6 +14,7 @@
     let bce_session = new BceSession();
     import AssetSelector from '$lib/AssetSelector.svelte';
     import { bce_asset } from '$lib/bce_asset.js'
+    import { stimrx } from '$lib/stimrx/stimrx.js'
 
     let selected_asset = null;
     let minimize = true;
