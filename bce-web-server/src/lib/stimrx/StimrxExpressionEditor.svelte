@@ -243,7 +243,11 @@
                     <tr>
 	                <td>
   	                    {#each editor.evaluations as evaluation, j}
-         	     <input type="checkbox" id={"evaluation_checkbox_" + path + j} bind:checked={evaluation.enable_left_eye_overlay}>
+                                {#if stimrx.stimrx_left_eye_light_projection__is_type(expression)}
+         	                    <input type="checkbox" id={"evaluation_checkbox_" + path + j} bind:checked={evaluation.enable_left_eye_overlay}>
+                                {:else if stimrx.stimrx_right_eye_light_projection__is_type(expression)}
+         	                    <input type="checkbox" id={"evaluation_checkbox_" + path + j} bind:checked={evaluation.enable_right_eye_overlay}>
+                                {/if}
   		                <label for={"evaluation_checkbox_" + path + j}>{bce_lang($user_language, "component_stimrx_expression_editor_label_evaluation")}&nbsp;{j+1}</label>
 	                    {/each}
 	                </td>
