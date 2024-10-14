@@ -43,7 +43,7 @@ function bce_canvas_render__draw_radial_eye(canvas, ctx, color_theme) {
     }
 }
 
-function bce_canvas_render__evaluation_eye_data(canvas, ctx, color_theme, evaluation, eye_index) {
+function bce_canvas_render__evaluation_eye_data(canvas, ctx, color_theme, evaluation, eye_index, draw_empty_responses=true) {
     var color_background;
     var color_axes;
     var color_can_see;
@@ -83,14 +83,16 @@ function bce_canvas_render__evaluation_eye_data(canvas, ctx, color_theme, evalua
                 const response_radius          = 0.5 * response.stimulus.diameter * 180.0 / Math.PI;
                 const response_radial_distance = maximum_alpha_radius * response_alpha / maximum_alpha;
                 if (response.canSee == null) {
-                    ctx.fillStyle   = "rgb(" + color_cannot_see[0] + "," + color_cannot_see[1] + "," + color_cannot_see[2] + ")";
-                    ctx.strokeStyle = "rgb(" + color_cannot_see[0] + "," + color_cannot_see[1] + "," + color_cannot_see[2] + ")";
-                    ctx.beginPath();
-                    ctx.arc(center_x + response_radial_distance * Math.cos(response.stimulus.direction.omega),
-                            center_y + response_radial_distance * Math.sin(response.stimulus.direction.omega),
-                            maximum_alpha_radius * response_radius / maximum_alpha, 0, 2 * Math.PI);
-                    ctx.fill();
-                    ctx.stroke();
+		    if (draw_empty_responses) {
+			ctx.fillStyle   = "rgb(" + color_cannot_see[0] + "," + color_cannot_see[1] + "," + color_cannot_see[2] + ")";
+			ctx.strokeStyle = "rgb(" + color_cannot_see[0] + "," + color_cannot_see[1] + "," + color_cannot_see[2] + ")";
+			ctx.beginPath();
+			ctx.arc(center_x + response_radial_distance * Math.cos(response.stimulus.direction.omega),
+				center_y + response_radial_distance * Math.sin(response.stimulus.direction.omega),
+				maximum_alpha_radius * response_radius / maximum_alpha, 0, 2 * Math.PI);
+			ctx.fill();
+			ctx.stroke();
+		    }
                 } else {
                     eye_total_response_count ++;
                     //console.log("response_alpha = " + response_alpha + ", response_omega = " + response_omega + ", response_radius = " + response_radius);
