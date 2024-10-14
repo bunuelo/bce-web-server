@@ -51,7 +51,9 @@ function new_stimrx_editor_evaluation(asset_name) {
 	"type": "EditorEvaluation",
 	"asset_name": asset_name,
 	"enable_left_eye_overlay": true,
-	"enable_right_eye_overlay": true
+	"enable_right_eye_overlay": true,
+	"left_eye_blind_spots": [],
+	"right_eye_blind_spots": [],
     };
 }
 
@@ -62,6 +64,20 @@ function stimrx_editor_evaluation__is_type(x) {
 // EditorEvaluation END
 
 
+// EditorBlindSpot BEGIN
+
+function new_stimrx_editor_blind_spot(points) {
+    return {
+	"type": "EditorBlindSpot",
+	"points": points,
+    };
+}
+
+function stimrx_editor_blind_spot__is_type(x) {
+    return x && typeof x === "object" && x.hasOwnProperty("type") && x.type === "EditorBlindSpot";
+}
+
+// EditorBlindSpot END
 
 
 export let stimrx_editor = {
@@ -73,4 +89,7 @@ export let stimrx_editor = {
     
     new_stimrx_editor_evaluation: new_stimrx_editor_evaluation,
     stimrx_editor_evaluation__is_type: stimrx_editor_evaluation__is_type,
+    
+    new_stimrx_editor_blind_spot: new_stimrx_editor_blind_spot,
+    stimrx_editor_blind_spot__is_type: stimrx_editor_blind_spot__is_type,
 };
