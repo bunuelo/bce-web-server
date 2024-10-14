@@ -43,7 +43,7 @@ function bce_canvas_render__draw_radial_eye(canvas, ctx, color_theme) {
     }
 }
 
-function bce_canvas_render__evaluation_eye(canvas, ctx, color_theme, evaluation, eye_index) {
+function bce_canvas_render__evaluation_eye_data(canvas, ctx, color_theme, evaluation, eye_index) {
     var color_background;
     var color_axes;
     var color_can_see;
@@ -71,22 +71,6 @@ function bce_canvas_render__evaluation_eye(canvas, ctx, color_theme, evaluation,
     
     const maximum_alpha = 45;
     const alpha_resolution = 5;
-    
-    // background
-    ctx.fillStyle = "rgb(" + color_background[0] + "," + color_background[1] + "," + color_background[2] + ")";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    
-    // axes
-    ctx.strokeStyle = "rgb(" + color_axes[0] + "," + color_axes[1] + "," + color_axes[2] + ")";
-    ctx.fillStyle   = "rgb(" + color_axes[0] + "," + color_axes[1] + "," + color_axes[2] + ")";
-    ctx.beginPath();
-    ctx.arc(center_x, center_y, 1, 0, 2 * Math.PI);
-    ctx.fill();
-    for (let alpha = alpha_resolution; alpha <= maximum_alpha; alpha += alpha_resolution) {
-        ctx.beginPath();
-        ctx.arc(center_x, center_y, maximum_alpha_radius * alpha / maximum_alpha, 0, 2 * Math.PI);
-        ctx.stroke();
-    }
     
     // can/cannot see stimilus responses
     if (evaluation != null) {
@@ -140,7 +124,13 @@ function bce_canvas_render__evaluation_eye(canvas, ctx, color_theme, evaluation,
     };
 }
 
+function bce_canvas_render__evaluation_eye(canvas, ctx, color_theme, evaluation, eye_index) {
+    bce_canvas_render__draw_radial_eye(canvas, ctx, color_theme);
+    return bce_canvas_render__evaluation_eye_data(canvas, ctx, color_theme, evaluation, eye_index);
+}
+
 export const bce_canvas_render = {
     bce_canvas_render__draw_radial_eye: bce_canvas_render__draw_radial_eye,
+    bce_canvas_render__evaluation_eye_data: bce_canvas_render__evaluation_eye_data,
     bce_canvas_render__evaluation_eye: bce_canvas_render__evaluation_eye,
 };
