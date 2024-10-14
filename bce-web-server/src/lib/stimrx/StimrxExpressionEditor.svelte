@@ -76,6 +76,18 @@
 		    }
 		}
 	    }
+	    var blind_spots = null;
+	    if (stimrx.stimrx_left_eye_light_projection__is_type(expression)) {
+		blind_spots = editor.left_eye_blind_spots;
+	    } else if (stimrx.stimrx_right_eye_light_projection__is_type(expression)) {
+		blind_spots = editor.right_eye_blind_spots;
+	    }
+	    if (blind_spots !== null) {
+		for (var i = 0; i < blind_spots.length; i ++) {
+		    let blind_spot = editor.blind_spots[i];
+		    bce_canvas_render.bce_canvas_render__blind_spot(light_projection_canvas, ctx, $user_color_theme, evaluation, blind_spot);
+		}
+	    }
 	}
     }
 

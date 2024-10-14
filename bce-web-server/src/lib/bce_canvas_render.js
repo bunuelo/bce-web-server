@@ -131,8 +131,14 @@ function bce_canvas_render__evaluation_eye(canvas, ctx, color_theme, evaluation,
     return bce_canvas_render__evaluation_eye_data(canvas, ctx, color_theme, evaluation, eye_index);
 }
 
+
+function bce_canvas_render__blind_spot(canvas, ctx, color_theme, blind_spot) {
+    console.log("bce_canvas_render__blind_spot: here.");
+}
+
 export const bce_canvas_render = {
     bce_canvas_render__draw_radial_eye: bce_canvas_render__draw_radial_eye,
     bce_canvas_render__evaluation_eye_data: bce_canvas_render__evaluation_eye_data,
     bce_canvas_render__evaluation_eye: bce_canvas_render__evaluation_eye,
+    bce_canvas_render__blind_spot: bce_canvas_render__blind_spot,
 };
