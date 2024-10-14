@@ -171,7 +171,7 @@
                     </td>
                     <td>
                         {#each expression.children as child, i}
-	                    <StimrxExpressionEditor bind:expression={child} editor={editor} path={[...path, "children", i]} asset_cache={asset_cache}/>
+                            <StimrxExpressionEditor bind:expression={child} editor={editor} path={[...path, "children", i]} bind:asset_cache={asset_cache}/>
     	                {/each}
                     </td>
 	        </tr>
@@ -197,7 +197,7 @@
                     </td>
                     <td>
                         {#each expression.children as child, i}
-	 <StimrxExpressionEditor bind:expression={child} editor={editor} path={[...path, "children", i]} asset_cache={asset_cache}/>
+ 	                    <StimrxExpressionEditor bind:expression={child} editor={editor} path={[...path, "children", i]} bind:asset_cache={asset_cache}/>
     	                {/each}
                     </td>
 	        </tr>
@@ -230,7 +230,7 @@
         <tt>{expression.name}&nbsp;=&nbsp;</tt>
         {#if view_selected === "expand"}
             <td>
-                <StimrxExpressionEditor bind:expression={expression.value} editor={editor} path={[...path, "value"]} asset_cache={asset_cache}/>
+                <StimrxExpressionEditor bind:expression={expression.value} editor={editor} path={[...path, "value"]} bind:asset_cache={asset_cache}/>
             </td>
         {/if}
     {:else if stimrx.stimrx_light_projection__is_type(expression)}
@@ -339,7 +339,7 @@
             <tr>
                 <td>
 		    {#if expression.rxs.length > 0}
-                        <StimrxExpressionEditor expression={expression.rxs[0]} editor={expression} path={[...path, "rxs", 0]} asset_cache={asset_cache}/>
+                        <StimrxExpressionEditor expression={expression.rxs[0]} editor={expression} path={[...path, "rxs", 0]} bind:asset_cache={asset_cache}/>
                     {/if}
                 </td>
             </tr>
