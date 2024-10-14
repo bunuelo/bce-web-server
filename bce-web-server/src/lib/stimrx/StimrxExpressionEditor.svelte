@@ -145,7 +145,26 @@
 	editor.evaluations.splice(evaluation_index, 1);
         await changed_rx_editor_state();
     }
-
+  
+    async function on_click_add_blind_spot() {
+        console.log("add blind spot clicked.");
+	if (editor !== null) {
+	    if (stimrx.stimrx_left_eye_light_projection__is_type(expression)) {
+		console.log("adding blind spot to left eye.");
+		var points = [];
+		let editor_blind_spot = stimrx_editor.new_stimrx_editor_blind_spot(points);
+		editor.left_eye_blind_spots.push(editor_blind_spot);
+		await changed_rx_editor_state();
+	    } else if (stimrx.stimrx_right_eye_light_projection__is_type(expression)) {
+		console.log("adding blind spot to right eye.");
+		var points = [];
+		let editor_blind_spot = stimrx_editor.new_stimrx_editor_blind_spot(points);
+		editor.right_eye_blind_spots.push(editor_blind_spot);
+		await changed_rx_editor_state();
+	    }
+	}
+    }
+				
 </script>
 
 <style>
@@ -271,12 +290,13 @@
 	                <td>
   	                    {#each editor.evaluations as evaluation, j}
                                 {#if stimrx.stimrx_left_eye_light_projection__is_type(expression)}
-         	     <input type="checkbox" id={"evaluation_checkbox_" + path + j} bind:checked={evaluation.enable_left_eye_overlay} on:change|preventDefault={on_change_evaluation_checkbox}>
+         	                    <input type="checkbox" id={"evaluation_checkbox_" + path + j} bind:checked={evaluation.enable_left_eye_overlay} on:change|preventDefault={on_change_evaluation_checkbox}>
                                 {:else if stimrx.stimrx_right_eye_light_projection__is_type(expression)}
          	                    <input type="checkbox" id={"evaluation_checkbox_" + path + j} bind:checked={evaluation.enable_right_eye_overlay} on:change|preventDefault={on_change_evaluation_checkbox}>
                                 {/if}
   		                <label for={"evaluation_checkbox_" + path + j}>{bce_lang($user_language, "component_stimrx_expression_editor_label_evaluation")}&nbsp;{j+1}</label>
 	                    {/each}
+                            <a href="#" on:click|preventDefault={on_click_add_blind_spot}>{bce_lang($user_language, "component_stimrx_expression_editor_label_add_blind_spot")}</a>
 	                </td>
 	            </tr>
 		{/if}
