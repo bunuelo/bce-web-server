@@ -82,10 +82,10 @@
     async function get_json_asset(name) {
 	if (! (name in asset_cache)) {
 	    console.log("Asset name not in cache.  Downloading.  name = \"" + name + "\"");
-	    console.log("BEFORE asset_cache.keys = " + asset_cache.keys());
+	    console.log("BEFORE asset_cache.keys = " + Object.keys(asset_cache));
 	    let fetched_asset = await bce_asset.fetch_asset(name);
 	    asset_cache[name] = fetched_asset;
-	    console.log("AFTER asset_cache.keys = " + asset_cache.keys());
+	    console.log("AFTER asset_cache.keys = " + Object.keys(asset_cache));
 	}
 	return asset_cache[name];
     }
