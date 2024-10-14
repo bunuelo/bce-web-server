@@ -79,7 +79,7 @@ function stimrx_editor_blind_spot__is_type(x) {
 
 function new_stimrx_light_angle_from_horizontal_and_vertical_angles(horizontal_angle, vertical_angle) {
     let alpha = Math.sqrt(horizontal_angle * horizontal_angle + vertical_angle * vertical_angle);
-    let omega = Math.atan2(vertical_angle, horizontal_angle);
+    let omega = Math.atan2(-vertical_angle, horizontal_angle);
     console.log("alpha = " + alpha + ", omega = " + omega);
     return stimrx.new_stimrx_light_angle(alpha, omega);
 }
@@ -88,10 +88,13 @@ function new_default_left_eye_stimrx_editor_blind_spot() {
     var points = [];
     let height = 7.5 * Math.PI / 180.0;
     let width  = 5.5 * Math.PI / 180.0;
-    let center_horizontal_angle  = 0.5 * (12.0 + 15.0) * Math.PI / 180.0;
-    let center_vertical_angle = -1.5 * Math.PI / 180.0;
-    let center = new_stimrx_light_angle_from_horizontal_and_vertical_angles(center_horizontal_angle, center_vertical_angle);
-    points.push(center);
+    let polygon_side_count = 5;
+    for (int i = 0; i < polygon_side_count; i ++) {
+	let horizontal_angle  = 0.5 * (12.0 + 15.0) * Math.PI / 180.0;
+	let vertical_angle = -1.5 * Math.PI / 180.0;
+	let point = new_stimrx_light_angle_from_horizontal_and_vertical_angles(horizontal_angle, vertical_angle);
+	points.push(point);
+    }
     return stimrx_editor.new_stimrx_editor_blind_spot(points);
 }
 
