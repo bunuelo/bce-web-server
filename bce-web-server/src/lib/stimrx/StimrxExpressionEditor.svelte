@@ -66,10 +66,11 @@
 		for (var i = 0; i < editor.evaluations.length; i ++) {
 		    let editor_evaluation = editor.evaluations[i];
 		    if (stimrx.stimrx_left_eye_light_projection__is_type(expression)) {
-			let evaluation = get_json_asset(editor_evaluation.asset_name);
+			let evaluation = await get_json_asset(editor_evaluation.asset_name);
+			console.log("evaluation = " + evaluation);
 			bce_canvas_render.bce_canvas_render__evaluation_eye(light_projection_canvas, ctx, $user_color_theme, evaluation, 0);
 		    } else if (stimrx.stimrx_right_eye_light_projection__is_type(expression)) {
-			let evaluation = get_json_asset(editor_evaluation.asset_name);
+			let evaluation = await get_json_asset(editor_evaluation.asset_name);
 			bce_canvas_render.bce_canvas_render__evaluation_eye(light_projection_canvas, ctx, $user_color_theme, evaluation, 1);
 		    }
 		}
