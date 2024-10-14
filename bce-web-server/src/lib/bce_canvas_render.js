@@ -133,7 +133,6 @@ function bce_canvas_render__evaluation_eye(canvas, ctx, color_theme, evaluation,
 
 
 function bce_canvas_render__blind_spot(canvas, ctx, color_theme, blind_spot) {
-    console.log("bce_canvas_render__blind_spot: here.");
     var color_grip;
     if (color_theme == "dark") {
         color_grip = [255, 255, 255];
@@ -141,6 +140,7 @@ function bce_canvas_render__blind_spot(canvas, ctx, color_theme, blind_spot) {
         color_grip = [0, 0, 0];
     }
     for (var i = 0; i < blind_spot.points.length; i ++) {
+	console.log("bce_canvas_render__blind_spot: rendering a point.");
 	let point = blind_spot.points[i];
 	
 	let grip_radius = 2.5 * Math.PI / 180.0;
@@ -150,17 +150,15 @@ function bce_canvas_render__blind_spot(canvas, ctx, color_theme, blind_spot) {
 	const center_x             = 0.5 * canvas.width;
 	const center_y             = 0.5 * canvas.height;
 	const maximum_alpha_radius = 0.5 * canvas.height - 1;
+	const maximum_alpha        = 45;
 	
-	const maximum_alpha = 45;
-	const alpha_resolution = 5;
-	
-	//ctx.fillStyle = "rgb(" + color_cannot_see[0] + "," + color_cannot_see[1] + "," + color_cannot_see[2] + ")";
+	ctx.fillStyle = "rgb(" + color_grip[0] + "," + color_grip[1] + "," + color_grip[2] + ")";
 	ctx.strokeStyle = "rgb(" + color_grip[0] + "," + color_grip[1] + "," + color_grip[2] + ")";
 	ctx.beginPath();
 	ctx.arc(center_x + grip_alpha * Math.cos(grip_omega),
 		center_y + grip_alpha * Math.sin(grip_omega),
 		maximum_alpha_radius * grip_radius / maximum_alpha, 0, 2 * Math.PI);
-	//ctx.fill();
+	ctx.fill();
 	ctx.stroke();
     }
 }
