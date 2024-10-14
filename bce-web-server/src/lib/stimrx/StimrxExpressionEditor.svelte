@@ -61,7 +61,17 @@
 	    light_projection_canvas.width = 0.25 * window.innerWidth;
 	    light_projection_canvas.height = 0.25 * window.innerWidth;
 	    let ctx = light_projection_canvas.getContext("2d");
-   	    bce_canvas_render__draw_radial_eye(light_projection_canvas, ctx);
+   	    bce_canvas_render__draw_radial_eye(light_projection_canvas, ctx, $user_color_theme);
+	    if (editor !== null) {
+		for (var i = 0; i < editor.evaluations.length; i ++) {
+		    let evaluation = editor.evaluations[i];
+		    if (stimrx.stimrx_left_eye_light_projection__is_type(expression)) {
+			
+		    } else if (stimrx.stimrx_right_eye_light_projection__is_type(expression)) {
+			
+		    }
+		}
+	    }
 	}
     })();
 

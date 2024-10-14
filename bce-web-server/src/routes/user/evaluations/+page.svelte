@@ -35,7 +35,7 @@
     let show_details = false;
     
     function update_eye(canvas, ctx, eye_index) {
-	let stats = bce_canvas_render__evaluation_eye(canvas, ctx, evaluation, eye_index);
+	let stats = bce_canvas_render__evaluation_eye(canvas, ctx, $user_color_theme, evaluation, eye_index);
 	if (eye_index == 0) {
             left_eye_total_stimulus_count = stats["eye_total_stimulus_count"];
             left_eye_total_response_count = stats["eye_total_response_count"];

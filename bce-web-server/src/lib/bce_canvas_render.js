@@ -3,9 +3,7 @@ import { user_color_theme } from './bce_stores.js'
 import BceSession from "$lib/bce_session.js";
 let bce_session = new BceSession();
 
-export const bce_canvas_render__draw_radial_eye = function(canvas, ctx) {
-    bce_session.update_session_from_cookie();
-    const color_theme = get(user_color_theme);
+export const bce_canvas_render__draw_radial_eye = function(canvas, ctx, color_theme) {
     var color_background;
     var color_axes;
     if (color_theme == "dark") {
@@ -45,9 +43,7 @@ export const bce_canvas_render__draw_radial_eye = function(canvas, ctx) {
     }
 }
 
-export const bce_canvas_render__evaluation_eye = function(canvas, ctx, evaluation, eye_index) {
-    bce_session.update_session_from_cookie();
-    const color_theme = get(user_color_theme);
+export const bce_canvas_render__evaluation_eye = function(canvas, ctx, color_theme, evaluation, eye_index) {
     var color_background;
     var color_axes;
     var color_can_see;
