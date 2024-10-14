@@ -157,8 +157,8 @@ function bce_canvas_render__blind_spot(canvas, ctx, color_theme, blind_spot) {
 	//ctx.fillStyle = "rgb(" + color_grip[0] + "," + color_grip[1] + "," + color_grip[2] + ")";
 	ctx.strokeStyle = "rgb(" + color_grip[0] + "," + color_grip[1] + "," + color_grip[2] + ")";
 	ctx.beginPath();
-	ctx.arc(center_x + grip_alpha * Math.cos(grip_omega),
-		center_y + grip_alpha * Math.sin(grip_omega),
+	ctx.arc(center_x + maximum_alpha_radius * grip_alpha / maximum_alpha * Math.cos(grip_omega),
+		center_y + maximum_alpha_radius * grip_alpha / maximum_alpha * Math.sin(grip_omega),
 		maximum_alpha_radius * grip_radius / maximum_alpha, 0, 2 * Math.PI);
 	//ctx.fill();
 	ctx.stroke();
