@@ -134,6 +134,7 @@ function bce_canvas_render__evaluation_eye(canvas, ctx, color_theme, evaluation,
 
 function bce_canvas_render__blind_spot(canvas, ctx, color_theme, blind_spot) {
     console.log("bce_canvas_render__blind_spot: here.");
+    var color_grip;
     if (color_theme == "dark") {
         color_grip = [255, 255, 255];
     } else {
