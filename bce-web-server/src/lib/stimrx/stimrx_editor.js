@@ -88,9 +88,9 @@ function new_default_left_eye_stimrx_editor_blind_spot() {
     var points = [];
     let height = 7.5 * Math.PI / 180.0;
     let width  = 5.5 * Math.PI / 180.0;
-    let center_lateral_angle  = 0.5 * (12.0 + 15.0) * Math.PI / 180.0;
+    let center_horizontal_angle  = 0.5 * (12.0 + 15.0) * Math.PI / 180.0;
     let center_vertical_angle = -1.5 * Math.PI / 180.0;
-    let center = new_stimrx_light_angle_from_horizontal_and_vertical_angles(center_lateral_angle, center_vertical_angle);
+    let center = new_stimrx_light_angle_from_horizontal_and_vertical_angles(center_horizontal_angle, center_vertical_angle);
     points.push(center);
     return stimrx_editor.new_stimrx_editor_blind_spot(points);
 }
@@ -101,7 +101,7 @@ function new_default_right_eye_stimrx_editor_blind_spot() {
     let width  = 5.5 * Math.PI / 180.0;
     let center_horizontal_angle  = -0.5 * (12.0 + 15.0) * Math.PI / 180.0;
     let center_vertical_angle = -1.5 * Math.PI / 180.0;
-    let center = new_stimrx_light_angle_from_horizontal_and_vertical_angles(center_lateral_angle, center_vertical_angle);
+    let center = new_stimrx_light_angle_from_horizontal_and_vertical_angles(center_horizontal_angle, center_vertical_angle);
     points.push(center);
     return stimrx_editor.new_stimrx_editor_blind_spot(points);
 }
