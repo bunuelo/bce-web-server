@@ -78,18 +78,15 @@
     }
 
     $: (async function () {
-	if (light_projection_canvas != null) {
+	if (light_projection_canvas !== null && editor !== null) {
 	    await redraw_canvas();
 	}
     })();
 
     async function get_json_asset(name) {
 	if (! (name in asset_cache)) {
-	    console.log("Asset name not in cache.  Downloading.  name = \"" + name + "\"");
-	    console.log("BEFORE asset_cache.keys = " + Object.keys(asset_cache));
 	    let fetched_asset = await bce_asset.fetch_asset(name);
 	    asset_cache[name] = fetched_asset;
-	    console.log("AFTER asset_cache.keys = " + Object.keys(asset_cache));
 	}
 	return asset_cache[name];
     }
@@ -127,6 +124,9 @@
 
     async function on_change_evaluation_checkbox() {
 	await changed_rx_editor_state();
+	let tmp = light_projection_canvas;
+	light_projection_canvas = null;
+	light_projection_canvas = tmp
     }
     
     let on_evaluation_asset_select = async function (asset) {
