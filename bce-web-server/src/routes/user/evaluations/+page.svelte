@@ -9,7 +9,7 @@
     import { user_color_theme } from '$lib/bce_stores.js'
     import { bce_lang } from '$lib/bce_locale.js'
     import { zero_pad, format_date, format_time_since_date, format_json_datetime, format_time_since_json_datetime } from '$lib/bce_time.js'
-    import { bce_canvas_render__evaluation_eye } from '$lib/bce_canvas_render.js';
+    import { bce_canvas_render } from '$lib/bce_canvas_render.js';
     import BceSession from "$lib/bce_session.js";
     let bce_session = new BceSession();
     import AssetSelector from '$lib/AssetSelector.svelte';
@@ -35,7 +35,7 @@
     let show_details = false;
     
     function update_eye(canvas, ctx, eye_index) {
-	let stats = bce_canvas_render__evaluation_eye(canvas, ctx, $user_color_theme, evaluation, eye_index);
+	let stats = bce_canvas_render.bce_canvas_render__evaluation_eye(canvas, ctx, $user_color_theme, evaluation, eye_index);
 	if (eye_index == 0) {
             left_eye_total_stimulus_count = stats["eye_total_stimulus_count"];
             left_eye_total_response_count = stats["eye_total_response_count"];

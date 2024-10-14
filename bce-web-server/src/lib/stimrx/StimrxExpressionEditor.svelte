@@ -9,7 +9,7 @@
     import { user_color_theme } from '$lib/bce_stores.js'
     import { bce_lang } from '$lib/bce_locale.js'
     import { zero_pad, format_date, format_time_since_date, format_json_datetime, format_time_since_json_datetime } from '$lib/bce_time.js'
-    import { bce_canvas_render__draw_radial_eye } from '$lib/bce_canvas_render.js';
+    import { bce_canvas_render } from '$lib/bce_canvas_render.js';
     import { stimrx } from '$lib/stimrx/stimrx.js';
     import { stimrx_editor } from '$lib/stimrx/stimrx_editor.js';
     import BceSession from "$lib/bce_session.js";
@@ -61,7 +61,7 @@
 	    light_projection_canvas.width = 0.25 * window.innerWidth;
 	    light_projection_canvas.height = 0.25 * window.innerWidth;
 	    let ctx = light_projection_canvas.getContext("2d");
-   	    bce_canvas_render__draw_radial_eye(light_projection_canvas, ctx, $user_color_theme);
+   	    bce_canvas_render.bce_canvas_render__draw_radial_eye(light_projection_canvas, ctx, $user_color_theme);
 	    if (editor !== null) {
 		for (var i = 0; i < editor.evaluations.length; i ++) {
 		    let editor_evaluation = editor.evaluations[i];
