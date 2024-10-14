@@ -13,7 +13,7 @@ function new_stimrx_editor() {
 	    rx
 	],
 	"meta": {
-	}
+	},
 	"evaluations": [
 	],
 	"left_eye_blind_spots": [],
