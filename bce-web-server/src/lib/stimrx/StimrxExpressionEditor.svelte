@@ -56,32 +56,30 @@
     async function update_view_selected() {
     }
 
-    let updating_canvas = false;
-				   
-    $: (async function () {
-	if (! updating_canvas) {
-	    updating_canvas = true;
-	    if (light_projection_canvas != null) {
-		console.log("Redrawing light projection canvas.");
-		light_projection_canvas.width = 0.25 * window.innerWidth;
-		light_projection_canvas.height = 0.25 * window.innerWidth;
-		let ctx = light_projection_canvas.getContext("2d");
-   		bce_canvas_render.bce_canvas_render__draw_radial_eye(light_projection_canvas, ctx, $user_color_theme);
-		if (editor !== null) {
-		    for (var i = 0; i < editor.evaluations.length; i ++) {
-			let editor_evaluation = editor.evaluations[i];
-			if (stimrx.stimrx_left_eye_light_projection__is_type(expression)) {
-			    let evaluation = await get_json_asset(editor_evaluation.asset_name);
-			    console.log("evaluation = " + evaluation);
-			    bce_canvas_render.bce_canvas_render__evaluation_eye(light_projection_canvas, ctx, $user_color_theme, evaluation, 0);
-			} else if (stimrx.stimrx_right_eye_light_projection__is_type(expression)) {
-			    let evaluation = await get_json_asset(editor_evaluation.asset_name);
-			    bce_canvas_render.bce_canvas_render__evaluation_eye(light_projection_canvas, ctx, $user_color_theme, evaluation, 1);
-			}
-		    }
+    async function redraw_canvas() {
+	console.log("Redrawing light projection canvas.");
+	light_projection_canvas.width = 0.25 * window.innerWidth;
+	light_projection_canvas.height = 0.25 * window.innerWidth;
+	let ctx = light_projection_canvas.getContext("2d");
+   	bce_canvas_render.bce_canvas_render__draw_radial_eye(light_projection_canvas, ctx, $user_color_theme);
+	if (editor !== null) {
+	    for (var i = 0; i < editor.evaluations.length; i ++) {
+		let editor_evaluation = editor.evaluations[i];
+		if (stimrx.stimrx_left_eye_light_projection__is_type(expression)) {
+		    let evaluation = await get_json_asset(editor_evaluation.asset_name);
+		    console.log("evaluation = " + evaluation);
+		    bce_canvas_render.bce_canvas_render__evaluation_eye(light_projection_canvas, ctx, $user_color_theme, evaluation, 0);
+		} else if (stimrx.stimrx_right_eye_light_projection__is_type(expression)) {
+		    let evaluation = await get_json_asset(editor_evaluation.asset_name);
+		    bce_canvas_render.bce_canvas_render__evaluation_eye(light_projection_canvas, ctx, $user_color_theme, evaluation, 1);
 		}
 	    }
-	    updating_canvas = false;
+	}
+    }
+
+    $: (async function () {
+	if (light_projection_canvas != null) {
+	    await redraw_canvas();
 	}
     })();
 
