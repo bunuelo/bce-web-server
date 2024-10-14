@@ -56,7 +56,7 @@
     async function update_view_selected() {
     }
 
-    $: await (async function () {
+    $: (async function () {
 	if (light_projection_canvas != null) {
 	    light_projection_canvas.width = 0.25 * window.innerWidth;
 	    light_projection_canvas.height = 0.25 * window.innerWidth;
