@@ -315,7 +315,7 @@
 			{#each editor.evaluations as evaluation, j}
 		            <tr>
 	                        <td>
-	                            {#await get_json_asset(evaluation)}
+	                            {#await get_json_asset(evaluation.asset_name)}
 	                                ...waiting
 	                            {:then json_asset}
 	                                {bce_lang($user_language, "component_stimrx_expression_editor_label_evaluation")}&nbsp;{j + 1}
