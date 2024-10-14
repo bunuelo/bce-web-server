@@ -58,6 +58,7 @@
 
     $: (async function () {
 	if (light_projection_canvas != null) {
+	    console.log("Redrawing light projection canvas.");
 	    light_projection_canvas.width = 0.25 * window.innerWidth;
 	    light_projection_canvas.height = 0.25 * window.innerWidth;
 	    let ctx = light_projection_canvas.getContext("2d");
@@ -80,6 +81,7 @@
 
     async function get_json_asset(name) {
 	if (! (name in asset_cache)) {
+	    console.log("Asset name not in cache.  Downloading.  name = \"" + name + "\"");
 	    let fetched_asset = await bce_asset.fetch_asset(name);
 	    asset_cache[name] = fetched_asset;
 	}
