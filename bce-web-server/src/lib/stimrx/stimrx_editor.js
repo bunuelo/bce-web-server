@@ -12,10 +12,12 @@ function new_stimrx_editor() {
 	"rxs": [
 	    rx
 	],
-	"evaluations": [
-	],
 	"meta": {
 	}
+	"evaluations": [
+	],
+	"left_eye_blind_spots": [],
+	"right_eye_blind_spots": [],
     };
 }
 
@@ -52,8 +54,6 @@ function new_stimrx_editor_evaluation(asset_name) {
 	"asset_name": asset_name,
 	"enable_left_eye_overlay": true,
 	"enable_right_eye_overlay": true,
-	"left_eye_blind_spots": [],
-	"right_eye_blind_spots": [],
     };
 }
 
