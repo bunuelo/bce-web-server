@@ -145,7 +145,7 @@ function bce_canvas_render__blind_spot(canvas, ctx, color_theme, blind_spot) {
 	console.log("bce_canvas_render__blind_spot: rendering a point.");
 	let point = blind_spot.points[i];
 	
-	let grip_radius = 0.5 * Math.PI / 180.0;
+	let grip_radius = 1.0 * Math.PI / 180.0;
 	let grip_alpha = point.alpha;
 	let grip_omega = point.omega;
 	
