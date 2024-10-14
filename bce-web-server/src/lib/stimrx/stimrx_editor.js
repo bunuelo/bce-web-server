@@ -98,6 +98,7 @@ function new_default_right_eye_stimrx_editor_blind_spot() {
     let center_vertical_angle = -1.5 * Math.PI / 180.0;
     let center_alpha = Math.sqrt(center_lateral_angle * center_lateral_angle + center_vertical_angle * center_vertical_angle);
     let center_omega = Math.atan2(center_vertical_angle, center_lateral_angle);
+    console.log("center_alpha = " + center_alpha + ", center_omega = " + center_omega);
     let center = stimrx.new_stimrx_light_angle(center_alpha, center_omega);
     points.push(center);
     return stimrx_editor.new_stimrx_editor_blind_spot(points);

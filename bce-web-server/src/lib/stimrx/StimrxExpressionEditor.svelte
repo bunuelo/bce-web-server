@@ -162,16 +162,16 @@
         console.log("add blind spot clicked.");
 	if (editor !== null) {
 	    if (stimrx.stimrx_left_eye_light_projection__is_type(expression)) {
-		console.log("adding blind spot to left eye.");
 		let editor_blind_spot = stimrx_editor.new_default_left_eye_stimrx_editor_blind_spot();
 		editor.left_eye_blind_spots.push(editor_blind_spot);
 		await changed_rx_editor_state();
+		console.log("added blind spot to left eye.");
 	    } else if (stimrx.stimrx_right_eye_light_projection__is_type(expression)) {
-		console.log("adding blind spot to right eye.");
 		var points = [];
 		let editor_blind_spot = stimrx_editor.new_default_right_eye_stimrx_editor_blind_spot();
 		editor.right_eye_blind_spots.push(editor_blind_spot);
 		await changed_rx_editor_state();
+		console.log("added blind spot to right eye.");
 	    }
 	}
     }
