@@ -77,6 +77,18 @@ function stimrx_editor_blind_spot__is_type(x) {
     return x && typeof x === "object" && x.hasOwnProperty("type") && x.type === "EditorBlindSpot";
 }
 
+function new_defauilt_left_eye_stimrx_editor_blind_spot() {
+    var points = [];
+    return stimrx_editor.new_stimrx_editor_blind_spot(points);
+}
+
+function new_defauilt_right_eye_stimrx_editor_blind_spot() {
+    var points = [];
+    return stimrx_editor.new_stimrx_editor_blind_spot(points);
+}
+
+
+
 // EditorBlindSpot END
 
 
@@ -92,4 +104,7 @@ export let stimrx_editor = {
     
     new_stimrx_editor_blind_spot: new_stimrx_editor_blind_spot,
     stimrx_editor_blind_spot__is_type: stimrx_editor_blind_spot__is_type,
+    new_defauilt_left_eye_stimrx_editor_blind_spot: new_defauilt_left_eye_stimrx_editor_blind_spot,
+    new_defauilt_right_eye_stimrx_editor_blind_spot: new_defauilt_right_eye_stimrx_editor_blind_spot,
+    
 };
