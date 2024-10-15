@@ -265,9 +265,9 @@ function bce_canvas_render__blind_spot_canvas(canvas, ctx, color_theme, blind_sp
         color_blind_spot = [127, 63, 0];
     }
     let grip_radius = 1.0 * Math.PI / 180.0;
-    const center_x             = 0.5 * canvas.width;
-    const center_y             = 0.5 * canvas.height;
-    const maximum_alpha_radius = 0.5 * canvas.height - 1;
+    const center_x             = 0.5 * canvas.parentElement.width;
+    const center_y             = 0.5 * canvas.parentElement.height;
+    const maximum_alpha_radius = 0.5 * canvas.parentElement.height - 1;
     const maximum_alpha        = 45 * Math.PI / 180.0;
     
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -276,8 +276,8 @@ function bce_canvas_render__blind_spot_canvas(canvas, ctx, color_theme, blind_sp
     ctx.strokeStyle = "rgb(" + color_blind_spot[0] + "," + color_blind_spot[1] + "," + color_blind_spot[2] + ")";
     ctx.beginPath();
     let start = blind_spot.points[1 % blind_spot.points.length];
-    let start_x = bce_canvas_render__alpha_omega_to_x(canvas, start.alpha, start.omega);
-    let start_y = bce_canvas_render__alpha_omega_to_y(canvas, start.alpha, start.omega);
+    let start_x = bce_canvas_render__alpha_omega_to_x(canvas.parentElement, start.alpha, start.omega);
+    let start_y = bce_canvas_render__alpha_omega_to_y(canvas.parentElement, start.alpha, start.omega);
     ctx.moveTo(start_x - left, start_y - top);
     for (var i = 0; i < blind_spot.points.length; i ++) {
 	let p0 = blind_spot.points[i];
@@ -285,14 +285,14 @@ function bce_canvas_render__blind_spot_canvas(canvas, ctx, color_theme, blind_sp
 	let p2 = blind_spot.points[(i + 2) % blind_spot.points.length];
 	let p3 = blind_spot.points[(i + 3) % blind_spot.points.length];
 	
-	let p0_x = bce_canvas_render__alpha_omega_to_x(canvas, p0.alpha, p0.omega);
-	let p0_y = bce_canvas_render__alpha_omega_to_y(canvas, p0.alpha, p0.omega);
-	let p1_x = bce_canvas_render__alpha_omega_to_x(canvas, p1.alpha, p1.omega);
-	let p1_y = bce_canvas_render__alpha_omega_to_y(canvas, p1.alpha, p1.omega);
-	let p2_x = bce_canvas_render__alpha_omega_to_x(canvas, p2.alpha, p2.omega);
-	let p2_y = bce_canvas_render__alpha_omega_to_y(canvas, p2.alpha, p2.omega);
-	let p3_x = bce_canvas_render__alpha_omega_to_x(canvas, p3.alpha, p3.omega);
-	let p3_y = bce_canvas_render__alpha_omega_to_y(canvas, p3.alpha, p3.omega);
+	let p0_x = bce_canvas_render__alpha_omega_to_x(canvas.parentElement, p0.alpha, p0.omega);
+	let p0_y = bce_canvas_render__alpha_omega_to_y(canvas.parentElement, p0.alpha, p0.omega);
+	let p1_x = bce_canvas_render__alpha_omega_to_x(canvas.parentElement, p1.alpha, p1.omega);
+	let p1_y = bce_canvas_render__alpha_omega_to_y(canvas.parentElement, p1.alpha, p1.omega);
+	let p2_x = bce_canvas_render__alpha_omega_to_x(canvas.parentElement, p2.alpha, p2.omega);
+	let p2_y = bce_canvas_render__alpha_omega_to_y(canvas.parentElement, p2.alpha, p2.omega);
+	let p3_x = bce_canvas_render__alpha_omega_to_x(canvas.parentElement, p3.alpha, p3.omega);
+	let p3_y = bce_canvas_render__alpha_omega_to_y(canvas.parentElement, p3.alpha, p3.omega);
 	
 	ctx.bezierCurveTo(p1_x + 0.25 * (p2_x - p0_x) - left, p1_y + 0.25 * (p2_y - p0_y) - top,
 			  p2_x + 0.25 * (p1_x - p3_x) - left, p2_y + 0.25 * (p1_y - p3_y) - top,
@@ -309,8 +309,8 @@ function bce_canvas_render__blind_spot_canvas(canvas, ctx, color_theme, blind_sp
 	ctx.lineWidth = 2;
 	ctx.strokeStyle = "rgb(" + color_grip[0] + "," + color_grip[1] + "," + color_grip[2] + ")";
 	ctx.beginPath();
-	ctx.arc(bce_canvas_render__alpha_omega_to_x(canvas, grip_alpha, grip_omega) - left,
-		bce_canvas_render__alpha_omega_to_y(canvas, grip_alpha, grip_omega) - top,
+	ctx.arc(bce_canvas_render__alpha_omega_to_x(canvas.parentElement, grip_alpha, grip_omega) - left,
+		bce_canvas_render__alpha_omega_to_y(canvas.parentElement, grip_alpha, grip_omega) - top,
 		maximum_alpha_radius * grip_radius / maximum_alpha, 0, 2 * Math.PI);
 	//ctx.fill();
 	ctx.stroke();
