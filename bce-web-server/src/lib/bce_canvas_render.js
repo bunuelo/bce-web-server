@@ -300,6 +300,7 @@ function bce_canvas_render__blind_spot_canvas(canvas, ctx, color_theme, blind_sp
 	let bc1_y = p2_y + 0.25 * (p1_y - p3_y) - top;
 	let bc2_x = p2_x - left;
 	let bc2_y = p2_y - top;
+	console.log("(" + bc0_x + "," + bc0_y + ") -- (" + bc1_x + "," + bc1_y + ") -- (" + bc2_x + "," + bc2_y + ")");
 	ctx.bezierCurveTo(bc0_x, bc0_y,
 			  bc1_x, bc1_y,
 			  bc2_x, bc2_y);
