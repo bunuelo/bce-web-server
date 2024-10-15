@@ -89,7 +89,7 @@ function new_default_left_eye_stimrx_editor_blind_spot() {
     let height = 7.5 * Math.PI / 180.0;
     let width  = 5.5 * Math.PI / 180.0;
     let polygon_side_count = 5;
-    for (int i = 0; i < polygon_side_count; i ++) {
+    for (var i = 0; i < polygon_side_count; i ++) {
 	let horizontal_angle  = 0.5 * (12.0 + 15.0) * Math.PI / 180.0;
 	let vertical_angle = -1.5 * Math.PI / 180.0;
 	let point = new_stimrx_light_angle_from_horizontal_and_vertical_angles(horizontal_angle, vertical_angle);
