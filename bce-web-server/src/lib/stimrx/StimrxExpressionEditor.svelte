@@ -131,9 +131,12 @@
     
     async function changed_rx_editor_state() {
 	await upload_rx_editor_state();
-	let temp = expression;
+	let temp1 = expression;
 	expression = null;
-	expression = temp;
+	expression = temp1;
+	let temp2 = editor
+	editor = null;
+	editor = temp2;
     }
 
     async function on_change_evaluation_checkbox() {
