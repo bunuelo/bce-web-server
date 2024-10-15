@@ -178,6 +178,7 @@
 	let tmp = light_projection_canvas;
 	light_projection_canvas = null;
 	light_projection_canvas = tmp
+	await redraw_canvas();
     }
     
     async function on_change_blind_spot_checkbox() {
@@ -185,6 +186,7 @@
 	let tmp = light_projection_canvas;
 	light_projection_canvas = null;
 	light_projection_canvas = tmp
+	await redraw_canvas();
     }
     
     let on_evaluation_asset_select = async function (asset) {
