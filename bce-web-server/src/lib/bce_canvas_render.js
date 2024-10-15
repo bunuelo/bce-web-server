@@ -266,6 +266,5 @@ export const bce_canvas_render = {
     bce_canvas_render__draw_radial_eye: bce_canvas_render__draw_radial_eye,
     bce_canvas_render__evaluation_eye_data: bce_canvas_render__evaluation_eye_data,
     bce_canvas_render__evaluation_eye: bce_canvas_render__evaluation_eye,
-    bce_canvas_render__blind_spot: bce_canvas_render__blind_spot,
     bce_canvas_render__blind_spot_canvas: bce_canvas_render__blind_spot_canvas,
 };
