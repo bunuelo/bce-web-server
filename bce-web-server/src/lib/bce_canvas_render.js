@@ -229,8 +229,8 @@ function bce_canvas_render__blind_spot_canvas(canvas, ctx, color_theme, blind_sp
     var max_y = null;
     for (var i = 0; i < blind_spot.points.length; i ++) {
 	let p = blind_spot.points[i];
-	let x = bce_canvas_render__alpha_omega_to_x(canvas.parent, p.alpha, p.omega);
-	let y = bce_canvas_render__alpha_omega_to_y(canvas.parent, p.alpha, p.omega);
+	let x = bce_canvas_render__alpha_omega_to_x(canvas.parentElement, p.alpha, p.omega);
+	let y = bce_canvas_render__alpha_omega_to_y(canvas.parentElement, p.alpha, p.omega);
 	if (min_x === null || x < min_x) {
 	    min_x = x;
 	}
