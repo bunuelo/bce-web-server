@@ -204,6 +204,9 @@
     }
   
     async function on_click_remove_blind_spot(eye_index, blind_spot_index) {
+	let blind_spot = editor.left_eye_blind_spots[blind_spot_index];
+	let blind_spot_canvas = get_blind_spot_canvas(blind_spot.canvas_id);
+	blind_spot_canvas.parent = null;
 	if (eye_index == 0) {
 	    editor.left_eye_blind_spots.splice(blind_spot_index, 1);
             await changed_rx_editor_state();
