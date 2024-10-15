@@ -240,6 +240,7 @@ function bce_canvas_render__blind_spot_canvas(canvas, ctx, color_theme, blind_sp
     let height = Math.round(max_y - min_y + 1);
     canvas.style.width  = width;
     canvas.style.height = height;
+    console.log("Setting blind spot canvas size to " + width + "x" + height + ".");
     
     var color_grip;
     var color_blind_spot;
