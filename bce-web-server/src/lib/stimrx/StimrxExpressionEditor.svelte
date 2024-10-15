@@ -58,10 +58,9 @@
 
     var blind_spot_canvas_storage = {};
 
-    function get_blind_spot_canvas(light_projection_canvas, blind_spot_canvas_id) {
+    function get_blind_spot_canvas(blind_spot_canvas_id) {
 	if (! (blind_spot_canvas_id in blind_spot_canvas_storage)) {
 	    let canvas = document.createElement("canvas");
-	    //light_projection_canvas.appendChild(canvas);
 	    document.body.appendChild(canvas);
 	    blind_spot_canvas_storage[blind_spot_canvas_id] = canvas;
 	}
@@ -112,7 +111,7 @@
 		    let blind_spot = blind_spots[i];
 		    if (blind_spot.enable) {
 			//bce_canvas_render.bce_canvas_render__blind_spot(light_projection_canvas, ctx, $user_color_theme, blind_spot);
-			let blind_spot_canvas     = get_blind_spot_canvas(light_projection_canvas, blind_spot.canvas_id);
+			let blind_spot_canvas     = get_blind_spot_canvas(blind_spot.canvas_id);
 			let blind_spot_canvas_ctx = blind_spot_canvas.getContext("2d");
 			//var rectangle = light_projection_canvas.getBoundingClientRect();
 			//console.log("rectangle = " + JSON.stringify(rectangle));
