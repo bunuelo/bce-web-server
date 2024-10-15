@@ -221,7 +221,7 @@ function bce_canvas_render__blind_spot(canvas, ctx, color_theme, blind_spot) {
     }
 }
 
-function bce_canvas_render__blind_spot_canvas(ctx, total_width, total_height, color_theme, blind_spot) {
+function bce_canvas_render__blind_spot_canvas(ctx, total_left, total_top, total_width, total_height, color_theme, blind_spot) {
     var canvas = ctx.canvas;
     var min_x = null;
     var max_x = null;
@@ -246,8 +246,8 @@ function bce_canvas_render__blind_spot_canvas(ctx, total_width, total_height, co
     }
     let width  = Math.round(max_x - min_x + 1);
     let height = Math.round(max_y - min_y + 1);
-    let left   = Math.floor(min_x);
-    let top    = Math.floor(min_y);
+    let left   = total_left + Math.floor(min_x);
+    let top    = total_top  + Math.floor(min_y);
     canvas.style.position = "absolute";
     canvas.style.left = left + "px";
     canvas.style.top  = top + "px";

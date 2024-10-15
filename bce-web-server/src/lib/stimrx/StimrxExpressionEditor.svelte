@@ -101,7 +101,9 @@
 			//bce_canvas_render.bce_canvas_render__blind_spot(light_projection_canvas, ctx, $user_color_theme, blind_spot);
 			let blind_spot_canvas     = get_blind_spot_canvas(light_projection_canvas, blind_spot.canvas_id);
 			let blind_spot_canvas_ctx = blind_spot_canvas.getContext("2d");
-			bce_canvas_render.bce_canvas_render__blind_spot_canvas(blind_spot_canvas_ctx, blind_spot_canvas.width, blind_spot_canvas.height, $user_color_theme, blind_spot);
+			var rectangle = light_projection_canvas.getBoundingClientRect();
+			console.log("rectangle = " + JSON.stringify(rectangle));
+			bce_canvas_render.bce_canvas_render__blind_spot_canvas(blind_spot_canvas_ctx, 0, 0, blind_spot_canvas.width, blind_spot_canvas.height, $user_color_theme, blind_spot);
 		    }
 		}
 	    }
