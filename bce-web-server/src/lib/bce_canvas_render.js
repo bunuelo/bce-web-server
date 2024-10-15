@@ -168,7 +168,7 @@ function bce_canvas_render__blind_spot(canvas, ctx, color_theme, blind_spot) {
     const maximum_alpha        = 45 * Math.PI / 180.0;
     
     ctx.lineWidth = 2;
-    ctx.fillStyle = "rgb(" + color_blind_spot[0] + "," + color_blind_spot[1] + "," + color_blind_spot[2] + ")";
+    //ctx.fillStyle = "rgb(" + color_blind_spot[0] + "," + color_blind_spot[1] + "," + color_blind_spot[2] + ")";
     ctx.strokeStyle = "rgb(" + color_grip[0] + "," + color_grip[1] + "," + color_grip[2] + ")";
     ctx.beginPath();
     let start = blind_spot.points[1 % blind_spot.points.length];
@@ -194,7 +194,7 @@ function bce_canvas_render__blind_spot(canvas, ctx, color_theme, blind_spot) {
 			  p2_x + 0.25 * (p1_x - p3_x), p2_y + 0.25 * (p1_y - p3_y),
 			  p2_x, p2_y);
     }
-    ctx.fill();
+    //ctx.fill();
     ctx.stroke();
     for (var i = 0; i < blind_spot.points.length; i ++) {
 	console.log("bce_canvas_render__blind_spot: rendering a point.");
@@ -203,7 +203,7 @@ function bce_canvas_render__blind_spot(canvas, ctx, color_theme, blind_spot) {
 	let grip_omega = point.omega;
 	
 	//ctx.fillStyle = "rgb(" + color_grip[0] + "," + color_grip[1] + "," + color_grip[2] + ")";
-	ctx.lineWidth = 1;
+	ctx.lineWidth = 2;
 	ctx.strokeStyle = "rgb(" + color_grip[0] + "," + color_grip[1] + "," + color_grip[2] + ")";
 	ctx.beginPath();
 	ctx.arc(bce_canvas_render__alpha_omega_to_x(canvas, grip_alpha, grip_omega),
