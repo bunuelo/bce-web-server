@@ -143,6 +143,13 @@
 	light_projection_canvas = tmp
     }
     
+    async function on_change_blind_spot_checkbox() {
+	await changed_rx_editor_state();
+	let tmp = light_projection_canvas;
+	light_projection_canvas = null;
+	light_projection_canvas = tmp
+    }
+    
     let on_evaluation_asset_select = async function (asset) {
         console.log("Evaluation asset selected: " + asset.name + " (" + asset.file_name + ")");
 	if (editor !== null) {
