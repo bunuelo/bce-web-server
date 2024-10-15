@@ -18,6 +18,7 @@ function new_stimrx_editor() {
 	],
 	"left_eye_blind_spots": [],
 	"right_eye_blind_spots": [],
+	"canvas_index": 0,
     };
 }
 
@@ -54,7 +55,6 @@ function new_stimrx_editor_evaluation(asset_name) {
 	"asset_name": asset_name,
 	"enable_left_eye_overlay": true,
 	"enable_right_eye_overlay": true,
-	"canvas_index": 0,
     };
 }
 
