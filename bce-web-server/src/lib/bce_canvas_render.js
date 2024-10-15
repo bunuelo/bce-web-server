@@ -132,6 +132,20 @@ function bce_canvas_render__evaluation_eye(canvas, ctx, color_theme, evaluation,
 }
 
 
+function bce_canvas_render__alpha_omega_to_x(canvas, alpha, omega) {
+    const center_x             = 0.5 * canvas.width;
+    const maximum_alpha_radius = 0.5 * canvas.height - 1;
+    const maximum_alpha        = 45 * Math.PI / 180.0;
+    return center_x + maximum_alpha_radius * alpha / maximum_alpha * Math.cos(omega);
+}
+
+function bce_canvas_render__alpha_omega_to_y(canvas, alpha, omega) {
+    const center_y             = 0.5 * canvas.height;
+    const maximum_alpha_radius = 0.5 * canvas.height - 1;
+    const maximum_alpha        = 45 * Math.PI / 180.0;
+    return center_y + maximum_alpha_radius * alpha / maximum_alpha * Math.sin(omega);
+}
+
 function bce_canvas_render__blind_spot(canvas, ctx, color_theme, blind_spot) {
     var color_grip;
     if (color_theme == "dark") {
@@ -141,24 +155,42 @@ function bce_canvas_render__blind_spot(canvas, ctx, color_theme, blind_spot) {
         color_grip = [255, 0, 0];
         //color_grip = [0, 0, 0];
     }
+    let grip_radius = 1.0 * Math.PI / 180.0;
+    let grip_alpha = point.alpha;
+    let grip_omega = point.omega;
+    
+    const center_x             = 0.5 * canvas.width;
+    const center_y             = 0.5 * canvas.height;
+    const maximum_alpha_radius = 0.5 * canvas.height - 1;
+    const maximum_alpha        = 45 * Math.PI / 180.0;
+    
+    for (var i = 0; i < blind_spot.points.length; i ++) {
+	let p0 = blind_spot.points[i];
+	let p1 = blind_spot.points[(i + 1) % blind_spot.points.length];
+	let p2 = blind_spot.points[(i + 2) % blind_spot.points.length];
+	let p3 = blind_spot.points[(i + 3) % blind_spot.points.length];
+	
+	let p0_x = bce_canvas_render__alpha_omega_to_x(canvas, p0.alpha, p0.omega);
+	let p0_y = bce_canvas_render__alpha_omega_to_y(canvas, p0.alpha, p0.omega);
+	let p1_x = bce_canvas_render__alpha_omega_to_x(canvas, p1.alpha, p1.omega);
+	let p1_y = bce_canvas_render__alpha_omega_to_y(canvas, p1.alpha, p1.omega);
+	let p2_x = bce_canvas_render__alpha_omega_to_x(canvas, p2.alpha, p2.omega);
+	let p2_y = bce_canvas_render__alpha_omega_to_y(canvas, p2.alpha, p2.omega);
+	let p3_x = bce_canvas_render__alpha_omega_to_x(canvas, p3.alpha, p3.omega);
+	let p3_y = bce_canvas_render__alpha_omega_to_y(canvas, p3.alpha, p3.omega);
+	
+	ctx.moveTo(20, 20);
+	ctx.bezierCurveTo(20, 100, 200, 100, 200, 20);
+    }
     for (var i = 0; i < blind_spot.points.length; i ++) {
 	console.log("bce_canvas_render__blind_spot: rendering a point.");
 	let point = blind_spot.points[i];
 	
-	let grip_radius = 1.0 * Math.PI / 180.0;
-	let grip_alpha = point.alpha;
-	let grip_omega = point.omega;
-	
-	const center_x             = 0.5 * canvas.width;
-	const center_y             = 0.5 * canvas.height;
-	const maximum_alpha_radius = 0.5 * canvas.height - 1;
-	const maximum_alpha        = 45 * Math.PI / 180.0;
-	
 	//ctx.fillStyle = "rgb(" + color_grip[0] + "," + color_grip[1] + "," + color_grip[2] + ")";
 	ctx.strokeStyle = "rgb(" + color_grip[0] + "," + color_grip[1] + "," + color_grip[2] + ")";
 	ctx.beginPath();
-	ctx.arc(center_x + maximum_alpha_radius * grip_alpha / maximum_alpha * Math.cos(grip_omega),
-		center_y + maximum_alpha_radius * grip_alpha / maximum_alpha * Math.sin(grip_omega),
+	ctx.arc(bce_canvas_render__alpha_omega_to_x(canvas, grip_alpha, grip_omega),
+		bce_canvas_render__alpha_omega_to_y(canvas, grip_alpha, grip_omega),
 		maximum_alpha_radius * grip_radius / maximum_alpha, 0, 2 * Math.PI);
 	//ctx.fill();
 	ctx.stroke();
