@@ -227,21 +227,22 @@ function bce_canvas_render__blind_spot_canvas(ctx, total_left, total_top, total_
     var max_x = null;
     var min_y = null;
     var max_y = null;
+    let border_size = 16;
     for (var i = 0; i < blind_spot.points.length; i ++) {
 	let p = blind_spot.points[i];
 	let x = bce_canvas_render__alpha_omega_to_x(total_width, total_height, p.alpha, p.omega);
 	let y = bce_canvas_render__alpha_omega_to_y(total_width, total_height, p.alpha, p.omega);
-	if (min_x === null || x < min_x) {
-	    min_x = x;
+	if (min_x === null || x - border_size < min_x) {
+	    min_x = x - border_size;
 	}
-	if (min_y === null || y < min_y) {
-	    min_y = y;
+	if (min_y === null || y - border_size < min_y) {
+	    min_y = y - border_size;
 	}
-	if (max_x === null || x > max_x) {
-	    max_x = x;
+	if (max_x === null || x + border_size > max_x) {
+	    max_x = x + border_size;
 	}
-	if (max_y === null || y > max_y) {
-	    max_y = y;
+	if (max_y === null || y + border_size > max_y) {
+	    max_y = y + border_size;
 	}
     }
     let width  = Math.round(max_x - min_x + 1);
@@ -249,10 +250,10 @@ function bce_canvas_render__blind_spot_canvas(ctx, total_left, total_top, total_
     let left   = Math.floor(min_x);
     let top    = Math.floor(min_y);
     canvas.style.position = "absolute";
-    canvas.style.left = (total_left + left) + "px";
-    canvas.style.top  = (total_top  + top)  + "px";
-    canvas.style.width  = width;
-    canvas.style.height = height;
+    canvas.style.left     = (total_left + left) + "px";
+    canvas.style.top      = (total_top  + top)  + "px";
+    canvas.style.width    = width;
+    canvas.style.height   = height;
     console.log("Setting blind spot canvas size to " + width + "x" + height + " at (" + left + ", " + top + ").");
     
     var color_grip;

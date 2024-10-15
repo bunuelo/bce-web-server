@@ -103,8 +103,8 @@
 			let blind_spot_canvas_ctx = blind_spot_canvas.getContext("2d");
 			var rectangle = light_projection_canvas.getBoundingClientRect();
 			//console.log("rectangle = " + JSON.stringify(rectangle));
-			let total_left = rectangle.left + window.pageXOffset;
-			let total_top  = rectangle.top  + window.pageYOffset;
+			let total_left = window.pageXOffset + rectangle.left;
+			let total_top  = window.pageYOffset + rectangle.top;
 			bce_canvas_render.bce_canvas_render__blind_spot_canvas(blind_spot_canvas_ctx, total_left, total_top, blind_spot_canvas.width, blind_spot_canvas.height, $user_color_theme, blind_spot);
 		    }
 		}
