@@ -294,9 +294,15 @@ function bce_canvas_render__blind_spot_canvas(canvas, ctx, color_theme, blind_sp
 	let p3_x = bce_canvas_render__alpha_omega_to_x(canvas.parentElement, p3.alpha, p3.omega);
 	let p3_y = bce_canvas_render__alpha_omega_to_y(canvas.parentElement, p3.alpha, p3.omega);
 	
-	ctx.bezierCurveTo(p1_x + 0.25 * (p2_x - p0_x) - left, p1_y + 0.25 * (p2_y - p0_y) - top,
-			  p2_x + 0.25 * (p1_x - p3_x) - left, p2_y + 0.25 * (p1_y - p3_y) - top,
-			  p2_x - left, p2_y) - top;
+	let bc0_x = p1_x + 0.25 * (p2_x - p0_x) - left;
+	let bc0_y = p1_y + 0.25 * (p2_y - p0_y) - top;
+	let bc1_x = p2_x + 0.25 * (p1_x - p3_x) - left;
+	let bc1_y = p2_y + 0.25 * (p1_y - p3_y) - top;
+	let bc2_x = p2_x - left;
+	let bc2_y = p2_y - top;
+	ctx.bezierCurveTo(bc0_x, bc0_y,
+			  bc1_x, bc1_y,
+			  bc2_x, bc2_y);
     }
     //ctx.fill();
     ctx.stroke();
