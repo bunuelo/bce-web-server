@@ -63,14 +63,18 @@ function stimrx_editor_evaluation__is_type(x) {
 
 // EditorEvaluation END
 
+var canvas_index = 0;
 
 // EditorBlindSpot BEGIN
 
 function new_stimrx_editor_blind_spot(points) {
+    let canvas_id = "canvas_id_" + canvas_index;
+    canvas_index ++;
     return {
 	"type": "EditorBlindSpot",
 	"points": points,
-	"enable": true
+	"enable": true,
+	"canvas_id": canvas_id,
     };
 }
 
