@@ -108,6 +108,7 @@
 	"component_stimrx_expression_editor_label_evaluation": "Evaluation",
 	"component_stimrx_expression_editor_label_remove_evaluation": "remove evaluation",
 	"component_stimrx_expression_editor_label_add_blind_spot": "add blind spot",
+	"component_stimrx_expression_editor_label_blind_spot": "Blind Spot",
 	"page_home_title": "Home",
 	"page_login_title": "Login",
 	"page_login_alert_login_successful": "Login successful!",

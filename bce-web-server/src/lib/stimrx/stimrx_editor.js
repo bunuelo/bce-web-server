@@ -70,6 +70,7 @@ function new_stimrx_editor_blind_spot(points) {
     return {
 	"type": "EditorBlindSpot",
 	"points": points,
+	"enable": true
     };
 }
 

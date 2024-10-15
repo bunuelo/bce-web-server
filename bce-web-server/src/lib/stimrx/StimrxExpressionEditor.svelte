@@ -308,6 +308,17 @@
   		                <label for={"evaluation_checkbox_" + path + j}>{bce_lang($user_language, "component_stimrx_expression_editor_label_evaluation")}&nbsp;{j+1}</label>
 	                    {/each}
                             <a href="#" on:click|preventDefault={on_click_add_blind_spot}>{bce_lang($user_language, "component_stimrx_expression_editor_label_add_blind_spot")}</a>
+                            {#if stimrx.stimrx_left_eye_light_projection__is_type(expression)}
+  	                        {#each editor.left_eye_blind_spots as blind_spot, j}
+         	                    <input type="checkbox" id={"blind_spot_checkbox_" + path + j} bind:checked={blind_spot.enable} on:change|preventDefault={on_change_blind_spot_checkbox}>
+    		                    <label for={"blind_spot_checkbox_" + path + j}>{bce_lang($user_language, "component_stimrx_expression_editor_label_blind_spot")}&nbsp;{j+1}</label>
+  	                        {/each}
+                            {:else if stimrx.stimrx_right_eye_light_projection__is_type(expression)}
+  	                        {#each editor.right_eye_blind_spots as blind_spot, j}
+         	                    <input type="checkbox" id={"blind_spot_checkbox_" + path + j} bind:checked={blind_spot.enable} on:change|preventDefault={on_change_blind_spot_checkbox}>
+    		                    <label for={"blind_spot_checkbox_" + path + j}>{bce_lang($user_language, "component_stimrx_expression_editor_label_blind_spot")}&nbsp;{j+1}</label>
+  	                        {/each}
+                            {/if}
 	                </td>
 	            </tr>
 		{/if}
