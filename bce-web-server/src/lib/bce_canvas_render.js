@@ -136,18 +136,26 @@ function bce_canvas_render__evaluation_eye(canvas, ctx, color_theme, evaluation,
 }
 
 
-function bce_canvas_render__alpha_omega_to_x(canvas, alpha, omega) {
-    const center_x             = 0.5 * canvas.width;
-    const maximum_alpha_radius = 0.5 * canvas.height - 1;
+function bce_canvas_render__alpha_omega_to_x_ratio(alpha, omega) {
+    const center_x             = 0.5;
+    const maximum_alpha_radius = 0.5 - 1;
     const maximum_alpha        = 45 * Math.PI / 180.0;
     return center_x + maximum_alpha_radius * alpha / maximum_alpha * Math.cos(omega);
 }
 
-function bce_canvas_render__alpha_omega_to_y(canvas, alpha, omega) {
-    const center_y             = 0.5 * canvas.height;
-    const maximum_alpha_radius = 0.5 * canvas.height - 1;
+function bce_canvas_render__alpha_omega_to_x(canvas, alpha, omega) {
+    return bce_canvas_render__alpha_omega_to_x_ratio(alpha, omega) * canvas.width;
+}
+
+function bce_canvas_render__alpha_omega_to_y_ratio(alpha, omega) {
+    const center_y             = 0.5;
+    const maximum_alpha_radius = 0.5;
     const maximum_alpha        = 45 * Math.PI / 180.0;
     return center_y + maximum_alpha_radius * alpha / maximum_alpha * Math.sin(omega);
+}
+
+function bce_canvas_render__alpha_omega_to_y(canvas, alpha, omega) {
+    return bce_canvas_render__alpha_omega_to_y_ratio(alpha, omega) * canvas.height;
 }
 
 function bce_canvas_render__blind_spot(canvas, ctx, color_theme, blind_spot) {
@@ -221,8 +229,8 @@ function bce_canvas_render__blind_spot_canvas(canvas, ctx, color_theme, blind_sp
     var max_y = null;
     for (var i = 0; i < blind_spot.points.length; i ++) {
 	let p = blind_spot.points[i];
-	let x = bce_canvas_render__alpha_omega_to_x(canvas, p.alpha, p.omega);
-	let y = bce_canvas_render__alpha_omega_to_y(canvas, p.alpha, p.omega);
+	let x = bce_canvas_render__alpha_omega_to_x(canvas.parent, p.alpha, p.omega);
+	let y = bce_canvas_render__alpha_omega_to_y(canvas.parent, p.alpha, p.omega);
 	if (min_x === null || x < min_x) {
 	    min_x = x;
 	}
