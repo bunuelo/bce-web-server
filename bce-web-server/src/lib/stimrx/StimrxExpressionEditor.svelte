@@ -58,17 +58,17 @@
 
     var blind_spot_canvas_storage = {};
 
-    function on_click_blind_spot_canvas(event) {
+    function on_mousedown_blind_spot_canvas(event) {
 	let x = event.pageX;
 	let y = event.pageY;
-	console.log("Click blind spot canvas.  (" + x + "," + y + ")");
+	console.log("Mouse down blind spot canvas.  (" + x + "," + y + ")");
     }
 
     function get_blind_spot_canvas(blind_spot_canvas_id) {
 	if (! (blind_spot_canvas_id in blind_spot_canvas_storage)) {
 	    let canvas = document.createElement("canvas");
 	    document.body.appendChild(canvas);
-	    canvas.addEventListener("click", on_click_blind_spot_canvas, false);
+	    canvas.addEventListener("mousedown", on_mousedown_blind_spot_canvas, false);
 	    blind_spot_canvas_storage[blind_spot_canvas_id] = canvas;
 	}
 	return blind_spot_canvas_storage[blind_spot_canvas_id];
