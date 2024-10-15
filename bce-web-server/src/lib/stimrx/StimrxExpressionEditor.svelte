@@ -70,12 +70,19 @@
 	console.log("Mouse up blind spot canvas.  (" + x + "," + y + ")");
     }
 
+    function on_mousemove_blind_spot_canvas(event) {
+	let x = event.pageX;
+	let y = event.pageY;
+	console.log("Mouse move blind spot canvas.  (" + x + "," + y + ")");
+    }
+
     function get_blind_spot_canvas(blind_spot_canvas_id) {
 	if (! (blind_spot_canvas_id in blind_spot_canvas_storage)) {
 	    let canvas = document.createElement("canvas");
 	    document.body.appendChild(canvas);
 	    canvas.addEventListener("mousedown", on_mousedown_blind_spot_canvas, false);
 	    canvas.addEventListener("mouseup", on_mouseup_blind_spot_canvas, false);
+	    canvas.addEventListener("mousemove", on_mousemove_blind_spot_canvas, false);
 	    blind_spot_canvas_storage[blind_spot_canvas_id] = canvas;
 	}
 	return blind_spot_canvas_storage[blind_spot_canvas_id];
