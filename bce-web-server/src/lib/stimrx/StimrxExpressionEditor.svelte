@@ -59,6 +59,7 @@
     var blind_spot_canvas_storage = {};
 
     function on_mousedown_blind_spot_canvas(event, canvas) {
+	event.preventDefault();
 	let x = event.pageX;
 	let y = event.pageY;
 	console.log("Mouse down blind spot canvas.  (" + x + "," + y + ")");
@@ -66,6 +67,7 @@
     }
 
     function on_click_blind_spot_canvas(event, canvas) {
+	event.preventDefault();
 	let x = event.pageX;
 	let y = event.pageY;
 	console.log("Click blind spot canvas.  (" + x + "," + y + ")");
