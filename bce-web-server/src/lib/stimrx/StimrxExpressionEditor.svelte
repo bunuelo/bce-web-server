@@ -59,27 +59,35 @@
     var blind_spot_canvas_storage = {};
 
     function on_mousedown_blind_spot_canvas(event) {
+	let canvas = event.relatedTarget;
 	let x = event.pageX;
 	let y = event.pageY;
 	console.log("Mouse down blind spot canvas.  (" + x + "," + y + ")");
+	canvas.drag = true;
     }
 
     function on_mouseup_blind_spot_canvas(event) {
+	let canvas = event.relatedTarget;
 	let x = event.pageX;
 	let y = event.pageY;
 	console.log("Mouse up blind spot canvas.  (" + x + "," + y + ")");
+	canvas.drag = false;
     }
 
     function on_mousemove_blind_spot_canvas(event) {
-	let x = event.pageX;
-	let y = event.pageY;
-	console.log("Mouse move blind spot canvas.  (" + x + "," + y + ")");
+	let canvas = event.relatedTarget;
+	if (canvas.drag) {
+	    let x = event.pageX;
+	    let y = event.pageY;
+	    console.log("Mouse move blind spot canvas.  (" + x + "," + y + ")");
+	}
     }
 
     function get_blind_spot_canvas(blind_spot_canvas_id) {
 	if (! (blind_spot_canvas_id in blind_spot_canvas_storage)) {
 	    let canvas = document.createElement("canvas");
 	    document.body.appendChild(canvas);
+	    canvas.drag = false;
 	    canvas.addEventListener("mousedown", on_mousedown_blind_spot_canvas, false);
 	    canvas.addEventListener("mouseup", on_mouseup_blind_spot_canvas, false);
 	    canvas.addEventListener("mousemove", on_mousemove_blind_spot_canvas, false);
