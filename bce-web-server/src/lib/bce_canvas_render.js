@@ -222,7 +222,7 @@ function bce_canvas_render__blind_spot(canvas, ctx, color_theme, blind_spot) {
 }
 
 function bce_canvas_render__blind_spot_canvas(ctx, total_width, total_height, color_theme, blind_spot) {
-    var canvas = cts.canvas;
+    var canvas = ctx.canvas;
     var min_x = null;
     var max_x = null;
     var min_y = null;
