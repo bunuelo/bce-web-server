@@ -68,6 +68,19 @@
 	return blind_spot_canvas_storage[blind_spot_canvas_id];
     }
     
+    var cumulative_element_offset = function(element) {
+	var top = 0, left = 0;
+	do {
+            top += element.offsetTop  || 0;
+            left += element.offsetLeft || 0;
+            element = element.offsetParent;
+	} while(element);
+	return {
+            top: top,
+            left: left
+	};
+    };
+
     async function redraw_canvas() {
 	light_projection_canvas.width = 0.25 * window.innerWidth;
 	light_projection_canvas.height = 0.25 * window.innerWidth;
@@ -101,11 +114,12 @@
 			//bce_canvas_render.bce_canvas_render__blind_spot(light_projection_canvas, ctx, $user_color_theme, blind_spot);
 			let blind_spot_canvas     = get_blind_spot_canvas(light_projection_canvas, blind_spot.canvas_id);
 			let blind_spot_canvas_ctx = blind_spot_canvas.getContext("2d");
-			var rectangle = light_projection_canvas.getBoundingClientRect();
+			//var rectangle = light_projection_canvas.getBoundingClientRect();
 			//console.log("rectangle = " + JSON.stringify(rectangle));
-			let total_left = window.pageXOffset + rectangle.left;
-			let total_top  = window.pageYOffset + rectangle.top;
-			bce_canvas_render.bce_canvas_render__blind_spot_canvas(blind_spot_canvas_ctx, total_left, total_top, blind_spot_canvas.width, blind_spot_canvas.height, $user_color_theme, blind_spot);
+			//let total_left = window.pageXOffset + rectangle.left;
+			//let total_top  = window.pageYOffset + rectangle.top;
+			let total = cumulative_element_offset(light_projection_canvas);
+			bce_canvas_render.bce_canvas_render__blind_spot_canvas(blind_spot_canvas_ctx, total.left, total.top, blind_spot_canvas.width, blind_spot_canvas.height, $user_color_theme, blind_spot);
 		    }
 		}
 	    }
