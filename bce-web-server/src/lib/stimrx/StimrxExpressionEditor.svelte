@@ -61,7 +61,7 @@
     function get_blind_spot_canvas(light_projection_canvas, blind_spot_canvas_id) {
 	if (! (blind_spot_canvas_id in blind_spot_canvas_storage)) {
 	    let canvas = document.createElement("canvas");
-	    light_projection_canvas.appendChild(canvas);
+	    document.body.appendChild(canvas);
 	    blind_spot_canvas_storage[blind_spot_canvas_id] = canvas;
 	}
 	return blind_spot_canvas_storage[blind_spot_canvas_id];
