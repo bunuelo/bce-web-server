@@ -60,26 +60,32 @@
 
     function on_mousedown_blind_spot_canvas(event) {
 	let canvas = event.relatedTarget;
-	let x = event.pageX;
-	let y = event.pageY;
-	console.log("Mouse down blind spot canvas.  (" + x + "," + y + ")");
-	canvas.drag = true;
+	if (canvas !== null) {
+	    let x = event.pageX;
+	    let y = event.pageY;
+	    console.log("Mouse down blind spot canvas.  (" + x + "," + y + ")");
+	    canvas.drag = true;
+	}
     }
 
     function on_mouseup_blind_spot_canvas(event) {
 	let canvas = event.relatedTarget;
-	let x = event.pageX;
-	let y = event.pageY;
-	console.log("Mouse up blind spot canvas.  (" + x + "," + y + ")");
-	canvas.drag = false;
+	if (canvas !== null) {
+	    let x = event.pageX;
+	    let y = event.pageY;
+	    console.log("Mouse up blind spot canvas.  (" + x + "," + y + ")");
+	    canvas.drag = false;
+	}
     }
 
     function on_mousemove_blind_spot_canvas(event) {
 	let canvas = event.relatedTarget;
-	if (canvas.drag) {
-	    let x = event.pageX;
-	    let y = event.pageY;
-	    console.log("Mouse move blind spot canvas.  (" + x + "," + y + ")");
+	if (canvas !== null) {
+	    if (canvas.drag) {
+		let x = event.pageX;
+		let y = event.pageY;
+		console.log("Mouse move blind spot canvas.  (" + x + "," + y + ")");
+	    }
 	}
     }
 
