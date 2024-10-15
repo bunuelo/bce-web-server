@@ -202,7 +202,7 @@ function bce_canvas_render__blind_spot(canvas, ctx, color_theme, blind_spot) {
 			  p2_x + 0.25 * (p1_x - p3_x), p2_y + 0.25 * (p1_y - p3_y),
 			  p2_x, p2_y);
     }
-    //ctx.fill();
+    ctx.fill();
     ctx.stroke();
     for (var i = 0; i < blind_spot.points.length; i ++) {
 	let point = blind_spot.points[i];
