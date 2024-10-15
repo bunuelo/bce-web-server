@@ -214,6 +214,33 @@ function bce_canvas_render__blind_spot(canvas, ctx, color_theme, blind_spot) {
 }
 
 function bce_canvas_render__blind_spot_canvas(canvas, ctx, color_theme, blind_spot) {
+
+    var min_x = null;
+    var max_x = null;
+    var min_y = null;
+    var max_y = null;
+    for (var i = 0; i < blind_spot.points.length; i ++) {
+	let p = blind_spot.points[i];
+	let x = bce_canvas_render__alpha_omega_to_x(canvas, p0.alpha, p0.omega);
+	let y = bce_canvas_render__alpha_omega_to_y(canvas, p0.alpha, p0.omega);
+	if (min_x === null || x < min_x) {
+	    min_x = x;
+	}
+	if (min_y === null || y < min_y) {
+	    min_y = y;
+	}
+	if (max_x === null || x > max_x) {
+	    max_x = x;
+	}
+	if (max_y === null || y > max_y) {
+	    max_y = y;
+	}
+    }
+    let width  = Math.round(max_x - min_x + 1);
+    let height = Math.round(max_y - min_y + 1);
+    canvas.style.width  = width;
+    canvas.style.height = height;
+    
     var color_grip;
     var color_blind_spot;
     if (color_theme == "dark") {
@@ -224,7 +251,6 @@ function bce_canvas_render__blind_spot_canvas(canvas, ctx, color_theme, blind_sp
         color_blind_spot = [127, 63, 0];
     }
     let grip_radius = 1.0 * Math.PI / 180.0;
-    
     const center_x             = 0.5 * canvas.width;
     const center_y             = 0.5 * canvas.height;
     const maximum_alpha_radius = 0.5 * canvas.height - 1;
@@ -237,7 +263,7 @@ function bce_canvas_render__blind_spot_canvas(canvas, ctx, color_theme, blind_sp
     let start = blind_spot.points[1 % blind_spot.points.length];
     let start_x = bce_canvas_render__alpha_omega_to_x(canvas, start.alpha, start.omega);
     let start_y = bce_canvas_render__alpha_omega_to_y(canvas, start.alpha, start.omega);
-    ctx.moveTo(start_x, start_y);
+    ctx.moveTo(start_x - min_x, start_y - min_y);
     for (var i = 0; i < blind_spot.points.length; i ++) {
 	let p0 = blind_spot.points[i];
 	let p1 = blind_spot.points[(i + 1) % blind_spot.points.length];
@@ -253,9 +279,9 @@ function bce_canvas_render__blind_spot_canvas(canvas, ctx, color_theme, blind_sp
 	let p3_x = bce_canvas_render__alpha_omega_to_x(canvas, p3.alpha, p3.omega);
 	let p3_y = bce_canvas_render__alpha_omega_to_y(canvas, p3.alpha, p3.omega);
 	
-	ctx.bezierCurveTo(p1_x + 0.25 * (p2_x - p0_x), p1_y + 0.25 * (p2_y - p0_y),
-			  p2_x + 0.25 * (p1_x - p3_x), p2_y + 0.25 * (p1_y - p3_y),
-			  p2_x, p2_y);
+	ctx.bezierCurveTo(p1_x + 0.25 * (p2_x - p0_x) - min_x, p1_y + 0.25 * (p2_y - p0_y) - min_y,
+			  p2_x + 0.25 * (p1_x - p3_x) - min_x, p2_y + 0.25 * (p1_y - p3_y) - min_y,
+			  p2_x - min_x, p2_y) - min_y;
     }
     //ctx.fill();
     ctx.stroke();
@@ -268,8 +294,8 @@ function bce_canvas_render__blind_spot_canvas(canvas, ctx, color_theme, blind_sp
 	ctx.lineWidth = 2;
 	ctx.strokeStyle = "rgb(" + color_grip[0] + "," + color_grip[1] + "," + color_grip[2] + ")";
 	ctx.beginPath();
-	ctx.arc(bce_canvas_render__alpha_omega_to_x(canvas, grip_alpha, grip_omega),
-		bce_canvas_render__alpha_omega_to_y(canvas, grip_alpha, grip_omega),
+	ctx.arc(bce_canvas_render__alpha_omega_to_x(canvas, grip_alpha, grip_omega) - min_x,
+		bce_canvas_render__alpha_omega_to_y(canvas, grip_alpha, grip_omega) - min_y,
 		maximum_alpha_radius * grip_radius / maximum_alpha, 0, 2 * Math.PI);
 	//ctx.fill();
 	ctx.stroke();

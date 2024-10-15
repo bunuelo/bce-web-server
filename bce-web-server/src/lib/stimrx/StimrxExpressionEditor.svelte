@@ -66,7 +66,7 @@
 	}
 	return blind_spot_canvas_storage[blind_spot_canvas_id];
     }
-
+    
     async function redraw_canvas() {
 	light_projection_canvas.width = 0.25 * window.innerWidth;
 	light_projection_canvas.height = 0.25 * window.innerWidth;
@@ -97,7 +97,7 @@
 		for (var i = 0; i < blind_spots.length; i ++) {
 		    let blind_spot = blind_spots[i];
 		    if (blind_spot.enable) {
-			bce_canvas_render.bce_canvas_render__blind_spot(light_projection_canvas, ctx, $user_color_theme, blind_spot);
+			//bce_canvas_render.bce_canvas_render__blind_spot(light_projection_canvas, ctx, $user_color_theme, blind_spot);
 			let blind_spot_canvas     = get_blind_spot_canvas(light_projection_canvas, blind_spot.canvas_id);
 			let blind_spot_canvas_ctx = blind_spot_canvas.getContext("2d");
 			bce_canvas_render.bce_canvas_render__blind_spot_canvas(blind_spot_canvas, blind_spot_canvas_ctx, $user_color_theme, blind_spot);
