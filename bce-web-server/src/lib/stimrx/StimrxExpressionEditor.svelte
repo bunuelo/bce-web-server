@@ -207,13 +207,13 @@
 	if (eye_index == 0) {
 	    let blind_spot = editor.left_eye_blind_spots[blind_spot_index];
 	    let blind_spot_canvas = get_blind_spot_canvas(blind_spot.canvas_id);
-	    blind_spot_canvas.parentNode = null;
+	    blind_spot_canvas.remove();
 	    editor.left_eye_blind_spots.splice(blind_spot_index, 1);
             await changed_rx_editor_state();
 	} else if (eye_index == 1) {
 	    let blind_spot = editor.right_eye_blind_spots[blind_spot_index];
 	    let blind_spot_canvas = get_blind_spot_canvas(blind_spot.canvas_id);
-	    blind_spot_canvas.parentNode = null;
+	    blind_spot_canvas.remove();
 	    editor.right_eye_blind_spots.splice(blind_spot_index, 1);
             await changed_rx_editor_state();
 	} else {
