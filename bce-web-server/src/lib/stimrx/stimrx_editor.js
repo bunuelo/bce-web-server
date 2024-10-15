@@ -94,8 +94,8 @@ function new_default_left_eye_stimrx_editor_blind_spot() {
     let polygon_side_count = 5;
     for (var i = 0; i < polygon_side_count; i ++) {
 	let spot_subangle    = (i * 2.0 * Math.PI / polygon_side_count) + 0.5 * Math.PI;
-	let horizontal_angle = center_horizontal_angle + Math.cos(spot_subangle) * width;
-	let vertical_angle   = center_vertical_angle   + Math.sin(spot_subangle) * height;
+	let horizontal_angle = center_horizontal_angle + Math.cos(spot_subangle) * 0.5 * width;
+	let vertical_angle   = center_vertical_angle   + Math.sin(spot_subangle) * 0.5 * height;
 	let point            = new_stimrx_light_angle_from_horizontal_and_vertical_angles(horizontal_angle, vertical_angle);
 	points.push(point);
     }
@@ -111,8 +111,8 @@ function new_default_right_eye_stimrx_editor_blind_spot() {
     let polygon_side_count = 5;
     for (var i = 0; i < polygon_side_count; i ++) {
 	let spot_subangle    = (i * 2.0 * Math.PI / polygon_side_count) + 0.5 * Math.PI;
-	let horizontal_angle = center_horizontal_angle + Math.cos(spot_subangle) * width;
-	let vertical_angle   = center_vertical_angle   + Math.sin(spot_subangle) * height;
+	let horizontal_angle = center_horizontal_angle + Math.cos(spot_subangle) * 0.5 * width;
+	let vertical_angle   = center_vertical_angle   + Math.sin(spot_subangle) * 0.5 * height;
 	let point            = new_stimrx_light_angle_from_horizontal_and_vertical_angles(horizontal_angle, vertical_angle);
 	points.push(point);
     }
