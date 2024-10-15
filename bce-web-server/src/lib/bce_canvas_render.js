@@ -246,11 +246,11 @@ function bce_canvas_render__blind_spot_canvas(ctx, total_left, total_top, total_
     }
     let width  = Math.round(max_x - min_x + 1);
     let height = Math.round(max_y - min_y + 1);
-    let left   = total_left + Math.floor(min_x);
-    let top    = total_top  + Math.floor(min_y);
+    let left   = Math.floor(min_x);
+    let top    = Math.floor(min_y);
     canvas.style.position = "absolute";
-    canvas.style.left = left + "px";
-    canvas.style.top  = top + "px";
+    canvas.style.left = (total_left + left) + "px";
+    canvas.style.top  = (total_top  + top)  + "px";
     canvas.style.width  = width;
     canvas.style.height = height;
     console.log("Setting blind spot canvas size to " + width + "x" + height + " at (" + left + ", " + top + ").");
