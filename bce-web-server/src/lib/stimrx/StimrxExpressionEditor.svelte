@@ -85,7 +85,7 @@
 	    if (blind_spots !== null) {
 		for (var i = 0; i < blind_spots.length; i ++) {
 		    let blind_spot = blind_spots[i];
-		    if (blind_spot.enabled) {
+		    if (blind_spot.enable) {
 			bce_canvas_render.bce_canvas_render__blind_spot(light_projection_canvas, ctx, $user_color_theme, blind_spot);
 		    }
 		}
