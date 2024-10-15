@@ -76,6 +76,7 @@
 
     function on_mousemove_blind_spot_canvas(event, canvas) {
 	if (canvas.drag) {
+	    event.preventDefault();
 	    let x = event.pageX;
 	    let y = event.pageY;
 	    console.log("Mouse move blind spot canvas.  (" + x + "," + y + ")");
