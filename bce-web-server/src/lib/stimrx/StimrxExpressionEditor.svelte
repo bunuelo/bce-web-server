@@ -75,7 +75,7 @@
 	    let canvas = document.createElement("canvas");
 	    document.body.appendChild(canvas);
 	    canvas.addEventListener("mousedown", on_mousedown_blind_spot_canvas, false);
-	    canvas.addEventListener("mouseup", on_mousedown_blind_spot_canvas, false);
+	    canvas.addEventListener("mouseup", on_mouseup_blind_spot_canvas, false);
 	    blind_spot_canvas_storage[blind_spot_canvas_id] = canvas;
 	}
 	return blind_spot_canvas_storage[blind_spot_canvas_id];
