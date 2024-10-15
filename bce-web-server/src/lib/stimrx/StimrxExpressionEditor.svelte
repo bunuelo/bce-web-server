@@ -109,10 +109,14 @@
 	    if (blind_spots !== null) {
 		for (var i = 0; i < blind_spots.length; i ++) {
 		    let blind_spot = blind_spots[i];
-		    if (blind_spot.enable) {
+		    let blind_spot_canvas = get_blind_spot_canvas(blind_spot.canvas_id);
+		    if (! blind_spot.enable) {
+			blind_spot_canvas.style.display = "none";
+		    } else {
+			blind_spot_canvas.style.display = "block";
 			//bce_canvas_render.bce_canvas_render__blind_spot(light_projection_canvas, ctx, $user_color_theme, blind_spot);
-			let blind_spot_canvas     = get_blind_spot_canvas(blind_spot.canvas_id);
 			let blind_spot_canvas_ctx = blind_spot_canvas.getContext("2d");
+			blind_spot_canvas.style.display = "block";
 			//var rectangle = light_projection_canvas.getBoundingClientRect();
 			//console.log("rectangle = " + JSON.stringify(rectangle));
 			//let total_left = window.pageXOffset + rectangle.left;
