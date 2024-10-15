@@ -254,7 +254,7 @@ function bce_canvas_render__blind_spot_canvas(ctx, total_left, total_top, total_
     canvas.style.top      = (total_top  + top)  + "px";
     canvas.style.width    = width;
     canvas.style.height   = height;
-    console.log("Setting blind spot canvas size to " + width + "x" + height + " at (" + left + ", " + top + ").");
+    //console.log("Setting blind spot canvas size to " + width + "x" + height + " at (" + left + ", " + top + ").");
     
     var color_grip;
     var color_blind_spot;
@@ -301,7 +301,7 @@ function bce_canvas_render__blind_spot_canvas(ctx, total_left, total_top, total_
 	let bc1_y = p2_y + 0.25 * (p1_y - p3_y) - top;
 	let bc2_x = p2_x - left;
 	let bc2_y = p2_y - top;
-	console.log("(" + bc0_x + "," + bc0_y + ") -- (" + bc1_x + "," + bc1_y + ") -- (" + bc2_x + "," + bc2_y + ")");
+	//console.log("(" + bc0_x + "," + bc0_y + ") -- (" + bc1_x + "," + bc1_y + ") -- (" + bc2_x + "," + bc2_y + ")");
 	ctx.bezierCurveTo(bc0_x, bc0_y,
 			  bc1_x, bc1_y,
 			  bc2_x, bc2_y);
