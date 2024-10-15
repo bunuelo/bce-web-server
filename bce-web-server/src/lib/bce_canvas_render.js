@@ -162,11 +162,11 @@ function bce_canvas_render__blind_spot(canvas, ctx, color_theme, blind_spot) {
     var color_grip;
     var color_blind_spot;
     if (color_theme == "dark") {
-        color_grip = [255, 127, 0, 255];
-        color_blind_spot = [127, 63, 0, 127];
+        color_grip = [255, 127, 0, 1.0];
+        color_blind_spot = [127, 63, 0, 0.5];
     } else {
-        color_grip = [255, 127, 0, 255];
-        color_blind_spot = [127, 63, 0, 127];
+        color_grip = [255, 127, 0, 1.0];
+        color_blind_spot = [127, 63, 0, 0.5];
     }
     let grip_radius = 1.0 * Math.PI / 180.0;
     
