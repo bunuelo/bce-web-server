@@ -119,7 +119,7 @@
 			var rectangle = light_projection_canvas.getBoundingClientRect();
 			let total_left = window.pageXOffset + rectangle.left;
 			let total_top  = window.pageYOffset + rectangle.top;
-			bce_canvas_render.bce_canvas_render__blind_spot_canvas(blind_spot_canvas_ctx, total_left, total_top, blind_spot_canvas.width, blind_spot_canvas.height, $user_color_theme, blind_spot);
+			bce_canvas_render.bce_canvas_render__blind_spot_canvas(blind_spot_canvas_ctx, total_left, total_top, light_projection_canvas.width, light_projection_canvas.height, $user_color_theme, blind_spot);
 		    }
 		}
 	    }
