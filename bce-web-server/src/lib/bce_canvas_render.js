@@ -197,10 +197,10 @@ function bce_canvas_render__blind_spot_canvas(ctx, total_left, total_top, total_
     var color_blind_spot;
     if (color_theme == "dark") {
         color_grip = [255, 127, 0, 1.0];
-        color_blind_spot = [127, 63, 0, 0.5];
+        color_blind_spot = [255, 127, 0, 0.5];
     } else {
         color_grip = [255, 127, 0, 1.0];
-        color_blind_spot = [127, 63, 0, 0.5];
+        color_blind_spot = [255, 127, 0, 0.5];
     }
     let grip_radius = 1.0 * Math.PI / 180.0;
     const center_x             = 0.5 * total_width;
@@ -243,7 +243,7 @@ function bce_canvas_render__blind_spot_canvas(ctx, total_left, total_top, total_
 			  bc1_x, bc1_y,
 			  bc2_x, bc2_y);
     }
-    //ctx.fill();
+    ctx.fill();
     ctx.stroke();
     for (var i = 0; i < blind_spot.points.length; i ++) {
 	let point = blind_spot.points[i];
