@@ -108,20 +108,17 @@
 	    }
 	    if (blind_spots !== null) {
 		for (var i = 0; i < blind_spots.length; i ++) {
-		    let blind_spot = blind_spots[i];
+		    let blind_spot        = blind_spots[i];
 		    let blind_spot_canvas = get_blind_spot_canvas(blind_spot.canvas_id);
 		    if (! blind_spot.enable) {
 			blind_spot_canvas.style.display = "none";
 		    } else {
 			blind_spot_canvas.style.display = "block";
-			//bce_canvas_render.bce_canvas_render__blind_spot(light_projection_canvas, ctx, $user_color_theme, blind_spot);
 			let blind_spot_canvas_ctx = blind_spot_canvas.getContext("2d");
-			blind_spot_canvas.style.display = "block";
+			//let total = cumulative_element_offset(light_projection_canvas);
 			var rectangle = light_projection_canvas.getBoundingClientRect();
-			//console.log("rectangle = " + JSON.stringify(rectangle));
 			let total_left = window.pageXOffset + rectangle.left;
 			let total_top  = window.pageYOffset + rectangle.top;
-			//let total = cumulative_element_offset(light_projection_canvas);
 			bce_canvas_render.bce_canvas_render__blind_spot_canvas(blind_spot_canvas_ctx, total_left, total_top, blind_spot_canvas.width, blind_spot_canvas.height, $user_color_theme, blind_spot);
 		    }
 		}
@@ -212,14 +209,12 @@
         console.log("remove blind spot clicked.");
 	if (eye_index == 0) {
 	    let blind_spot = editor.left_eye_blind_spots[blind_spot_index];
-	    console.log("canvas_id = " + blind_spot.canvas_id);
 	    let blind_spot_canvas = get_blind_spot_canvas(blind_spot.canvas_id);
 	    blind_spot_canvas.remove();
 	    editor.left_eye_blind_spots.splice(blind_spot_index, 1);
             await changed_rx_editor_state();
 	} else if (eye_index == 1) {
 	    let blind_spot = editor.right_eye_blind_spots[blind_spot_index];
-	    console.log("canvas_id = " + blind_spot.canvas_id);
 	    let blind_spot_canvas = get_blind_spot_canvas(blind_spot.canvas_id);
 	    blind_spot_canvas.remove();
 	    editor.right_eye_blind_spots.splice(blind_spot_index, 1);
