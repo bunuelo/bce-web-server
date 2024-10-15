@@ -58,10 +58,15 @@
 
     var blind_spot_canvas_storage = {};
 
+    function on_click_blind_spot_canvas(event) {
+	console.log("Click blind spot canvas.");
+    }
+
     function get_blind_spot_canvas(blind_spot_canvas_id) {
 	if (! (blind_spot_canvas_id in blind_spot_canvas_storage)) {
 	    let canvas = document.createElement("canvas");
 	    document.body.appendChild(canvas);
+	    canvas.addEventListener("click", on_click_blind_spot_canvas, false);
 	    blind_spot_canvas_storage[blind_spot_canvas_id] = canvas;
 	}
 	return blind_spot_canvas_storage[blind_spot_canvas_id];
