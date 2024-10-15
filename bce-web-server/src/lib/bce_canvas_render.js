@@ -148,12 +148,13 @@ function bce_canvas_render__alpha_omega_to_y(canvas, alpha, omega) {
 
 function bce_canvas_render__blind_spot(canvas, ctx, color_theme, blind_spot) {
     var color_grip;
+    var color_blind_spot;
     if (color_theme == "dark") {
         color_grip = [255, 0, 0];
-        //color_grip = [255, 255, 255];
+        color_blind_spot = [127, 0, 0];
     } else {
         color_grip = [255, 0, 0];
-        //color_grip = [0, 0, 0];
+        color_blind_spot = [127, 0, 0];
     }
     let grip_radius = 1.0 * Math.PI / 180.0;
     
@@ -162,7 +163,7 @@ function bce_canvas_render__blind_spot(canvas, ctx, color_theme, blind_spot) {
     const maximum_alpha_radius = 0.5 * canvas.height - 1;
     const maximum_alpha        = 45 * Math.PI / 180.0;
     
-    ctx.fillStyle = "rgb(" + color_grip[0] + "," + color_grip[1] + "," + color_grip[2] + ")";
+    ctx.fillStyle = "rgb(" + color_blind_spot[0] + "," + color_blind_spot[1] + "," + color_blind_spot[2] + ")";
     ctx.strokeStyle = "rgb(" + color_grip[0] + "," + color_grip[1] + "," + color_grip[2] + ")";
     ctx.beginPath();
     let start = blind_spot.points[1 % blind_spot.points.length];
