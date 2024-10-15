@@ -54,6 +54,7 @@ function new_stimrx_editor_evaluation(asset_name) {
 	"asset_name": asset_name,
 	"enable_left_eye_overlay": true,
 	"enable_right_eye_overlay": true,
+	"canvas_index": 0,
     };
 }
 
@@ -63,13 +64,12 @@ function stimrx_editor_evaluation__is_type(x) {
 
 // EditorEvaluation END
 
-var canvas_index = 0;
 
 // EditorBlindSpot BEGIN
 
-function new_stimrx_editor_blind_spot(points) {
-    let canvas_id = "canvas_id_" + canvas_index;
-    canvas_index ++;
+function new_stimrx_editor_blind_spot(editor, points) {
+    let canvas_id = "canvas_id_" + editor.canvas_index;
+    editor.canvas_index ++;
     return {
 	"type": "EditorBlindSpot",
 	"points": points,
@@ -89,7 +89,7 @@ function new_stimrx_light_angle_from_horizontal_and_vertical_angles(horizontal_a
     return stimrx.new_stimrx_light_angle(alpha, omega);
 }
 
-function new_default_left_eye_stimrx_editor_blind_spot() {
+function new_default_left_eye_stimrx_editor_blind_spot(editor) {
     var points = [];
     let center_horizontal_angle  = -0.5 * (12.0 + 15.0) * Math.PI / 180.0;
     let center_vertical_angle = -1.5 * Math.PI / 180.0;
@@ -103,10 +103,10 @@ function new_default_left_eye_stimrx_editor_blind_spot() {
 	let point            = new_stimrx_light_angle_from_horizontal_and_vertical_angles(horizontal_angle, vertical_angle);
 	points.push(point);
     }
-    return stimrx_editor.new_stimrx_editor_blind_spot(points);
+    return stimrx_editor.new_stimrx_editor_blind_spot(editor, points);
 }
 
-function new_default_right_eye_stimrx_editor_blind_spot() {
+function new_default_right_eye_stimrx_editor_blind_spot(editor) {
     var points = [];
     let center_horizontal_angle  = 0.5 * (12.0 + 15.0) * Math.PI / 180.0;
     let center_vertical_angle = -1.5 * Math.PI / 180.0;
@@ -120,7 +120,7 @@ function new_default_right_eye_stimrx_editor_blind_spot() {
 	let point            = new_stimrx_light_angle_from_horizontal_and_vertical_angles(horizontal_angle, vertical_angle);
 	points.push(point);
     }
-    return stimrx_editor.new_stimrx_editor_blind_spot(points);
+    return stimrx_editor.new_stimrx_editor_blind_spot(editor, points);
 }
 
 
