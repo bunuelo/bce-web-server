@@ -180,7 +180,7 @@ function bce_canvas_render__blind_spot_canvas(ctx, total_left, total_top, total_
     var max_x = null;
     var min_y = null;
     var max_y = null;
-    let border_size = 16;
+    let border_size = 8;
     for (var i = 0; i < blind_spot.points.length; i ++) {
 	let p = blind_spot.points[i];
 	let x = bce_canvas_render__alpha_omega_to_x(total_width, total_height, p.alpha, p.omega);
@@ -198,8 +198,8 @@ function bce_canvas_render__blind_spot_canvas(ctx, total_left, total_top, total_
 	    max_y = y + border_size;
 	}
     }
-    let width  = Math.round(max_x - min_x + 1);
-    let height = Math.round(max_y - min_y + 1);
+    let width  = Math.round(max_x - min_x);
+    let height = Math.round(max_y - min_y);
     let left   = Math.floor(min_x);
     let top    = Math.floor(min_y);
     canvas.style.position = "absolute";
