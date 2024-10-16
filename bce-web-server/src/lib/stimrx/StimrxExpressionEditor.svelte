@@ -59,7 +59,6 @@
             goto("/user/dashboard");
         }
         await update_all();
-	return on_destroy;
     });
 
     async function update_all() {
