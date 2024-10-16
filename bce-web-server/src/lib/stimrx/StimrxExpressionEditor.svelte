@@ -144,7 +144,16 @@
 	}
 	return blind_spot_canvas_storage[canvas_id];
     }
-    
+
+    function bring_blind_spot_canvas_to_front(canvas_id) {
+	if (! (canvas_id in blind_spot_canvas_storage)) {
+	    console.log("bring_blind_spot_canvas_to_front ERROR: blind spot canvas does not exist.");
+	}
+	let canvas = blind_spot_canvas_storage[canvas_id];
+	canvas.remove();
+	document.body.appendChild(canvas);
+    }
+
     var cumulative_element_offset = function(element) {
 	var top = 0, left = 0;
 	do {
