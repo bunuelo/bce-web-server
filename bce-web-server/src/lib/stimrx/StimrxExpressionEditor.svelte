@@ -130,7 +130,7 @@
     function get_blind_spot_canvas(canvas_id) {
 	if (! (canvas_id in blind_spot_canvas_storage)) {
 	    let canvas = document.createElement("canvas");
-	    canvas.style.border = "1px green";
+	    canvas.style.border = "1px solid blue";
 	    document.body.appendChild(canvas);
 	    document_body_canvases.push(canvas);
 	    canvas.canvas_id = canvas_id;
