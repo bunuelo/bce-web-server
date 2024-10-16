@@ -176,7 +176,7 @@ function bce_canvas_render__x_y_to_omega(width, height, x, y) {
     const maximum_alpha = 45 * Math.PI / 180.0;
     let dx = maximum_alpha * (2 * x / width - 1);
     let dy = maximum_alpha * (2 * y / height - 1);
-    let omega = Math.atan2(dy, -dx);
+    let omega = Math.atan2(-dy, dx);
     return omega;
 }
 
