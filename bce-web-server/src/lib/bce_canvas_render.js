@@ -205,8 +205,8 @@ function bce_canvas_render__blind_spot_canvas(ctx, total_left, total_top, total_
     canvas.style.position = "absolute";
     canvas.style.left     = (total_left + left) + "px";
     canvas.style.top      = (total_top  + top)  + "px";
-    canvas.style.width    = width;
-    canvas.style.height   = height;
+    canvas.style.width    = width + "px";
+    canvas.style.height   = height + "px";
     console.log("Setting blind spot canvas size to " + width + "x" + height + " at (" + left + ", " + top + ").");
     
     var color_grip;
