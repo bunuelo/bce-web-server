@@ -204,12 +204,11 @@
 			blind_spot_canvas.style.display = "none";
 		    } else {
 			blind_spot_canvas.style.display = "block";
-			let blind_spot_canvas_ctx = blind_spot_canvas.getContext("2d");
 			//let total = cumulative_element_offset(light_projection_canvas);
 			var rectangle = light_projection_canvas.getBoundingClientRect();
 			let total_left = window.pageXOffset + rectangle.left;
 			let total_top  = window.pageYOffset + rectangle.top;
-			bce_canvas_render.bce_canvas_render__blind_spot_canvas(blind_spot_canvas_ctx, total_left, total_top, light_projection_canvas.width, light_projection_canvas.height, $user_color_theme, blind_spot);
+			bce_canvas_render.bce_canvas_render__blind_spot_canvas(blind_spot_canvas, total_left, total_top, light_projection_canvas.width, light_projection_canvas.height, $user_color_theme, blind_spot);
 		    }
 		}
 	    }

@@ -174,8 +174,7 @@ function bce_canvas_render__x_y_to_omega(width, height, x, y) {
 }
 
 
-function bce_canvas_render__blind_spot_canvas(ctx, total_left, total_top, total_width, total_height, color_theme, blind_spot) {
-    var canvas = ctx.canvas;
+function bce_canvas_render__blind_spot_canvas(canvas, total_left, total_top, total_width, total_height, color_theme, blind_spot) {
     var min_x = null;
     var max_x = null;
     var min_y = null;
@@ -207,9 +206,9 @@ function bce_canvas_render__blind_spot_canvas(ctx, total_left, total_top, total_
     canvas.style.top      = (total_top  + top)  + "px";
     canvas.style.width    = width + "px";
     canvas.style.height   = height + "px";
-    ctx.scale(1, 1);
     console.log("Setting blind spot canvas size to " + width + "x" + height + " at (" + left + ", " + top + ").");
     
+    let ctx = canvas.getContext("2d");
     var color_grip;
     var color_blind_spot;
     if (color_theme == "dark") {
