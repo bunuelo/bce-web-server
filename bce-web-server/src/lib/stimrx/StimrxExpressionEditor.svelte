@@ -80,7 +80,6 @@
 	    }
 	    bring_blind_spot_canvas_to_front(canvas.canvas_id);
 	    editor.drag_canvas_id = canvas.canvas_id;
-	    //canvas.drag = true;
 	    canvas.drag_start_x = x;
 	    canvas.drag_start_y = y;
 	    canvas.drag_canvas_start_x = canvas.offsetLeft;
@@ -131,6 +130,7 @@
     function get_blind_spot_canvas(canvas_id) {
 	if (! (canvas_id in blind_spot_canvas_storage)) {
 	    let canvas = document.createElement("canvas");
+	    canvas.style.border = "1px white";
 	    document.body.appendChild(canvas);
 	    document_body_canvases.push(canvas);
 	    canvas.canvas_id = canvas_id;
