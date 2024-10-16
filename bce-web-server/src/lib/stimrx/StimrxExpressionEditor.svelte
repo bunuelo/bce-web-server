@@ -42,6 +42,7 @@
 	    let canvas = document_body_canvases[i];
 	    canvas.remove();
 	}
+	document_body_canvases = [];
     }
 
     onMount(async () => {
