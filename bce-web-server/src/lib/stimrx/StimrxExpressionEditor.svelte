@@ -80,6 +80,17 @@
 	canvas.style.top  = (canvas.drag_canvas_start_y + move_y) + "px";
 	console.log("Mouse up blind spot canvas.  (" + move_x + "," + move_y + ")");
 	canvas.drag = false;
+	for (var i = 0; i < canvas.blind_spot.points.length; i ++) {
+	    let point = canvas.blind_spot.points[i];
+	    let old_x = bce_canvas_render.bce_canvas_render__alpha_omega_to_x(canvas.light_projection_canvas.width, canvas.light_projection_canvas.height, point.alpha, point.omega);
+	    let old_y = bce_canvas_render.bce_canvas_render__alpha_omega_to_y(canvas.light_projection_canvas.width, canvas.light_projection_canvas.height, point.alpha, point.omega);
+	    let new_x = old_x + move_x;
+	    let new_y = old_y + move_y;
+	    let new_alpha = bce_canvas_render.bce_canvas_render__x_y_to_alpha(canvas.light_projection_canvas.width, canvas.light_projection_canvas.height, new_x, new_y)
+	    let new_omega = bce_canvas_render.bce_canvas_render__x_y_to_omega(canvas.light_projection_canvas.width, canvas.light_projection_canvas.height, new_x, new_y)
+	    point.alpha = new_alpha;
+	    point.omega = new_omage;
+	}
     }
 
     function on_mousemove_blind_spot_canvas(event, canvas) {
@@ -155,6 +166,8 @@
 		for (var i = 0; i < blind_spots.length; i ++) {
 		    let blind_spot        = blind_spots[i];
 		    let blind_spot_canvas = get_blind_spot_canvas(blind_spot.canvas_id);
+		    blind_spot_canvas.blind_spot = blind_spot;
+		    blind_spot_canvas.light_projection_canvas = light_projection_canvas;
 		    if (! blind_spot.enable) {
 			blind_spot_canvas.style.display = "none";
 		    } else {
