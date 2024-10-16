@@ -89,7 +89,7 @@
 	    let new_alpha = bce_canvas_render.bce_canvas_render__x_y_to_alpha(canvas.light_projection_canvas.width, canvas.light_projection_canvas.height, new_x, new_y)
 	    let new_omega = bce_canvas_render.bce_canvas_render__x_y_to_omega(canvas.light_projection_canvas.width, canvas.light_projection_canvas.height, new_x, new_y)
 	    point.alpha = new_alpha;
-	    point.omega = new_omage;
+	    point.omega = new_omega;
 	}
     }
 
