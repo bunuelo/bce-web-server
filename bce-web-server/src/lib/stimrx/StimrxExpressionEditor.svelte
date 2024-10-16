@@ -70,7 +70,7 @@
 	canvas.drag_canvas_start_y = canvas.offsetTop;
     }
 
-    function on_mouseup_blind_spot_canvas(event, canvas) {
+    async function on_mouseup_blind_spot_canvas(event, canvas) {
 	event.preventDefault();
 	let x = event.pageX;
 	let y = event.pageY;
@@ -91,8 +91,9 @@
 	    point.alpha = new_alpha;
 	    point.omega = new_omega;
 	}
+	await changed_rx_editor_state();
     }
-
+    
     function on_mousemove_blind_spot_canvas(event, canvas) {
 	if (canvas.drag) {
 	    event.preventDefault();
@@ -115,9 +116,9 @@
 	    canvas.drag_start_y = null;
 	    canvas.drag_canvas_start_x = null;
 	    canvas.drag_canvas_start_y = null;
-	    canvas.addEventListener("mousedown", function(event) {return on_mousedown_blind_spot_canvas(event, canvas);}, false);
-	    canvas.addEventListener("mouseup",   function(event) {return on_mouseup_blind_spot_canvas(event, canvas);}, false);
-	    canvas.addEventListener("mousemove", function(event) {return on_mousemove_blind_spot_canvas(event, canvas);}, false);
+	    canvas.addEventListener("mousedown",       function(event) {return       on_mousedown_blind_spot_canvas(event, canvas);}, false);
+	    canvas.addEventListener("mouseup",   async function(event) {return await on_mouseup_blind_spot_canvas(event, canvas);}, false);
+	    canvas.addEventListener("mousemove",       function(event) {return       on_mousemove_blind_spot_canvas(event, canvas);}, false);
 	    blind_spot_canvas_storage[blind_spot_canvas_id] = canvas;
 	}
 	return blind_spot_canvas_storage[blind_spot_canvas_id];
