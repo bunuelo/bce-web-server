@@ -142,7 +142,7 @@
 	    canvas.addEventListener("mousemove",       function(event) {return       on_mousemove_blind_spot_canvas(event, canvas);}, false);
 	    blind_spot_canvas_storage[canvas_id] = canvas;
 	}
-	return blind_spot_canvas_storage[blind_spot_canvas_id];
+	return blind_spot_canvas_storage[canvas_id];
     }
     
     var cumulative_element_offset = function(element) {
