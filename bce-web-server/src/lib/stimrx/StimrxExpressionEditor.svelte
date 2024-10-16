@@ -62,7 +62,7 @@
 	event.preventDefault();
 	let x = event.pageX;
 	let y = event.pageY;
-	console.log("Mouse down blind spot canvas.  (" + x + "," + y + ")");
+	//console.log("Mouse down blind spot canvas.  (" + x + "," + y + ")");
 	canvas.drag = true;
 	canvas.drag_start_x = x;
 	canvas.drag_start_y = y;
@@ -78,7 +78,7 @@
 	let move_y = y - canvas.drag_start_y;
 	canvas.style.left = (canvas.drag_canvas_start_x + move_x) + "px";
 	canvas.style.top  = (canvas.drag_canvas_start_y + move_y) + "px";
-	console.log("Mouse up blind spot canvas.  (" + move_x + "," + move_y + ")");
+	//console.log("Mouse up blind spot canvas.  (" + move_x + "," + move_y + ")");
 	canvas.drag = false;
 	for (var i = 0; i < canvas.blind_spot.points.length; i ++) {
 	    let point = canvas.blind_spot.points[i];
@@ -102,7 +102,7 @@
 	    let move_y = y - canvas.drag_start_y;
 	    canvas.style.left = (canvas.drag_canvas_start_x + move_x) + "px";
 	    canvas.style.top  = (canvas.drag_canvas_start_y + move_y) + "px";
-	    console.log("Mouse move blind spot canvas.  (" + move_x + "," + move_y + ")");
+	    //console.log("Mouse move blind spot canvas.  (" + move_x + "," + move_y + ")");
 	}
     }
 
