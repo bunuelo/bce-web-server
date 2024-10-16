@@ -179,7 +179,7 @@ function bce_canvas_render__blind_spot_canvas(canvas, total_left, total_top, tot
     var max_x = null;
     var min_y = null;
     var max_y = null;
-    let border_size = 8;
+    let border_size = 16;
     for (var i = 0; i < blind_spot.points.length; i ++) {
 	let p = blind_spot.points[i];
 	let x = bce_canvas_render__alpha_omega_to_x(total_width, total_height, p.alpha, p.omega);
