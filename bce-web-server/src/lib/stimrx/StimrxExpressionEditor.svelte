@@ -1,5 +1,6 @@
 <script>
     import { onMount } from 'svelte';
+    import { onDestroy } from 'svelte';
     import { goto } from '$app/navigation';
     import { alert } from '$lib/bce_stores.js'
     import { user_session_is_valid } from '$lib/bce_stores.js'
@@ -37,14 +38,14 @@
 	}
     })();
 
-    function on_destroy() {
+    onDestroy(async function () {
 	console.log("on_destroy: Removing " + document_body_canvases.length + " document body canvases.");
 	for (var i = 0; i < document_body_canvases.length; i ++) {
 	    let canvas = document_body_canvases[i];
 	    canvas.remove();
 	}
 	document_body_canvases = [];
-    }
+    });
 
     onMount(async () => {
         if (! $user_session_is_valid) {
