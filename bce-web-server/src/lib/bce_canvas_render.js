@@ -151,7 +151,7 @@ function bce_canvas_render__alpha_omega_to_y_ratio(alpha, omega) {
     const center_y             = 0.5;
     const maximum_alpha_radius = 0.5;
     const maximum_alpha        = 45 * Math.PI / 180.0;
-    return center_y + maximum_alpha_radius * alpha / maximum_alpha * Math.sin(omega);
+    return center_y - maximum_alpha_radius * alpha / maximum_alpha * Math.sin(omega);
 }
 
 function bce_canvas_render__alpha_omega_to_y(width, height, alpha, omega) {
