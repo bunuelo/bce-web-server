@@ -29,11 +29,20 @@
     let minimize_evaluation_asset_selector = true;
     let selected_evaluation = null;
 
+    var document_body_canvases = []
+
     $: (function () {
         if (editor && view_selected) {
 	    stimrx_editor.stimrx_editor__set_meta_var(editor, path, "view_selected", view_selected);
 	}
     })();
+
+    async function on_destroy() {
+	for (var i = 0; i < document_body_canvases.length; i ++) {
+	    let canvas = document_body_canvases[i];
+	    canvas.remove();
+	}
+    }
 
     onMount(async () => {
         if (! $user_session_is_valid) {
@@ -47,6 +56,7 @@
             goto("/user/dashboard");
         }
         await update_all();
+	return on_destroy;
     });
 
     async function update_all() {
@@ -111,6 +121,7 @@
 	if (! (blind_spot_canvas_id in blind_spot_canvas_storage)) {
 	    let canvas = document.createElement("canvas");
 	    document.body.appendChild(canvas);
+	    document_body_canvases.push(canvas);
 	    canvas.drag = false;
 	    canvas.drag_start_x = null;
 	    canvas.drag_start_y = null;
