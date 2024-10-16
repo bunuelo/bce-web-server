@@ -78,6 +78,7 @@
 	    if (editor.drag_canvas_id !== null) {
 		// clean up old drag?
 	    }
+	    bring_blind_spot_canvas_to_front(canvas.canvas_id);
 	    editor.drag_canvas_id = canvas.canvas_id;
 	    //canvas.drag = true;
 	    canvas.drag_start_x = x;
