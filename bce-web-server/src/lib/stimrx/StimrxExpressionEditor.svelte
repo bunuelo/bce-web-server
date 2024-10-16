@@ -38,6 +38,7 @@
     })();
 
     async function on_destroy() {
+	console.log("on_destroy: Removing " + document_body_canvases.length + " document body canvases.");
 	for (var i = 0; i < document_body_canvases.length; i ++) {
 	    let canvas = document_body_canvases[i];
 	    canvas.remove();
