@@ -84,7 +84,7 @@ function stimrx_editor_blind_spot__is_type(x) {
 
 function new_stimrx_light_angle_from_horizontal_and_vertical_angles(horizontal_angle, vertical_angle) {
     let alpha = Math.sqrt(horizontal_angle * horizontal_angle + vertical_angle * vertical_angle);
-    let omega = Math.atan2(-vertical_angle, horizontal_angle);
+    let omega = Math.atan2(vertical_angle, horizontal_angle);
     return stimrx.new_stimrx_light_angle(alpha, omega);
 }
 

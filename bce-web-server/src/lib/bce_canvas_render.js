@@ -159,9 +159,6 @@ function bce_canvas_render__alpha_omega_to_y(width, height, alpha, omega) {
 }
 
 function bce_canvas_render__x_y_to_alpha(width, height, x, y) {
-    //if (x < 0 || x > width || y < 0 || y > height) {
-    //	return 0;
-    //}
     const maximum_alpha = 45 * Math.PI / 180.0;
     let dx = maximum_alpha * (2 * x / width - 1);
     let dy = maximum_alpha * (2 * y / height - 1);
@@ -170,9 +167,6 @@ function bce_canvas_render__x_y_to_alpha(width, height, x, y) {
 }
 
 function bce_canvas_render__x_y_to_omega(width, height, x, y) {
-    //if (x < 0 || x > width || y < 0 || y > height) {
-    //	return 0;
-    //}
     let dx = 2.0 * x / width  - 1.0;
     let dy = 2.0 * y / height - 1.0;
     let omega = Math.atan2(-dy, dx);
