@@ -25,7 +25,7 @@
     export let path = [];
     export let asset_cache;
 
-    let view_selected = editor ? stimrx_editor.stimrx_editor__get_meta_var(editor, path, "view_selected") : null;
+    let view_selected = "expand";
     let light_projection_canvas = null;
 
     let minimize_evaluation_asset_selector = true;
