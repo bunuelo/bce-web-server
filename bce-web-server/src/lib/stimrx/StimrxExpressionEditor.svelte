@@ -491,9 +491,15 @@
 	                                    <td>
          	                                <input type="checkbox" id={"blind_spot_checkbox_" + path + j} bind:checked={blind_spot.enable} on:change|preventDefault={on_change_blind_spot_checkbox}>
     		                                <label for={"blind_spot_checkbox_" + path + j}>{bce_lang($user_language, "component_stimrx_expression_editor_label_blind_spot")}&nbsp;{j+1}</label>
-	                                        <a href="#" on:click|preventDefault={async function () {await on_click_edit_blind_spot(1, j);}}>
-	                                            {bce_lang($user_language, "component_stimrx_expression_editor_label_edit_blind_spot")}
-	                                        </a>
+			                        {#if blind_spot.edit}
+ 	                                            <a href="#" on:click|preventDefault={async function () {await on_click_edit_blind_spot(1, j);}}>
+	                                                {bce_lang($user_language, "component_stimrx_expression_editor_label_move_blind_spot")}
+	                                            </a>
+						{:else}
+ 	                                            <a href="#" on:click|preventDefault={async function () {await on_click_edit_blind_spot(1, j);}}>
+	                                                {bce_lang($user_language, "component_stimrx_expression_editor_label_edit_blind_spot")}
+	                                            </a>
+						{/if}
 	                                        <a href="#" on:click|preventDefault={async function () {await on_click_remove_blind_spot(1, j);}}>
 	                                            {bce_lang($user_language, "component_stimrx_expression_editor_label_remove_blind_spot")}
 	                                        </a>
