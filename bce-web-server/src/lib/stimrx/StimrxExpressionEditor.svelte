@@ -153,7 +153,7 @@
 			blind_spot_canvas.draggable               = !blind_spot.edit;
 			blind_spot_canvas.blind_spot_initialized  = true;
 		    }
-		    canvas.draggable = !blind_spot.edit;
+		    blind_spot_canvas.draggable = !blind_spot.edit;
 		    if (! blind_spot.enable) {
 			blind_spot_canvas.style.display = "none";
 			for (var j = 0; j < blind_spot.points.length; j ++) {
