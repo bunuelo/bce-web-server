@@ -202,8 +202,8 @@ function bce_canvas_render__blind_spot_canvas(canvas, total_left, total_top, tot
 	    max_y = y + border_size;
 	}
     }
-    let width  = Math.round(max_x - min_x + 1);
-    let height = Math.round(max_y - min_y + 1);
+    let width  = Math.round(1.5 * (max_x - min_x) + 1);
+    let height = Math.round(1.5 * (max_y - min_y) + 1);
     let left   = Math.floor(min_x);
     let top    = Math.floor(min_y);
     canvas.style.position = "absolute";
