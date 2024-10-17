@@ -261,23 +261,87 @@ function bce_canvas_render__blind_spot_canvas(canvas, total_left, total_top, tot
     }
     ctx.fill();
     ctx.stroke();
-    if (blind_spot.edit) {
-	for (var i = 0; i < blind_spot.points.length; i ++) {
-	    let point = blind_spot.points[i];
-	    let grip_alpha = point.alpha;
-	    let grip_omega = point.omega;
-	    
-	    //ctx.fillStyle = "rgba(" + color_grip[0] + "," + color_grip[1] + "," + color_grip[2] + "," + color_grip[3] + ")";
-	    ctx.lineWidth = 2;
-	    ctx.strokeStyle = "rgba(" + color_grip[0] + "," + color_grip[1] + "," + color_grip[2] + "," + color_grip[3] + ")";
-	    ctx.beginPath();
-	    ctx.arc(bce_canvas_render__alpha_omega_to_x(total_width, total_height, grip_alpha, grip_omega) - left,
-		    bce_canvas_render__alpha_omega_to_y(total_width, total_height, grip_alpha, grip_omega) - top,
-		    maximum_alpha_radius * grip_radius / maximum_alpha, 0, 2 * Math.PI);
-	    //ctx.fill();
-	    ctx.stroke();
-	}
+    //if (blind_spot.edit) {
+//	for (var i = 0; i < blind_spot.points.length; i ++) {
+//	    let point = blind_spot.points[i];
+//	    let grip_alpha = point.alpha;
+//	    let grip_omega = point.omega;
+//	    
+//	    //ctx.fillStyle = "rgba(" + color_grip[0] + "," + color_grip[1] + "," + color_grip[2] + "," + color_grip[3] + ")";
+//	    ctx.lineWidth = 2;
+//	    ctx.strokeStyle = "rgba(" + color_grip[0] + "," + color_grip[1] + "," + color_grip[2] + "," + color_grip[3] + ")";
+//	    ctx.beginPath();
+//	    ctx.arc(bce_canvas_render__alpha_omega_to_x(total_width, total_height, grip_alpha, grip_omega) - left,
+//		    bce_canvas_render__alpha_omega_to_y(total_width, total_height, grip_alpha, grip_omega) - top,
+//		    maximum_alpha_radius * grip_radius / maximum_alpha, 0, 2 * Math.PI);
+//	    //ctx.fill();
+//	    ctx.stroke();
+//	}
+//    }
+}
+
+function bce_canvas_render__blind_spot_point_canvas(canvas, total_left, total_top, total_width, total_height, color_theme, blind_spot, point_index) {
+    let point = blind_spot.points[point_index];
+    var min_x = null;
+    var max_x = null;
+    var min_y = null;
+    var max_y = null;
+    const center_x             = 0.5 * total_width;
+    const center_y             = 0.5 * total_height;
+    const maximum_alpha_radius = 0.5 * total_height - 1;
+    const maximum_alpha        = 45 * Math.PI / 180.0;
+    const grip_radius          = 1.0 * Math.PI / 180.0;
+    const border_size          = (bce_canvas_render__alpha_omega_to_x(total_width, total_height, grip_radius, 0) + 1) - center_x;
+    let p = point;
+    let x = bce_canvas_render__alpha_omega_to_x(total_width, total_height, p.alpha, p.omega);
+    let y = bce_canvas_render__alpha_omega_to_y(total_width, total_height, p.alpha, p.omega);
+    if (min_x === null || x - border_size < min_x) {
+	min_x = x - border_size;
     }
+    if (min_y === null || y - border_size < min_y) {
+	min_y = y - border_size;
+    }
+    if (max_x === null || x + border_size > max_x) {
+	max_x = x + border_size;
+    }
+    if (max_y === null || y + border_size > max_y) {
+	max_y = y + border_size;
+    }
+    let width  = Math.round(max_x - min_x + 1);
+    let height = Math.round(max_y - min_y + 1);
+    let left   = Math.floor(min_x);
+    let top    = Math.floor(min_y);
+    canvas.style.position = "absolute";
+    canvas.style.left     = (total_left + left) + "px";
+    canvas.style.top      = (total_top  + top)  + "px";
+    canvas.width          = width;
+    canvas.height         = height;
+    console.log("Setting blind spot point canvas size to " + width + "x" + height + " at (" + left + ", " + top + ").");
+    
+    let ctx = canvas.getContext("2d");
+    var color_grip;
+    var color_blind_spot;
+    if (color_theme == "dark") {
+        color_grip = [255, 127, 0, 1.0];
+        color_blind_spot = [255, 127, 0, 0.5];
+    } else {
+        color_grip = [255, 127, 0, 1.0];
+        color_blind_spot = [255, 127, 0, 0.5];
+    }
+    
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    let grip_alpha = point.alpha;
+    let grip_omega = point.omega;
+    
+    //ctx.fillStyle = "rgba(" + color_grip[0] + "," + color_grip[1] + "," + color_grip[2] + "," + color_grip[3] + ")";
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "rgba(" + color_grip[0] + "," + color_grip[1] + "," + color_grip[2] + "," + color_grip[3] + ")";
+    ctx.beginPath();
+    ctx.arc(bce_canvas_render__alpha_omega_to_x(total_width, total_height, grip_alpha, grip_omega) - left,
+	    bce_canvas_render__alpha_omega_to_y(total_width, total_height, grip_alpha, grip_omega) - top,
+	    maximum_alpha_radius * grip_radius / maximum_alpha, 0, 2 * Math.PI);
+    //ctx.fill();
+    ctx.stroke();
 }
 
 export const bce_canvas_render = {
@@ -289,4 +353,5 @@ export const bce_canvas_render = {
     bce_canvas_render__evaluation_eye_data: bce_canvas_render__evaluation_eye_data,
     bce_canvas_render__evaluation_eye: bce_canvas_render__evaluation_eye,
     bce_canvas_render__blind_spot_canvas: bce_canvas_render__blind_spot_canvas,
+    bce_canvas_render__blind_spot_point_canvas: bce_canvas_render__blind_spot_point_canvas,
 };
