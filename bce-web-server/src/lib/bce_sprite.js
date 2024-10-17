@@ -31,7 +31,6 @@ async function on_mouseup(event, canvas) {
 
 function on_mousemove(event, canvas) {
     event.preventDefault();
-    //if (editor !== null && editor.drag_canvas_id === canvas.canvas_id) {
     if (canvas.drag) {
 	let x = event.pageX;
 	let y = event.pageY;
@@ -41,7 +40,6 @@ function on_mousemove(event, canvas) {
 	canvas.style.top  = (canvas.drag_canvas_start_y + move_y) + "px";
 	//console.log("Mouse move blind spot canvas.  (" + move_x + "," + move_y + ")");
     }
-    //}
 }
 
 function get_sprite_canvas(canvas_id) {

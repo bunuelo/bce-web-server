@@ -62,64 +62,6 @@
     async function update_view_selected() {
     }
 
-    function on_mousedown_blind_spot_canvas(event, canvas) {
-	event.preventDefault();
-	let x = event.pageX;
-	let y = event.pageY;
-	//console.log("Mouse down blind spot canvas.  (" + x + "," + y + ")");
-	if (editor !== null) {
-	    if (editor.drag_canvas_id !== null) {
-		// clean up old drag?
-	    }
-	    bce_sprite.bring_sprite_to_front(canvas.canvas_id);
-	    editor.drag_canvas_id = canvas.canvas_id;
-	    canvas.drag_start_x = x;
-	    canvas.drag_start_y = y;
-	    canvas.drag_canvas_start_x = canvas.offsetLeft;
-	    canvas.drag_canvas_start_y = canvas.offsetTop;
-	}
-    }
-
-    async function on_mouseup_blind_spot_canvas(event, canvas) {
-	event.preventDefault();
-	if (editor !== null && editor.drag_canvas_id === canvas.canvas_id) {
-	    editor.drag_canvas_id = null;
-	    let x = event.pageX;
-	    let y = event.pageY;
-	    let move_x = x - canvas.drag_start_x;
-	    let move_y = y - canvas.drag_start_y;
-	    canvas.style.left = (canvas.drag_canvas_start_x + move_x) + "px";
-	    canvas.style.top  = (canvas.drag_canvas_start_y + move_y) + "px";
-	    //console.log("Mouse up blind spot canvas.  (" + move_x + "," + move_y + ")");
-	    canvas.drag = false;
-	    for (var i = 0; i < canvas.blind_spot.points.length; i ++) {
-		let point = canvas.blind_spot.points[i];
-		let old_x = bce_canvas_render.bce_canvas_render__alpha_omega_to_x(canvas.light_projection_canvas.width, canvas.light_projection_canvas.height, point.alpha, point.omega);
-		let old_y = bce_canvas_render.bce_canvas_render__alpha_omega_to_y(canvas.light_projection_canvas.width, canvas.light_projection_canvas.height, point.alpha, point.omega);
-		let new_x = old_x + move_x;
-		let new_y = old_y + move_y;
-		let new_alpha = bce_canvas_render.bce_canvas_render__x_y_to_alpha(canvas.light_projection_canvas.width, canvas.light_projection_canvas.height, new_x, new_y)
-		let new_omega = bce_canvas_render.bce_canvas_render__x_y_to_omega(canvas.light_projection_canvas.width, canvas.light_projection_canvas.height, new_x, new_y)
-		point.alpha = new_alpha;
-		point.omega = new_omega;
-	    }
-	}
-	await changed_rx_editor_state();
-    }
-    
-    function on_mousemove_blind_spot_canvas(event, canvas) {
-	event.preventDefault();
-	if (editor !== null && editor.drag_canvas_id === canvas.canvas_id) {
-	    let x = event.pageX;
-	    let y = event.pageY;
-	    let move_x = x - canvas.drag_start_x;
-	    let move_y = y - canvas.drag_start_y;
-	    canvas.style.left = (canvas.drag_canvas_start_x + move_x) + "px";
-	    canvas.style.top  = (canvas.drag_canvas_start_y + move_y) + "px";
-	    //console.log("Mouse move blind spot canvas.  (" + move_x + "," + move_y + ")");
-	}
-    }
-
     // This function is a backup.  It is not used and a better method is used below instead.
     var cumulative_element_offset = function(element) {
 	var top = 0, left = 0;
@@ -187,10 +129,7 @@
 			blind_spot_canvas.blind_spot              = blind_spot;
 			blind_spot_canvas.light_projection_canvas = light_projection_canvas;
 			blind_spot_canvas.sprite_on_mouseup       = blind_spot_canvas_on_mouseup;
-			//blind_spot_canvas.addEventListener("mousedown",       function(event) {return       on_mousedown_blind_spot_canvas(event, blind_spot_canvas);}, false);
-			//blind_spot_canvas.addEventListener("mouseup",   async function(event) {return await on_mouseup_blind_spot_canvas(  event, blind_spot_canvas);}, false);
-			//blind_spot_canvas.addEventListener("mousemove",       function(event) {return       on_mousemove_blind_spot_canvas(event, blind_spot_canvas);}, false);
-			blind_spot_canvas.blind_spot_initialized = true;
+			blind_spot_canvas.blind_spot_initialized  = true;
 		    }
 		    if (! blind_spot.enable) {
 			blind_spot_canvas.style.display = "none";
@@ -485,9 +424,15 @@
 	                                    <td>
          	                                <input type="checkbox" id={"blind_spot_checkbox_" + path + j} bind:checked={blind_spot.enable} on:change|preventDefault={on_change_blind_spot_checkbox}>
     		                                <label for={"blind_spot_checkbox_" + path + j}>{bce_lang($user_language, "component_stimrx_expression_editor_label_blind_spot")}&nbsp;{j+1}</label>
-	                                        <a href="#" on:click|preventDefault={async function () {await on_click_edit_blind_spot(0, j);}}>
-	                                            {bce_lang($user_language, "component_stimrx_expression_editor_label_edit_blind_spot")}
-	                                        </a>
+			                        {#if blind_spot.edit}
+ 	                                            <a href="#" on:click|preventDefault={async function () {await on_click_edit_blind_spot(0, j);}}>
+	                                                {bce_lang($user_language, "component_stimrx_expression_editor_label_move_blind_spot")}
+	                                            </a>
+						{:else}
+ 	                                            <a href="#" on:click|preventDefault={async function () {await on_click_edit_blind_spot(0, j);}}>
+	                                                {bce_lang($user_language, "component_stimrx_expression_editor_label_edit_blind_spot")}
+	                                            </a>
+						{/if}
 	                                        <a href="#" on:click|preventDefault={async function () {await on_click_remove_blind_spot(0, j);}}>
 	                                            {bce_lang($user_language, "component_stimrx_expression_editor_label_remove_blind_spot")}
 	                                        </a>
