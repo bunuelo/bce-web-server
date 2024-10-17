@@ -428,9 +428,9 @@
 	    <tr>
 	        <td>
                     {#if stimrx.stimrx_left_eye_light_projection__is_type(expression)}
-                        <i>Left Eye Light Projection</i>
+                        <i>{bce_lang($user_language, "component_stimrx_expression_editor_label_left_eye_light_projection")}</i>
                     {:else if stimrx.stimrx_right_eye_light_projection__is_type(expression)}
-                        <i>Right Eye Light Projection</i>
+                        <i>{bce_lang($user_language, "component_stimrx_expression_editor_label_right_eye_light_projection")}</i>
                     {:else}
                         <i>Light Projection</i>
                     {/if}
@@ -445,12 +445,8 @@
 	                    {bce_lang($user_language, "component_stimrx_expression_editor_label_code")}
 	                </option>
                     </select>
-                </td>
-            </tr>
             {#if view_selected === "expand"}
                 {#if editor !== null}
-                    <tr>
-	                <td>
   	                    {#each editor.evaluations as evaluation, j}
                                 {#if stimrx.stimrx_left_eye_light_projection__is_type(expression)}
          	                    <input type="checkbox" id={"evaluation_checkbox_" + path + j} bind:checked={evaluation.enable_left_eye_overlay} on:change|preventDefault={on_change_evaluation_checkbox}>
@@ -460,15 +456,8 @@
   		                <label for={"evaluation_checkbox_" + path + j}>{bce_lang($user_language, "component_stimrx_expression_editor_label_evaluation")}&nbsp;{j+1}</label>
 	                    {/each}
                             <a href="#" on:click|preventDefault={on_click_add_blind_spot}>{bce_lang($user_language, "component_stimrx_expression_editor_label_add_blind_spot")}</a>
-	                </td>
-	            </tr>
-                    <tr>
-	                <td>
-  	                    <table>
                                 {#if stimrx.stimrx_left_eye_light_projection__is_type(expression)}
   	                            {#each editor.left_eye_blind_spots as blind_spot, j}
-		                        <tr>
-	                                    <td>
          	             <input type="checkbox" id={"blind_spot_checkbox_" + path + j} bind:checked={blind_spot.enable} on:change|preventDefault={async function (event) {await on_change_blind_spot_checkbox(event, j);}}>
     		                                <label for={"blind_spot_checkbox_" + path + j}>{bce_lang($user_language, "component_stimrx_expression_editor_label_blind_spot")}&nbsp;{j+1}</label>
 			                        {#if blind_spot.edit}
@@ -483,13 +472,9 @@
 	                                        <a href="#" on:click|preventDefault={async function () {await on_click_remove_blind_spot(0, j);}}>
 	                                            {bce_lang($user_language, "component_stimrx_expression_editor_label_remove_blind_spot")}
 	                                        </a>
-		                            </td>
-		                        </tr>
   	                            {/each}
                                 {:else if stimrx.stimrx_right_eye_light_projection__is_type(expression)}
   	                            {#each editor.right_eye_blind_spots as blind_spot, j}
-		                        <tr>
-	                                    <td>
          	                                <input type="checkbox" id={"blind_spot_checkbox_" + path + j} bind:checked={blind_spot.enable} on:change|preventDefault={async function (event) {await on_change_blind_spot_checkbox(event, j);}}>
     		                                <label for={"blind_spot_checkbox_" + path + j}>{bce_lang($user_language, "component_stimrx_expression_editor_label_blind_spot")}&nbsp;{j+1}</label>
 			                        {#if blind_spot.edit}
@@ -504,15 +489,10 @@
 	                                        <a href="#" on:click|preventDefault={async function () {await on_click_remove_blind_spot(1, j);}}>
 	                                            {bce_lang($user_language, "component_stimrx_expression_editor_label_remove_blind_spot")}
 	                                        </a>
-		                            </td>
-		                        </tr>
   	                            {/each}
                                 {/if}
-		            </table>
 	                </td>
-	            </tr>
 		{/if}
-                <tr>
 	            <td>
                         <canvas bind:this={light_projection_canvas}></canvas>
 	            </td>
