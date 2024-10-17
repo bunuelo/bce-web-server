@@ -134,6 +134,25 @@
 	};
     };
 
+    async function blind_spot_canvas_on_mouseup(event, canvas) {
+	let x = event.pageX;
+	let y = event.pageY;
+	let move_x = x - canvas.drag_start_x;
+	let move_y = y - canvas.drag_start_y;
+	for (var i = 0; i < canvas.blind_spot.points.length; i ++) {
+	    let point = canvas.blind_spot.points[i];
+	    let old_x = bce_canvas_render.bce_canvas_render__alpha_omega_to_x(canvas.light_projection_canvas.width, canvas.light_projection_canvas.height, point.alpha, point.omega);
+	    let old_y = bce_canvas_render.bce_canvas_render__alpha_omega_to_y(canvas.light_projection_canvas.width, canvas.light_projection_canvas.height, point.alpha, point.omega);
+	    let new_x = old_x + move_x;
+	    let new_y = old_y + move_y;
+	    let new_alpha = bce_canvas_render.bce_canvas_render__x_y_to_alpha(canvas.light_projection_canvas.width, canvas.light_projection_canvas.height, new_x, new_y)
+	    let new_omega = bce_canvas_render.bce_canvas_render__x_y_to_omega(canvas.light_projection_canvas.width, canvas.light_projection_canvas.height, new_x, new_y)
+	    point.alpha = new_alpha;
+	    point.omega = new_omega;
+	}
+	await changed_rx_editor_state();
+    }
+    
     async function redraw_canvas() {
 	light_projection_canvas.width = 0.25 * window.innerWidth;
 	light_projection_canvas.height = 0.25 * window.innerWidth;
@@ -167,6 +186,7 @@
 		    if (! ("blind_spot_initialized" in blind_spot_canvas)) {
 			blind_spot_canvas.blind_spot              = blind_spot;
 			blind_spot_canvas.light_projection_canvas = light_projection_canvas;
+			blind_spot_canvas.sprite_on_mouseup = blind_spot_canvas_on_mouseup;
 			//blind_spot_canvas.addEventListener("mousedown",       function(event) {return       on_mousedown_blind_spot_canvas(event, blind_spot_canvas);}, false);
 			//blind_spot_canvas.addEventListener("mouseup",   async function(event) {return await on_mouseup_blind_spot_canvas(  event, blind_spot_canvas);}, false);
 			//blind_spot_canvas.addEventListener("mousemove",       function(event) {return       on_mousemove_blind_spot_canvas(event, blind_spot_canvas);}, false);

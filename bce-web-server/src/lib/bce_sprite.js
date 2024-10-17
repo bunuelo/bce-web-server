@@ -6,24 +6,16 @@ function on_mousedown(event, canvas) {
     let x = event.pageX;
     let y = event.pageY;
     //console.log("Mouse down blind spot canvas.  (" + x + "," + y + ")");
-    //if (editor !== null) {
-    //	if (editor.drag_canvas_id !== null) {
-    // clean up old drag?
-    //	}
     bce_sprite.bring_sprite_to_front(canvas.canvas_id);
-    //editor.drag_canvas_id = canvas.canvas_id;
     canvas.drag = true;
     canvas.drag_start_x = x;
     canvas.drag_start_y = y;
     canvas.drag_canvas_start_x = canvas.offsetLeft;
     canvas.drag_canvas_start_y = canvas.offsetTop;
-    //}
 }
 
 async function on_mouseup(event, canvas) {
     event.preventDefault();
-    //if (editor !== null && editor.drag_canvas_id === canvas.canvas_id) {
-    //	editor.drag_canvas_id = null;
     let x = event.pageX;
     let y = event.pageY;
     let move_x = x - canvas.drag_start_x;
@@ -32,19 +24,9 @@ async function on_mouseup(event, canvas) {
     canvas.style.top  = (canvas.drag_canvas_start_y + move_y) + "px";
     //console.log("Mouse up blind spot canvas.  (" + move_x + "," + move_y + ")");
     canvas.drag = false;
-    //for (var i = 0; i < canvas.blind_spot.points.length; i ++) {
-    //    let point = canvas.blind_spot.points[i];
-    //    let old_x = bce_canvas_render.bce_canvas_render__alpha_omega_to_x(canvas.light_projection_canvas.width, canvas.light_projection_canvas.height, point.alpha, point.omega);
-    //    let old_y = bce_canvas_render.bce_canvas_render__alpha_omega_to_y(canvas.light_projection_canvas.width, canvas.light_projection_canvas.height, point.alpha, point.omega);
-    //    let new_x = old_x + move_x;
-    //    let new_y = old_y + move_y;
-    //    let new_alpha = bce_canvas_render.bce_canvas_render__x_y_to_alpha(canvas.light_projection_canvas.width, canvas.light_projection_canvas.height, new_x, new_y)
-    //    let new_omega = bce_canvas_render.bce_canvas_render__x_y_to_omega(canvas.light_projection_canvas.width, canvas.light_projection_canvas.height, new_x, new_y)
-    //    point.alpha = new_alpha;
-    //    point.omega = new_omega;
-    //}
-    //}
-    //await changed_rx_editor_state();
+    if ("sprite_on_mouseup" in canva)s {
+	await canvas.sprite_on_mouseup(event, canvas);
+    }
 }
 
 function on_mousemove(event, canvas) {
