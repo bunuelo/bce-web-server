@@ -325,6 +325,7 @@
 	    return;
 	}
 	blind_spot.edit = !blind_spot.edit;
+        await changed_rx_editor_state();
     }
   
     async function on_click_add_blind_spot() {
