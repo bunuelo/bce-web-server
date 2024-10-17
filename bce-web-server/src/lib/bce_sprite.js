@@ -51,7 +51,7 @@ function on_mousemove(event, canvas) {
 function get_sprite_canvas(canvas_id) {
     if (! (canvas_id in sprite_canvas_storage)) {
 	let canvas = document.createElement("canvas");
-	canvas.style.border = "1px solid blue";
+	//canvas.style.border = "1px solid blue";
 	document.body.appendChild(canvas);
 	canvas.canvas_id               = canvas_id;
 	canvas.draggable               = false;
