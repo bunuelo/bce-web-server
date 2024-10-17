@@ -129,6 +129,7 @@
 			blind_spot_canvas.blind_spot              = blind_spot;
 			blind_spot_canvas.light_projection_canvas = light_projection_canvas;
 			blind_spot_canvas.sprite_on_mouseup       = blind_spot_canvas_on_mouseup;
+			blind_spot_canvas.draggable               = !blind_spot.edit;
 			blind_spot_canvas.blind_spot_initialized  = true;
 		    }
 		    if (! blind_spot.enable) {
@@ -261,6 +262,8 @@
 	    return;
 	}
 	blind_spot.edit = !blind_spot.edit;
+	let canvas = bce_sprite.get_sprite_canvas(blind_spot.canvas_id);
+	canvas.draggable = !blind_spot.edit;
         await changed_rx_editor_state();
     }
   
