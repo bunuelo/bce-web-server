@@ -202,7 +202,7 @@ function bce_canvas_render__blind_spot_canvas(canvas, total_left, total_top, tot
 	    max_y = y + border_size;
 	}
     }
-    let extra_bezier_border = (max_x - min_x) * 0.125 + (max_y - min_y) * 0.125;
+    let extra_bezier_border = (max_x - min_x) * 0.0625 + (max_y - min_y) * 0.0625;
     min_x -= extra_bezier_border;
     min_y -= extra_bezier_border;
     max_x += extra_bezier_border;
