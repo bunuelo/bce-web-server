@@ -20,6 +20,7 @@ function new_stimrx_editor() {
 	"right_eye_blind_spots": [],
 	"canvas_index": 0,
 	"drag_canvas_id": null,
+	"show_view_options": false,
     };
 }
 
