@@ -165,17 +165,13 @@
 		    let blind_spot        = blind_spots[i];
 		    let blind_spot_canvas = bce_sprite.get_sprite_canvas(blind_spot.canvas_id);
 		    if (! ("blind_spot_initialized" in blind_spot_canvas)) {
-			blind_spot_canvas.drag_start_x = null;
-			blind_spot_canvas.drag_start_y = null;
-			blind_spot_canvas.drag_canvas_start_x = null;
-			blind_spot_canvas.drag_canvas_start_y = null;
-			blind_spot_canvas.addEventListener("mousedown",       function(event) {return       on_mousedown_blind_spot_canvas(event, blind_spot_canvas);}, false);
-			blind_spot_canvas.addEventListener("mouseup",   async function(event) {return await on_mouseup_blind_spot_canvas(  event, blind_spot_canvas);}, false);
-			blind_spot_canvas.addEventListener("mousemove",       function(event) {return       on_mousemove_blind_spot_canvas(event, blind_spot_canvas);}, false);
-			blind_spot_canvas["blind_spot_initialized"] = true;
+			blind_spot_canvas.blind_spot              = blind_spot;
+			blind_spot_canvas.light_projection_canvas = light_projection_canvas;
+			//blind_spot_canvas.addEventListener("mousedown",       function(event) {return       on_mousedown_blind_spot_canvas(event, blind_spot_canvas);}, false);
+			//blind_spot_canvas.addEventListener("mouseup",   async function(event) {return await on_mouseup_blind_spot_canvas(  event, blind_spot_canvas);}, false);
+			//blind_spot_canvas.addEventListener("mousemove",       function(event) {return       on_mousemove_blind_spot_canvas(event, blind_spot_canvas);}, false);
+			blind_spot_canvas.blind_spot_initialized = true;
 		    }
-		    blind_spot_canvas.blind_spot = blind_spot;
-		    blind_spot_canvas.light_projection_canvas = light_projection_canvas;
 		    if (! blind_spot.enable) {
 			blind_spot_canvas.style.display = "none";
 		    } else {
