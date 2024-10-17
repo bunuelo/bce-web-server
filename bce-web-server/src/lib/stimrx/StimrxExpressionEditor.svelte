@@ -313,6 +313,20 @@
 	}
     }
   
+    async function on_click_edit_blind_spot(eye_index, blind_spot_index) {
+        console.log("remove blind spot clicked.");
+	var blind_spot;
+	if (eye_index == 0) {
+	    blind_spot = editor.left_eye_blind_spots[blind_spot_index];
+	} else if (eye_index == 1) {
+	    blind_spot = editor.right_eye_blind_spots[blind_spot_index];
+	} else {
+	    console.log("invalid eye index.");
+	    return;
+	}
+	blind_spot.edit = !blind_spot.edit;
+    }
+  
     async function on_click_add_blind_spot() {
         console.log("add blind spot clicked.");
 	if (editor !== null) {
@@ -473,6 +487,9 @@
 	                                    <td>
          	                                <input type="checkbox" id={"blind_spot_checkbox_" + path + j} bind:checked={blind_spot.enable} on:change|preventDefault={on_change_blind_spot_checkbox}>
     		                                <label for={"blind_spot_checkbox_" + path + j}>{bce_lang($user_language, "component_stimrx_expression_editor_label_blind_spot")}&nbsp;{j+1}</label>
+	                                        <a href="#" on:click|preventDefault={async function () {await on_click_edit_blind_spot(0, j);}}>
+	                                            {bce_lang($user_language, "component_stimrx_expression_editor_label_edit_blind_spot")}
+	                                        </a>
 	                                        <a href="#" on:click|preventDefault={async function () {await on_click_remove_blind_spot(0, j);}}>
 	                                            {bce_lang($user_language, "component_stimrx_expression_editor_label_remove_blind_spot")}
 	                                        </a>

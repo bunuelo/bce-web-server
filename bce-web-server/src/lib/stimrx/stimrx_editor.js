@@ -76,6 +76,7 @@ function new_stimrx_editor_blind_spot(editor, points) {
 	"points": points,
 	"enable": true,
 	"canvas_id": canvas_id,
+	"edit": false,
     };
 }
 
