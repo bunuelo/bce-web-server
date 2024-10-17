@@ -24,7 +24,7 @@ async function on_mouseup(event, canvas) {
     canvas.style.top  = (canvas.drag_canvas_start_y + move_y) + "px";
     //console.log("Mouse up blind spot canvas.  (" + move_x + "," + move_y + ")");
     canvas.drag = false;
-    if ("sprite_on_mouseup" in canva)s {
+    if ("sprite_on_mouseup" in canvas) {
 	await canvas.sprite_on_mouseup(event, canvas);
     }
 }
