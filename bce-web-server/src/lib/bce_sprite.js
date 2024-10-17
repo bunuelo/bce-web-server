@@ -12,6 +12,7 @@ function on_mousedown(event, canvas) {
     //	}
     bce_sprite.bring_sprite_to_front(canvas.canvas_id);
     //editor.drag_canvas_id = canvas.canvas_id;
+    canvas.drag = true;
     canvas.drag_start_x = x;
     canvas.drag_start_y = y;
     canvas.drag_canvas_start_x = canvas.offsetLeft;
@@ -49,13 +50,15 @@ async function on_mouseup(event, canvas) {
 function on_mousemove(event, canvas) {
     event.preventDefault();
     //if (editor !== null && editor.drag_canvas_id === canvas.canvas_id) {
-    let x = event.pageX;
-    let y = event.pageY;
-    let move_x = x - canvas.drag_start_x;
-    let move_y = y - canvas.drag_start_y;
-    canvas.style.left = (canvas.drag_canvas_start_x + move_x) + "px";
-    canvas.style.top  = (canvas.drag_canvas_start_y + move_y) + "px";
-    //console.log("Mouse move blind spot canvas.  (" + move_x + "," + move_y + ")");
+    if (canvas.drag) {
+	let x = event.pageX;
+	let y = event.pageY;
+	let move_x = x - canvas.drag_start_x;
+	let move_y = y - canvas.drag_start_y;
+	canvas.style.left = (canvas.drag_canvas_start_x + move_x) + "px";
+	canvas.style.top  = (canvas.drag_canvas_start_y + move_y) + "px";
+	//console.log("Mouse move blind spot canvas.  (" + move_x + "," + move_y + ")");
+    }
     //}
 }
 
