@@ -39,7 +39,6 @@
 	    let canvas = document.createElement("canvas");
 	    canvas.style.border = "1px solid blue";
 	    document.body.appendChild(canvas);
-	    document_body_canvases.push(canvas);
 	    canvas.canvas_id = canvas_id;
 	    canvas.drag_start_x = null;
 	    canvas.drag_start_y = null;
