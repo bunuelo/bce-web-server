@@ -254,6 +254,7 @@
 	let tmp = light_projection_canvas;
 	light_projection_canvas = null;
 	light_projection_canvas = tmp
+	light_projection_canvas.blind_spot.edit = false;
 	await redraw_canvas();
     }
     
