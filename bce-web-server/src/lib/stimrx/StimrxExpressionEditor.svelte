@@ -209,6 +209,11 @@
 			let total_left = window.pageXOffset + rectangle.left;
 			let total_top  = window.pageYOffset + rectangle.top;
 			bce_canvas_render.bce_canvas_render__blind_spot_canvas(blind_spot_canvas, total_left, total_top, light_projection_canvas.width, light_projection_canvas.height, $user_color_theme, blind_spot);
+			//for (var j = 0; j < blind_spot.points.length; j ++) {
+			//    let blind_spot_point = blind_spot.points[j];
+			//    let blind_spot_point_canvas = null;
+			//    bce_canvas_render.bce_canvas_render__blind_spot_point_canvas(blind_spot_point_canvas, total_left, total_top, light_projection_canvas.width, light_projection_canvas.height, $user_color_theme, blind_spot_point);
+			//}
 		    }
 		}
 	    }
