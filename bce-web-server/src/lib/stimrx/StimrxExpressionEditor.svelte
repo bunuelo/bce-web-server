@@ -18,6 +18,7 @@
     import AssetSelector from '$lib/AssetSelector.svelte'
     import StimrxExpressionEditor from '$lib/stimrx/StimrxExpressionEditor.svelte'
     import { bce_asset } from '$lib/bce_asset.js'
+    import { bce_sprite } from '$lib/bce_sprite.js'
     
     export let expression;
     export let editor = null;
@@ -29,49 +30,6 @@
 
     let minimize_evaluation_asset_selector = true;
     let selected_evaluation = null;
-
-    // sprite BEGIN
-
-    var sprite_canvas_storage = {};
-
-    function get_sprite_canvas(canvas_id) {
-	if (! (canvas_id in sprite_canvas_storage)) {
-	    let canvas = document.createElement("canvas");
-	    canvas.style.border = "1px solid blue";
-	    document.body.appendChild(canvas);
-	    canvas.canvas_id = canvas_id;
-	    canvas.drag_start_x = null;
-	    canvas.drag_start_y = null;
-	    canvas.drag_canvas_start_x = null;
-	    canvas.drag_canvas_start_y = null;
-	    canvas.addEventListener("mousedown",       function(event) {return       on_mousedown_blind_spot_canvas(event, canvas);}, false);
-	    canvas.addEventListener("mouseup",   async function(event) {return await on_mouseup_blind_spot_canvas(event, canvas);}, false);
-	    canvas.addEventListener("mousemove",       function(event) {return       on_mousemove_blind_spot_canvas(event, canvas);}, false);
-	    sprite_canvas_storage[canvas_id] = canvas;
-	}
-	return sprite_canvas_storage[canvas_id];
-    }
-
-    function remove_all_sprites() {
-	let canvas_ids = Object.keys(sprite_canvas_storage);
-	for (var i = 0; i < canvas_ids.length; i ++) {
-	    let canvas_id = canvas_ids[i];
-	    let canvas    = sprite_canvas_storage[canvas_id];
-	    canvas.remove();
-	}
-	sprite_canvas_storage = {};
-    }
-
-    function bring_sprite_to_front(canvas_id) {
-	if (! (canvas_id in sprite_canvas_storage)) {
-	    console.log("bring_sprite_to_front ERROR: blind spot canvas does not exist.");
-	}
-	let canvas = sprite_canvas_storage[canvas_id];
-	canvas.remove();
-	document.body.appendChild(canvas);
-    }
-
-    // sprite END
 
     $: (function () {
         if (editor && view_selected) {
@@ -94,7 +52,7 @@
     });
 
     onDestroy(async function () {
-	remove_all_sprites();
+	bce_sprite.remove_all_sprites();
     });
 
     async function update_all() {
@@ -113,7 +71,7 @@
 	    if (editor.drag_canvas_id !== null) {
 		// clean up old drag?
 	    }
-	    bring_sprite_to_front(canvas.canvas_id);
+	    bce_sprite.bring_sprite_to_front(canvas.canvas_id);
 	    editor.drag_canvas_id = canvas.canvas_id;
 	    canvas.drag_start_x = x;
 	    canvas.drag_start_y = y;
@@ -205,7 +163,7 @@
 	    if (blind_spots !== null) {
 		for (var i = 0; i < blind_spots.length; i ++) {
 		    let blind_spot        = blind_spots[i];
-		    let blind_spot_canvas = get_sprite_canvas(blind_spot.canvas_id);
+		    let blind_spot_canvas = bce_sprite.get_sprite_canvas(blind_spot.canvas_id);
 		    blind_spot_canvas.blind_spot = blind_spot;
 		    blind_spot_canvas.light_projection_canvas = light_projection_canvas;
 		    if (! blind_spot.enable) {
@@ -311,13 +269,13 @@
         console.log("remove blind spot clicked.");
 	if (eye_index == 0) {
 	    let blind_spot = editor.left_eye_blind_spots[blind_spot_index];
-	    let blind_spot_canvas = get_sprite_canvas(blind_spot.canvas_id);
+	    let blind_spot_canvas = bce_sprite.get_sprite_canvas(blind_spot.canvas_id);
 	    blind_spot_canvas.remove();
 	    editor.left_eye_blind_spots.splice(blind_spot_index, 1);
             await changed_rx_editor_state();
 	} else if (eye_index == 1) {
 	    let blind_spot = editor.right_eye_blind_spots[blind_spot_index];
-	    let blind_spot_canvas = get_sprite_canvas(blind_spot.canvas_id);
+	    let blind_spot_canvas = bce_sprite.get_sprite_canvas(blind_spot.canvas_id);
 	    blind_spot_canvas.remove();
 	    editor.right_eye_blind_spots.splice(blind_spot_index, 1);
             await changed_rx_editor_state();
