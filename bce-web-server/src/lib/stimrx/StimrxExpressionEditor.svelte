@@ -303,7 +303,10 @@
 	    return;
 	}
 	blind_spot.edit = !blind_spot.edit;
-	let canvas = bce_sprite.get_sprite_canvas(blind_spot.canvas_id);
+	bce_sprite.bring_sprite_to_front(blind_spot.canvas_id);
+	for (var j = 0; j < blind_spot.points.length; j ++) {
+	    bce_sprite.bring_sprite_to_front(blind_spot.canvas_id + "_" + j);
+	}
 	await changed_rx_editor_state();
     }
   
