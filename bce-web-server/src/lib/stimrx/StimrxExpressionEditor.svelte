@@ -95,6 +95,23 @@
 	await changed_rx_editor_state();
     }
     
+    async function blind_spot_point_canvas_on_mouseup(event, canvas, blind_spot, point_index) {
+	let x = event.pageX;
+	let y = event.pageY;
+	let move_x = x - canvas.drag_start_x;
+	let move_y = y - canvas.drag_start_y;
+        let point = blind_spot.points[point_index];
+        let old_x = bce_canvas_render.bce_canvas_render__alpha_omega_to_x(canvas.light_projection_canvas.width, canvas.light_projection_canvas.height, point.alpha, point.omega);
+	let old_y = bce_canvas_render.bce_canvas_render__alpha_omega_to_y(canvas.light_projection_canvas.width, canvas.light_projection_canvas.height, point.alpha, point.omega);
+	let new_x = old_x + move_x;
+	let new_y = old_y + move_y;
+	let new_alpha = bce_canvas_render.bce_canvas_render__x_y_to_alpha(canvas.light_projection_canvas.width, canvas.light_projection_canvas.height, new_x, new_y);
+	let new_omega = bce_canvas_render.bce_canvas_render__x_y_to_omega(canvas.light_projection_canvas.width, canvas.light_projection_canvas.height, new_x, new_y);
+	point.alpha = new_alpha;
+	point.omega = new_omega;
+	await changed_rx_editor_state();
+    }
+    
     async function redraw_canvas() {
 	light_projection_canvas.width = 0.25 * window.innerWidth;
 	light_projection_canvas.height = 0.25 * window.innerWidth;
@@ -147,9 +164,17 @@
 			bce_canvas_render.bce_canvas_render__blind_spot_canvas(blind_spot_canvas, total_left, total_top, light_projection_canvas.width, light_projection_canvas.height, $user_color_theme, blind_spot);
 			if (blind_spot.edit) {
 			    for (var j = 0; j < blind_spot.points.length; j ++) {
+				let point_index = j;
 				let blind_spot_point_canvas = bce_sprite.get_sprite_canvas(blind_spot.canvas_id + "_" + j);
-				blind_spot_point_canvas.draggable = true;
-				blind_spot_point_canvas.style.display = "block";
+				if (! ("blind_spot_point_initialized" in blind_spot_point_canvas)) {
+				    blind_spot_point_canvas.draggable = true;
+				    blind_spot_point_canvas.light_projection_canvas = light_projection_canvas;
+				    blind_spot_point_canvas.style.display = "block";
+				    blind_spot_point_canvas.sprite_on_mouseup = async function (event, canvas) {
+					await blind_spot_point_canvas_on_mouseup(event, canvas, blind_spot, point_index);
+				    };
+				    blind_spot_point_canvas["blind_spot_point_initialized"] = true;
+				}
 			        bce_canvas_render.bce_canvas_render__blind_spot_point_canvas(blind_spot_point_canvas, total_left, total_top, light_projection_canvas.width, light_projection_canvas.height, $user_color_theme, blind_spot, j);
 			    }
 			} else {
