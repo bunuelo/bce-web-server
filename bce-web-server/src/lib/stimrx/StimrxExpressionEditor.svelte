@@ -53,7 +53,7 @@
     }
 
     function remove_all_sprites() {
-	let canvas_ids = sprite_canvas_storage.keys();
+	let canvas_ids = Object.keys(sprite_canvas_storage);
 	for (var i = 0; i < canvas_ids.length; i ++) {
 	    let canvas_id = canvas_ids[canvas_id];
 	    let canvas    = sprite_canvas_storage[canvas_id];
