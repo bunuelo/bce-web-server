@@ -447,6 +447,9 @@
 	    </option>
         </select>
         {#if view_selected === "expand"}
+	    <div class="stimrx_light_projection_canvas_div">
+                <canvas bind:this={light_projection_canvas}></canvas>
+	    </div>
             {#if editor !== null}
                 <table>
   	            {#each editor.evaluations as evaluation, j}
@@ -513,9 +516,6 @@
                     {/if}
 		</table>
    	    {/if}
-	    <div class="stimrx_light_projection_canvas_div">
-                <canvas bind:this={light_projection_canvas}></canvas>
-	    </div>
 	{/if}
     {:else if Number.isFinite(expression)}
         <i>Number</i>
