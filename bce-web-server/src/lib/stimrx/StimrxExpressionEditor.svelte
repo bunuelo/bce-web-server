@@ -249,12 +249,12 @@
 	await redraw_canvas();
     }
     
-    async function on_change_blind_spot_checkbox() {
+    async function on_change_blind_spot_checkbox(event, blind_spot_index) {
 	await changed_rx_editor_state();
 	let tmp = light_projection_canvas;
 	light_projection_canvas = null;
 	light_projection_canvas = tmp
-	light_projection_canvas.blind_spot.edit = false;
+	console.log("on_change_blind_spot_checkbox: blind_spot_index = " + blind_spot_index);
 	await redraw_canvas();
     }
     
@@ -469,7 +469,7 @@
   	                            {#each editor.left_eye_blind_spots as blind_spot, j}
 		                        <tr>
 	                                    <td>
-         	                                <input type="checkbox" id={"blind_spot_checkbox_" + path + j} bind:checked={blind_spot.enable} on:change|preventDefault={on_change_blind_spot_checkbox}>
+         	             <input type="checkbox" id={"blind_spot_checkbox_" + path + j} bind:checked={blind_spot.enable} on:change|preventDefault={async function (event) {await on_change_blind_spot_checkbox(event, j);}}>
     		                                <label for={"blind_spot_checkbox_" + path + j}>{bce_lang($user_language, "component_stimrx_expression_editor_label_blind_spot")}&nbsp;{j+1}</label>
 			                        {#if blind_spot.edit}
  	                                            <a href="#" on:click|preventDefault={async function () {await on_click_edit_blind_spot(0, j);}}>
@@ -490,7 +490,7 @@
   	                            {#each editor.right_eye_blind_spots as blind_spot, j}
 		                        <tr>
 	                                    <td>
-         	                                <input type="checkbox" id={"blind_spot_checkbox_" + path + j} bind:checked={blind_spot.enable} on:change|preventDefault={on_change_blind_spot_checkbox}>
+         	                                <input type="checkbox" id={"blind_spot_checkbox_" + path + j} bind:checked={blind_spot.enable} on:change|preventDefault={async function (event) {await on_change_blind_spot_checkbox(event, j);}}>
     		                                <label for={"blind_spot_checkbox_" + path + j}>{bce_lang($user_language, "component_stimrx_expression_editor_label_blind_spot")}&nbsp;{j+1}</label>
 			                        {#if blind_spot.edit}
  	                                            <a href="#" on:click|preventDefault={async function () {await on_click_edit_blind_spot(1, j);}}>
