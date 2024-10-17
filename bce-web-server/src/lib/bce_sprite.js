@@ -3,42 +3,48 @@ var sprite_canvas_storage = {};
 
 function on_mousedown(event, canvas) {
     event.preventDefault();
-    let x = event.pageX;
-    let y = event.pageY;
-    //console.log("Mouse down blind spot canvas.  (" + x + "," + y + ")");
-    bce_sprite.bring_sprite_to_front(canvas.canvas_id);
-    canvas.drag = true;
-    canvas.drag_start_x = x;
-    canvas.drag_start_y = y;
-    canvas.drag_canvas_start_x = canvas.offsetLeft;
-    canvas.drag_canvas_start_y = canvas.offsetTop;
+    if (canvas.draggable) {
+	let x = event.pageX;
+	let y = event.pageY;
+	//console.log("Mouse down blind spot canvas.  (" + x + "," + y + ")");
+	bce_sprite.bring_sprite_to_front(canvas.canvas_id);
+	canvas.drag = true;
+	canvas.drag_start_x = x;
+	canvas.drag_start_y = y;
+	canvas.drag_canvas_start_x = canvas.offsetLeft;
+	canvas.drag_canvas_start_y = canvas.offsetTop;
+    }
 }
 
 async function on_mouseup(event, canvas) {
     event.preventDefault();
-    let x = event.pageX;
-    let y = event.pageY;
-    let move_x = x - canvas.drag_start_x;
-    let move_y = y - canvas.drag_start_y;
-    canvas.style.left = (canvas.drag_canvas_start_x + move_x) + "px";
-    canvas.style.top  = (canvas.drag_canvas_start_y + move_y) + "px";
-    //console.log("Mouse up blind spot canvas.  (" + move_x + "," + move_y + ")");
-    canvas.drag = false;
-    if ("sprite_on_mouseup" in canvas) {
-	await canvas.sprite_on_mouseup(event, canvas);
-    }
-}
-
-function on_mousemove(event, canvas) {
-    event.preventDefault();
-    if (canvas.drag) {
+    if (canvas.draggable) {
 	let x = event.pageX;
 	let y = event.pageY;
 	let move_x = x - canvas.drag_start_x;
 	let move_y = y - canvas.drag_start_y;
 	canvas.style.left = (canvas.drag_canvas_start_x + move_x) + "px";
 	canvas.style.top  = (canvas.drag_canvas_start_y + move_y) + "px";
-	//console.log("Mouse move blind spot canvas.  (" + move_x + "," + move_y + ")");
+	//console.log("Mouse up blind spot canvas.  (" + move_x + "," + move_y + ")");
+	canvas.drag = false;
+	if ("sprite_on_mouseup" in canvas) {
+	    await canvas.sprite_on_mouseup(event, canvas);
+	}
+    }
+}
+
+function on_mousemove(event, canvas) {
+    event.preventDefault();
+    if (canvas.draggable) {
+	if (canvas.drag) {
+	    let x = event.pageX;
+	    let y = event.pageY;
+	    let move_x = x - canvas.drag_start_x;
+	    let move_y = y - canvas.drag_start_y;
+	    canvas.style.left = (canvas.drag_canvas_start_x + move_x) + "px";
+	    canvas.style.top  = (canvas.drag_canvas_start_y + move_y) + "px";
+	    //console.log("Mouse move blind spot canvas.  (" + move_x + "," + move_y + ")");
+	}
     }
 }
 
@@ -47,7 +53,8 @@ function get_sprite_canvas(canvas_id) {
 	let canvas = document.createElement("canvas");
 	canvas.style.border = "1px solid blue";
 	document.body.appendChild(canvas);
-	canvas.canvas_id = canvas_id;
+	canvas.canvas_id               = canvas_id;
+	canvas.draggable               = false;
 	canvas.drag_start_x            = null;
 	canvas.drag_start_y            = null;
 	canvas.drag_canvas_start_x     = null;
