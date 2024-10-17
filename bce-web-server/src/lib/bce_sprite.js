@@ -6,17 +6,17 @@ function on_mousedown(event, canvas) {
     let x = event.pageX;
     let y = event.pageY;
     //console.log("Mouse down blind spot canvas.  (" + x + "," + y + ")");
-    if (editor !== null) {
-	if (editor.drag_canvas_id !== null) {
-	    // clean up old drag?
-	}
-	bce_sprite.bring_sprite_to_front(canvas.canvas_id);
-	editor.drag_canvas_id = canvas.canvas_id;
-	canvas.drag_start_x = x;
-	canvas.drag_start_y = y;
-	canvas.drag_canvas_start_x = canvas.offsetLeft;
-	canvas.drag_canvas_start_y = canvas.offsetTop;
-    }
+    //if (editor !== null) {
+    //	if (editor.drag_canvas_id !== null) {
+    // clean up old drag?
+    //	}
+    bce_sprite.bring_sprite_to_front(canvas.canvas_id);
+    //editor.drag_canvas_id = canvas.canvas_id;
+    canvas.drag_start_x = x;
+    canvas.drag_start_y = y;
+    canvas.drag_canvas_start_x = canvas.offsetLeft;
+    canvas.drag_canvas_start_y = canvas.offsetTop;
+    //}
 }
 
 async function on_mouseup(event, canvas) {
