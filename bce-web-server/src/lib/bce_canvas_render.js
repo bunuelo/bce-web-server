@@ -179,8 +179,12 @@ function bce_canvas_render__blind_spot_canvas(canvas, total_left, total_top, tot
     var max_x = null;
     var min_y = null;
     var max_y = null;
-    let grip_radius = 1.0 * Math.PI / 180.0;
-    let border_size = bce_canvas_render__alpha_omega_to_x(total_width, total_height, 0, grip_radius) + 1;
+    const center_x             = 0.5 * total_width;
+    const center_y             = 0.5 * total_height;
+    const maximum_alpha_radius = 0.5 * total_height - 1;
+    const maximum_alpha        = 45 * Math.PI / 180.0;
+    const grip_radius          = 1.0 * Math.PI / 180.0;
+    const border_size          = (bce_canvas_render__alpha_omega_to_x(total_width, total_height, grip_radius, 0) + 1) - center_x;
     for (var i = 0; i < blind_spot.points.length; i ++) {
 	let p = blind_spot.points[i];
 	let x = bce_canvas_render__alpha_omega_to_x(total_width, total_height, p.alpha, p.omega);
@@ -219,10 +223,6 @@ function bce_canvas_render__blind_spot_canvas(canvas, total_left, total_top, tot
         color_grip = [255, 127, 0, 1.0];
         color_blind_spot = [255, 127, 0, 0.5];
     }
-    const center_x             = 0.5 * total_width;
-    const center_y             = 0.5 * total_height;
-    const maximum_alpha_radius = 0.5 * total_height - 1;
-    const maximum_alpha        = 45 * Math.PI / 180.0;
     
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.lineWidth = 2;
