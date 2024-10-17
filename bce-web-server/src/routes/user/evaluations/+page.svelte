@@ -21,10 +21,10 @@
 
     let evaluation = null;
     
-    let left_eye_canvas;
+    let left_eye_canvas= null;
     var left_eye_canvas_ctx = null;
     
-    let right_eye_canvas;
+    let right_eye_canvas = null;
     var right_eye_canvas_ctx = null;
 
     let left_eye_total_stimulus_count = 0;
@@ -47,6 +47,9 @@
     }
     
     function update_eye_canvases() {
+	if (left_eye_canvas === null || right_eye_canvas === null) {
+	    return;
+	}
         if (left_eye_canvas_ctx == null) {
             left_eye_canvas_ctx  = left_eye_canvas.getContext("2d");
             right_eye_canvas_ctx = right_eye_canvas.getContext("2d");
