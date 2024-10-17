@@ -150,7 +150,6 @@
 			blind_spot_canvas.blind_spot              = blind_spot;
 			blind_spot_canvas.light_projection_canvas = light_projection_canvas;
 			blind_spot_canvas.sprite_on_mouseup       = blind_spot_canvas_on_mouseup;
-			blind_spot_canvas.draggable               = !blind_spot.edit;
 			blind_spot_canvas.blind_spot_initialized  = true;
 		    }
 		    blind_spot_canvas.draggable = !blind_spot.edit;
@@ -174,12 +173,12 @@
 				if (! ("blind_spot_point_initialized" in blind_spot_point_canvas)) {
 				    blind_spot_point_canvas.draggable = true;
 				    blind_spot_point_canvas.light_projection_canvas = light_projection_canvas;
-				    blind_spot_point_canvas.style.display = "block";
-				    blind_spot_point_canvas.sprite_on_mouseup = async function (event, canvas) {
-					await blind_spot_point_canvas_on_mouseup(event, canvas, blind_spot, point_index);
-				    };
 				    blind_spot_point_canvas["blind_spot_point_initialized"] = true;
 				}
+				blind_spot_point_canvas.sprite_on_mouseup = async function (event, canvas) {
+				    await blind_spot_point_canvas_on_mouseup(event, canvas, blind_spot, point_index);
+				};
+				blind_spot_point_canvas.style.display = "block";
 			        bce_canvas_render.bce_canvas_render__blind_spot_point_canvas(blind_spot_point_canvas, total_left, total_top, light_projection_canvas.width, light_projection_canvas.height, $user_color_theme, blind_spot, j);
 			    }
 			} else {
