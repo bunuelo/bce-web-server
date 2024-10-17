@@ -445,8 +445,8 @@
 	                    {bce_lang($user_language, "component_stimrx_expression_editor_label_code")}
 	                </option>
                     </select>
-            {#if view_selected === "expand"}
-                {#if editor !== null}
+                    {#if view_selected === "expand"}
+                        {#if editor !== null}
   	                    {#each editor.evaluations as evaluation, j}
                                 {#if stimrx.stimrx_left_eye_light_projection__is_type(expression)}
          	                    <input type="checkbox" id={"evaluation_checkbox_" + path + j} bind:checked={evaluation.enable_left_eye_overlay} on:change|preventDefault={on_change_evaluation_checkbox}>
@@ -455,49 +455,49 @@
                                 {/if}
   		                <label for={"evaluation_checkbox_" + path + j}>{bce_lang($user_language, "component_stimrx_expression_editor_label_evaluation")}&nbsp;{j+1}</label>
 	                    {/each}
-                            <a href="#" on:click|preventDefault={on_click_add_blind_spot}>{bce_lang($user_language, "component_stimrx_expression_editor_label_add_blind_spot")}</a>
-                                {#if stimrx.stimrx_left_eye_light_projection__is_type(expression)}
-  	                            {#each editor.left_eye_blind_spots as blind_spot, j}
-         	             <input type="checkbox" id={"blind_spot_checkbox_" + path + j} bind:checked={blind_spot.enable} on:change|preventDefault={async function (event) {await on_change_blind_spot_checkbox(event, j);}}>
-    		                                <label for={"blind_spot_checkbox_" + path + j}>{bce_lang($user_language, "component_stimrx_expression_editor_label_blind_spot")}&nbsp;{j+1}</label>
-			                        {#if blind_spot.edit}
- 	                                            <a href="#" on:click|preventDefault={async function () {await on_click_edit_blind_spot(0, j);}}>
-	                                                {bce_lang($user_language, "component_stimrx_expression_editor_label_move_blind_spot")}
-	                                            </a>
-						{:else}
- 	                                            <a href="#" on:click|preventDefault={async function () {await on_click_edit_blind_spot(0, j);}}>
-	                                                {bce_lang($user_language, "component_stimrx_expression_editor_label_edit_blind_spot")}
-	                                            </a>
-						{/if}
-	                                        <a href="#" on:click|preventDefault={async function () {await on_click_remove_blind_spot(0, j);}}>
-	                                            {bce_lang($user_language, "component_stimrx_expression_editor_label_remove_blind_spot")}
-	                                        </a>
-  	                            {/each}
-                                {:else if stimrx.stimrx_right_eye_light_projection__is_type(expression)}
-  	                            {#each editor.right_eye_blind_spots as blind_spot, j}
-         	                                <input type="checkbox" id={"blind_spot_checkbox_" + path + j} bind:checked={blind_spot.enable} on:change|preventDefault={async function (event) {await on_change_blind_spot_checkbox(event, j);}}>
-    		                                <label for={"blind_spot_checkbox_" + path + j}>{bce_lang($user_language, "component_stimrx_expression_editor_label_blind_spot")}&nbsp;{j+1}</label>
-			                        {#if blind_spot.edit}
- 	                                            <a href="#" on:click|preventDefault={async function () {await on_click_edit_blind_spot(1, j);}}>
-	                                                {bce_lang($user_language, "component_stimrx_expression_editor_label_move_blind_spot")}
-	                                            </a>
-						{:else}
- 	                                            <a href="#" on:click|preventDefault={async function () {await on_click_edit_blind_spot(1, j);}}>
-	                                                {bce_lang($user_language, "component_stimrx_expression_editor_label_edit_blind_spot")}
-	                                            </a>
-						{/if}
-	                                        <a href="#" on:click|preventDefault={async function () {await on_click_remove_blind_spot(1, j);}}>
-	                                            {bce_lang($user_language, "component_stimrx_expression_editor_label_remove_blind_spot")}
-	                                        </a>
-  	                            {/each}
-                                {/if}
-	                </td>
-		{/if}
-	            <td>
+                            <a href="#" on:click|preventDefault={on_click_add_blind_spot}>
+                                {bce_lang($user_language, "component_stimrx_expression_editor_label_add_blind_spot")}
+                            </a>
+                            {#if stimrx.stimrx_left_eye_light_projection__is_type(expression)}
+  	                        {#each editor.left_eye_blind_spots as blind_spot, j}
+         	                    <input type="checkbox" id={"blind_spot_checkbox_" + path + j} bind:checked={blind_spot.enable} on:change|preventDefault={async function (event) {await on_change_blind_spot_checkbox(event, j);}}>
+    		                    <label for={"blind_spot_checkbox_" + path + j}>{bce_lang($user_language, "component_stimrx_expression_editor_label_blind_spot")}&nbsp;{j+1}</label>
+			            {#if blind_spot.edit}
+ 	                                <a href="#" on:click|preventDefault={async function () {await on_click_edit_blind_spot(0, j);}}>
+	                                    {bce_lang($user_language, "component_stimrx_expression_editor_label_move_blind_spot")}
+	                                </a>
+				    {:else}
+ 	                                <a href="#" on:click|preventDefault={async function () {await on_click_edit_blind_spot(0, j);}}>
+	                                    {bce_lang($user_language, "component_stimrx_expression_editor_label_edit_blind_spot")}
+	                                </a>
+			            {/if}
+	                            <a href="#" on:click|preventDefault={async function () {await on_click_remove_blind_spot(0, j);}}>
+	                                {bce_lang($user_language, "component_stimrx_expression_editor_label_remove_blind_spot")}
+	                            </a>
+  	                        {/each}
+                            {:else if stimrx.stimrx_right_eye_light_projection__is_type(expression)}
+  	                        {#each editor.right_eye_blind_spots as blind_spot, j}
+         	                    <input type="checkbox" id={"blind_spot_checkbox_" + path + j} bind:checked={blind_spot.enable} on:change|preventDefault={async function (event) {await on_change_blind_spot_checkbox(event, j);}}>
+    		                    <label for={"blind_spot_checkbox_" + path + j}>{bce_lang($user_language, "component_stimrx_expression_editor_label_blind_spot")}&nbsp;{j+1}</label>
+			            {#if blind_spot.edit}
+ 	                                <a href="#" on:click|preventDefault={async function () {await on_click_edit_blind_spot(1, j);}}>
+	                                    {bce_lang($user_language, "component_stimrx_expression_editor_label_move_blind_spot")}
+	                                </a>
+				    {:else}
+ 	                                <a href="#" on:click|preventDefault={async function () {await on_click_edit_blind_spot(1, j);}}>
+	                                    {bce_lang($user_language, "component_stimrx_expression_editor_label_edit_blind_spot")}
+	                                </a>
+				    {/if}
+	                            <a href="#" on:click|preventDefault={async function () {await on_click_remove_blind_spot(1, j);}}>
+	                                {bce_lang($user_language, "component_stimrx_expression_editor_label_remove_blind_spot")}
+	                            </a>
+  	                        {/each}
+                            {/if}
+		        {/if}
                         <canvas bind:this={light_projection_canvas}></canvas>
-	            </td>
-	        </tr>
-	    {/if}
+	            {/if}
+	        </td>
+	    </tr>
         </table>
     {:else if Number.isFinite(expression)}
         <i>Number</i>
