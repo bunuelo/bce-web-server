@@ -149,13 +149,13 @@
 			    for (var j = 0; j < blind_spot.points.length; j ++) {
 				let blind_spot_point_canvas = bce_sprite.get_sprite_canvas(blind_spot.canvas_id + "_" + j);
 				blind_spot_point_canvas.draggable = true;
-				blind_spot_point.style.display = "block";
+				//blind_spot_point.style.display = "block";
 			        bce_canvas_render.bce_canvas_render__blind_spot_point_canvas(blind_spot_point_canvas, total_left, total_top, light_projection_canvas.width, light_projection_canvas.height, $user_color_theme, blind_spot, j);
 			    }
 			} else {
 			    for (var j = 0; j < blind_spot.points.length; j ++) {
 				let blind_spot_point_canvas = bce_sprite.get_sprite_canvas(blind_spot.canvas_id + "_" + j);
-				blind_spot_point.style.display = "none";
+				//blind_spot_point.style.display = "none";
 			    }
 			}
 		    }
