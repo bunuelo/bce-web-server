@@ -146,15 +146,20 @@
 		for (var i = 0; i < blind_spots.length; i ++) {
 		    let blind_spot        = blind_spots[i];
 		    let blind_spot_canvas = bce_sprite.get_sprite_canvas(blind_spot.canvas_id);
-		    if (! ("blind_spot_initialized" in blind_spot_canvas)) {
+        	    if (! ("blind_spot_initialized" in blind_spot_canvas)) {
 			blind_spot_canvas.blind_spot              = blind_spot;
 			blind_spot_canvas.light_projection_canvas = light_projection_canvas;
 			blind_spot_canvas.sprite_on_mouseup       = blind_spot_canvas_on_mouseup;
 			blind_spot_canvas.draggable               = !blind_spot.edit;
 			blind_spot_canvas.blind_spot_initialized  = true;
 		    }
+		    canvas.draggable = !blind_spot.edit;
 		    if (! blind_spot.enable) {
 			blind_spot_canvas.style.display = "none";
+			for (var j = 0; j < blind_spot.points.length; j ++) {
+			    let blind_spot_point_canvas = bce_sprite.get_sprite_canvas(blind_spot.canvas_id + "_" + j);
+			    blind_spot_point_canvas.style.display = "none";
+			}
 		    } else {
 			blind_spot_canvas.style.display = "block";
 			//let total = cumulative_element_offset(light_projection_canvas);
@@ -300,8 +305,7 @@
 	}
 	blind_spot.edit = !blind_spot.edit;
 	let canvas = bce_sprite.get_sprite_canvas(blind_spot.canvas_id);
-	canvas.draggable = !blind_spot.edit;
-        await changed_rx_editor_state();
+	await changed_rx_editor_state();
     }
   
     async function on_click_add_blind_spot() {
