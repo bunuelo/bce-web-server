@@ -333,8 +333,9 @@ function bce_canvas_render__blind_spot_point_canvas(canvas, total_left, total_to
 }
 
 function bce_canvas_render__light_projection(canvas, color_theme, light_projection) {
-    let ctx = canvas.getContext("2d");
+    console.log("bce_canvas_render__light_projection: here.");
     
+    let ctx = canvas.getContext("2d");
     var color_background;
     var color_axes;
     var color_can_see;
