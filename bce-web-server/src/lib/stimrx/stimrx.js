@@ -177,6 +177,11 @@ function stimrx_left_eye_light_projection__is_type(x) {
     return x && typeof x === "object" && "type" in x && x.type === "LeftEyeLightProjection";
 };
 
+function new_default_stimrx_left_eye_light_projection() {
+    var triangles = [];
+    return new_stimrx_left_eye_light_projection(triangles);
+}
+
 // LeftEyeLightProjection END
 
 
@@ -195,6 +200,11 @@ function new_stimrx_right_eye_light_projection(triangles) {
 function stimrx_right_eye_light_projection__is_type(x) {
     return x && typeof x === "object" && "type" in x && x.type === "RightEyeLightProjection";
 };
+
+function new_default_stimrx_right_eye_light_projection() {
+    var triangles = [];
+    return new_stimrx_right_eye_light_projection(triangles);
+}
 
 // RightEyeLightProjection END
 
@@ -232,8 +242,10 @@ export const stimrx = {
     stimrx_left_eye_light_projection__initialize: stimrx_left_eye_light_projection__initialize,
     new_stimrx_left_eye_light_projection: new_stimrx_left_eye_light_projection,
     stimrx_left_eye_light_projection__is_type: stimrx_left_eye_light_projection__is_type,
+    new_default_stimrx_left_eye_light_projection: new_default_stimrx_left_eye_light_projection,
     
     stimrx_right_eye_light_projection__initialize: stimrx_right_eye_light_projection__initialize,
     new_stimrx_right_eye_light_projection: new_stimrx_right_eye_light_projection,
     stimrx_right_eye_light_projection__is_type: stimrx_right_eye_light_projection__is_type,
+    new_default_stimrx_right_eye_light_projection: new_default_stimrx_right_eye_light_projection,
 };
