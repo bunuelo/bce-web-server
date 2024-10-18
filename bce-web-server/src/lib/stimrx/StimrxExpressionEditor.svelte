@@ -118,12 +118,6 @@
 	let ctx = light_projection_canvas.getContext("2d");
    	bce_canvas_render.bce_canvas_render__draw_radial_eye(light_projection_canvas, ctx, $user_color_theme);
 	if (editor !== null) {
-	    if (stimrx.stimrx_light_projection__is_type(expression)) {
-		let light_projection = expression;
-		if (stimrx.stimrx_light_projection__is_type(light_projection)) {
-		    bce_canvas_render.bce_canvas_render__light_projection(light_projection_canvas, $user_color_theme, light_projection);
-		}
-	    }
 	    for (var i = 0; i < editor.evaluations.length; i ++) {
 		let editor_evaluation = editor.evaluations[i];
 		if (stimrx.stimrx_left_eye_light_projection__is_type(expression)) {
@@ -140,6 +134,12 @@
 			    bce_canvas_render.bce_canvas_render__evaluation_eye_data(light_projection_canvas, ctx, $user_color_theme, evaluation, 1, false);
 			}
 		    }
+		}
+	    }
+	    if (stimrx.stimrx_light_projection__is_type(expression)) {
+		let light_projection = expression;
+		if (stimrx.stimrx_light_projection__is_type(light_projection)) {
+		    bce_canvas_render.bce_canvas_render__light_projection(light_projection_canvas, $user_color_theme, light_projection);
 		}
 	    }
 	    var blind_spots = null;
