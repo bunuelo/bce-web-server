@@ -337,11 +337,14 @@ function bce_canvas_render__blind_spot_point_canvas(canvas, total_left, total_to
 function bce_canvas_render__light_projection(canvas, color_theme, light_projection) {
     let ctx = canvas.getContext("2d");
     
-    var color_from_triangle;
+    var color_from_foreground;
+    var color_from_background;
     if (color_theme == "dark") {
-        color_from_triangle = [31, 31, 31, 0.5];
+        color_from_foreground = [31, 31, 31, 0.75];
+        color_from_background = [31, 31, 31, 0.5];
     } else {
-        color_from_triangle = [223, 223, 223, 0.5];
+        color_from_foreground = [223, 223, 223, 0.75];
+        color_from_background = [223, 223, 223, 0.5];
     }
     
     for (var i = 0; i < light_projection.triangles.length; i ++) {
@@ -366,9 +369,9 @@ function bce_canvas_render__light_projection(canvas, color_theme, light_projecti
 	    let x2 = bce_canvas_render__alpha_omega_to_x(canvas.width, canvas.height, a2, o2);
 	    let y2 = bce_canvas_render__alpha_omega_to_y(canvas.width, canvas.height, a2, o2);
 
-	    ctx.fillStyle = "rgba(" + color_from_triangle[0] + "," + color_from_triangle[1] + "," + color_from_triangle[2] + "," + color_from_triangle[3] + ")";
+	    ctx.fillStyle = "rgba(" + color_from_background[0] + "," + color_from_background[1] + "," + color_from_background[2] + "," + color_from_background[3] + ")";
 	    ctx.lineWidth = 1;
-	    ctx.strokeStyle = "rgba(" + color_from_triangle[0] + "," + color_from_triangle[1] + "," + color_from_triangle[2] + "," + color_from_triangle[3] + ")";
+	    ctx.strokeStyle = "rgba(" + color_from_foreground[0] + "," + color_from_foreground[1] + "," + color_from_foreground[2] + "," + color_from_foreground[3] + ")";
 	    ctx.beginPath();
 	    ctx.moveTo(x0, y0);
 	    ctx.lineTo(x1, y1);
