@@ -3,11 +3,7 @@ import { stimrx } from '$lib/stimrx/stimrx.js';
 // Editor BEGIN
 
 function new_stimrx_editor() {
-    let rx_expression = stimrx.new_stimrx_sequence_expression([
-        stimrx.new_stimrx_set_variable_expression(null, null, "left_eye_lens",  stimrx.new_default_stimrx_left_eye_light_projection()),
-        stimrx.new_stimrx_set_variable_expression(null, null, "right_eye_lens", stimrx.new_default_stimrx_right_eye_light_projection()),
-    ]);
-    let rx = new_stimrx_editor_prescription(rx_expression);
+    let rx = new_default_stimrx_editor_prescription();
     return {
 	"type": "Editor",
 	"rxs": [
@@ -60,6 +56,14 @@ function new_stimrx_editor_prescription(expression) {
 
 function stimrx_editor_prescription__is_type(x) {
     return x && typeof x === "object" && x.hasOwnProperty("type") && x.type === "EditorPrescription";
+}
+
+function new_default_stimrx_editor_prescription() {
+    let expression = stimrx.new_stimrx_sequence_expression([
+        stimrx.new_stimrx_set_variable_expression(null, null, "left_eye_lens",  stimrx.new_default_stimrx_left_eye_light_projection()),
+        stimrx.new_stimrx_set_variable_expression(null, null, "right_eye_lens", stimrx.new_default_stimrx_right_eye_light_projection()),
+    ]);
+    return new_stimrx_editor_prescription(expression);
 }
 
 // EditorPrescription END
@@ -153,7 +157,8 @@ export let stimrx_editor = {
     
     new_stimrx_editor_prescription: new_stimrx_editor_prescription,
     stimrx_editor_prescription__is_type: stimrx_editor_prescription__is_type,
-
+    new_default_stimrx_editor_prescription: new_default_stimrx_editor_prescription,
+    
     new_stimrx_editor_evaluation: new_stimrx_editor_evaluation,
     stimrx_editor_evaluation__is_type: stimrx_editor_evaluation__is_type,
     

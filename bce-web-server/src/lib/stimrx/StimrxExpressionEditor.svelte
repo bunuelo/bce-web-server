@@ -88,6 +88,13 @@
 	minimize_evaluation_asset_selector = false;
     }
 
+    async function on_click_add_prescription() {
+	if (editor !== null) {
+	    editor.rxs.push(new_default_stimrx_editor_prescription());
+	    await changed_rx_editor_state();
+	}
+    }
+
     async function upload_rx_editor_state() {
 	await bce_session.update({"rx_editor_state": JSON.stringify(editor)});
     }
@@ -270,9 +277,17 @@
 	    <tr>
 	        <td>
                     <i>Prescription Editor</i>
+	            <a href="#" on:click|preventDefault={on_click_add_prescription}}>
+	                {bce_lang($user_language, "component_stimrx_expression_editor_label_add_prescription")}
+		    </a>
                 </td>
             </tr>
 	    {#each editor.rxs as rx, rx_i}
+	        <tr>
+	            <td>
+                        <i>Prescription&nbsp;{rx_i + 1}</i>
+                    </td>
+                </tr>
 	        <tr>
 	            <td>
 		        <a href="#" on:click|preventDefault={async function() {await on_click_add_evaluation(rx_i);}}>
