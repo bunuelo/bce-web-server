@@ -255,7 +255,7 @@
 	            </a>
 		</td>>
             </tr>
-	    {#each rx.evaluations as evaluation, j}
+	    {#each editor_prescription.evaluations as evaluation, j}
 	        <tr>
 	            <td>
 	                {#await get_json_asset(evaluation.asset_name)}
