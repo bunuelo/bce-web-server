@@ -334,20 +334,12 @@ function bce_canvas_render__blind_spot_point_canvas(canvas, total_left, total_to
 
 function bce_canvas_render__light_projection(canvas, color_theme, light_projection) {
     let ctx = canvas.getContext("2d");
-    var color_background;
-    var color_axes;
-    var color_can_see;
-    var color_cannot_see;
+    
+    var color_from_triangle;
     if (color_theme == "dark") {
-        color_background = [0, 0, 0];
-        color_axes       = [63, 63, 63];
-        color_can_see    = [191, 191, 191];
-        color_cannot_see = [31, 31, 31];
+        color_from_triangle = [31, 31, 31];
     } else {
-        color_background = [255, 255, 255];
-        color_axes       = [191, 191, 191];
-        color_can_see    = [63, 63, 63];
-        color_cannot_see = [223, 223, 223];
+        color_from_triangle = [223, 223, 223];
     }
     
     var eye_total_stimulus_count = 0;
@@ -364,7 +356,38 @@ function bce_canvas_render__light_projection(canvas, color_theme, light_projecti
     
     for (var i = 0; i < light_projection.triangles.length; i ++) {
 	let triangle_projection = light_projection.triangles[i];
-	console.log("Found triangle projection.");
+	let from_triangle = triangle_projection.from;
+	let to_triangle = triangle_projection.to;
+	
+	(function () {
+	    let triangle = from_triangle;
+	    let a0 = from_triangle.a.alpha;
+	    let o0 = from_triangle.a.omega;
+	    let x0 = bce_canvas_render__alpha_omega_to_x(canvas.width, canvas.height, a0, o0);
+	    let y0 = bce_canvas_render__alpha_omega_to_y(canvas.width, canvas.height, a0, o0);
+	    
+	    let a1 = from_triangle.b.alpha;
+	    let o1 = from_triangle.b.omega;
+	    let x1 = bce_canvas_render__alpha_omega_to_x(canvas.width, canvas.height, a1, o1);
+	    let y1 = bce_canvas_render__alpha_omega_to_y(canvas.width, canvas.height, a1, o1);
+	    
+	    let a2 = from_triangle.c.alpha;
+	    let o2 = from_triangle.c.omega;
+	    let x2 = bce_canvas_render__alpha_omega_to_x(canvas.width, canvas.height, a2, o2);
+	    let y2 = bce_canvas_render__alpha_omega_to_y(canvas.width, canvas.height, a2, o2);
+
+	    //ctx.fillStyle = "rgba(" + color_grip[0] + "," + color_grip[1] + "," + color_grip[2] + "," + color_grip[3] + ")";
+	    ctx.lineWidth = 1;
+	    ctx.strokeStyle = "rgba(" + color_from_triangle[0] + "," + color_from_triangle[1] + "," + color_from_triangle[2] + "," + color_from_triangle[3] + ")";
+	    ctx.beginPath();
+	    ctx.moveTo(x0, y0);
+	    ctx.lineTo(x1, y1);
+	    ctx.lineTo(x2, y2);
+	    ctx.lineTo(x3, y3);
+	    //ctx.fill();
+	    ctx.stroke();
+	    
+	})();
     }
     
 }
