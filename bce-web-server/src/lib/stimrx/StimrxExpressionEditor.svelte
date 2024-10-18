@@ -56,12 +56,8 @@
     });
 
     async function update_all() {
-        update_view_selected();
     }
     
-    async function update_view_selected() {
-    }
-
     async function get_json_asset(name) {
 	if (! (name in asset_cache)) {
 	    let fetched_asset = await bce_asset.fetch_asset(name);
