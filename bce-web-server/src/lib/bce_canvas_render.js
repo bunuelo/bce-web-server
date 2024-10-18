@@ -339,9 +339,9 @@ function bce_canvas_render__light_projection(canvas, color_theme, light_projecti
     
     var color_from_triangle;
     if (color_theme == "dark") {
-        color_from_triangle = [31, 31, 31];
+        color_from_triangle = [31, 31, 31, 0.5];
     } else {
-        color_from_triangle = [223, 223, 223];
+        color_from_triangle = [223, 223, 223, 0.5];
     }
     
     for (var i = 0; i < light_projection.triangles.length; i ++) {
@@ -366,7 +366,7 @@ function bce_canvas_render__light_projection(canvas, color_theme, light_projecti
 	    let x2 = bce_canvas_render__alpha_omega_to_x(canvas.width, canvas.height, a2, o2);
 	    let y2 = bce_canvas_render__alpha_omega_to_y(canvas.width, canvas.height, a2, o2);
 
-	    //ctx.fillStyle = "rgba(" + color_grip[0] + "," + color_grip[1] + "," + color_grip[2] + "," + color_grip[3] + ")";
+	    ctx.fillStyle = "rgba(" + color_from_triangle[0] + "," + color_from_triangle[1] + "," + color_from_triangle[2] + "," + color_from_triangle[3] + ")";
 	    ctx.lineWidth = 1;
 	    ctx.strokeStyle = "rgba(" + color_from_triangle[0] + "," + color_from_triangle[1] + "," + color_from_triangle[2] + "," + color_from_triangle[3] + ")";
 	    ctx.beginPath();
@@ -374,7 +374,7 @@ function bce_canvas_render__light_projection(canvas, color_theme, light_projecti
 	    ctx.lineTo(x1, y1);
 	    ctx.lineTo(x2, y2);
 	    ctx.lineTo(x0, y0);
-	    //ctx.fill();
+	    ctx.fill();
 	    ctx.stroke();
 	    console.log("(" + x0 + "," + y0 + ") -- (" + x1 + "," + y1 + ") -- (" + x2 + "," + y2 + ")");
 	})();
