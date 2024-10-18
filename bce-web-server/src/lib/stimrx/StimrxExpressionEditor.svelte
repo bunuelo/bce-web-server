@@ -273,35 +273,35 @@
 		    </a> 
                 </td>
             </tr>
-	    <tr>
-	        <td>
-  	            <table>
-			{#each editor.rxs[0].evaluations as evaluation, j}
-		            <tr>
-	                        <td>
-	                            {#await get_json_asset(evaluation.asset_name)}
-	                                ...waiting
-	                            {:then json_asset}
-	                                {bce_lang($user_language, "component_stimrx_expression_editor_label_evaluation")}&nbsp;{j + 1}
- 	                            {:catch error}
-	                                {error.message}
-	                            {/await}
-	                            <a href="#" on:click|preventDefault={async function () {await on_click_remove_evaluation(j);}}>
-	                                {bce_lang($user_language, "component_stimrx_expression_editor_label_remove_evaluation")}
-	                            </a>
-		                </td>
-		            </tr>
-	                {/each}
-		    </table>
-		</td>
-	    </tr>
-            <tr>
-                <td>
-		    {#if expression.rxs.length > 0}
-                        <StimrxExpressionEditor expression={expression.rxs[0].expression} editor={expression} path={[...path, "rxs", 0, "expression"]} bind:asset_cache={asset_cache}/>
-                    {/if}
-                </td>
-            </tr>
+	    {#each editor.rxs as rx, rx_i}
+	        <tr>
+	            <td>
+  	                <table>
+			    {#each rx.evaluations as evaluation, j}
+		                <tr>
+	                            <td>
+	                                {#await get_json_asset(evaluation.asset_name)}
+	                                    ...waiting
+	                                {:then json_asset}
+	                                    {bce_lang($user_language, "component_stimrx_expression_editor_label_evaluation")}&nbsp;{j + 1}
+ 	                                {:catch error}
+	                                    {error.message}
+	                                {/await}
+	                                <a href="#" on:click|preventDefault={async function () {await on_click_remove_evaluation(j);}}>
+	                                    {bce_lang($user_language, "component_stimrx_expression_editor_label_remove_evaluation")}
+	                                </a>
+		                    </td>
+		                </tr>
+	                    {/each}
+		        </table>
+		    </td>
+	        </tr>
+                <tr>
+                    <td>
+                        <StimrxExpressionEditor expression={rx.expression} editor={expression} path={[...path, "rxs", rx_i, "expression"]} bind:asset_cache={asset_cache}/>
+                    </td>
+                </tr>
+            {/each}
         </table>
     {:else}
         <select bind:value={view_selected}>
