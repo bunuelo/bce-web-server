@@ -59,7 +59,7 @@
 
     <h1>{bce_lang($user_language, "page_rxs_title")}</h1>
     
-    <StimrxExpressionEditor bind:expression={rx_editor_state} editor={rx_editor_state} bind:asset_cache={asset_cache}/>
+    <StimrxExpressionEditor bind:expression={rx_editor_state} editor={rx_editor_state} bind:asset_cache={asset_cache}  editor_prescription=null/>
     
 <!--
 a comment
