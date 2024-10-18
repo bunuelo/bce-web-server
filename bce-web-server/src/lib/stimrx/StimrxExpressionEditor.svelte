@@ -243,11 +243,6 @@
             </select>
 	{/if}
         <table>
-            <tr>
-	        <td>
-                    <i>Prescription</i>
-                </td>
-            </tr>
 	    <tr>
 	        <td>
 	            <a href="#" on:click|preventDefault={async function() {await on_click_add_evaluation();}}>
