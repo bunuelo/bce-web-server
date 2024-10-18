@@ -275,7 +275,7 @@
 	    {#each editor.rxs as rx, rx_i}
 	        <tr>
 	            <td>
-		        <a href="#" on:click|preventDefault={async function function() {await on_click_add_evaluation(rx_i);}}>
+		        <a href="#" on:click|preventDefault={async function() {await on_click_add_evaluation(rx_i);}}>
 			    {bce_lang($user_language, "component_stimrx_expression_editor_label_add_evaluation")}
 		        </a>
   	                <table>
