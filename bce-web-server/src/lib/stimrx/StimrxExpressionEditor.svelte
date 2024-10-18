@@ -138,7 +138,7 @@
 	    }
 	    if (stimrx.stimrx_light_projection__is_type(expression)) {
 		let light_projection = expression;
-		bce_canvas_render.bce_canvas_render__light_projection(light_projection_canvas, color_theme, light_projection);
+		bce_canvas_render.bce_canvas_render__light_projection(light_projection_canvas, $user_color_theme, light_projection);
 	    }
 	    var blind_spots = null;
 	    if (stimrx.stimrx_left_eye_light_projection__is_type(expression)) {
