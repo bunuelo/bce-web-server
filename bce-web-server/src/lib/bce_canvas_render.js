@@ -333,8 +333,6 @@ function bce_canvas_render__blind_spot_point_canvas(canvas, total_left, total_to
 }
 
 function bce_canvas_render__light_projection(canvas, color_theme, light_projection) {
-    console.log("bce_canvas_render__light_projection: here.");
-    
     let ctx = canvas.getContext("2d");
     var color_background;
     var color_axes;
@@ -363,6 +361,11 @@ function bce_canvas_render__light_projection(canvas, color_theme, light_projecti
     
     const maximum_alpha = 45;
     const alpha_resolution = 5;
+    
+    for (var i = 0; i < light_projection.triangles.length; i ++) {
+	let triangle_projection = light_projection.triangles[i];
+	console.log("Found triangle projection.");
+    }
     
 }
 

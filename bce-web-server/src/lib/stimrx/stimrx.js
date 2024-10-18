@@ -195,24 +195,39 @@ function new_default_stimrx_left_eye_light_projection() {
 	    let j0_next = Math.floor(j1_next * a0_omega_count / a1_omega_count);
 	    if (j0 == j0_next) {
 		// draw triangle
-		let a0_o  = j0      * 2.0 * Math.PI / a0_omega_count;
-		let a1_o0 = j1      * 2.0 * Math.PI / a1_omega_count;
-		let a1_o1 = j1_next * 2.0 * Math.PI / a1_omega_count;
-		triangles.push(new_stimrx_light_triangle(new_stimrx_light_angle(a0, a0_o),
-							 new_stimrx_light_angle(a1, a1_o0),
-							 new_stimrx_light_angle(a1, a1_o1)));
+		let a0_o                = j0      * 2.0 * Math.PI / a0_omega_count;
+		let a1_o0               = j1      * 2.0 * Math.PI / a1_omega_count;
+		let a1_o1               = j1_next * 2.0 * Math.PI / a1_omega_count;
+		let from_triangle       = new_stimrx_light_triangle(new_stimrx_light_angle(a0, a0_o),
+								    new_stimrx_light_angle(a1, a1_o0),
+								    new_stimrx_light_angle(a1, a1_o1));
+		let to_triangle         = new_stimrx_light_triangle(new_stimrx_light_angle(a0, a0_o),
+								    new_stimrx_light_angle(a1, a1_o0),
+								    new_stimrx_light_angle(a1, a1_o1));
+		let triangle_projection = new_stimrx_light_triangle_projection(from_triangle, to_triangle);
+		triangles.push(triangle_projection);
 	    } else {
 		// draw quadrilateral
 		let a0_o0 = j0      * 2.0 * Math.PI / a0_omega_count;
 		let a0_o1 = j0_next * 2.0 * Math.PI / a0_omega_count;
 		let a1_o0 = j1      * 2.0 * Math.PI / a1_omega_count;
 		let a1_o1 = j1_next * 2.0 * Math.PI / a1_omega_count;
-		triangles.push(new_stimrx_light_triangle(new_stimrx_light_angle(a0, a0_o0),
-							 new_stimrx_light_angle(a1, a1_o0),
-							 new_stimrx_light_angle(a1, a1_o1)));
-		triangles.push(new_stimrx_light_triangle(new_stimrx_light_angle(a0, a0_o0),
-							 new_stimrx_light_angle(a1, a1_o1),
-							 new_stimrx_light_angle(a1, a0_o1)));
+		let from_triangle_0       = new_stimrx_light_triangle(new_stimrx_light_angle(a0, a0_o0),
+								      new_stimrx_light_angle(a1, a1_o0),
+								      new_stimrx_light_angle(a1, a1_o1));
+		let to_triangle_0         = new_stimrx_light_triangle(new_stimrx_light_angle(a0, a0_o0),
+								      new_stimrx_light_angle(a1, a1_o0),
+								      new_stimrx_light_angle(a1, a1_o1));
+		let triangle_projection_0 = new_stimrx_light_triangle_projection(from_triangle_0, to_triangle_0);
+		triangles.push(triangle_projection_0);
+		let from_triangle_1       = new_stimrx_light_triangle(new_stimrx_light_angle(a0, a0_o0),
+								      new_stimrx_light_angle(a1, a1_o1),
+								      new_stimrx_light_angle(a1, a0_o1));
+		let to_triangle_1         = new_stimrx_light_triangle(new_stimrx_light_angle(a0, a0_o0),
+								      new_stimrx_light_angle(a1, a1_o1),
+								      new_stimrx_light_angle(a1, a0_o1));
+		let triangle_projection_1 = new_stimrx_light_triangle_projection(from_triangle_1, to_triangle_1);
+		triangles.push(triangle_projection_1);
 	    }
 	}
     }
