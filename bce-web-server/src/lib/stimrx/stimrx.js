@@ -185,9 +185,9 @@ function new_default_stimrx_left_eye_light_projection() {
     for (var i = 0; i < alpha_count - 1; i ++) {
 	let a0                  = i * resolution;
 	let a1                  = (i + 1) * resolution;
-	let a0_circumference    = 2.0 * Math.PI * alpha;
+	let a0_circumference    = 2.0 * Math.PI * a0;
 	let a0_omega_count      = Math.round(a0_circumference / resolution);
-	let a1_circumference    = 2.0 * Math.PI * alpha;
+	let a1_circumference    = 2.0 * Math.PI * a1;
 	let a1_omega_count      = Math.round(a1_circumference / resolution);
 	for (var j1 = 0; j1 < a1_omega_count; j1 ++) {
 	    let j1_next = (j1 + 1) % a1_omega_count;
