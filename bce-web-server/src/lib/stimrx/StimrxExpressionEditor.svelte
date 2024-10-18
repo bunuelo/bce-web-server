@@ -161,7 +161,7 @@
                     </td>
                     <td>
                         {#each expression.children as child, i}
-                            <StimrxExpressionEditor bind:expression={child} editor={editor} path={[...path, "children", i]} bind:asset_cache={asset_cache} editor_prescription={editor_prescription}/>
+                            <StimrxExpressionEditor bind:expression={child} editor={editor} path={[...path, "children", i]} bind:asset_cache={asset_cache} bind:editor_prescription={editor_prescription}/>
     	                {/each}
                     </td>
 	        </tr>
@@ -189,7 +189,7 @@
                     </td>
                     <td>
                         {#each expression.children as child, i}
- 	                    <StimrxExpressionEditor bind:expression={child} editor={editor} path={[...path, "children", i]} bind:asset_cache={asset_cache} editor_prescription={editor_prescription}/>
+ 	                    <StimrxExpressionEditor bind:expression={child} editor={editor} path={[...path, "children", i]} bind:asset_cache={asset_cache} bind:editor_prescription={editor_prescription}/>
     	                {/each}
                     </td>
 	        </tr>
@@ -225,7 +225,7 @@
 	{/if}
         <tt>{expression.name}&nbsp;=&nbsp;</tt>
         {#if view_selected === "expand"}
-            <StimrxExpressionEditor bind:expression={expression.value} editor={editor} path={[...path, "value"]} bind:asset_cache={asset_cache} editor_prescription={editor_prescription}/>
+            <StimrxExpressionEditor bind:expression={expression.value} editor={editor} path={[...path, "value"]} bind:asset_cache={asset_cache} bind:editor_prescription={editor_prescription}/>
         {/if}
     {:else if stimrx_editor.stimrx_editor_prescription__is_type(expression)}
         <i>Prescription</i>
@@ -243,10 +243,10 @@
             </select>
 	{/if}
         {#if view_selected === "expand"}
-            <StimrxExpressionEditor bind:expression={expression.expression} editor={editor} path={[...path, "expression"]} bind:asset_cache={asset_cache} editor_prescription={expression}/>
+            <StimrxExpressionEditor bind:expression={expression.expression} editor={editor} path={[...path, "expression"]} bind:asset_cache={asset_cache} bind:editor_prescription={expression}/>
         {/if}
     {:else if stimrx.stimrx_light_projection__is_type(expression)}
-        <StimrxLightProjectionEditor expression={expression} editor={editor} path={path} bind:asset_cache={asset_cache} editor_prescription={editor_prescription}/>
+        <StimrxLightProjectionEditor expression={expression} editor={editor} path={path} bind:asset_cache={asset_cache} bind:editor_prescription={editor_prescription}/>
     {:else if Number.isFinite(expression)}
         <i>Number</i>
         {#if editor !== null && editor.show_view_options}
@@ -317,7 +317,7 @@
 	        </tr>
                 <tr>
                     <td>
-                        <StimrxExpressionEditor expression={rx.expression} editor={expression} path={[...path, "rxs", rx_i, "expression"]} bind:asset_cache={asset_cache} editor_prescription={editor_prescription}/>
+                        <StimrxExpressionEditor expression={rx.expression} editor={expression} path={[...path, "rxs", rx_i, "expression"]} bind:asset_cache={asset_cache} bind:editor_prescription={editor_prescription}/>
                     </td>
                 </tr>
             {/each}
