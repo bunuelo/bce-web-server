@@ -27,7 +27,6 @@
     export let asset_cache;
 
     let view_selected = "expand";
-    let light_projection_canvas = null;
 
     let minimize_evaluation_asset_selector = true;
     let selected_evaluation = null;
@@ -77,133 +76,6 @@
 	};
     };
 
-    async function blind_spot_canvas_on_mouseup(event, canvas) {
-	let x = event.pageX;
-	let y = event.pageY;
-	let move_x = x - canvas.drag_start_x;
-	let move_y = y - canvas.drag_start_y;
-	for (var i = 0; i < canvas.blind_spot.points.length; i ++) {
-	    let point = canvas.blind_spot.points[i];
-	    let old_x = bce_canvas_render.bce_canvas_render__alpha_omega_to_x(canvas.light_projection_canvas.width, canvas.light_projection_canvas.height, point.alpha, point.omega);
-	    let old_y = bce_canvas_render.bce_canvas_render__alpha_omega_to_y(canvas.light_projection_canvas.width, canvas.light_projection_canvas.height, point.alpha, point.omega);
-	    let new_x = old_x + move_x;
-	    let new_y = old_y + move_y;
-	    let new_alpha = bce_canvas_render.bce_canvas_render__x_y_to_alpha(canvas.light_projection_canvas.width, canvas.light_projection_canvas.height, new_x, new_y);
-	    let new_omega = bce_canvas_render.bce_canvas_render__x_y_to_omega(canvas.light_projection_canvas.width, canvas.light_projection_canvas.height, new_x, new_y);
-	    point.alpha = new_alpha;
-	    point.omega = new_omega;
-	}
-	await changed_rx_editor_state();
-    }
-    
-    async function blind_spot_point_canvas_on_mouseup(event, canvas, blind_spot, point_index) {
-	let x = event.pageX;
-	let y = event.pageY;
-	let move_x = x - canvas.drag_start_x;
-	let move_y = y - canvas.drag_start_y;
-        let point = blind_spot.points[point_index];
-        let old_x = bce_canvas_render.bce_canvas_render__alpha_omega_to_x(canvas.light_projection_canvas.width, canvas.light_projection_canvas.height, point.alpha, point.omega);
-	let old_y = bce_canvas_render.bce_canvas_render__alpha_omega_to_y(canvas.light_projection_canvas.width, canvas.light_projection_canvas.height, point.alpha, point.omega);
-	let new_x = old_x + move_x;
-	let new_y = old_y + move_y;
-	let new_alpha = bce_canvas_render.bce_canvas_render__x_y_to_alpha(canvas.light_projection_canvas.width, canvas.light_projection_canvas.height, new_x, new_y);
-	let new_omega = bce_canvas_render.bce_canvas_render__x_y_to_omega(canvas.light_projection_canvas.width, canvas.light_projection_canvas.height, new_x, new_y);
-	point.alpha = new_alpha;
-	point.omega = new_omega;
-	await changed_rx_editor_state();
-    }
-    
-    async function redraw_canvas() {
-	light_projection_canvas.width = 0.25 * window.innerWidth;
-	light_projection_canvas.height = 0.25 * window.innerWidth;
-	let ctx = light_projection_canvas.getContext("2d");
-   	bce_canvas_render.bce_canvas_render__draw_radial_eye(light_projection_canvas, $user_color_theme);
-	if (stimrx.stimrx_light_projection__is_type(expression)) {
-	    let light_projection = expression;
-	    bce_canvas_render.bce_canvas_render__light_projection(light_projection_canvas, $user_color_theme, light_projection);
-	}
-	if (editor !== null) {
-	    for (var i = 0; i < editor.rxs[0].evaluations.length; i ++) {
-		let editor_evaluation = editor.rxs[0].evaluations[i];
-		if (stimrx.stimrx_left_eye_light_projection__is_type(expression)) {
-		    if (editor_evaluation.enable_left_eye_overlay) {
-			let evaluation = await get_json_asset(editor_evaluation.asset_name);
-			if (light_projection_canvas !== null) {
-			    bce_canvas_render.bce_canvas_render__evaluation_eye_data(light_projection_canvas, $user_color_theme, evaluation, 0, false);
-			}
-		    }
-		} else if (stimrx.stimrx_right_eye_light_projection__is_type(expression)) {
-		    if (editor_evaluation.enable_right_eye_overlay) {
-			let evaluation = await get_json_asset(editor_evaluation.asset_name);
-			if (light_projection_canvas !== null) {
-			    bce_canvas_render.bce_canvas_render__evaluation_eye_data(light_projection_canvas, $user_color_theme, evaluation, 1, false);
-			}
-		    }
-		}
-	    }
-	    var blind_spots = null;
-	    if (stimrx.stimrx_left_eye_light_projection__is_type(expression)) {
-		blind_spots = editor.rxs[0].left_eye_blind_spots;
-	    } else if (stimrx.stimrx_right_eye_light_projection__is_type(expression)) {
-		blind_spots = editor.rxs[0].right_eye_blind_spots;
-	    }
-	    if (blind_spots !== null) {
-		for (var i = 0; i < blind_spots.length; i ++) {
-		    let blind_spot        = blind_spots[i];
-		    let blind_spot_canvas = bce_sprite.get_sprite_canvas(blind_spot.canvas_id);
-        	    if (! ("blind_spot_initialized" in blind_spot_canvas)) {
-			blind_spot_canvas.blind_spot              = blind_spot;
-			blind_spot_canvas.light_projection_canvas = light_projection_canvas;
-			blind_spot_canvas.sprite_on_mouseup       = blind_spot_canvas_on_mouseup;
-			blind_spot_canvas.blind_spot_initialized  = true;
-		    }
-		    blind_spot_canvas.draggable = !blind_spot.edit;
-		    if (! blind_spot.enable) {
-			blind_spot_canvas.style.display = "none";
-			for (var j = 0; j < blind_spot.points.length; j ++) {
-			    let blind_spot_point_canvas = bce_sprite.get_sprite_canvas(blind_spot.canvas_id + "_" + j);
-			    blind_spot_point_canvas.style.display = "none";
-			}
-		    } else {
-			blind_spot_canvas.style.display = "block";
-			//let total = cumulative_element_offset(light_projection_canvas);
-			var rectangle = light_projection_canvas.getBoundingClientRect();
-			let total_left = window.pageXOffset + rectangle.left;
-			let total_top  = window.pageYOffset + rectangle.top;
-			bce_canvas_render.bce_canvas_render__blind_spot_canvas(blind_spot_canvas, total_left, total_top, light_projection_canvas.width, light_projection_canvas.height, $user_color_theme, blind_spot);
-			if (blind_spot.edit) {
-			    for (var j = 0; j < blind_spot.points.length; j ++) {
-				let point_index = j;
-				let blind_spot_point_canvas = bce_sprite.get_sprite_canvas(blind_spot.canvas_id + "_" + j);
-				if (! ("blind_spot_point_initialized" in blind_spot_point_canvas)) {
-				    blind_spot_point_canvas.draggable = true;
-				    blind_spot_point_canvas.light_projection_canvas = light_projection_canvas;
-				    blind_spot_point_canvas["blind_spot_point_initialized"] = true;
-				}
-				blind_spot_point_canvas.sprite_on_mouseup = async function (event, canvas) {
-				    await blind_spot_point_canvas_on_mouseup(event, canvas, blind_spot, point_index);
-				};
-				blind_spot_point_canvas.style.display = "block";
-				bce_canvas_render.bce_canvas_render__blind_spot_point_canvas(blind_spot_point_canvas, total_left, total_top, light_projection_canvas.width, light_projection_canvas.height, $user_color_theme, blind_spot, j);
-			    }
-			} else {
-			    for (var j = 0; j < blind_spot.points.length; j ++) {
-				let blind_spot_point_canvas = bce_sprite.get_sprite_canvas(blind_spot.canvas_id + "_" + j);
-				blind_spot_point_canvas.style.display = "none";
-			    }
-			}
-		    }
-		}
-	    }
-	}
-    }
-    
-    $: (async function () {
-	if (light_projection_canvas !== null && editor !== null && stimrx.stimrx_light_projection__is_type(expression)) {
-	    await redraw_canvas();
-	}
-    })();
-    
     async function get_json_asset(name) {
 	if (! (name in asset_cache)) {
 	    let fetched_asset = await bce_asset.fetch_asset(name);
@@ -246,21 +118,6 @@
 	editor = temp2;
     }
 
-    async function on_change_evaluation_checkbox() {
-	await changed_rx_editor_state();
-	let tmp = light_projection_canvas;
-	light_projection_canvas = null;
-	light_projection_canvas = tmp
-    }
-    
-    async function on_change_blind_spot_checkbox(event, blind_spot_index) {
-	await changed_rx_editor_state();
-	let tmp = light_projection_canvas;
-	light_projection_canvas = null;
-	light_projection_canvas = tmp
-	console.log("on_change_blind_spot_checkbox: blind_spot_index = " + blind_spot_index);
-    }
-    
     let on_evaluation_asset_select = async function (asset) {
         console.log("Evaluation asset selected: " + asset.name + " (" + asset.file_name + ")");
 	if (editor !== null) {
@@ -339,10 +196,6 @@
         vertical-align: top;
         background-color: var(--surface1);
         border: 2px solid var(--surface3);
-    }
-
-    div.stimrx_light_projection_canvas_div {
-	float: right;
     }
 </style>
 
