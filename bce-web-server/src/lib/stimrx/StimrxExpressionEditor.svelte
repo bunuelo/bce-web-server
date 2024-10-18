@@ -214,9 +214,25 @@
 	{/if}
         <tt>{expression.name}&nbsp;=&nbsp;</tt>
         {#if view_selected === "expand"}
-            <td>
-                <StimrxExpressionEditor bind:expression={expression.value} editor={editor} path={[...path, "value"]} bind:asset_cache={asset_cache}/>
-            </td>
+            <StimrxExpressionEditor bind:expression={expression.value} editor={editor} path={[...path, "value"]} bind:asset_cache={asset_cache}/>
+        {/if}
+    {:else if stimrx.stimrx_editor_prescription__is_type(expression)}
+        <i>Prescription</i>
+        {#if editor !== null && editor.show_view_options}
+            <select bind:value={view_selected}>
+                <option value="expand">
+	            {bce_lang($user_language, "component_stimrx_expression_editor_label_expand")}
+	        </option>
+                <option value="minimal">
+	            {bce_lang($user_language, "component_stimrx_expression_editor_label_minimal")}
+	        </option>
+                <option value="code">
+	            {bce_lang($user_language, "component_stimrx_expression_editor_label_code")}
+	        </option>
+            </select>
+	{/if}
+        {#if view_selected === "expand"}
+            <StimrxExpressionEditor bind:expression={expression.expression} editor={editor} path={[...path, "expression"]} bind:asset_cache={asset_cache}/>
         {/if}
     {:else if stimrx.stimrx_light_projection__is_type(expression)}
         <StimrxLightProjectionEditor expression={expression} editor={editor} path={path} bind:asset_cache={asset_cache}/>
