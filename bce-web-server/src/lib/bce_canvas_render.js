@@ -386,7 +386,7 @@ function bce_canvas_render__light_projection(canvas, color_theme, light_projecti
 	    ctx.lineTo(x0, y0);
 	    //ctx.fill();
 	    ctx.stroke();
-	    
+	    console.log("(" + x0 + "," + y0 + ") -- (" + x1 + "," + y1 + ") -- (" + x2 + "," + y2 + ")");
 	})();
     }
     
