@@ -122,7 +122,7 @@
 	    let light_projection = expression;
 	    bce_canvas_render.bce_canvas_render__light_projection(light_projection_canvas, $user_color_theme, light_projection);
 	}
-	if (editor !== null) {
+	if (editor !== null && editor_prescription !== null) {
 	    for (var i = 0; i < editor_prescription.evaluations.length; i ++) {
 		let editor_evaluation = editor_prescription.evaluations[i];
 		if (stimrx.stimrx_left_eye_light_projection__is_type(expression)) {
@@ -263,7 +263,7 @@
     
     let on_evaluation_asset_select = async function (asset) {
         console.log("Evaluation asset selected: " + asset.name + " (" + asset.file_name + ")");
-	if (editor !== null) {
+	if (editor !== null && editor_prescription !== null) {
 	    let editor_evaluation = stimrx_editor.new_stimrx_editor_evaluation(asset.name);
 	    editor_prescription.evaluations.push(editor_evaluation);
             await changed_rx_editor_state();
@@ -272,12 +272,17 @@
     };
 
     async function on_click_remove_evaluation(evaluation_index) {
-	editor_prescription.evaluations.splice(evaluation_index, 1);
-        await changed_rx_editor_state();
+	if (editor_prescription !== null) {
+	    editor_prescription.evaluations.splice(evaluation_index, 1);
+            await changed_rx_editor_state();
+	}
     }
   
     async function on_click_remove_blind_spot(eye_index, blind_spot_index) {
         console.log("remove blind spot clicked.");
+	if (editor_prescription === null) {
+	    return;
+	}
 	if (eye_index == 0) {
 	    let blind_spot = editor_prescription.left_eye_blind_spots[blind_spot_index];
 	    let blind_spot_canvas = bce_sprite.get_sprite_canvas(blind_spot.canvas_id);
@@ -297,6 +302,9 @@
   
     async function on_click_edit_blind_spot(eye_index, blind_spot_index) {
         console.log("remove blind spot clicked.");
+	if (editor_prescription === null) {
+	    return;
+	}
 	var blind_spot;
 	if (eye_index == 0) {
 	    blind_spot = editor_prescription.left_eye_blind_spots[blind_spot_index];
@@ -316,7 +324,7 @@
   
     async function on_click_add_blind_spot() {
         console.log("add blind spot clicked.");
-	if (editor !== null) {
+	if (editor !== null && editor_prescription !== null) {
 	    if (stimrx.stimrx_left_eye_light_projection__is_type(expression)) {
 		let editor_blind_spot = stimrx_editor.new_default_left_eye_stimrx_editor_blind_spot(editor);
 		editor_prescription.left_eye_blind_spots.push(editor_blind_spot);
