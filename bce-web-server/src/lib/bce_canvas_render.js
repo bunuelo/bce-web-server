@@ -3,6 +3,20 @@ import { user_color_theme } from './bce_stores.js'
 import BceSession from "$lib/bce_session.js";
 let bce_session = new BceSession();
 
+// This function is a backup.  It is not used and a better method is used below instead.
+var cumulative_element_offset = function(element) {
+    var top = 0, left = 0;
+    do {
+        top += element.offsetTop  || 0;
+        left += element.offsetLeft || 0;
+        element = element.offsetParent;
+    } while(element);
+    return {
+        top: top,
+        left: left
+    };
+};
+
 function bce_canvas_render__draw_radial_eye(canvas, color_theme) {
     let ctx = canvas.getContext("2d");
     var color_background;

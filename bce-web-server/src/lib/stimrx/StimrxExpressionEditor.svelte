@@ -62,20 +62,6 @@
     async function update_view_selected() {
     }
 
-    // This function is a backup.  It is not used and a better method is used below instead.
-    var cumulative_element_offset = function(element) {
-	var top = 0, left = 0;
-	do {
-            top += element.offsetTop  || 0;
-            left += element.offsetLeft || 0;
-            element = element.offsetParent;
-	} while(element);
-	return {
-            top: top,
-            left: left
-	};
-    };
-
     async function get_json_asset(name) {
 	if (! (name in asset_cache)) {
 	    let fetched_asset = await bce_asset.fetch_asset(name);
@@ -133,61 +119,6 @@
         await changed_rx_editor_state();
     }
   
-    async function on_click_remove_blind_spot(eye_index, blind_spot_index) {
-        console.log("remove blind spot clicked.");
-	if (eye_index == 0) {
-	    let blind_spot = editor.rxs[0].left_eye_blind_spots[blind_spot_index];
-	    let blind_spot_canvas = bce_sprite.get_sprite_canvas(blind_spot.canvas_id);
-	    blind_spot_canvas.remove();
-	    editor.rxs[0].left_eye_blind_spots.splice(blind_spot_index, 1);
-            await changed_rx_editor_state();
-	} else if (eye_index == 1) {
-	    let blind_spot = editor.rxs[0].right_eye_blind_spots[blind_spot_index];
-	    let blind_spot_canvas = bce_sprite.get_sprite_canvas(blind_spot.canvas_id);
-	    blind_spot_canvas.remove();
-	    editor.rxs[0].right_eye_blind_spots.splice(blind_spot_index, 1);
-            await changed_rx_editor_state();
-	} else {
-	    console.log("invalid eye index.");
-	}
-    }
-  
-    async function on_click_edit_blind_spot(eye_index, blind_spot_index) {
-        console.log("remove blind spot clicked.");
-	var blind_spot;
-	if (eye_index == 0) {
-	    blind_spot = editor.rxs[0].left_eye_blind_spots[blind_spot_index];
-	} else if (eye_index == 1) {
-	    blind_spot = editor.rxs[0].right_eye_blind_spots[blind_spot_index];
-	} else {
-	    console.log("invalid eye index.");
-	    return;
-	}
-	blind_spot.edit = !blind_spot.edit;
-	bce_sprite.bring_sprite_to_front(blind_spot.canvas_id);
-	for (var j = 0; j < blind_spot.points.length; j ++) {
-	    bce_sprite.bring_sprite_to_front(blind_spot.canvas_id + "_" + j);
-	}
-	await changed_rx_editor_state();
-    }
-  
-    async function on_click_add_blind_spot() {
-        console.log("add blind spot clicked.");
-	if (editor !== null) {
-	    if (stimrx.stimrx_left_eye_light_projection__is_type(expression)) {
-		let editor_blind_spot = stimrx_editor.new_default_left_eye_stimrx_editor_blind_spot(editor);
-		editor.rxs[0].left_eye_blind_spots.push(editor_blind_spot);
-		await changed_rx_editor_state();
-		console.log("added blind spot to left eye.");
-	    } else if (stimrx.stimrx_right_eye_light_projection__is_type(expression)) {
-		let editor_blind_spot = stimrx_editor.new_default_right_eye_stimrx_editor_blind_spot(editor);
-		editor.rxs[0].right_eye_blind_spots.push(editor_blind_spot);
-		await changed_rx_editor_state();
-		console.log("added blind spot to right eye.");
-	    }
-	}
-    }
-				
 </script>
 
 <style>
