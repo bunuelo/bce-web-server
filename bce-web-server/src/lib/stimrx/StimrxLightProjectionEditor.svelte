@@ -24,7 +24,7 @@
     export let editor = null;
     export let path = [];
     export let asset_cache;
-    export let editor_prescription = null;
+    export let editor_prescription;
 
     let view_selected = "expand";
     let light_projection_canvas = null;

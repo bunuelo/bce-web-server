@@ -25,7 +25,7 @@
     export let editor = null;
     export let path = [];
     export let asset_cache;
-    export let editor_prescription = null;
+    export let editor_prescription;
 
     let view_selected = "expand";
 
@@ -160,7 +160,7 @@
                     </td>
                     <td>
                         {#each expression.children as child, i}
-                            <StimrxExpressionEditor bind:expression={child} editor={editor} path={[...path, "children", i]} bind:asset_cache={asset_cache}/>
+                            <StimrxExpressionEditor bind:expression={child} editor={editor} path={[...path, "children", i]} bind:asset_cache={asset_cache} editor_prescription={editor_prescription}/>
     	                {/each}
                     </td>
 	        </tr>
@@ -188,7 +188,7 @@
                     </td>
                     <td>
                         {#each expression.children as child, i}
- 	                    <StimrxExpressionEditor bind:expression={child} editor={editor} path={[...path, "children", i]} bind:asset_cache={asset_cache}/>
+ 	                    <StimrxExpressionEditor bind:expression={child} editor={editor} path={[...path, "children", i]} bind:asset_cache={asset_cache} editor_prescription={editor_prescription}/>
     	                {/each}
                     </td>
 	        </tr>
@@ -224,7 +224,7 @@
 	{/if}
         <tt>{expression.name}&nbsp;=&nbsp;</tt>
         {#if view_selected === "expand"}
-            <StimrxExpressionEditor bind:expression={expression.value} editor={editor} path={[...path, "value"]} bind:asset_cache={asset_cache}/>
+            <StimrxExpressionEditor bind:expression={expression.value} editor={editor} path={[...path, "value"]} bind:asset_cache={asset_cache} editor_prescription={editor_prescription}/>
         {/if}
     {:else if stimrx_editor.stimrx_editor_prescription__is_type(expression)}
         <i>Prescription</i>
@@ -316,7 +316,7 @@
 	        </tr>
                 <tr>
                     <td>
-                        <StimrxExpressionEditor expression={rx.expression} editor={expression} path={[...path, "rxs", rx_i, "expression"]} bind:asset_cache={asset_cache}/>
+                        <StimrxExpressionEditor expression={rx.expression} editor={expression} path={[...path, "rxs", rx_i, "expression"]} bind:asset_cache={asset_cache} editor_prescription={editor_prescription}/>
                     </td>
                 </tr>
             {/each}
