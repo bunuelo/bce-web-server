@@ -21,11 +21,8 @@
 
     let evaluation = null;
     
-    let left_eye_canvas= null;
-    var left_eye_canvas_ctx = null;
-    
+    let left_eye_canvas  = null;
     let right_eye_canvas = null;
-    var right_eye_canvas_ctx = null;
 
     let left_eye_total_stimulus_count = 0;
     let left_eye_total_response_count = 0;
@@ -34,8 +31,8 @@
     
     let show_details = false;
     
-    function update_eye(canvas, ctx, eye_index) {
-	let stats = bce_canvas_render.bce_canvas_render__evaluation_eye(canvas, ctx, $user_color_theme, evaluation, eye_index);
+    function update_eye(canvas, eye_index) {
+	let stats = bce_canvas_render.bce_canvas_render__evaluation_eye(canvas, $user_color_theme, evaluation, eye_index);
 	if (eye_index == 0) {
             left_eye_total_stimulus_count = stats["eye_total_stimulus_count"];
             left_eye_total_response_count = stats["eye_total_response_count"];
@@ -50,16 +47,12 @@
 	if (left_eye_canvas === null || right_eye_canvas === null) {
 	    return;
 	}
-        if (left_eye_canvas_ctx == null) {
-            left_eye_canvas_ctx  = left_eye_canvas.getContext("2d");
-            right_eye_canvas_ctx = right_eye_canvas.getContext("2d");
-        }
 	left_eye_canvas.width   = 0.25 * window.innerWidth;
 	left_eye_canvas.height  = 0.25 * window.innerWidth;
 	right_eye_canvas.width  = 0.25 * window.innerWidth;
 	right_eye_canvas.height = 0.25 * window.innerWidth;
-        update_eye(left_eye_canvas, left_eye_canvas_ctx, 0)
-        update_eye(right_eye_canvas, right_eye_canvas_ctx, 1)
+        update_eye(left_eye_canvas, 0)
+        update_eye(right_eye_canvas, 1)
     }
     
     async function on_asset_select(asset) {

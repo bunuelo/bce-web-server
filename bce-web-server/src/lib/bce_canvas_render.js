@@ -3,7 +3,8 @@ import { user_color_theme } from './bce_stores.js'
 import BceSession from "$lib/bce_session.js";
 let bce_session = new BceSession();
 
-function bce_canvas_render__draw_radial_eye(canvas, ctx, color_theme) {
+function bce_canvas_render__draw_radial_eye(canvas, color_theme) {
+    let ctx = canvas.getContext("2d");
     var color_background;
     var color_axes;
     if (color_theme == "dark") {
@@ -44,7 +45,8 @@ function bce_canvas_render__draw_radial_eye(canvas, ctx, color_theme) {
     }
 }
 
-function bce_canvas_render__evaluation_eye_data(canvas, ctx, color_theme, evaluation, eye_index, draw_empty_responses=true) {
+function bce_canvas_render__evaluation_eye_data(canvas, color_theme, evaluation, eye_index, draw_empty_responses=true) {
+    let ctx = canvas.getContext("2d");
     var color_background;
     var color_axes;
     var color_can_see;
@@ -130,9 +132,9 @@ function bce_canvas_render__evaluation_eye_data(canvas, ctx, color_theme, evalua
     };
 }
 
-function bce_canvas_render__evaluation_eye(canvas, ctx, color_theme, evaluation, eye_index) {
-    bce_canvas_render__draw_radial_eye(canvas, ctx, color_theme);
-    return bce_canvas_render__evaluation_eye_data(canvas, ctx, color_theme, evaluation, eye_index);
+function bce_canvas_render__evaluation_eye(canvas, color_theme, evaluation, eye_index) {
+    bce_canvas_render__draw_radial_eye(canvas, color_theme);
+    return bce_canvas_render__evaluation_eye_data(canvas, color_theme, evaluation, eye_index);
 }
 
 
@@ -341,18 +343,6 @@ function bce_canvas_render__light_projection(canvas, color_theme, light_projecti
     } else {
         color_from_triangle = [223, 223, 223];
     }
-    
-    var eye_total_stimulus_count = 0;
-    var eye_total_response_count = 0;
-    
-    //console.log("update_eye: beginning.  eye_index = " + eye_index);
-    
-    const center_x             = 0.5 * canvas.width;
-    const center_y             = 0.5 * canvas.height;
-    const maximum_alpha_radius = 0.5 * canvas.height - 1;
-    
-    const maximum_alpha = 45;
-    const alpha_resolution = 5;
     
     for (var i = 0; i < light_projection.triangles.length; i ++) {
 	let triangle_projection = light_projection.triangles[i];

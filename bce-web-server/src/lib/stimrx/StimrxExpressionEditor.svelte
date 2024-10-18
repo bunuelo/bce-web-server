@@ -116,7 +116,7 @@
 	light_projection_canvas.width = 0.25 * window.innerWidth;
 	light_projection_canvas.height = 0.25 * window.innerWidth;
 	let ctx = light_projection_canvas.getContext("2d");
-   	bce_canvas_render.bce_canvas_render__draw_radial_eye(light_projection_canvas, ctx, $user_color_theme);
+   	bce_canvas_render.bce_canvas_render__draw_radial_eye(light_projection_canvas, $user_color_theme);
 	if (editor !== null) {
 	    for (var i = 0; i < editor.evaluations.length; i ++) {
 		let editor_evaluation = editor.evaluations[i];
@@ -124,14 +124,14 @@
 		    if (editor_evaluation.enable_left_eye_overlay) {
 			let evaluation = await get_json_asset(editor_evaluation.asset_name);
 			if (light_projection_canvas !== null) {
-			    bce_canvas_render.bce_canvas_render__evaluation_eye_data(light_projection_canvas, ctx, $user_color_theme, evaluation, 0, false);
+			    bce_canvas_render.bce_canvas_render__evaluation_eye_data(light_projection_canvas, $user_color_theme, evaluation, 0, false);
 			}
 		    }
 		} else if (stimrx.stimrx_right_eye_light_projection__is_type(expression)) {
 		    if (editor_evaluation.enable_right_eye_overlay) {
 			let evaluation = await get_json_asset(editor_evaluation.asset_name);
 			if (light_projection_canvas !== null) {
-			    bce_canvas_render.bce_canvas_render__evaluation_eye_data(light_projection_canvas, ctx, $user_color_theme, evaluation, 1, false);
+			    bce_canvas_render.bce_canvas_render__evaluation_eye_data(light_projection_canvas, $user_color_theme, evaluation, 1, false);
 			}
 		    }
 		}
