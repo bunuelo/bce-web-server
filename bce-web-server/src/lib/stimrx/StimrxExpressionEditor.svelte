@@ -242,6 +242,36 @@
 	        </option>
             </select>
 	{/if}
+        <table>
+            <tr>
+	        <td>
+                    <i>Prescription&nbsp;{rx_i + 1}</i>
+                </td>
+            </tr>
+	    <tr>
+	        <td>
+	            <a href="#" on:click|preventDefault={async function() {await on_click_add_evaluation(rx_i);}}>
+         	        {bce_lang($user_language, "component_stimrx_expression_editor_label_add_evaluation")}
+	            </a>
+		</td>>
+            </tr>
+	    {#each rx.evaluations as evaluation, j}
+	        <tr>
+	            <td>
+	                {#await get_json_asset(evaluation.asset_name)}
+	                    ...waiting
+	                {:then json_asset}
+	                    {bce_lang($user_language, "component_stimrx_expression_editor_label_evaluation")}&nbsp;{j + 1}
+ 	                {:catch error}
+	                    {error.message}
+	                {/await}
+	                <a href="#" on:click|preventDefault={async function () {await on_click_remove_evaluation(rx_i, j);}}>
+	                    {bce_lang($user_language, "component_stimrx_expression_editor_label_remove_evaluation")}
+	                </a>
+		    </td>
+		</tr>
+	    {/each}
+        </table>
         {#if view_selected === "expand"}
             expression={expression}
             <StimrxExpressionEditor bind:expression={expression.expression} editor={editor} path={[...path, "expression"]} bind:asset_cache={asset_cache} bind:editor_prescription={expression}/>
@@ -286,36 +316,6 @@
                 </td>
             </tr>
 	    {#each editor.rxs as rx, rx_i}
-	        <tr>
-	            <td>
-                        <i>Prescription&nbsp;{rx_i + 1}</i>
-                    </td>
-                </tr>
-	        <tr>
-	            <td>
-		        <a href="#" on:click|preventDefault={async function() {await on_click_add_evaluation(rx_i);}}>
-			    {bce_lang($user_language, "component_stimrx_expression_editor_label_add_evaluation")}
-		        </a>
-  	                <table>
-			    {#each rx.evaluations as evaluation, j}
-		                <tr>
-	                            <td>
-	                                {#await get_json_asset(evaluation.asset_name)}
-	                                    ...waiting
-	                                {:then json_asset}
-	                                    {bce_lang($user_language, "component_stimrx_expression_editor_label_evaluation")}&nbsp;{j + 1}
- 	                                {:catch error}
-	                                    {error.message}
-	                                {/await}
-	                                <a href="#" on:click|preventDefault={async function () {await on_click_remove_evaluation(rx_i, j);}}>
-	                                    {bce_lang($user_language, "component_stimrx_expression_editor_label_remove_evaluation")}
-	                                </a>
-		                    </td>
-		                </tr>
-	                    {/each}
-		        </table>
-		    </td>
-	        </tr>
                 <tr>
                     <td>
                         <StimrxExpressionEditor expression={rx} editor={expression} path={[...path, "rxs", rx_i, "expression"]} bind:asset_cache={asset_cache} bind:editor_prescription={editor_prescription}/>
