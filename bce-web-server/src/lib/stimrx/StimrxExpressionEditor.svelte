@@ -117,6 +117,10 @@
 	light_projection_canvas.height = 0.25 * window.innerWidth;
 	let ctx = light_projection_canvas.getContext("2d");
    	bce_canvas_render.bce_canvas_render__draw_radial_eye(light_projection_canvas, $user_color_theme);
+	if (stimrx.stimrx_light_projection__is_type(expression)) {
+	    let light_projection = expression;
+	    bce_canvas_render.bce_canvas_render__light_projection(light_projection_canvas, $user_color_theme, light_projection);
+	}
 	if (editor !== null) {
 	    for (var i = 0; i < editor.evaluations.length; i ++) {
 		let editor_evaluation = editor.evaluations[i];
@@ -135,13 +139,6 @@
 			}
 		    }
 		}
-	    }
-	    if (stimrx.stimrx_light_projection__is_type(expression)) {
-		console.log("rendering light projection in render canvas.");
-		let light_projection = expression;
-		bce_canvas_render.bce_canvas_render__light_projection(light_projection_canvas, $user_color_theme, light_projection);
-	    } else {
-		console.log("expression is not light projection in render canvas.");
 	    }
 	    var blind_spots = null;
 	    if (stimrx.stimrx_left_eye_light_projection__is_type(expression)) {
