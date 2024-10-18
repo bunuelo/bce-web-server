@@ -122,8 +122,8 @@
 	    bce_canvas_render.bce_canvas_render__light_projection(light_projection_canvas, $user_color_theme, light_projection);
 	}
 	if (editor !== null) {
-	    for (var i = 0; i < editor.evaluations.length; i ++) {
-		let editor_evaluation = editor.evaluations[i];
+	    for (var i = 0; i < editor.rxs[0].evaluations.length; i ++) {
+		let editor_evaluation = editor.rxs[0].evaluations[i];
 		if (stimrx.stimrx_left_eye_light_projection__is_type(expression)) {
 		    if (editor_evaluation.enable_left_eye_overlay) {
 			let evaluation = await get_json_asset(editor_evaluation.asset_name);
@@ -142,9 +142,9 @@
 	    }
 	    var blind_spots = null;
 	    if (stimrx.stimrx_left_eye_light_projection__is_type(expression)) {
-		blind_spots = editor.left_eye_blind_spots;
+		blind_spots = editor.rxs[0].left_eye_blind_spots;
 	    } else if (stimrx.stimrx_right_eye_light_projection__is_type(expression)) {
-		blind_spots = editor.right_eye_blind_spots;
+		blind_spots = editor.rxs[0].right_eye_blind_spots;
 	    }
 	    if (blind_spots !== null) {
 		for (var i = 0; i < blind_spots.length; i ++) {
@@ -264,30 +264,30 @@
         console.log("Evaluation asset selected: " + asset.name + " (" + asset.file_name + ")");
 	if (editor !== null) {
 	    let editor_evaluation = stimrx_editor.new_stimrx_editor_evaluation(asset.name);
-	    editor.evaluations.push(editor_evaluation);
+	    editor.rxs[0].evaluations.push(editor_evaluation);
             await changed_rx_editor_state();
 	}
 	minimize_evaluation_asset_selector = true;
     };
 
     async function on_click_remove_evaluation(evaluation_index) {
-	editor.evaluations.splice(evaluation_index, 1);
+	editor.rxs[0].evaluations.splice(evaluation_index, 1);
         await changed_rx_editor_state();
     }
   
     async function on_click_remove_blind_spot(eye_index, blind_spot_index) {
         console.log("remove blind spot clicked.");
 	if (eye_index == 0) {
-	    let blind_spot = editor.left_eye_blind_spots[blind_spot_index];
+	    let blind_spot = editor.rxs[0].left_eye_blind_spots[blind_spot_index];
 	    let blind_spot_canvas = bce_sprite.get_sprite_canvas(blind_spot.canvas_id);
 	    blind_spot_canvas.remove();
-	    editor.left_eye_blind_spots.splice(blind_spot_index, 1);
+	    editor.rxs[0].left_eye_blind_spots.splice(blind_spot_index, 1);
             await changed_rx_editor_state();
 	} else if (eye_index == 1) {
-	    let blind_spot = editor.right_eye_blind_spots[blind_spot_index];
+	    let blind_spot = editor.rxs[0].right_eye_blind_spots[blind_spot_index];
 	    let blind_spot_canvas = bce_sprite.get_sprite_canvas(blind_spot.canvas_id);
 	    blind_spot_canvas.remove();
-	    editor.right_eye_blind_spots.splice(blind_spot_index, 1);
+	    editor.rxs[0].right_eye_blind_spots.splice(blind_spot_index, 1);
             await changed_rx_editor_state();
 	} else {
 	    console.log("invalid eye index.");
@@ -298,9 +298,9 @@
         console.log("remove blind spot clicked.");
 	var blind_spot;
 	if (eye_index == 0) {
-	    blind_spot = editor.left_eye_blind_spots[blind_spot_index];
+	    blind_spot = editor.rxs[0].left_eye_blind_spots[blind_spot_index];
 	} else if (eye_index == 1) {
-	    blind_spot = editor.right_eye_blind_spots[blind_spot_index];
+	    blind_spot = editor.rxs[0].right_eye_blind_spots[blind_spot_index];
 	} else {
 	    console.log("invalid eye index.");
 	    return;
@@ -318,12 +318,12 @@
 	if (editor !== null) {
 	    if (stimrx.stimrx_left_eye_light_projection__is_type(expression)) {
 		let editor_blind_spot = stimrx_editor.new_default_left_eye_stimrx_editor_blind_spot(editor);
-		editor.left_eye_blind_spots.push(editor_blind_spot);
+		editor.rxs[0].left_eye_blind_spots.push(editor_blind_spot);
 		await changed_rx_editor_state();
 		console.log("added blind spot to left eye.");
 	    } else if (stimrx.stimrx_right_eye_light_projection__is_type(expression)) {
 		let editor_blind_spot = stimrx_editor.new_default_right_eye_stimrx_editor_blind_spot(editor);
-		editor.right_eye_blind_spots.push(editor_blind_spot);
+		editor.rxs[0].right_eye_blind_spots.push(editor_blind_spot);
 		await changed_rx_editor_state();
 		console.log("added blind spot to right eye.");
 	    }
@@ -464,7 +464,7 @@
 	    </div>
             {#if editor !== null}
                 <table>
-  	            {#each editor.evaluations as evaluation, j}
+  	            {#each editor.rxs[0].evaluations as evaluation, j}
 	                <tr>
 		            <td>
                                 {#if stimrx.stimrx_left_eye_light_projection__is_type(expression)}
@@ -484,7 +484,7 @@
 			</td>
 		    </tr>
                     {#if stimrx.stimrx_left_eye_light_projection__is_type(expression)}
-  	                {#each editor.left_eye_blind_spots as blind_spot, j}
+  	                {#each editor.rxs[0].left_eye_blind_spots as blind_spot, j}
 	                    <tr>
 		                <td>
                                     <input type="checkbox" id={"blind_spot_checkbox_" + path + j} bind:checked={blind_spot.enable} on:change|preventDefault={async function (event) {await on_change_blind_spot_checkbox(event, j);}}>
@@ -505,7 +505,7 @@
 		            </tr>
   	                {/each}
                     {:else if stimrx.stimrx_right_eye_light_projection__is_type(expression)}
-  	                {#each editor.right_eye_blind_spots as blind_spot, j}
+  	                {#each editor.rxs[0].right_eye_blind_spots as blind_spot, j}
 	                    <tr>
 		                <td>
          	                    <input type="checkbox" id={"blind_spot_checkbox_" + path + j} bind:checked={blind_spot.enable} on:change|preventDefault={async function (event) {await on_change_blind_spot_checkbox(event, j);}}>
@@ -569,7 +569,7 @@
 	    <tr>
 	        <td>
   	            <table>
-			{#each editor.evaluations as evaluation, j}
+			{#each editor.rxs[0].evaluations as evaluation, j}
 		            <tr>
 	                        <td>
 	                            {#await get_json_asset(evaluation.asset_name)}

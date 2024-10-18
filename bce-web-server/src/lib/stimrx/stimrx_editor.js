@@ -15,12 +15,7 @@ function new_stimrx_editor() {
 	],
 	"meta": {
 	},
-	"evaluations": [
-	],
-	"left_eye_blind_spots": [],
-	"right_eye_blind_spots": [],
 	"canvas_index": 0,
-	"drag_canvas_id": null,
 	"show_view_options": false,
     };
 }
@@ -56,6 +51,10 @@ function new_stimrx_editor_prescription(expression) {
     return {
 	"type": "EditorPrescription",
 	"expression": expression,
+	"evaluations": [
+	],
+	"left_eye_blind_spots": [],
+	"right_eye_blind_spots": [],
     };
 }
 
