@@ -120,7 +120,7 @@
 	if (editor !== null) {
 	    if (stimrx.stimrx_light_projection__is_type(expression)) {
 		let light_projection = expression;
-		if (stimrx.stimrx_light_projection__is_type(light_projection_canvas.light_projection)) {
+		if (stimrx.stimrx_light_projection__is_type(light_projection)) {
 		    bce_canvas_render.bce_canvas_render__light_projection(light_projection_canvas, $user_color_theme, light_projection);
 		}
 	    }
@@ -141,12 +141,6 @@
 			}
 		    }
 		}
-	    }
-	    if (stimrx.stimrx_light_projection__is_type(light_projection_canvas.light_projection)) {
-		console.log("Rendering light_projection_canvas.light_projection");
-		bce_canvas_render.bce_canvas_render__light_projection(light_projection_canvas, $user_color_theme, light_projection_canvas.light_projection);
-	    } else {
-		console.log("Not rendering light_projection_canvas.light_projection because not LightProjection");
 	    }
 	    var blind_spots = null;
 	    if (stimrx.stimrx_left_eye_light_projection__is_type(expression)) {
