@@ -25,6 +25,7 @@
     export let editor = null;
     export let path = [];
     export let asset_cache;
+    export let editor_prescription = null;
 
     let view_selected = "expand";
 
@@ -241,10 +242,10 @@
             </select>
 	{/if}
         {#if view_selected === "expand"}
-            <StimrxExpressionEditor bind:expression={expression.expression} editor={editor} path={[...path, "expression"]} bind:asset_cache={asset_cache}/>
+            <StimrxExpressionEditor bind:expression={expression.expression} editor={editor} path={[...path, "expression"]} bind:asset_cache={asset_cache} editor_prescription={expression}/>
         {/if}
     {:else if stimrx.stimrx_light_projection__is_type(expression)}
-        <StimrxLightProjectionEditor expression={expression} editor={editor} path={path} bind:asset_cache={asset_cache}/>
+        <StimrxLightProjectionEditor expression={expression} editor={editor} path={path} bind:asset_cache={asset_cache} editor_prescription={editor_prescription}/>
     {:else if Number.isFinite(expression)}
         <i>Number</i>
         {#if editor !== null && editor.show_view_options}
