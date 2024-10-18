@@ -137,10 +137,11 @@
 		}
 	    }
 	    if (stimrx.stimrx_light_projection__is_type(expression)) {
+		console.log("rendering light projection in render canvas.");
 		let light_projection = expression;
-		if (stimrx.stimrx_light_projection__is_type(light_projection)) {
-		    bce_canvas_render.bce_canvas_render__light_projection(light_projection_canvas, $user_color_theme, light_projection);
-		}
+		bce_canvas_render.bce_canvas_render__light_projection(light_projection_canvas, $user_color_theme, light_projection);
+	    } else {
+		console.log("expression is not light projection in render canvas.");
 	    }
 	    var blind_spots = null;
 	    if (stimrx.stimrx_left_eye_light_projection__is_type(expression)) {
