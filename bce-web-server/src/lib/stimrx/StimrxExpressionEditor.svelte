@@ -243,6 +243,7 @@
             </select>
 	{/if}
         {#if view_selected === "expand"}
+            expression={expression}
             <StimrxExpressionEditor bind:expression={expression.expression} editor={editor} path={[...path, "expression"]} bind:asset_cache={asset_cache} bind:editor_prescription={expression}/>
         {/if}
     {:else if stimrx.stimrx_light_projection__is_type(expression)}
