@@ -216,7 +216,7 @@
         {#if view_selected === "expand"}
             <StimrxExpressionEditor bind:expression={expression.value} editor={editor} path={[...path, "value"]} bind:asset_cache={asset_cache}/>
         {/if}
-    {:else if stimrx.stimrx_editor_prescription__is_type(expression)}
+    {:else if stimrx_editor.stimrx_editor_prescription__is_type(expression)}
         <i>Prescription</i>
         {#if editor !== null && editor.show_view_options}
             <select bind:value={view_selected}>
