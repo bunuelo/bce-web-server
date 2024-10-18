@@ -179,6 +179,43 @@ function stimrx_left_eye_light_projection__is_type(x) {
 
 function new_default_stimrx_left_eye_light_projection() {
     var triangles = [];
+    let maximum_alpha = 45.0 * Math.PI / 180.0;
+    let resolution    = 2.5 * Math.PI / 180.0;
+    let alpha_count   = Math.round(maximum_alpha / resolution);
+    for (var i = 0; i < alpha_count - 1; i ++) {
+	let a0                  = i * resolution;
+	let a1                  = (i + 1) * resolution;
+	let a0_circumference    = 2.0 * Math.PI * alpha;
+	let a0_omega_count      = Math.round(a0_circumference / resolution);
+	let a1_circumference    = 2.0 * Math.PI * alpha;
+	let a1_omega_count      = Math.round(a1_circumference / resolution);
+	for (var j1 = 0; j1 < a1_omega_count; j1 ++) {
+	    let j1_next = (j1 + 1) % a1_omega_count;
+	    let j0      = Math.floor(j1      * a0_omega_count / a1_omega_count);
+	    let j0_next = Math.floor(j1_next * a0_omega_count / a1_omega_count);
+	    if (j0 == j0_next) {
+		// draw triangle
+		let a0_o  = j0      * 2.0 * Math.PI / a0_omega_count;
+		let a1_o0 = j1      * 2.0 * Math.PI / a1_omega_count;
+		let a1_o1 = j1_next * 2.0 * Math.PI / a1_omega_count;
+		triangles.push(new_stimrx_light_triangle(new_stimrx_light_angle(a0, a0_o),
+							 new_stimrx_light_angle(a1, a1_o0),
+							 new_stimrx_light_angle(a1, a1_o1)));
+	    } else {
+		// draw quadrilateral
+		let a0_o0 = j0      * 2.0 * Math.PI / a0_omega_count;
+		let a0_o1 = j0_next * 2.0 * Math.PI / a0_omega_count;
+		let a1_o0 = j1      * 2.0 * Math.PI / a1_omega_count;
+		let a1_o1 = j1_next * 2.0 * Math.PI / a1_omega_count;
+		triangles.push(new_stimrx_light_triangle(new_stimrx_light_angle(a0, a0_o0),
+							 new_stimrx_light_angle(a1, a1_o0),
+							 new_stimrx_light_angle(a1, a1_o1)));
+		triangles.push(new_stimrx_light_triangle(new_stimrx_light_angle(a0, a0_o0),
+							 new_stimrx_light_angle(a1, a1_o1),
+							 new_stimrx_light_angle(a1, a0_o1)));
+	    }
+	}
+    }
     return new_stimrx_left_eye_light_projection(triangles);
 }
 
