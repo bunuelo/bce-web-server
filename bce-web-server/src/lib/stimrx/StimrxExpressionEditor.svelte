@@ -153,6 +153,7 @@
 	        </option>
             </select>
 	{/if}
+        editor_prescription={editor_prescription}
         {#if view_selected === "expand"}
             <table>
                 <tr>
