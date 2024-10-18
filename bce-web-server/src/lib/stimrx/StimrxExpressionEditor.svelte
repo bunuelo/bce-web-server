@@ -277,7 +277,7 @@
 	    <tr>
 	        <td>
                     <i>Prescription Editor</i>
-	            <a href="#" on:click|preventDefault={on_click_add_prescription}}>
+	            <a href="#" on:click|preventDefault={on_click_add_prescription}>
 	                {bce_lang($user_language, "component_stimrx_expression_editor_label_add_prescription")}
 		    </a>
                 </td>
