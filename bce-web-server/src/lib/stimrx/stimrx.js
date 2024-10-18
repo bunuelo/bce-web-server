@@ -161,23 +161,7 @@ function stimrx_light_projection__is_type(x) {
 // LightProjection END
 
 
-// LeftEyeLightProjection BEGIN
-
-function stimrx_left_eye_light_projection__initialize(self, type, triangles) {
-    stimrx_light_projection__initialize(self, type, triangles);
-}
-
-function new_stimrx_left_eye_light_projection(triangles) {
-    var self = {};
-    stimrx_left_eye_light_projection__initialize(self, "LeftEyeLightProjection", triangles);
-    return self;
-}
-
-function stimrx_left_eye_light_projection__is_type(x) {
-    return x && typeof x === "object" && "type" in x && x.type === "LeftEyeLightProjection";
-};
-
-function new_default_stimrx_left_eye_light_projection() {
+function new_default_light_projection_triangles() {
     var triangles = [];
     let maximum_alpha = 45.0 * Math.PI / 180.0;
     let resolution    = 2.5 * Math.PI / 180.0;
@@ -231,6 +215,28 @@ function new_default_stimrx_left_eye_light_projection() {
 	    }
 	}
     }
+    return triangles;
+}
+
+
+// LeftEyeLightProjection BEGIN
+
+function stimrx_left_eye_light_projection__initialize(self, type, triangles) {
+    stimrx_light_projection__initialize(self, type, triangles);
+}
+
+function new_stimrx_left_eye_light_projection(triangles) {
+    var self = {};
+    stimrx_left_eye_light_projection__initialize(self, "LeftEyeLightProjection", triangles);
+    return self;
+}
+
+function stimrx_left_eye_light_projection__is_type(x) {
+    return x && typeof x === "object" && "type" in x && x.type === "LeftEyeLightProjection";
+};
+
+function new_default_stimrx_left_eye_light_projection() {
+    let triangles = new_default_light_projection_triangles();
     return new_stimrx_left_eye_light_projection(triangles);
 }
 
@@ -254,7 +260,7 @@ function stimrx_right_eye_light_projection__is_type(x) {
 };
 
 function new_default_stimrx_right_eye_light_projection() {
-    var triangles = [];
+    let triangles = new_default_light_projection_triangles();
     return new_stimrx_right_eye_light_projection(triangles);
 }
 
