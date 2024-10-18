@@ -332,6 +332,39 @@ function bce_canvas_render__blind_spot_point_canvas(canvas, total_left, total_to
     ctx.stroke();
 }
 
+function bce_canvas_render__light_projection(canvas, color_theme, light_projection) {
+    let ctx = canvas.getContext("2d");
+    
+    var color_background;
+    var color_axes;
+    var color_can_see;
+    var color_cannot_see;
+    if (color_theme == "dark") {
+        color_background = [0, 0, 0];
+        color_axes       = [63, 63, 63];
+        color_can_see    = [191, 191, 191];
+        color_cannot_see = [31, 31, 31];
+    } else {
+        color_background = [255, 255, 255];
+        color_axes       = [191, 191, 191];
+        color_can_see    = [63, 63, 63];
+        color_cannot_see = [223, 223, 223];
+    }
+    
+    var eye_total_stimulus_count = 0;
+    var eye_total_response_count = 0;
+    
+    //console.log("update_eye: beginning.  eye_index = " + eye_index);
+    
+    const center_x             = 0.5 * canvas.width;
+    const center_y             = 0.5 * canvas.height;
+    const maximum_alpha_radius = 0.5 * canvas.height - 1;
+    
+    const maximum_alpha = 45;
+    const alpha_resolution = 5;
+    
+}
+
 export const bce_canvas_render = {
     bce_canvas_render__alpha_omega_to_x: bce_canvas_render__alpha_omega_to_x,
     bce_canvas_render__alpha_omega_to_y: bce_canvas_render__alpha_omega_to_y,
@@ -342,4 +375,5 @@ export const bce_canvas_render = {
     bce_canvas_render__evaluation_eye: bce_canvas_render__evaluation_eye,
     bce_canvas_render__blind_spot_canvas: bce_canvas_render__blind_spot_canvas,
     bce_canvas_render__blind_spot_point_canvas: bce_canvas_render__blind_spot_point_canvas,
+    bce_canvas_render__light_projection: bce_canvas_render__light_projection,
 };
