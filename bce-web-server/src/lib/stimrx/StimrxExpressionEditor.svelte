@@ -247,7 +247,7 @@
 	            <a href="#" on:click|preventDefault={async function() {await on_click_add_evaluation();}}>
          	        {bce_lang($user_language, "component_stimrx_expression_editor_label_add_evaluation")}
 	            </a>
-		</td>>
+		</td>
             </tr>
             {#if editor_prescription !== null}
 	        {#each editor_prescription.evaluations as evaluation, j}
