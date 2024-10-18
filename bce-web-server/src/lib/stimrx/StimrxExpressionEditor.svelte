@@ -31,7 +31,6 @@
 
     let minimize_evaluation_asset_selector = true;
     let selected_evaluation = null;
-    let selected_evaluation_rx_i = null;
     
     $: (function () {
         if (editor && view_selected) {
@@ -84,8 +83,7 @@
         show_more_details = true;
     }
 
-    async function on_click_add_evaluation(rx_i) {
-	selected_evaluation_rx_i = rx_i;
+    async function on_click_add_evaluation() {
 	minimize_evaluation_asset_selector = false;
     }
 
@@ -111,18 +109,20 @@
     }
 
     let on_evaluation_asset_select = async function (asset) {
-        console.log("Evaluation asset selected for rx " + selected_evaluation_rx_i + ": " + asset.name + " (" + asset.file_name + ")");
+        console.log("Evaluation asset selected: " + asset.name + " (" + asset.file_name + ")");
 	minimize_evaluation_asset_selector = true;
-	if (editor !== null) {
+	if (editor !== null && editor_prescription !== null) {
 	    let editor_evaluation = stimrx_editor.new_stimrx_editor_evaluation(asset.name);
-	    editor.rxs[selected_evaluation_rx_i].evaluations.push(editor_evaluation);
+	    editor_prescription.evaluations.push(editor_evaluation);
             await changed_rx_editor_state();
 	}
     };
 
-    async function on_click_remove_evaluation(rx_i, evaluation_index) {
-	editor.rxs[rx_i].evaluations.splice(evaluation_index, 1);
-        await changed_rx_editor_state();
+    async function on_click_remove_evaluation(evaluation_index) {
+	if (editor_prescription !== null) {
+	    editor_prescription.evaluations.splice(evaluation_index, 1);
+            await changed_rx_editor_state();
+	}
     }
   
 </script>
@@ -245,12 +245,12 @@
         <table>
             <tr>
 	        <td>
-                    <i>Prescription&nbsp;{rx_i + 1}</i>
+                    <i>Prescription</i>
                 </td>
             </tr>
 	    <tr>
 	        <td>
-	            <a href="#" on:click|preventDefault={async function() {await on_click_add_evaluation(rx_i);}}>
+	            <a href="#" on:click|preventDefault={async function() {await on_click_add_evaluation();}}>
          	        {bce_lang($user_language, "component_stimrx_expression_editor_label_add_evaluation")}
 	            </a>
 		</td>>
@@ -265,7 +265,7 @@
  	                {:catch error}
 	                    {error.message}
 	                {/await}
-	                <a href="#" on:click|preventDefault={async function () {await on_click_remove_evaluation(rx_i, j);}}>
+	                <a href="#" on:click|preventDefault={async function () {await on_click_remove_evaluation(j);}}>
 	                    {bce_lang($user_language, "component_stimrx_expression_editor_label_remove_evaluation")}
 	                </a>
 		    </td>
