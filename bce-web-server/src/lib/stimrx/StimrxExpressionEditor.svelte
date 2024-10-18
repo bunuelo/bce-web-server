@@ -318,7 +318,7 @@
 	        </tr>
                 <tr>
                     <td>
-                        <StimrxExpressionEditor expression={rx.expression} editor={expression} path={[...path, "rxs", rx_i, "expression"]} bind:asset_cache={asset_cache} bind:editor_prescription={editor_prescription}/>
+                        <StimrxExpressionEditor expression={rx} editor={expression} path={[...path, "rxs", rx_i, "expression"]} bind:asset_cache={asset_cache} bind:editor_prescription={editor_prescription}/>
                     </td>
                 </tr>
             {/each}
