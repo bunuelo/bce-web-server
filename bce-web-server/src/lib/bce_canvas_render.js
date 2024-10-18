@@ -94,7 +94,7 @@ function bce_canvas_render__evaluation_eye_data(canvas, color_theme, evaluation,
 			ctx.arc(center_x + response_radial_distance * Math.cos(response.stimulus.direction.omega),
 				center_y + response_radial_distance * Math.sin(response.stimulus.direction.omega),
 				maximum_alpha_radius * response_radius / maximum_alpha, 0, 2 * Math.PI);
-			ct.xfill();
+			ctx.fill();
 			ctx.stroke();
 		    }
                 } else {
