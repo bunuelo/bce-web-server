@@ -198,13 +198,13 @@
 	    }
 	}
     }
-
+    
     $: (async function () {
-	if (light_projection_canvas !== null && editor !== null) {
+	if (light_projection_canvas !== null && editor !== null && stimrx.stimrx_light_projection__is_type(expression)) {
 	    await redraw_canvas();
 	}
     })();
-
+    
     async function get_json_asset(name) {
 	if (! (name in asset_cache)) {
 	    let fetched_asset = await bce_asset.fetch_asset(name);
