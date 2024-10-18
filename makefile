@@ -13,6 +13,7 @@ SOURCE_FILES = \
     bce-web-server/src/lib/AssetList.svelte \
     bce-web-server/src/lib/AssetSelector.svelte \
     bce-web-server/src/lib/stimrx/stimrx.js \
+    bce-web-server/src/lib/stimrx/stimrx_editor.js \
     bce-web-server/src/lib/stimrx/StimrxExpressionEditor.svelte \
     bce-web-server/src/routes/Edit.svelte \
     bce-web-server/src/routes/Logo.svelte \

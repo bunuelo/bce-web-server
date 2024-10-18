@@ -591,7 +591,7 @@
             <tr>
                 <td>
 		    {#if expression.rxs.length > 0}
-                        <StimrxExpressionEditor expression={expression.rxs[0]} editor={expression} path={[...path, "rxs", 0]} bind:asset_cache={asset_cache}/>
+                        <StimrxExpressionEditor expression={expression.rxs[0].expression} editor={expression} path={[...path, "rxs", 0, "expression"]} bind:asset_cache={asset_cache}/>
                     {/if}
                 </td>
             </tr>
