@@ -111,12 +111,12 @@
 
     let on_evaluation_asset_select = async function (asset) {
         console.log("Evaluation asset selected for rx " + selected_evaluation_rx_i + ": " + asset.name + " (" + asset.file_name + ")");
+	minimize_evaluation_asset_selector = true;
 	if (editor !== null) {
 	    let editor_evaluation = stimrx_editor.new_stimrx_editor_evaluation(asset.name);
 	    editor.rxs[selected_evaluation_rx_i].evaluations.push(editor_evaluation);
             await changed_rx_editor_state();
 	}
-	minimize_evaluation_asset_selector = true;
     };
 
     async function on_click_remove_evaluation(rx_i, evaluation_index) {
