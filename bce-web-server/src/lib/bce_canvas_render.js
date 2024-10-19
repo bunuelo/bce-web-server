@@ -388,15 +388,15 @@ function bce_canvas_render__light_projection(canvas, color_theme, light_projecti
     if (color_theme == "dark") {
         //color_from_foreground = [31, 255, 31, 0.75];
         //color_from_background = [31, 255, 31, 0.5];
-        color_from_foreground = [127, 31, 31, 0.75];
-        color_from_background = [127, 31, 31, 0.5];
+        color_from_foreground = [31, 31, 127, 0.75];
+        color_from_background = [31, 31, 127, 0.5];
         color_to_foreground = [31, 127, 31, 0.75];
         color_to_background = [31, 127, 31, 0.5];
     } else {
         //color_from_foreground = [223, 223, 223, 0.75];
         //color_from_background = [223, 223, 223, 0.5];
-        color_from_foreground = [127, 223, 223, 0.75];
-        color_from_background = [127, 223, 223, 0.5];
+        color_from_foreground = [223, 223, 127, 0.75];
+        color_from_background = [223, 223, 127, 0.5];
         color_to_foreground = [223, 127, 223, 0.75];
         color_to_background = [223, 127, 223, 0.5];
     }
