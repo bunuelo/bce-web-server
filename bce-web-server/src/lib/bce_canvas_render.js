@@ -64,11 +64,11 @@ function bce_canvas_render__evaluation_eye_data(canvas, color_theme, evaluation,
     var color_can_see;
     var color_cannot_see;
     if (color_theme == "dark") {
-        color_can_see    = [191, 191, 191, 1.0];
-        color_cannot_see = [31, 31, 31, 1.0];
+        color_can_see    = [255, 255, 255, 0.5];
+        color_cannot_see = [0, 0, 0, 0.5];
     } else {
-        color_can_see    = [63, 63, 63, 1.0];
-        color_cannot_see = [223, 223, 223, 1.0];
+        color_can_see    = [0, 0, 0, 0.5];
+        color_cannot_see = [255, 255, 255, 0.5];
     }
     
     var eye_total_stimulus_count = 0;
