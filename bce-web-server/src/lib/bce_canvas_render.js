@@ -376,7 +376,10 @@ function bce_canvas_render__light_triangle(ctx, foreground_color, background_col
     //console.log("(" + x0 + "," + y0 + ") -- (" + x1 + "," + y1 + ") -- (" + x2 + "," + y2 + ")");
 }
 
-function bce_canvas_render__light_projection(canvas, color_theme, light_projection) {
+function bce_canvas_render__light_projection(canvas, color_theme, light_projection, render_from, render_to) {
+    if (!render_from && !render_to) {
+	return;
+    }
     let ctx = canvas.getContext("2d");
     var color_from_foreground;
     var color_from_background;
@@ -401,8 +404,12 @@ function bce_canvas_render__light_projection(canvas, color_theme, light_projecti
 	let triangle_projection = light_projection.triangles[i];
 	let from_triangle = triangle_projection.from;
 	let to_triangle = triangle_projection.to;
-	bce_canvas_render__light_triangle(ctx, color_from_foreground, color_from_background, from_triangle);
-	bce_canvas_render__light_triangle(ctx, color_to_foreground, color_to_background, to_triangle);
+	if (render_from) {
+	    bce_canvas_render__light_triangle(ctx, color_from_foreground, color_from_background, from_triangle);
+	}
+	if (render_to) {
+	    bce_canvas_render__light_triangle(ctx, color_to_foreground, color_to_background, to_triangle);
+	}
     }
 }
 

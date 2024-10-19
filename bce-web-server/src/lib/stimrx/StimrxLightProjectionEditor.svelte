@@ -120,7 +120,16 @@
    	bce_canvas_render.bce_canvas_render__draw_radial_eye(light_projection_canvas, $user_color_theme);
 	if (stimrx.stimrx_light_projection__is_type(expression)) {
 	    let light_projection = expression;
-	    bce_canvas_render.bce_canvas_render__light_projection(light_projection_canvas, $user_color_theme, light_projection);
+	    var render_from      = false;
+	    var render_to        = false;
+	    if (stimrx.stimrx_left_eye_light_projection__is_type(expression)) {
+		render_from = prescription_editor.enable_left_eye_from;
+		render_to   = prescription_editor.enable_left_eye_to;
+	    } else if (stimrx.stimrx_right_eye_light_projection__is_type(expression)) {
+		render_from = prescription_editor.enable_right_eye_from;
+		render_to   = prescription_editor.enable_right_eye_to;
+	    }	    
+	    bce_canvas_render.bce_canvas_render__light_projection(light_projection_canvas, $user_color_theme, light_projection, render_from, render_to);
 	}
 	if (editor !== null && editor_prescription !== null) {
 	    for (var i = 0; i < editor_prescription.evaluations.length; i ++) {
