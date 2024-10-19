@@ -122,13 +122,15 @@
 	    let light_projection = expression;
 	    var render_from      = false;
 	    var render_to        = false;
-	    if (stimrx.stimrx_left_eye_light_projection__is_type(expression)) {
-		render_from = prescription_editor.enable_left_eye_from;
-		render_to   = prescription_editor.enable_left_eye_to;
-	    } else if (stimrx.stimrx_right_eye_light_projection__is_type(expression)) {
-		render_from = prescription_editor.enable_right_eye_from;
-		render_to   = prescription_editor.enable_right_eye_to;
-	    }	    
+	    if (editor_prescription !== null) {
+		if (stimrx.stimrx_left_eye_light_projection__is_type(expression)) {
+		    render_from = editor_prescription.enable_left_eye_from;
+		    render_to   = editor_prescription.enable_left_eye_to;
+		} else if (stimrx.stimrx_right_eye_light_projection__is_type(expression)) {
+		    render_from = editor_prescription.enable_right_eye_from;
+		    render_to   = editor_prescription.enable_right_eye_to;
+		}
+	    }
 	    bce_canvas_render.bce_canvas_render__light_projection(light_projection_canvas, $user_color_theme, light_projection, render_from, render_to);
 	}
 	if (editor !== null && editor_prescription !== null) {
