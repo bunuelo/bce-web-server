@@ -347,6 +347,35 @@ function bce_canvas_render__blind_spot_point_canvas(canvas, total_left, total_to
     ctx.stroke();
 }
 
+function bce_canvas_render__light_triangle(ctx, foreground_color, background_color, triangle) {
+    let a0 = from_triangle.a.alpha;
+    let o0 = from_triangle.a.omega;
+    let x0 = bce_canvas_render__alpha_omega_to_x(canvas.width, canvas.height, a0, o0);
+    let y0 = bce_canvas_render__alpha_omega_to_y(canvas.width, canvas.height, a0, o0);
+    
+    let a1 = from_triangle.b.alpha;
+    let o1 = from_triangle.b.omega;
+    let x1 = bce_canvas_render__alpha_omega_to_x(canvas.width, canvas.height, a1, o1);
+    let y1 = bce_canvas_render__alpha_omega_to_y(canvas.width, canvas.height, a1, o1);
+    
+    let a2 = from_triangle.c.alpha;
+    let o2 = from_triangle.c.omega;
+    let x2 = bce_canvas_render__alpha_omega_to_x(canvas.width, canvas.height, a2, o2);
+    let y2 = bce_canvas_render__alpha_omega_to_y(canvas.width, canvas.height, a2, o2);
+    
+    ctx.fillStyle = "rgba(" + background_color[0] + "," + background_color[1] + "," + background_color[2] + "," + background_color[3] + ")";
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "rgba(" + foreground_color[0] + "," + foreground_color[1] + "," + foreground_color[2] + "," + foreground_color[3] + ")";
+    ctx.beginPath();
+    ctx.moveTo(x0, y0);
+    ctx.lineTo(x1, y1);
+    ctx.lineTo(x2, y2);
+    ctx.lineTo(x0, y0);
+    ctx.fill();
+    ctx.stroke();
+    //console.log("(" + x0 + "," + y0 + ") -- (" + x1 + "," + y1 + ") -- (" + x2 + "," + y2 + ")");
+}
+
 function bce_canvas_render__light_projection(canvas, color_theme, light_projection) {
     let ctx = canvas.getContext("2d");
     
@@ -355,49 +384,25 @@ function bce_canvas_render__light_projection(canvas, color_theme, light_projecti
     if (color_theme == "dark") {
         //color_from_foreground = [31, 255, 31, 0.75];
         //color_from_background = [31, 255, 31, 0.5];
-        color_from_foreground = [31, 31, 31, 0.75];
-        color_from_background = [31, 31, 31, 0.5];
+        color_from_foreground = [127, 31, 31, 0.75];
+        color_from_background = [127, 31, 31, 0.5];
+        color_to_foreground = [31, 127, 31, 0.75];
+        color_to_background = [31, 127, 31, 0.5];
     } else {
         //color_from_foreground = [223, 223, 223, 0.75];
         //color_from_background = [223, 223, 223, 0.5];
-        color_from_foreground = [223, 223, 223, 0.75];
-        color_from_background = [223, 223, 223, 0.5];
+        color_from_foreground = [127, 223, 223, 0.75];
+        color_from_background = [127, 223, 223, 0.5];
+        color_to_foreground = [223, 127, 223, 0.75];
+        color_to_background = [223, 127, 223, 0.5];
     }
     
     for (var i = 0; i < light_projection.triangles.length; i ++) {
 	let triangle_projection = light_projection.triangles[i];
 	let from_triangle = triangle_projection.from;
 	let to_triangle = triangle_projection.to;
-	
-	(function () {
-	    let triangle = from_triangle;
-	    let a0 = from_triangle.a.alpha;
-	    let o0 = from_triangle.a.omega;
-	    let x0 = bce_canvas_render__alpha_omega_to_x(canvas.width, canvas.height, a0, o0);
-	    let y0 = bce_canvas_render__alpha_omega_to_y(canvas.width, canvas.height, a0, o0);
-	    
-	    let a1 = from_triangle.b.alpha;
-	    let o1 = from_triangle.b.omega;
-	    let x1 = bce_canvas_render__alpha_omega_to_x(canvas.width, canvas.height, a1, o1);
-	    let y1 = bce_canvas_render__alpha_omega_to_y(canvas.width, canvas.height, a1, o1);
-	    
-	    let a2 = from_triangle.c.alpha;
-	    let o2 = from_triangle.c.omega;
-	    let x2 = bce_canvas_render__alpha_omega_to_x(canvas.width, canvas.height, a2, o2);
-	    let y2 = bce_canvas_render__alpha_omega_to_y(canvas.width, canvas.height, a2, o2);
-
-	    ctx.fillStyle = "rgba(" + color_from_background[0] + "," + color_from_background[1] + "," + color_from_background[2] + "," + color_from_background[3] + ")";
-	    ctx.lineWidth = 1;
-	    ctx.strokeStyle = "rgba(" + color_from_foreground[0] + "," + color_from_foreground[1] + "," + color_from_foreground[2] + "," + color_from_foreground[3] + ")";
-	    ctx.beginPath();
-	    ctx.moveTo(x0, y0);
-	    ctx.lineTo(x1, y1);
-	    ctx.lineTo(x2, y2);
-	    ctx.lineTo(x0, y0);
-	    ctx.fill();
-	    ctx.stroke();
-	    //console.log("(" + x0 + "," + y0 + ") -- (" + x1 + "," + y1 + ") -- (" + x2 + "," + y2 + ")");
-	})();
+	bce_canvas_render__light_triangle(ctx, color_from_foreground, color_from_background, from_triangle);
+	bce_canvas_render__light_triangle(ctx, color_to_foreground, color_to_background, to_triangle);
     }
     
 }
