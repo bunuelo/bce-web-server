@@ -61,20 +61,14 @@ function bce_canvas_render__draw_radial_eye(canvas, color_theme) {
 
 function bce_canvas_render__evaluation_eye_data(canvas, color_theme, evaluation, eye_index, draw_empty_responses=true) {
     let ctx = canvas.getContext("2d");
-    var color_background;
-    var color_axes;
     var color_can_see;
     var color_cannot_see;
     if (color_theme == "dark") {
-        color_background = [0, 0, 0];
-        color_axes       = [63, 63, 63];
-        color_can_see    = [191, 191, 191];
-        color_cannot_see = [31, 31, 31];
+        color_can_see    = [191, 191, 191, 1.0];
+        color_cannot_see = [31, 31, 31, 1.0];
     } else {
-        color_background = [255, 255, 255];
-        color_axes       = [191, 191, 191];
-        color_can_see    = [63, 63, 63];
-        color_cannot_see = [223, 223, 223];
+        color_can_see    = [63, 63, 63, 1.0];
+        color_cannot_see = [223, 223, 223, 1.0];
     }
     
     var eye_total_stimulus_count = 0;
@@ -101,9 +95,9 @@ function bce_canvas_render__evaluation_eye_data(canvas, color_theme, evaluation,
                 const response_radial_distance = maximum_alpha_radius * response_alpha / maximum_alpha;
                 if (response.canSee == null) {
 		    if (draw_empty_responses) {
-			ctx.fillStyle   = "rgb(" + color_cannot_see[0] + "," + color_cannot_see[1] + "," + color_cannot_see[2] + ")";
+			ctx.fillStyle   = "rgba(" + color_cannot_see[0] + "," + color_cannot_see[1] + "," + color_cannot_see[2] + "," + color_cannot_see[3] + ")";
 			ctx.lineWidth = 1;
-			ctx.strokeStyle = "rgb(" + color_cannot_see[0] + "," + color_cannot_see[1] + "," + color_cannot_see[2] + ")";
+			ctx.strokeStyle = "rgba(" + color_cannot_see[0] + "," + color_cannot_see[1] + "," + color_cannot_see[2] + ")," + color_cannot_see[3] + ")";
 			ctx.beginPath();
 			ctx.arc(center_x + response_radial_distance * Math.cos(response.stimulus.direction.omega),
 				center_y + response_radial_distance * Math.sin(response.stimulus.direction.omega),
@@ -115,9 +109,9 @@ function bce_canvas_render__evaluation_eye_data(canvas, color_theme, evaluation,
                     eye_total_response_count ++;
                     //console.log("response_alpha = " + response_alpha + ", response_omega = " + response_omega + ", response_radius = " + response_radius);
                     if (response.canSee) {
-                        ctx.fillStyle   = "rgb(" + color_can_see[0] + "," + color_can_see[1] + "," + color_can_see[2] + ")";
+                        ctx.fillStyle   = "rgba(" + color_can_see[0] + "," + color_can_see[1] + "," + color_can_see[2] + "," + color_can_see[3] + ")";
 			ctx.lineWidth = 1;
-                        ctx.strokeStyle = "rgb(" + color_can_see[0] + "," + color_can_see[1] + "," + color_can_see[2] + ")";
+                        ctx.strokeStyle = "rgba(" + color_can_see[0] + "," + color_can_see[1] + "," + color_can_see[2] + "," + color_can_see[3] + ")";
                         ctx.beginPath();
                         ctx.arc(center_x + response_radial_distance * Math.cos(response.stimulus.direction.omega),
                                 center_y + response_radial_distance * Math.sin(response.stimulus.direction.omega),
@@ -125,9 +119,9 @@ function bce_canvas_render__evaluation_eye_data(canvas, color_theme, evaluation,
                         ctx.fill();
                         ctx.stroke();
                     } else {
-                        ctx.fillStyle = "rgb(" + color_cannot_see[0] + "," + color_cannot_see[1] + "," + color_cannot_see[2] + ")";
+                        ctx.fillStyle = "rgba(" + color_cannot_see[0] + "," + color_cannot_see[1] + "," + color_cannot_see[2] + "," + color_cannot_see[3] + ")";
 			ctx.lineWidth = 1;
-                        ctx.strokeStyle = "rgb(" + color_can_see[0] + "," + color_can_see[1] + "," + color_can_see[2] + ")";
+                        ctx.strokeStyle = "rgba(" + color_can_see[0] + "," + color_can_see[1] + "," + color_can_see[2] + "," + color_can_see[3] + ")";
                         ctx.beginPath();
                         ctx.arc(center_x + response_radial_distance * Math.cos(response.stimulus.direction.omega),
                                 center_y + response_radial_distance * Math.sin(response.stimulus.direction.omega),
