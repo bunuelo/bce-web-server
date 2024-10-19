@@ -350,18 +350,18 @@ function bce_canvas_render__blind_spot_point_canvas(canvas, total_left, total_to
 function bce_canvas_render__light_triangle(ctx, foreground_color, background_color, triangle) {
     let a0 = triangle.a.alpha;
     let o0 = triangle.a.omega;
-    let x0 = bce_canvas_render__alpha_omega_to_x(canvas.width, canvas.height, a0, o0);
-    let y0 = bce_canvas_render__alpha_omega_to_y(canvas.width, canvas.height, a0, o0);
+    let x0 = bce_canvas_render__alpha_omega_to_x(ctx.canvas.width, ctx.canvas.height, a0, o0);
+    let y0 = bce_canvas_render__alpha_omega_to_y(ctx.canvas.width, ctx.canvas.height, a0, o0);
     
     let a1 = triangle.b.alpha;
     let o1 = triangle.b.omega;
-    let x1 = bce_canvas_render__alpha_omega_to_x(canvas.width, canvas.height, a1, o1);
-    let y1 = bce_canvas_render__alpha_omega_to_y(canvas.width, canvas.height, a1, o1);
+    let x1 = bce_canvas_render__alpha_omega_to_x(ctx.canvas.width, ctx.canvas.height, a1, o1);
+    let y1 = bce_canvas_render__alpha_omega_to_y(ctx.canvas.width, ctx.canvas.height, a1, o1);
     
     let a2 = triangle.c.alpha;
     let o2 = triangle.c.omega;
-    let x2 = bce_canvas_render__alpha_omega_to_x(canvas.width, canvas.height, a2, o2);
-    let y2 = bce_canvas_render__alpha_omega_to_y(canvas.width, canvas.height, a2, o2);
+    let x2 = bce_canvas_render__alpha_omega_to_x(ctx.canvas.width, ctx.canvas.height, a2, o2);
+    let y2 = bce_canvas_render__alpha_omega_to_y(ctx.canvas.width, ctx.canvas.height, a2, o2);
     
     ctx.fillStyle = "rgba(" + background_color[0] + "," + background_color[1] + "," + background_color[2] + "," + background_color[3] + ")";
     ctx.lineWidth = 1;
