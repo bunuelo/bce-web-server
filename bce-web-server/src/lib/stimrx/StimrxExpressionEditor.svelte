@@ -125,10 +125,13 @@
     let on_evaluation_asset_select = async function (asset) {
         console.log("Evaluation asset selected: " + asset.name + " (" + asset.file_name + ")");
 	minimize_evaluation_asset_selector = true;
-	if (editor !== null && editor_prescription !== null) {
+	if (editor !== null && expression !== null && stimrx_editor.stimrx_editor_prescription__is_type(expression)) {
+	    let rx = expression;
 	    let editor_evaluation = stimrx_editor.new_stimrx_editor_evaluation(asset.name);
-	    editor_prescription.evaluations.push(editor_evaluation);
+	    rx.evaluations.push(editor_evaluation);
             await changed_rx_editor_state();
+	} else {
+	    console.log("Could not find rx to add evaluation.");
 	}
     };
 
