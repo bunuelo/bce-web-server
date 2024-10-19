@@ -87,6 +87,19 @@
 	minimize_evaluation_asset_selector = false;
     }
 
+    async function on_click_remove_prescription() {
+	if (editor !== null && editor_prescription !== null) {
+	    var i = 0;
+	    while (i < editor.rxs.length && editor.rxs[i] !== editor_prescription) {
+		i ++;
+	    }
+	    if (i < editor.rxs.length) {
+		editor.rxs.splice(i, 1);
+		await changed_rx_editor_state();
+	    }
+	}
+    }
+
     async function on_click_add_prescription() {
 	if (editor !== null) {
 	    editor.rxs.push(stimrx_editor.new_default_stimrx_editor_prescription());
@@ -227,7 +240,7 @@
             <StimrxExpressionEditor bind:expression={expression.value} editor={editor} path={[...path, "value"]} bind:asset_cache={asset_cache} bind:editor_prescription={editor_prescription}/>
         {/if}
     {:else if stimrx_editor.stimrx_editor_prescription__is_type(expression)}
-        <i>Prescription</i>
+        <i>{bce_lang($user_language, "component_stimrx_expression_editor_label_prescription")}</i>
         {#if editor !== null && editor.show_view_options}
             <select bind:value={view_selected}>
                 <option value="expand">
@@ -244,7 +257,10 @@
         <table>
 	    <tr>
 	        <td>
-	            <a href="#" on:click|preventDefault={async function() {await on_click_add_evaluation();}}>
+	            <a href="#" on:click|preventDefault={on_click_remove_prescription}}>
+         	        {bce_lang($user_language, "component_stimrx_expression_editor_label_remove_prescription")}
+	            </a>
+	            <a href="#" on:click|preventDefault={on_click_add_evaluation}>
          	        {bce_lang($user_language, "component_stimrx_expression_editor_label_add_evaluation")}
 	            </a>
 		</td>
