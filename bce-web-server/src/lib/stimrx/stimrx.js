@@ -161,7 +161,7 @@ function stimrx_light_projection__is_type(x) {
 // LightProjection END
 
 
-function new_default_light_projection_triangles() {
+function new_default_light_projection_triangles(eye_index) {
     var triangles = [];
     let maximum_alpha = 45.0 * Math.PI / 180.0;
     let resolution    = 2.5 * Math.PI / 180.0;
@@ -185,6 +185,11 @@ function new_default_light_projection_triangles() {
 		let a0_o                = j0      * 2.0 * Math.PI / a0_omega_count;
 		let a1_o0               = j1      * 2.0 * Math.PI / a1_omega_count;
 		let a1_o1               = j1_next * 2.0 * Math.PI / a1_omega_count;
+		if (eye_index == 1) {
+		    a0_o  = Math.PI - a0_o;
+		    a1_o0 = Math.PI - a1_o0;
+		    a1_o1 = Math.PI - a1_o1;
+		}
 		let from_triangle       = new_stimrx_light_triangle(new_stimrx_light_angle(a0, a0_o),
 								    new_stimrx_light_angle(a1, a1_o0),
 								    new_stimrx_light_angle(a1, a1_o1));
@@ -199,6 +204,12 @@ function new_default_light_projection_triangles() {
 		let a0_o1 = j0_next * 2.0 * Math.PI / a0_omega_count;
 		let a1_o0 = j1      * 2.0 * Math.PI / a1_omega_count;
 		let a1_o1 = j1_next * 2.0 * Math.PI / a1_omega_count;
+		if (eye_index == 1) {
+		    a0_o0 = Math.PI - a0_o0;
+		    a0_o1 = Math.PI - a0_o1;
+		    a1_o0 = Math.PI - a1_o0;
+		    a1_o1 = Math.PI - a1_o1;
+		}
 		let from_triangle_0       = new_stimrx_light_triangle(new_stimrx_light_angle(a0, a0_o0),
 								      new_stimrx_light_angle(a1, a1_o0),
 								      new_stimrx_light_angle(a0, a0_o1));
@@ -239,7 +250,7 @@ function stimrx_left_eye_light_projection__is_type(x) {
 };
 
 function new_default_stimrx_left_eye_light_projection() {
-    let triangles = new_default_light_projection_triangles();
+    let triangles = new_default_light_projection_triangles(0);
     return new_stimrx_left_eye_light_projection(triangles);
 }
 
@@ -263,7 +274,7 @@ function stimrx_right_eye_light_projection__is_type(x) {
 };
 
 function new_default_stimrx_right_eye_light_projection() {
-    let triangles = new_default_light_projection_triangles();
+    let triangles = new_default_light_projection_triangles(1);
     return new_stimrx_right_eye_light_projection(triangles);
 }
 
