@@ -136,8 +136,9 @@
     };
 
     async function on_click_remove_evaluation(evaluation_index) {
-	if (editor_prescription !== null) {
-	    editor_prescription.evaluations.splice(evaluation_index, 1);
+	if (stimrx_editor.stimrx_editor_prescription__is_type(expression)) {
+	    let rx = expression;
+	    rx.evaluations.splice(evaluation_index, 1);
             await changed_rx_editor_state();
 	}
     }
