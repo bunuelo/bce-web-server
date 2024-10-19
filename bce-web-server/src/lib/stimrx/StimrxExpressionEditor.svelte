@@ -257,7 +257,7 @@
         <table>
 	    <tr>
 	        <td>
-	            <a href="#" on:click|preventDefault={on_click_remove_prescription}}>
+	            <a href="#" on:click|preventDefault={on_click_remove_prescription}>
          	        {bce_lang($user_language, "component_stimrx_expression_editor_label_remove_prescription")}
 	            </a>
 	            <a href="#" on:click|preventDefault={on_click_add_evaluation}>
