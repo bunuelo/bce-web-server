@@ -166,7 +166,7 @@ function new_default_light_projection_triangles() {
     let maximum_alpha = 45.0 * Math.PI / 180.0;
     let resolution    = 2.5 * Math.PI / 180.0;
     let alpha_count   = Math.round(maximum_alpha / resolution);
-    for (var i = 0; i < alpha_count - 1; i ++) {
+    for (var i = 0; i < alpha_count; i ++) {
 	let a0                  = i * resolution;
 	let a1                  = (i + 1) * resolution;
 	let a0_circumference    = 2.0 * Math.PI * a0;
