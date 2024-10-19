@@ -362,7 +362,7 @@
         {:else if stimrx.stimrx_right_eye_light_projection__is_type(expression)}
             <i>{bce_lang($user_language, "component_stimrx_expression_editor_label_right_eye_light_projection")}</i>
         {:else}
-            <i>Light Projection</i>
+            <i>???</i>
         {/if}
         {#if editor !== null && editor.show_view_options}
             <select bind:value={view_selected}>
@@ -383,6 +383,18 @@
 	    </div>
             {#if editor !== null && editor_prescription !== null}
                 <table>
+	            <tr>
+		        <td>
+                            <input type="checkbox" id={"light_projection_from_checkbox_" + path} bind:checked={editor_prescription.enable_from} on:change|preventDefault={on_change_enable_from_checkbox}>
+                            <label for={"light_projection_from_checkbox_" + path}>{bce_lang($user_language, "component_stimrx_expression_editor_label_light_projection_from")}</label>
+		        </td>
+		    </tr>
+	            <tr>
+		        <td>
+                            <input type="checkbox" id={"light_projection_to_checkbox_" + path} bind:checked={editor_prescription.enable_to} on:change|preventDefault={on_change_enable_to_checkbox}>
+                            <label for={"light_projection_to_checkbox_" + path}>{bce_lang($user_language, "component_stimrx_expression_editor_label_light_projection_to")}</label>
+		        </td>
+		    </tr>
   	            {#each editor_prescription.evaluations as evaluation, j}
 	                <tr>
 		            <td>

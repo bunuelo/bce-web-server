@@ -109,6 +109,8 @@
 	"component_stimrx_expression_editor_label_evaluation": "Evaluation",
 	"component_stimrx_expression_editor_label_expand": "expand",
 	"component_stimrx_expression_editor_label_left_eye_light_projection": "Left Eye Light Projection",
+	"component_stimrx_expression_editor_label_light_projection_from": "from",
+	"component_stimrx_expression_editor_label_light_projection_to": "to",
 	"component_stimrx_expression_editor_label_minimal": "minimal",
 	"component_stimrx_expression_editor_label_move_blind_spot": "move blind spot",
 	"component_stimrx_expression_editor_label_prescription": "Prescription",
@@ -117,6 +119,7 @@
 	"component_stimrx_expression_editor_label_remove_prescription": "remove prescription",
 	"component_stimrx_expression_editor_label_right_eye_light_projection": "Right Eye Light Projection",
 	"component_stimrx_expression_editor_label_set_variable": "Set Variable",
+
 	"page_home_title": "Home",
 	"page_login_title": "Login",
 	"page_login_alert_login_successful": "Login successful!",
