@@ -103,7 +103,8 @@
 
     async function on_click_add_prescription() {
 	if (editor !== null) {
-	    editor.rxs.push(stimrx_editor.new_default_stimrx_editor_prescription());
+	    //editor.rxs.push(stimrx_editor.new_default_stimrx_editor_prescription());
+	    editor.rxs = [stimrx_editor.new_default_stimrx_editor_prescription(), ...editor.rxs];
 	    await changed_rx_editor_state();
 	}
     }
