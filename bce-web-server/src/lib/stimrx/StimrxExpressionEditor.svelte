@@ -89,21 +89,15 @@
 
     async function on_click_remove_prescription() {
 	if (editor !== null && expression !== null && stimrx_editor.stimrx_editor_prescription__is_type(expression)) {
-	    console.log("debug 0");
 	    let rx = expression;
 	    var i = 0;
 	    while (i < editor.rxs.length && editor.rxs[i] !== rx) {
 		i ++;
 	    }
 	    if (i < editor.rxs.length) {
-		console.log("debug 1");
 		editor.rxs.splice(i, 1);
 		await changed_rx_editor_state();
-	    } else {
-		console.log("debug 2");
 	    }
-	} else {
-	    console.log("debug 3");
 	}
     }
 
@@ -180,7 +174,7 @@
                     </td>
                     <td>
                         {#each expression.children as child, i}
-                            <StimrxExpressionEditor bind:expression={child} editor={editor} path={[...path, "children", i]} bind:asset_cache={asset_cache} bind:editor_prescription={editor_prescription}/>
+                            <StimrxExpressionEditor bind:expression={child} bind:editor={editor} path={[...path, "children", i]} bind:asset_cache={asset_cache} bind:editor_prescription={editor_prescription}/>
     	                {/each}
                     </td>
 	        </tr>
@@ -208,7 +202,7 @@
                     </td>
                     <td>
                         {#each expression.children as child, i}
- 	                    <StimrxExpressionEditor bind:expression={child} editor={editor} path={[...path, "children", i]} bind:asset_cache={asset_cache} bind:editor_prescription={editor_prescription}/>
+   	                    <StimrxExpressionEditor bind:expression={child} bind:editor={editor} path={[...path, "children", i]} bind:asset_cache={asset_cache} bind:editor_prescription={editor_prescription}/>
     	                {/each}
                     </td>
 	        </tr>
@@ -244,7 +238,7 @@
 	{/if}
         <tt>{expression.name}&nbsp;=&nbsp;</tt>
         {#if view_selected === "expand"}
-            <StimrxExpressionEditor bind:expression={expression.value} editor={editor} path={[...path, "value"]} bind:asset_cache={asset_cache} bind:editor_prescription={editor_prescription}/>
+            <StimrxExpressionEditor bind:expression={expression.value} bind:editor={editor} path={[...path, "value"]} bind:asset_cache={asset_cache} bind:editor_prescription={editor_prescription}/>
         {/if}
     {:else if stimrx_editor.stimrx_editor_prescription__is_type(expression)}
         <i>{bce_lang($user_language, "component_stimrx_expression_editor_label_prescription")}</i>
@@ -292,10 +286,10 @@
             {/if}
         </table>
         {#if view_selected === "expand"}
-            <StimrxExpressionEditor bind:expression={expression.expression} editor={editor} path={[...path, "expression"]} bind:asset_cache={asset_cache} bind:editor_prescription={expression}/>
+            <StimrxExpressionEditor bind:expression={expression.expression} bind:editor={editor} path={[...path, "expression"]} bind:asset_cache={asset_cache} bind:editor_prescription={expression}/>
         {/if}
     {:else if stimrx.stimrx_light_projection__is_type(expression)}
-        <StimrxLightProjectionEditor expression={expression} editor={editor} path={path} bind:asset_cache={asset_cache} bind:editor_prescription={editor_prescription}/>
+        <StimrxLightProjectionEditor expression={expression} bind:editor={editor} path={path} bind:asset_cache={asset_cache} bind:editor_prescription={editor_prescription}/>
     {:else if Number.isFinite(expression)}
         <i>Number</i>
         {#if editor !== null && editor.show_view_options}
@@ -336,7 +330,7 @@
 	    {#each editor.rxs as rx, rx_i}
                 <tr>
                     <td>
-                        <StimrxExpressionEditor expression={rx} editor={expression} path={[...path, "rxs", rx_i, "expression"]} bind:asset_cache={asset_cache} bind:editor_prescription={editor_prescription}/>
+                        <StimrxExpressionEditor expression={rx} bind:editor={expression} path={[...path, "rxs", rx_i, "expression"]} bind:asset_cache={asset_cache} bind:editor_prescription={editor_prescription}/>
                     </td>
                 </tr>
             {/each}
