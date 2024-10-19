@@ -88,15 +88,22 @@
     }
 
     async function on_click_remove_prescription() {
-	if (editor !== null && editor_prescription !== null) {
+	if (editor !== null && expression !== null && stimrx_editor.stimrx_editor_prescription__is_type(expression)) {
+	    console.log("debug 0");
+	    let rx = expression;
 	    var i = 0;
-	    while (i < editor.rxs.length && editor.rxs[i] !== editor_prescription) {
+	    while (i < editor.rxs.length && editor.rxs[i] !== rx) {
 		i ++;
 	    }
 	    if (i < editor.rxs.length) {
+		console.log("debug 1");
 		editor.rxs.splice(i, 1);
 		await changed_rx_editor_state();
+	    } else {
+		console.log("debug 2");
 	    }
+	} else {
+	    console.log("debug 3");
 	}
     }
 
