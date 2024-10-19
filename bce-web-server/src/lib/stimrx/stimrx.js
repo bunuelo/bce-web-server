@@ -176,7 +176,7 @@ function new_default_light_projection_triangles() {
 	}
 	let a1_circumference    = 2.0 * Math.PI * a1;
 	let a1_omega_count      = Math.round(a1_circumference / resolution);
-	for (var j1 = 0; j1 <= a1_omega_count; j1 ++) {
+	for (var j1 = 0; j1 < a1_omega_count; j1 ++) {
 	    let j1_next = (j1 + 1) % a1_omega_count;
 	    let j0      = Math.floor(j1      * a0_omega_count / a1_omega_count);
 	    let j0_next = Math.floor(j1_next * a0_omega_count / a1_omega_count);
