@@ -3,14 +3,10 @@ import { stimrx } from '$lib/stimrx/stimrx.js';
 // Editor BEGIN
 
 function new_stimrx_editor() {
-    let rx = new_default_stimrx_editor_prescription();
     return {
 	"type": "Editor",
-	"rxs": [
-	    rx
-	],
-	"meta": {
-	},
+	"rxs": [],
+	"meta": {},
 	"canvas_index": 0,
 	"show_view_options": false,
     };
