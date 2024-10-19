@@ -201,16 +201,16 @@ function new_default_light_projection_triangles() {
 		let a1_o1 = j1_next * 2.0 * Math.PI / a1_omega_count;
 		let from_triangle_0       = new_stimrx_light_triangle(new_stimrx_light_angle(a0, a0_o0),
 								      new_stimrx_light_angle(a1, a1_o0),
-								      new_stimrx_light_angle(a1, a1_o1));
+								      new_stimrx_light_angle(a0, a0_o1));
 		let to_triangle_0         = new_stimrx_light_triangle(new_stimrx_light_angle(a0, a0_o0),
 								      new_stimrx_light_angle(a1, a1_o0),
-								      new_stimrx_light_angle(a1, a1_o1));
+								      new_stimrx_light_angle(a0, a0_o1));
 		let triangle_projection_0 = new_stimrx_light_triangle_projection(from_triangle_0, to_triangle_0);
 		triangles.push(triangle_projection_0);
-		let from_triangle_1       = new_stimrx_light_triangle(new_stimrx_light_angle(a0, a0_o0),
+		let from_triangle_1       = new_stimrx_light_triangle(new_stimrx_light_angle(a1, a1_o0),
 								      new_stimrx_light_angle(a1, a1_o1),
 								      new_stimrx_light_angle(a0, a0_o1));
-		let to_triangle_1         = new_stimrx_light_triangle(new_stimrx_light_angle(a0, a0_o0),
+		let to_triangle_1         = new_stimrx_light_triangle(new_stimrx_light_angle(a1, a1_o0),
 								      new_stimrx_light_angle(a1, a1_o1),
 								      new_stimrx_light_angle(a0, a0_o1));
 		let triangle_projection_1 = new_stimrx_light_triangle_projection(from_triangle_1, to_triangle_1);
