@@ -399,7 +399,11 @@
                 <table>
 	            <tr>
 		        <td>
-                            <input type="checkbox" id={"light_projection_from_checkbox_" + path} bind:checked={editor_prescription.enable_from} on:change|preventDefault={on_change_enable_from_checkbox}>
+                            {#if stimrx.stimrx_left_eye_light_projection__is_type(expression)}
+                                <input type="checkbox" id={"light_projection_from_checkbox_" + path} bind:checked={editor_prescription.enable_left_eye_from} on:change|preventDefault={on_change_enable_from_checkbox}>
+                            {:else if stimrx.stimrx_right_eye_light_projection__is_type(expression)}
+                                <input type="checkbox" id={"light_projection_from_checkbox_" + path} bind:checked={editor_prescription.enable_right_eye_from} on:change|preventDefault={on_change_enable_from_checkbox}>
+                            {/if}
                             <label for={"light_projection_from_checkbox_" + path}>{bce_lang($user_language, "component_stimrx_expression_editor_label_light_projection_from")}</label>
 		        </td>
 		    </tr>

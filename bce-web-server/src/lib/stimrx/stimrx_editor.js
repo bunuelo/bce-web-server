@@ -47,8 +47,10 @@ function new_stimrx_editor_prescription(expression) {
 	],
 	"left_eye_blind_spots": [],
 	"right_eye_blind_spots": [],
-	"enable_from": false,
-	"enable_to": false,
+	"enable_left_eye_from": false,
+	"enable_left_eye_to": false,
+	"enable_right_eye_from": false,
+	"enable_right_eye_to": false,
     };
 }
 
