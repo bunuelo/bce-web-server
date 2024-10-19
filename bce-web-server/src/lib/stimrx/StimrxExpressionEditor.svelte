@@ -226,24 +226,34 @@
 	{/if}
         <tt>{expression.name}</tt>
     {:else if stimrx.stimrx_set_variable_expression__is_type(expression)}
-        <i>Set Variable</i>
-        {#if editor !== null && editor.show_view_options}
-            <select bind:value={view_selected}>
-                <option value="expand">
-	            {bce_lang($user_language, "component_stimrx_expression_editor_label_expand")}
-	        </option>
-                <option value="minimal">
-	            {bce_lang($user_language, "component_stimrx_expression_editor_label_minimal")}
-	        </option>
-                <option value="code">
-	            {bce_lang($user_language, "component_stimrx_expression_editor_label_code")}
-	        </option>
-            </select>
-	{/if}
-        <tt>{expression.name}&nbsp;=&nbsp;</tt>
+        <table>
+	    <tr>
+	        <td>
+                    <i>{bce_lang($user_language, "component_stimrx_expression_editor_label_set_variable")}</i>
+                    {#if editor !== null && editor.show_view_options}
+                        <select bind:value={view_selected}>
+                            <option value="expand">
+	                        {bce_lang($user_language, "component_stimrx_expression_editor_label_expand")}
+	                    </option>
+                            <option value="minimal">
+	                        {bce_lang($user_language, "component_stimrx_expression_editor_label_minimal")}
+	                    </option>
+                            <option value="code">
+	                        {bce_lang($user_language, "component_stimrx_expression_editor_label_code")}
+	                    </option>
+                        </select>
+	            {/if}
+                    <tt>{expression.name}&nbsp;=&nbsp;</tt>
+		</td>
+	    </tr>
+	    <tr>
+	        <td>
         {#if view_selected === "expand"}
             <StimrxExpressionEditor bind:expression={expression.value} bind:editor={editor} path={[...path, "value"]} bind:asset_cache={asset_cache} bind:editor_prescription={editor_prescription}/>
         {/if}
+		</td>
+	    </tr>
+	</table>
     {:else if stimrx_editor.stimrx_editor_prescription__is_type(expression)}
         <i>{bce_lang($user_language, "component_stimrx_expression_editor_label_prescription")}</i>
         {#if editor !== null && editor.show_view_options}
