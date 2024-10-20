@@ -289,8 +289,8 @@ export default class BceRestApi {
 	console.log("asset_upload: acl_id = " + acl_id + ", name = \"" + name + "\", file_name = \"" + file_name + "\"");
         var data = new FormData();
         data.append("session_token", session_token);
-        data.append("acl_id",        acl_id);
         data.append("name",          name);
+        data.append("acl_id",        acl_id);
         data.append("file",          file, file_name);
         const response_json = await this.fetch_json_with_options("/asset/upload", {
             method: 'POST',
