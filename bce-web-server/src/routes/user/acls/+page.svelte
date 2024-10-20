@@ -94,7 +94,7 @@
             var i = 0;
             function upload_rest() {
                 var file = files[i];
-                bce_session.asset_upload(acl_id, file, file.name)
+                bce_session.asset_upload(acl_id, null, file, file.name)
                     .then(result => {
                         $alert = bce_lang($user_language, "page_acls_alert_upload_asset_success") + " (" + (i + 1) + "/" + (files.length) + ") " + file.name;
                         if (!result) {
