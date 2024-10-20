@@ -283,7 +283,7 @@ export default class BceRestApi {
 
     async asset_upload(session_token, acl_id, asset_name, file, file_name) {
 	if (asset_name === null) {
-	    asset_name = "this-is-a-fake-asset-name";
+	    asset_name = "_NEW_ASSET_";
 	}
 	acl_id = Number(acl_id);
 	console.log("asset_upload: acl_id = " + acl_id + ", asset_name = \"" + asset_name + "\", file_name = \"" + file_name + "\"");
