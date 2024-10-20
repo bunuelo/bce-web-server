@@ -35,6 +35,10 @@
     let minimize_prescription_asset_selector = true;
     let selected_prescription = null;
     
+    async function on_click_open_prescription() {
+	minimize_prescription_asset_selector = false;
+    }
+
     function get_acl_by_id(acl_id) {
         for (var i = 0; i < acl_list.length; i ++) {
             let acl = acl_list[i]
@@ -220,6 +224,9 @@
 	            <a href="#" on:click|preventDefault={on_click_add_prescription}>
 	                {bce_lang($user_language, "component_stimrx_expression_editor_label_add_prescription")}
 		    </a>
+	            <a href="#" on:click|preventDefault={on_click_open_prescription}>
+         	        {bce_lang($user_language, "component_stimrx_expression_editor_label_open_prescription")}
+	            </a>
                 </td>
             </tr>
 	    {#each editor.rxs as rx_asset_name, rx_i}
