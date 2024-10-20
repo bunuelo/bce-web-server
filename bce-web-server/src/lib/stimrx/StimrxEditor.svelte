@@ -126,12 +126,12 @@
 	    await changed_rx_editor_state();
 	}
     }
-
+    
     async function on_click_add_prescription() {
 	if (editor !== null) {
-	    const rx   = stimrx_editor.new_default_stimrx_editor_prescription();
-	    const blob = new Blob([JSON.stringify(rx)], {type: "application/json"});
-	    let file_name = "assets/rx.json";
+	    const rx        = stimrx_editor.new_default_stimrx_editor_prescription();
+	    const blob      = new Blob([JSON.stringify(rx)], {type: "application/json"});
+	    const file_name = "assets/rx.json";
             bce_session.asset_upload(acl_selected, blob, file_name)
                 .then(async function (result) {
                     if (!result) {
@@ -147,6 +147,9 @@
                     console.log(e);
                 })
 	}
+    }
+
+    async function save_prescription_callback(asset_name, rx) {
     }
 
     async function upload_rx_editor_state() {
@@ -230,7 +233,14 @@
 	                {#await get_json_asset(rx_asset_name)}
 	                    ...waiting
 	                {:then rx}
-                            <StimrxExpressionEditor expression={rx} editor={editor} path={[...path, "rxs", rx_i, "expression"]} asset_cache={asset_cache} editor_prescription={rx}/>
+                            <StimrxExpressionEditor expression={rx}
+						    editor={editor}
+						    path={[...path, "rxs", rx_i, "expression"]}
+						    asset_cache={asset_cache}
+						    editor_prescription={rx}
+						    save_prescription_callback={async function () {
+						        await save_prescription_callback(rx_asset_name, rx);
+						    }}/>
  	                {:catch error}
 	                    {error.message}
 	                {/await}

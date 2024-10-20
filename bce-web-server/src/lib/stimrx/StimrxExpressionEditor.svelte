@@ -26,6 +26,7 @@
     export let path = [];
     export let asset_cache;
     export let editor_prescription;
+    export let save_prescription_callback;
 
     let view_selected = "expand";
 
@@ -125,6 +126,7 @@
     
     async function changed_rx_editor_state() {
 	await upload_rx_editor_state();
+	await save_prescription_callback();
 	let temp1 = expression;
 	expression = null;
 	expression = temp1;
@@ -189,7 +191,7 @@
                     </td>
                     <td>
                         {#each expression.children as child, i}
-                            <StimrxExpressionEditor bind:expression={child} bind:editor={editor} path={[...path, "children", i]} bind:asset_cache={asset_cache} bind:editor_prescription={editor_prescription}/>
+                            <StimrxExpressionEditor bind:expression={child} bind:editor={editor} path={[...path, "children", i]} bind:asset_cache={asset_cache} bind:editor_prescription={editor_prescription} save_prescription_callback={save_prescription_callback}/>
     	                {/each}
                     </td>
 	        </tr>
@@ -217,7 +219,7 @@
                     </td>
                     <td>
                         {#each expression.children as child, i}
-   	                    <StimrxExpressionEditor bind:expression={child} bind:editor={editor} path={[...path, "children", i]} bind:asset_cache={asset_cache} bind:editor_prescription={editor_prescription}/>
+   	                    <StimrxExpressionEditor bind:expression={child} bind:editor={editor} path={[...path, "children", i]} bind:asset_cache={asset_cache} bind:editor_prescription={editor_prescription} save_prescription_callback={save_prescription_callback}/>
     	                {/each}
                     </td>
 	        </tr>
@@ -259,9 +261,9 @@
 	    </tr>
 	    <tr>
 	        <td>
-        {#if view_selected === "expand"}
-            <StimrxExpressionEditor bind:expression={expression.value} bind:editor={editor} path={[...path, "value"]} bind:asset_cache={asset_cache} bind:editor_prescription={editor_prescription}/>
-        {/if}
+                    {#if view_selected === "expand"}
+                        <StimrxExpressionEditor bind:expression={expression.value} bind:editor={editor} path={[...path, "value"]} bind:asset_cache={asset_cache} bind:editor_prescription={editor_prescription} save_prescription_callback={save_prescription_callback}/>
+                    {/if}
 		</td>
 	    </tr>
 	</table>
@@ -306,7 +308,7 @@
 	    {/each}
         </table>
         {#if view_selected === "expand"}
-            <StimrxExpressionEditor bind:expression={expression.expression} bind:editor={editor} path={[...path, "expression"]} bind:asset_cache={asset_cache} bind:editor_prescription={expression}/>
+            <StimrxExpressionEditor bind:expression={expression.expression} bind:editor={editor} path={[...path, "expression"]} bind:asset_cache={asset_cache} bind:editor_prescription={expression} save_prescription_callback={save_prescription_callback}/>
         {/if}
     {:else if stimrx.stimrx_light_projection__is_type(expression)}
         <StimrxLightProjectionEditor expression={expression} bind:editor={editor} path={path} bind:asset_cache={asset_cache} bind:editor_prescription={editor_prescription}/>
