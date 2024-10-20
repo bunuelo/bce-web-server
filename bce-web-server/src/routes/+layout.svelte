@@ -33,26 +33,21 @@
 </style>
 
 {#if done_loading}
-  <header>
-      <a href="#content" class="skip-link">Skip to main content</a>
-      
-      {#if $alert}
-        <div on:click={() => $alert = ''} class="alert">
-            <p>{ $alert }</p>
+    <header>
+        <a href="#content" class="skip-link">Skip to main content</a>
+        {#if $alert}
+            <div on:click={() => $alert = ''} class="alert">
+                {$alert}
+            </div>
+        {/if}
+        <Logo />
+        <div class="menuDiv">
+            <Menu />
         </div>
-      {/if}
-      
-      <Logo />
-
-       <div class="menuDiv">
-           <Menu />
-       </div>
-      
-  </header>
-  
-  <div class="main_content">
-      <main id="content">
-          <slot />
-      </main>
-  </div>
+    </header>
+    <div class="main_content">
+        <main id="content">
+            <slot />
+        </main>
+    </div>
 {/if}
