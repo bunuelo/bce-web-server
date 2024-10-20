@@ -289,7 +289,8 @@ export default class BceRestApi {
 	console.log("asset_upload: acl_id = " + acl_id + ", name = \"" + name + "\", file_name = \"" + file_name + "\"");
         var data = new FormData();
         data.append("session_token", session_token);
-        data.append("asset_name",    name);
+        data.append("asset_name",    "this-is-a-fake-asset-name");
+        //data.append("asset_name",    name);
         data.append("acl_id",        acl_id);
         data.append("file",          file, file_name);
 	console.log("data = " + data);
