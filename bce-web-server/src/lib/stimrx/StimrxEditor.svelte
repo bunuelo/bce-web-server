@@ -126,33 +126,37 @@
 	    await changed_rx_editor_state();
 	}
     }
-    
+
+    async function save_prescription(asset_name, rx) {
+        bce_session.asset_upload(acl_selected, asset_name, blob, file_name)
+            .then(async function (result) {
+                if (!result) {
+                    $alert = bce_lang($user_language, "component_stimrx_expression_editor_alert_upload_asset_failure");
+                    return;
+                }
+                $alert = bce_lang($user_language, "component_stimrx_expression_editor_alert_upload_asset_success") + " (" + file_name + ")";
+		let asset_name = result;
+		editor.rxs.push(asset_name);
+		await changed_rx_editor_state();
+            })
+            .catch(e => {
+                console.log(e);
+            })
+    }
+
     async function on_click_add_prescription() {
 	if (editor !== null) {
 	    const rx        = stimrx_editor.new_default_stimrx_editor_prescription();
 	    const blob      = new Blob([JSON.stringify(rx)], {type: "application/json"});
 	    const file_name = "assets/rx.json";
             $alert = bce_lang($user_language, "component_stimrx_expression_editor_alert_upload_asset_in_progress");
-            bce_session.asset_upload(acl_selected, blob, file_name)
-                .then(async function (result) {
-                    if (!result) {
-                        $alert = bce_lang($user_language, "component_stimrx_expression_editor_alert_upload_asset_failure");
-                        return;
-                    }
-                    $alert = bce_lang($user_language, "component_stimrx_expression_editor_alert_upload_asset_success") + " (" + file_name + ")";
-		    let asset_name = result;
-		    editor.rxs.push(asset_name);
-		    await changed_rx_editor_state();
-                })
-                .catch(e => {
-                    console.log(e);
-                })
+	    await save_prescription(null, rx);
 	}
     }
 
     async function save_prescription_callback(asset_name, rx) {
         console.log("save_prescription_callback: asset_name = \"" + asset_name + "\"");
-	
+	save_prescription(asset_name, rx);
     }
     
     async function upload_rx_editor_state() {

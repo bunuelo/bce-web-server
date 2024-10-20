@@ -171,14 +171,14 @@ export default class BceSession {
         return result;
     }
 
-    async asset_upload(acl_id, file, file_name) {
-        console.log("BceSession.asset_upload: Upload Begin.  file_name = " + file_name)
+    async asset_upload(acl_id, name, file, file_name) {
+        console.log("BceSession.asset_upload: Upload Begin.  name = " + name + ", file_name = " + file_name)
         this.update_session_from_cookie();
-        let result = await bce_rest_api.asset_upload(get(user_session_token), acl_id, file, file_name);
+        let result = await bce_rest_api.asset_upload(get(user_session_token), acl_id, name, file, file_name);
         if (result !== null) {
-            console.log("BceSession.asset_upload: Upload Successful.  file_name = " + file_name + ", asset_name = " + result);
+            console.log("BceSession.asset_upload: Upload Successful.  name = " + name + ", file_name = " + file_name + ", asset_name = " + result);
         } else {
-            console.log("BceSession.asset_upload: Upload Failed.  file_name = " + file_name + ", result = " + result);
+            console.log("BceSession.asset_upload: Upload Failed.  name = " + name + ", file_name = " + file_name + ", result = " + result);
         }
         return result;
     }

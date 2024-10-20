@@ -281,11 +281,13 @@ export default class BceRestApi {
 	return response_json.success;
     }
 
-    async asset_upload(session_token, acl_id, file, file_name) {
+    async asset_upload(session_token, acl_id, name, file, file_name) {
+	console.log("asset_upload: name = \"" + name + "\", file_name = \"" + file_name + "\"");
         var data = new FormData();
         data.append("session_token", session_token);
-        data.append("acl_id", Number(acl_id));
-        data.append("file", file, file_name);
+        data.append("acl_id",        Number(acl_id));
+        data.append("name",          name);
+        data.append("file",          file, file_name);
         const response_json = await this.fetch_json_with_options("/asset/upload", {
             method: 'POST',
             body: data
