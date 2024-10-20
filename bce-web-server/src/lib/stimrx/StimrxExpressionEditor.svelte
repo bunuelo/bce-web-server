@@ -77,6 +77,9 @@
 	bce_sprite.remove_all_sprites();
     });
 
+    async function on_change_acl_selected() {
+    }
+    
     async function update_all() {
 	await update_acl_list();
     }
@@ -384,7 +387,7 @@
                     <i>Prescription Editor</i>
 	            <label>
                         {bce_lang($user_language, "component_stimrx_expression_editor_label_acl")}: 
-                        <select bind:value={acl_selected} on:change={update_acl_selected}>
+                        <select bind:value={acl_selected} on:change={on_change_acl_selected}>
                             {#each acl_list as acl}
 	                        <option value={acl.acl_id}>
 	                            {acl.display_name}

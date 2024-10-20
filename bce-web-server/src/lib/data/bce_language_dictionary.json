@@ -100,6 +100,7 @@
 	"component_asset_selector_label_select_asset": "select asset",
 	"component_asset_selector_label_cancel": "cancel",
 	"component_asset_selector_label_select_an_asset": "select an asset",
+	"component_stimrx_expression_editor_label_acl": "ACL",
 	"component_stimrx_expression_editor_label_add_blind_spot": "add blind spot",
 	"component_stimrx_expression_editor_label_add_evaluation": "add evaluation",
 	"component_stimrx_expression_editor_label_add_prescription": "add prescription",
