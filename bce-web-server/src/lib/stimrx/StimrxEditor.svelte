@@ -150,6 +150,7 @@
     }
 
     async function save_prescription_callback(asset_name, rx) {
+        console.log("save_prescription_callback: here.");
     }
 
     async function upload_rx_editor_state() {
