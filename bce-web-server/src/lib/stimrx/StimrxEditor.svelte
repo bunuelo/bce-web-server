@@ -137,8 +137,10 @@
                     return;
                 }
                 $alert = bce_lang($user_language, "component_stimrx_expression_editor_alert_upload_asset_success") + " (" + file_name + ")";
-		let asset_name = result;
-		editor.rxs.push(asset_name);
+		let saved_asset_name = result;
+		if (asset_name === null) {
+		    editor.rxs.push(saved_asset_name);
+		}
 		await changed_rx_editor_state();
             })
             .catch(e => {
