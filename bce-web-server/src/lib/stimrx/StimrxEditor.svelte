@@ -26,7 +26,6 @@
     export let path = [];
     export let asset_cache;
     export let editor_prescription;
-    export let prescription_asset_name;
 
     let view_selected = "expand";
 
