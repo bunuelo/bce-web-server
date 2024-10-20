@@ -35,11 +35,6 @@
 {#if done_loading}
     <header>
         <a href="#content" class="skip-link">Skip to main content</a>
-        {#if $alert}
-            <div on:click={() => $alert = ''} class="alert">
-                {$alert}
-            </div>
-        {/if}
         <Logo />
         <div class="menuDiv">
             <Menu />
@@ -50,7 +45,12 @@
             <slot />
         </main>
     </div>
-    <div>
-        &nbsp; <!-- space for alert !-->
-    </div>
+    {#if $alert}
+        <div on:click={() => $alert = ''} class="alert">
+            {$alert}
+        </div>
+        <div>
+            &nbsp; <!-- space for alert !-->
+        </div>
+    {/if}
 {/if}
