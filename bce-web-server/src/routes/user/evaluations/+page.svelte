@@ -91,7 +91,7 @@
         await update_all();
 	window.addEventListener('resize', on_window_resize);
 	return () => {
-	     window.removeEventListener('resize', on_window_resize);
+	     window.removeEventListener("resize", on_window_resize);
 	}
     });
 

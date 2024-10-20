@@ -39,6 +39,10 @@
 	}
     })();
 
+    const on_window_resize = async function() {
+	await redraw_canvas();
+    };
+	
     onMount(async () => {
         if (! $user_session_is_valid) {
             $user_session_is_valid = await bce_session.session_is_valid()
@@ -51,6 +55,10 @@
             goto("/user/dashboard");
         }
         await update_all();
+    	window.addEventListener('resize', on_window_resize);
+	return () => {
+	    window.removeEventListener("resize", on_window_resize);
+	}
     });
 
     onDestroy(async function () {
