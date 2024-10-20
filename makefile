@@ -3,6 +3,7 @@ SOURCE_FILES = \
     bce-web-server/vite.config.js \
     bce-web-server/static/global.css \
     bce-web-server/src/lib/data/bce_language_dictionary.json \
+    bce-web-server/src/lib/bce_asset.js \
     bce-web-server/src/lib/bce_canvas_render.js \
     bce-web-server/src/lib/bce_inventory.js \
     bce-web-server/src/lib/bce_locale.js \
