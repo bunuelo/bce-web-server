@@ -406,23 +406,27 @@
                 <table>
 	            <tr>
 		        <td>
-                            {#if stimrx.stimrx_left_eye_light_projection__is_type(expression)}
-                                <input type="checkbox" id={"light_projection_from_checkbox_" + path} bind:checked={editor_prescription.enable_left_eye_from} on:change|preventDefault={on_change_enable_from_checkbox}>
-                            {:else if stimrx.stimrx_right_eye_light_projection__is_type(expression)}
-                                <input type="checkbox" id={"light_projection_from_checkbox_" + path} bind:checked={editor_prescription.enable_right_eye_from} on:change|preventDefault={on_change_enable_from_checkbox}>
-                            {/if}
-                            <label for={"light_projection_from_checkbox_" + path}>{bce_lang($user_language, "component_stimrx_expression_editor_label_light_projection_from")}</label>
-		        </td>
-		    </tr>
-	            <tr>
-		        <td>
-                            {#if stimrx.stimrx_left_eye_light_projection__is_type(expression)}
-                                <input type="checkbox" id={"light_projection_to_checkbox_" + path} bind:checked={editor_prescription.enable_left_eye_to} on:change|preventDefault={on_change_enable_to_checkbox}>
-                            {:else if stimrx.stimrx_right_eye_light_projection__is_type(expression)}
-                                <input type="checkbox" id={"light_projection_to_checkbox_" + path} bind:checked={editor_prescription.enable_right_eye_to} on:change|preventDefault={on_change_enable_to_checkbox}>
-                            {/if}
-                            <label for={"light_projection_to_checkbox_" + path}>{bce_lang($user_language, "component_stimrx_expression_editor_label_light_projection_to")}</label>
-		        </td>
+	                    <table>
+	                        <tr>
+	                            <td>
+                                        {#if stimrx.stimrx_left_eye_light_projection__is_type(expression)}
+                                            <input type="checkbox" id={"light_projection_from_checkbox_" + path} bind:checked={editor_prescription.enable_left_eye_from} on:change|preventDefault={on_change_enable_from_checkbox}>
+                                        {:else if stimrx.stimrx_right_eye_light_projection__is_type(expression)}
+                                            <input type="checkbox" id={"light_projection_from_checkbox_" + path} bind:checked={editor_prescription.enable_right_eye_from} on:change|preventDefault={on_change_enable_from_checkbox}>
+                                        {/if}
+                                        <label for={"light_projection_from_checkbox_" + path}>{bce_lang($user_language, "component_stimrx_expression_editor_label_light_projection_from")}</label>
+		                    </td>
+		                    <td>
+                                        {#if stimrx.stimrx_left_eye_light_projection__is_type(expression)}
+                                            <input type="checkbox" id={"light_projection_to_checkbox_" + path} bind:checked={editor_prescription.enable_left_eye_to} on:change|preventDefault={on_change_enable_to_checkbox}>
+                                        {:else if stimrx.stimrx_right_eye_light_projection__is_type(expression)}
+                                            <input type="checkbox" id={"light_projection_to_checkbox_" + path} bind:checked={editor_prescription.enable_right_eye_to} on:change|preventDefault={on_change_enable_to_checkbox}>
+                                        {/if}
+                                        <label for={"light_projection_to_checkbox_" + path}>{bce_lang($user_language, "component_stimrx_expression_editor_label_light_projection_to")}</label>
+		                    </td>
+			         </tr>
+			     </table>
+  		        </td>
 		    </tr>
   	            {#each editor_prescription.evaluations as evaluation, j}
 	                <tr>
