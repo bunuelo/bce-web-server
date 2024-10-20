@@ -162,6 +162,7 @@ select option {
     background-color: var(--surface1);
     color: var(--element3);
     text-align: center;
+    border:1px solid var(--surface3);
 }
 
 img.asset_preview {
