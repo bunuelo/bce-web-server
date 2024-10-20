@@ -120,6 +120,8 @@
 	"component_stimrx_expression_editor_label_remove_prescription": "remove prescription",
 	"component_stimrx_expression_editor_label_right_eye_light_projection": "Right Eye Light Projection",
 	"component_stimrx_expression_editor_label_set_variable": "Set Variable",
+	"component_stimrx_expression_editor_alert_upload_asset_success": "Upload asset success!",
+	"component_stimrx_expression_editor_alert_upload_asset_failure": "Upload asset failure.",
 
 	"page_home_title": "Home",
 	"page_login_title": "Login",

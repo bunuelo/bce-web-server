@@ -120,9 +120,9 @@
 	minimize_evaluation_asset_selector = false;
     }
 
-    async function on_click_remove_prescription(prescription_index) {
+    async function on_click_remove_prescription(rx_i) {
 	if (editor !== null && expression !== null) {
-	    editor.rxs.splice(prescription_index, 1);
+	    editor.rxs.splice(rx_i, 1);
 	    await changed_rx_editor_state();
 	}
     }
@@ -138,7 +138,7 @@
                         $alert = bce_lang($user_language, "component_stimrx_expression_editor_alert_upload_asset_failure");
                         return;
                     }
-                    $alert = bce_lang($user_language, "component_stimrx_expression_editor_alert_upload_asset_success") + ": " + file_name;
+                    $alert = bce_lang($user_language, "component_stimrx_expression_editor_alert_upload_asset_success") + " (" + file_name + ")";
 		    let asset_name = result;
 		    editor.rxs.push(asset_name);
 		    await changed_rx_editor_state();
