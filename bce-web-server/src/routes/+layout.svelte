@@ -50,4 +50,7 @@
             <slot />
         </main>
     </div>
+    <div>
+        &nbsp; <!-- space for alert !-->
+    </div>
 {/if}
