@@ -161,7 +161,7 @@ select option {
     background: var(--surface3);
     background-color: var(--surface3);
     color: var(--element3);
-    text-align: right;
+    text-align: center;
 }
 
 img.asset_preview {
