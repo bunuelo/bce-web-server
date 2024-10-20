@@ -377,40 +377,7 @@
 	    </tr>
         </table>
     {:else if stimrx_editor.stimrx_editor__is_type(expression)}
-        <table>
-	    <tr>
-	        <td>
-                    <i>Prescription Editor</i>
-	            <label>
-                        {bce_lang($user_language, "component_stimrx_expression_editor_label_acl")}: 
-                        <select bind:value={acl_selected} on:change={on_change_acl_selected}>
-                            {#each acl_list as acl}
-	                        <option value={acl.acl_id}>
-	                            {acl.display_name}
-	                        </option>
-                            {/each}
-                        </select>
-                    </label>
-	            <a href="#" on:click|preventDefault={on_click_add_prescription}>
-	                {bce_lang($user_language, "component_stimrx_expression_editor_label_add_prescription")}
-		    </a>
-                </td>
-            </tr>
-	    {#each editor.rxs as rx_asset_name, rx_i}
-                <tr>
-                    <td>
-	                {#await get_json_asset(rx_asset_name)}
-	                    ...waiting
-	                {:then rx}
-                            {rx}
-                            <!--<StimrxExpressionEditor expression={rx} bind:editor={expression} path={[...path, "rxs", rx_i, "expression"]} bind:asset_cache={asset_cache} bind:editor_prescription={editor_prescription}/>!-->
- 	                {:catch error}
-	                    {error.message}
-	                {/await}
-                    </td>
-                </tr>
-            {/each}
-        </table>
+        <StimrxEditor bind:expression={expression} bind:editor={editor} path={path} bind:asset_cache={asset_cache} bind:editor_prescription={editor_prescription}/>
     {:else}
         <select bind:value={view_selected}>
             <option value="minimal">
