@@ -174,16 +174,16 @@
 	editor = temp2;
     }
 
-    let on_prescription_asset_select = async function (asset) {
+    async function on_prescription_asset_select(asset) {
         console.log("Prescription asset selected: " + asset.name + " (" + asset.file_name + ")");
 	minimize_prescription_asset_selector = true;
 	if (editor !== null && expression !== null) {
-	    
-            //await changed_rx_editor_state();
+	    editor.rxs.push(asset.name);
+            await changed_rx_editor_state();
 	} else {
 	    console.log("Could not find editor to add prescription.");
 	}
-    };
+    }
 
     async function on_click_remove_evaluation(evaluation_index) {
 	if (stimrx_editor.stimrx_editor_prescription__is_type(expression)) {
