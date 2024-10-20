@@ -119,42 +119,6 @@
 	minimize_evaluation_asset_selector = false;
     }
 
-    async function on_click_remove_prescription() {
-	if (editor !== null && expression !== null && stimrx_editor.stimrx_editor_prescription__is_type(expression)) {
-	    let rx = expression;
-	    var i = 0;
-	    while (i < editor.rxs.length && editor.rxs[i] !== rx) {
-		i ++;
-	    }
-	    if (i < editor.rxs.length) {
-		editor.rxs.splice(i, 1);
-		await changed_rx_editor_state();
-	    }
-	}
-    }
-
-    async function on_click_add_prescription() {
-	if (editor !== null) {
-	    const rx   = stimrx_editor.new_default_stimrx_editor_prescription();
-	    const blob = new Blob([JSON.stringify(rx)], {type: "application/json"});
-	    let file_name = "assets/rx.json";
-            bce_session.asset_upload(acl_selected, blob, file_name)
-                .then(async function (result) {
-                    if (!result) {
-                        $alert = bce_lang($user_language, "component_stimrx_expression_editor_alert_upload_asset_failure");
-                        return;
-                    }
-                    $alert = bce_lang($user_language, "component_stimrx_expression_editor_alert_upload_asset_success") + ": " + file_name;
-		    let asset_name = result;
-		    editor.rxs.push(asset_name);
-		    await changed_rx_editor_state();
-                })
-                .catch(e => {
-                    console.log(e);
-                })
-	}
-    }
-
     async function upload_rx_editor_state() {
 	await bce_session.update({"rx_editor_state": JSON.stringify(editor)});
     }

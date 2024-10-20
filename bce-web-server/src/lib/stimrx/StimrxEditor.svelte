@@ -121,7 +121,7 @@
     }
 
     async function on_click_remove_prescription(prescription_index) {
-	if (editor !== null && expression !== null && stimrx_editor.stimrx_editor_prescription__is_type(expression)) {
+	if (editor !== null && expression !== null) {
 	    editor.rxs.splice(prescription_index, 1);
 	    await changed_rx_editor_state();
 	}
