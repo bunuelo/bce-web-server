@@ -160,7 +160,7 @@ select option {
     right: 0;
     background: var(--surface2);
     background-color: var(--surface2);
-    color: var(--element3);
+    color: var(--element2);
     text-align: center;
     border:1px solid var(--surface3);
 }
