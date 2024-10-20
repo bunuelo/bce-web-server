@@ -139,16 +139,12 @@
 		if (stimrx.stimrx_left_eye_light_projection__is_type(expression)) {
 		    if (editor_evaluation.enable_left_eye_overlay) {
 			let evaluation = await get_json_asset(editor_evaluation.asset_name);
-			if (light_projection_canvas !== null) {
-			    bce_canvas_render.bce_canvas_render__evaluation_eye_data(light_projection_canvas, $user_color_theme, evaluation, 0, false);
-			}
+			bce_canvas_render.bce_canvas_render__evaluation_eye_data(light_projection_canvas, $user_color_theme, evaluation, 0, false);
 		    }
 		} else if (stimrx.stimrx_right_eye_light_projection__is_type(expression)) {
 		    if (editor_evaluation.enable_right_eye_overlay) {
 			let evaluation = await get_json_asset(editor_evaluation.asset_name);
-			if (light_projection_canvas !== null) {
-			    bce_canvas_render.bce_canvas_render__evaluation_eye_data(light_projection_canvas, $user_color_theme, evaluation, 1, false);
-			}
+			bce_canvas_render.bce_canvas_render__evaluation_eye_data(light_projection_canvas, $user_color_theme, evaluation, 1, false);
 		    }
 		}
 	    }

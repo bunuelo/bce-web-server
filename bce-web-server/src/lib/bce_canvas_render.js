@@ -64,11 +64,11 @@ function bce_canvas_render__evaluation_eye_data(canvas, color_theme, evaluation,
     var color_can_see;
     var color_cannot_see;
     if (color_theme == "dark") {
-        color_can_see    = [255, 255, 255, 0.5];
-        color_cannot_see = [0, 0, 0, 0.5];
+        color_can_see    = [255, 255, 255, 0.25];
+        color_cannot_see = [0, 0, 0, 0.25];
     } else {
-        color_can_see    = [0, 0, 0, 0.5];
-        color_cannot_see = [255, 255, 255, 0.5];
+        color_can_see    = [0, 0, 0, 0.25];
+        color_cannot_see = [255, 255, 255, 0.25];
     }
     
     var eye_total_stimulus_count = 0;
@@ -133,7 +133,6 @@ function bce_canvas_render__evaluation_eye_data(canvas, color_theme, evaluation,
             }
         }
     }
-    
     return {
 	"eye_total_stimulus_count": eye_total_stimulus_count,
 	"eye_total_response_count": eye_total_response_count
@@ -144,7 +143,6 @@ function bce_canvas_render__evaluation_eye(canvas, color_theme, evaluation, eye_
     bce_canvas_render__draw_radial_eye(canvas, color_theme);
     return bce_canvas_render__evaluation_eye_data(canvas, color_theme, evaluation, eye_index);
 }
-
 
 function bce_canvas_render__alpha_omega_to_x_ratio(alpha, omega) {
     const center_x             = 0.5;
