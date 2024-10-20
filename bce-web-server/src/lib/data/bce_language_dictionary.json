@@ -120,9 +120,9 @@
 	"component_stimrx_expression_editor_label_remove_prescription": "remove prescription",
 	"component_stimrx_expression_editor_label_right_eye_light_projection": "Right Eye Light Projection",
 	"component_stimrx_expression_editor_label_set_variable": "Set Variable",
-	"component_stimrx_expression_editor_alert_upload_asset_success": "Upload asset success!",
-	"component_stimrx_expression_editor_alert_upload_asset_failure": "Upload asset failure.",
-	"component_stimrx_expression_editor_alert_upload_asset_in_progress": "Asset upload in progress!",
+	"component_stimrx_expression_editor_alert_upload_asset_success": "Autosave asset success!",
+	"component_stimrx_expression_editor_alert_upload_asset_failure": "Autosave asset failure.",
+	"component_stimrx_expression_editor_alert_upload_asset_in_progress": "Autosaving...",
 
 	"page_home_title": "Home",
 	"page_login_title": "Login",

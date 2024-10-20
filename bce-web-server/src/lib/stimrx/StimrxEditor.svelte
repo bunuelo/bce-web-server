@@ -130,6 +130,7 @@
     async function save_prescription(asset_name, rx) {
 	const file_name = "assets/rx.json";
 	const blob      = new Blob([JSON.stringify(rx)], {type: "application/json"});
+        $alert = bce_lang($user_language, "component_stimrx_expression_editor_alert_upload_asset_in_progress");
         bce_session.asset_upload(acl_selected, asset_name, blob, file_name)
             .then(async function (result) {
                 if (!result) {
@@ -151,7 +152,6 @@
     async function on_click_add_prescription() {
 	if (editor !== null) {
 	    const rx = stimrx_editor.new_default_stimrx_editor_prescription();
-            $alert = bce_lang($user_language, "component_stimrx_expression_editor_alert_upload_asset_in_progress");
 	    await save_prescription(null, rx);
 	}
     }
