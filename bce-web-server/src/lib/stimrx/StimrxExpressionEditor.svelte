@@ -311,7 +311,7 @@
             <StimrxExpressionEditor bind:expression={expression.expression} bind:editor={editor} path={[...path, "expression"]} bind:asset_cache={asset_cache} bind:editor_prescription={expression} save_prescription_callback={save_prescription_callback}/>
         {/if}
     {:else if stimrx.stimrx_light_projection__is_type(expression)}
-        <StimrxLightProjectionEditor expression={expression} bind:editor={editor} path={path} bind:asset_cache={asset_cache} bind:editor_prescription={editor_prescription}/>
+        <StimrxLightProjectionEditor expression={expression} bind:editor={editor} path={path} bind:asset_cache={asset_cache} bind:editor_prescription={editor_prescription} save_prescription_callback={save_prescription_callback}/>
     {:else if Number.isFinite(expression)}
         <i>Number</i>
         {#if editor !== null && editor.show_view_options}

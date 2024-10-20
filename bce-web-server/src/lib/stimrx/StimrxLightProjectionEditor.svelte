@@ -25,6 +25,7 @@
     export let path = [];
     export let asset_cache;
     export let editor_prescription;
+    export let save_prescription_callback;
 
     let view_selected = "expand";
     let light_projection_canvas = null;
@@ -245,6 +246,7 @@
     
     async function changed_rx_editor_state() {
 	await upload_rx_editor_state();
+	await save_prescription_callback();
 	let temp1 = expression;
 	expression = null;
 	expression = temp1;
