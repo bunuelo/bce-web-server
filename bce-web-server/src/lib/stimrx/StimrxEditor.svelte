@@ -26,11 +26,13 @@
     export let path = [];
     export let asset_cache;
     export let editor_prescription;
+    export let prescription_asset_name;
 
     let view_selected = "expand";
 
     let acl_list = [];
     let acl_selected = "0";
+
 
     function get_acl_by_id(acl_id) {
         for (var i = 0; i < acl_list.length; i ++) {
@@ -119,17 +121,10 @@
 	minimize_evaluation_asset_selector = false;
     }
 
-    async function on_click_remove_prescription() {
+    async function on_click_remove_prescription(prescription_index) {
 	if (editor !== null && expression !== null && stimrx_editor.stimrx_editor_prescription__is_type(expression)) {
-	    let rx = expression;
-	    var i = 0;
-	    while (i < editor.rxs.length && editor.rxs[i] !== rx) {
-		i ++;
-	    }
-	    if (i < editor.rxs.length) {
-		editor.rxs.splice(i, 1);
-		await changed_rx_editor_state();
-	    }
+	    editor.rxs.splice(prescription_index, 1);
+	    await changed_rx_editor_state();
 	}
     }
 
@@ -225,6 +220,13 @@
             </tr>
 	    {#each editor.rxs as rx_asset_name, rx_i}
                 <tr>
+		    <td>
+		        <a href="#" on:click|preventDefault={async function (e) {await on_click_remove_prescription(rx_i);}}>
+         	            {bce_lang($user_language, "component_stimrx_expression_editor_label_remove_prescription")}
+	                </a>
+                    </td>
+		</tr>
+		<tr>
                     <td>
 	                {#await get_json_asset(rx_asset_name)}
 	                    ...waiting
