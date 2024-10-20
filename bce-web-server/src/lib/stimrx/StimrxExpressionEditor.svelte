@@ -137,6 +137,7 @@
 	if (editor !== null) {
 	    const rx   = stimrx_editor.new_default_stimrx_editor_prescription();
 	    const blob = new Blob([JSON.stringify(rx)], {type: "application/json"});
+	    let file_name = "assets/rx.json";
             bce_session.asset_upload(acl_selected, blob, file_name)
                 .then(async function (result) {
                     if (!result) {
