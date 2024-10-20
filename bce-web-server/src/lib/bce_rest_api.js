@@ -294,9 +294,12 @@ export default class BceRestApi {
 	    return null;
 	}
 	this.message = response_json.message;
-	return response_json.success;
+	if (response_json.success) {
+	    return response_json.asset_name;
+	}
+	return null;
     }
-  
+    
     async asset_count(session_token, acl_id = null) {
         var body = {
   	    session_token: session_token

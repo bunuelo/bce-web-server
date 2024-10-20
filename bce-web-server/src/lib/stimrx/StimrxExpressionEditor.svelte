@@ -139,23 +139,18 @@
 	    const blob = new Blob([JSON.stringify(rx)], {type: "application/json"});
             bce_session.asset_upload(acl_id, blob, file_name)
                 .then(result => {
-                    $alert = bce_lang($user_language, "component_stimrx_expression_editor_alert_upload_asset_success") + ": " + file_name;
                     if (!result) {
                         $alert = bce_lang($user_language, "component_stimrx_expression_editor_alert_upload_asset_failure");
                         return;
                     }
-                    i ++;
-                    if (i < files.length) {
-                        upload_rest();
-                    } else {
-                        $alert = bce_lang($user_language, "component_stimrx_expression_editor_alert_upload_all_assets_success");
-                    }
+                    $alert = bce_lang($user_language, "component_stimrx_expression_editor_alert_upload_asset_success") + ": " + file_name;
+		    let asset_name = result;
+		    editor.rxs.push(asset_name);
+		    await changed_rx_editor_state();
                 })
                 .catch(e => {
                     console.log(e);
                 })
-	    editor.rxs.push();
-	    await changed_rx_editor_state();
 	}
     }
 
