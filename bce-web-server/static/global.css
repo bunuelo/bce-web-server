@@ -161,7 +161,7 @@ select option {
     background: var(--surface2);
     background-color: var(--surface2);
     color: var(--element2);
-    text-align: center;
+    text-align: right;
     border:1px solid var(--surface3);
 }
 
