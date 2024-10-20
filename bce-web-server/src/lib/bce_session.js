@@ -172,7 +172,7 @@ export default class BceSession {
     }
 
     async asset_upload(acl_id, file, file_name) {
-        console.log("BceSession.asset_upload: Upload Begin.  file.name = " + file.name)
+        console.log("BceSession.asset_upload: Upload Begin.  file_name = " + file_name)
         this.update_session_from_cookie();
         let result = await bce_rest_api.asset_upload(get(user_session_token), acl_id, file, file_name);
         if (result !== null) {
