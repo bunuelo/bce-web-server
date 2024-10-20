@@ -31,27 +31,6 @@
 
     let view_selected = "expand";
 
-    let acl_list = [];
-    let acl_selected = "0";
-
-    function get_acl_by_id(acl_id) {
-        for (var i = 0; i < acl_list.length; i ++) {
-            let acl = acl_list[i]
-            if (acl.acl_id == acl_id) {
-                return acl
-            }
-        }
-        return null
-    }
-
-    function get_acl_display_name_by_id(acl_id) {
-        let acl = get_acl_by_id(acl_id)
-        if (acl == null) {
-            return "none"
-        }
-        return acl.display_name
-    }
-    
     let minimize_evaluation_asset_selector = true;
     let selected_evaluation = null;
     
@@ -83,14 +62,6 @@
     }
     
     async function update_all() {
-	await update_acl_list();
-    }
-    
-    async function update_acl_list() {
-        acl_list = await bce_session.acls(true);
-        if (acl_selected == "0" && acl_list.length > 0) {
-            acl_selected = acl_list[0].acl_id;
-        }
     }
     
     async function get_json_asset(name) {
