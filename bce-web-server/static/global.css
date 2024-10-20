@@ -158,8 +158,8 @@ select option {
     bottom: 0;
     left: 0;
     right: 0;
-    background: var(--surface1);
-    background-color: var(--surface1);
+    background: var(--surface2);
+    background-color: var(--surface2);
     color: var(--element3);
     text-align: center;
     border:1px solid var(--surface3);
