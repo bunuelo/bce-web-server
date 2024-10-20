@@ -32,7 +32,9 @@
     let acl_list = [];
     let acl_selected = "0";
 
-
+    let minimize_prescription_asset_selector = true;
+    let selected_prescription = null;
+    
     function get_acl_by_id(acl_id) {
         for (var i = 0; i < acl_list.length; i ++) {
             let acl = acl_list[i]
@@ -50,9 +52,6 @@
         }
         return acl.display_name
     }
-    
-    let minimize_evaluation_asset_selector = true;
-    let selected_evaluation = null;
     
     $: (function () {
         if (editor && view_selected) {
@@ -116,10 +115,6 @@
         show_more_details = true;
     }
 
-    async function on_click_add_evaluation() {
-	minimize_evaluation_asset_selector = false;
-    }
-
     async function on_click_remove_prescription(rx_i) {
 	if (editor !== null && expression !== null) {
 	    editor.rxs.splice(rx_i, 1);
@@ -175,16 +170,14 @@
 	editor = temp2;
     }
 
-    let on_evaluation_asset_select = async function (asset) {
-        console.log("Evaluation asset selected: " + asset.name + " (" + asset.file_name + ")");
-	minimize_evaluation_asset_selector = true;
-	if (editor !== null && expression !== null && stimrx_editor.stimrx_editor_prescription__is_type(expression)) {
-	    let rx = expression;
-	    let editor_evaluation = stimrx_editor.new_stimrx_editor_evaluation(asset.name);
-	    rx.evaluations.push(editor_evaluation);
-            await changed_rx_editor_state();
+    let on_prescription_asset_select = async function (asset) {
+        console.log("Prescription asset selected: " + asset.name + " (" + asset.file_name + ")");
+	minimize_prescription_asset_selector = true;
+	if (editor !== null && expression !== null) {
+	    
+            //await changed_rx_editor_state();
 	} else {
-	    console.log("Could not find rx to add evaluation.");
+	    console.log("Could not find editor to add prescription.");
 	}
     };
 
@@ -208,7 +201,7 @@
 </style>
 
 <div class="stimrx_expression">
-    <AssetSelector bind:minimize={minimize_evaluation_asset_selector} popup_only={true} bind:selected_asset={selected_evaluation} on_asset_select={on_evaluation_asset_select} />
+    <AssetSelector bind:minimize={minimize_prescription_asset_selector} popup_only={true} bind:selected_asset={selected_prescription} on_asset_select={on_prescription_asset_select} />
     {#if stimrx_editor.stimrx_editor__is_type(expression)}
         <table>
 	    <tr>
