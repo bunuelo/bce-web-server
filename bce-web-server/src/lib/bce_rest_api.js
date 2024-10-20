@@ -286,8 +286,10 @@ export default class BceRestApi {
         var data = new FormData();
         data.append("session_token", session_token);
         data.append("acl_id",        Number(acl_id));
-        data.append("name",          name);
-        data.append("file",          file, file_name);
+	if (name !== null) {
+            data.append("name", name);
+	}
+        data.append("file", file, file_name);
         const response_json = await this.fetch_json_with_options("/asset/upload", {
             method: 'POST',
             body: data
