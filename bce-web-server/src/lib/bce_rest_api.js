@@ -281,16 +281,16 @@ export default class BceRestApi {
 	return response_json.success;
     }
 
-    async asset_upload(session_token, acl_id, name, file, file_name) {
-	if (name === null) {
-	    name = "";
+    async asset_upload(session_token, acl_id, asset_name, file, file_name) {
+	if (asset_name === null) {
+	    asset_name = "";
 	}
 	acl_id = Number(acl_id);
-	console.log("asset_upload: acl_id = " + acl_id + ", name = \"" + name + "\", file_name = \"" + file_name + "\"");
+	console.log("asset_upload: acl_id = " + acl_id + ", asset_name = \"" + asset_name + "\", file_name = \"" + file_name + "\"");
         var data = new FormData();
         data.append("session_token", session_token);
-        data.append("asset_name",    "this-is-a-fake-asset-name");
-        //data.append("asset_name",    name);
+        //data.append("asset_name",    "this-is-a-fake-asset-name");
+        data.append("asset_name",    asset_name);
         data.append("acl_id",        acl_id);
         data.append("file",          file, file_name);
 	console.log("data = " + data);
