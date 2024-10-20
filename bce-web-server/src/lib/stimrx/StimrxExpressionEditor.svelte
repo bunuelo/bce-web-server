@@ -16,6 +16,7 @@
     import BceSession from "$lib/bce_session.js";
     let bce_session = new BceSession();
     import AssetSelector from '$lib/AssetSelector.svelte'
+    import StimrxEditor from '$lib/stimrx/StimrxEditor.svelte'
     import StimrxExpressionEditor from '$lib/stimrx/StimrxExpressionEditor.svelte'
     import StimrxLightProjectionEditor from '$lib/stimrx/StimrxLightProjectionEditor.svelte'
     import { bce_asset } from '$lib/bce_asset.js'
