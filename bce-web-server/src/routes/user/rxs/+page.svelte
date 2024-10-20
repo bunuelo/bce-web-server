@@ -14,7 +14,7 @@
     import BceSession from "$lib/bce_session.js";
     let bce_session = new BceSession();
     import AssetSelector from '$lib/AssetSelector.svelte'
-    import StimrxExpressionEditor from '$lib/stimrx/StimrxExpressionEditor.svelte'
+    import StimrxEditor from '$lib/stimrx/StimrxEditor.svelte'
     
     let selected_asset = null;
     let minimize = true;
