@@ -160,7 +160,8 @@ select option {
     right: 0;
     background: var(--surface3);
     background-color: var(--surface3);
-    color: var(--element3)
+    color: var(--element3);
+    text-align: right;
 }
 
 img.asset_preview {
