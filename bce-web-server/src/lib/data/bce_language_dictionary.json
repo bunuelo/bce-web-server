@@ -122,6 +122,7 @@
 	"component_stimrx_expression_editor_label_set_variable": "Set Variable",
 	"component_stimrx_expression_editor_alert_upload_asset_success": "Upload asset success!",
 	"component_stimrx_expression_editor_alert_upload_asset_failure": "Upload asset failure.",
+	"component_stimrx_expression_editor_alert_upload_asset_in_progress": "Asset upload in progress!",
 
 	"page_home_title": "Home",
 	"page_login_title": "Login",
