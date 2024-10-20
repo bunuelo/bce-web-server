@@ -4,7 +4,7 @@ import BceSession from "$lib/bce_session.js";
 let bce_session = new BceSession();
 
 async function fetch_asset(name) {
-    //bce_session.update_session_from_cookie();
+    bce_session.update_session_from_cookie();
     var url = "https://bce.center:8000/asset/download?session_token=" + get(user_session_token) + "&name=" + name;
     return await fetch(url, {
         "method": "GET",
