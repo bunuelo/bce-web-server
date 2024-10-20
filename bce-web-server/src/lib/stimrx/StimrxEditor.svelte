@@ -229,7 +229,7 @@
 	                {#await get_json_asset(rx_asset_name)}
 	                    ...waiting
 	                {:then rx}
-                            {rx}
+                            <StimrxExpressionEditor expression={rx} bind:editor={expression} path={[...path, "rxs", rx_i, "expression"]} bind:asset_cache={asset_cache} bind:editor_prescription={editor_prescription}/>
                             <!--<StimrxExpressionEditor expression={rx} bind:editor={expression} path={[...path, "rxs", rx_i, "expression"]} bind:asset_cache={asset_cache} bind:editor_prescription={editor_prescription}/>!-->
  	                {:catch error}
 	                    {error.message}
