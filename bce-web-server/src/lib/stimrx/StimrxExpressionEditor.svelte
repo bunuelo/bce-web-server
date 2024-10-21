@@ -34,9 +34,6 @@
     let minimize_evaluation_asset_selector = true;
     let selected_evaluation = null;
     
-    let patient_user_list = [];
-    let patient_user_selected = ""
-
     $: (function () {
         if (editor && view_selected) {
 	    stimrx_editor.stimrx_editor__set_meta_var(editor, path, "view_selected", view_selected);
@@ -52,11 +49,6 @@
     });
 
     async function update_all() {
-	await update_patient_user_list();
-    }
-    
-    async function update_patient_user_list() {
-        patient_user_list = await bce_session.chat_user_list();
     }
     
     async function on_change_acl_selected() {
@@ -253,20 +245,6 @@
             </select>
 	{/if}
         <table>
-            <tr>
-	        <td>
-	            <label>
-                        {bce_lang($user_language, "component_stimrx_expression_editor_label_patient_user")}: 
-                        <select bind:value={patient_user_selected} on:change={update_patient_user_list}>
-                            {#each patient_user_list as patient_user}
-	                        <option value={patient_user.email}>
-	                            {patient_user.email}
-	                        </option>
-                            {/each}
-                        </select>
-                    </label>
-		</td>
-            </tr>
             <tr>
 	        <td>
 	            <a href="#" on:click|preventDefault={on_click_add_evaluation}>

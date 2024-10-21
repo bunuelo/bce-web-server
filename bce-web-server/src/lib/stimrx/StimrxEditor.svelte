@@ -35,6 +35,9 @@
     let minimize_prescription_asset_selector = true;
     let selected_prescription = null;
     
+    let patient_user_list = [];
+    let patient_user_selected = ""
+    
     async function on_click_open_prescription() {
 	minimize_prescription_asset_selector = false;
     }
@@ -76,6 +79,7 @@
     
     async function update_all() {
 	await update_acl_list();
+	await update_patient_user_list();
     }
     
     async function update_acl_list() {
@@ -83,6 +87,10 @@
         if (acl_selected == "0" && acl_list.length > 0) {
             acl_selected = acl_list[0].acl_id;
         }
+    }
+    
+    async function update_patient_user_list() {
+        patient_user_list = await bce_session.chat_user_list();
     }
     
     async function get_json_asset(name) {
@@ -207,6 +215,16 @@
                             {#each acl_list as acl}
 	                        <option value={acl.acl_id}>
 	                            {acl.display_name}
+	                        </option>
+                            {/each}
+                        </select>
+                    </label>
+	            <label>
+                        {bce_lang($user_language, "component_stimrx_expression_editor_label_patient_user")}: 
+                        <select bind:value={patient_user_selected} on:change={update_patient_user_list}>
+                            {#each patient_user_list as patient_user}
+	                        <option value={patient_user.email}>
+	                            {patient_user.email}
 	                        </option>
                             {/each}
                         </select>
