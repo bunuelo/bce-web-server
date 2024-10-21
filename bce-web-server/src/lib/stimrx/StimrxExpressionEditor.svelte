@@ -247,6 +247,11 @@
         <table>
             <tr>
 	        <td>
+       	            <i>{bce_lang($user_language, "component_stimrx_expression_editor_label_patient")}</i>: {expression.user_id}
+		</td>
+            </tr>
+            <tr>
+	        <td>
 	            <a href="#" on:click|preventDefault={on_click_add_evaluation}>
          	        {bce_lang($user_language, "component_stimrx_expression_editor_label_add_evaluation")}
 	            </a>
@@ -256,7 +261,7 @@
 	        <tr>
 	            <td>
 	                {#await get_json_asset(evaluation.asset_name)}
-	                    ...waiting
+	                    Loading evaluation...
 	                {:then json_asset}
 	                    {bce_lang($user_language, "component_stimrx_expression_editor_label_evaluation")}&nbsp;{j + 1}
  	                {:catch error}
