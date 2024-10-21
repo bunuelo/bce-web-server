@@ -140,7 +140,7 @@
 
     async function on_click_add_prescription() {
 	if (editor !== null) {
-	    const rx = stimrx_editor.new_default_stimrx_editor_prescription();
+	    const rx = stimrx_editor.new_default_stimrx_editor_prescription(selected_user_id);
 	    await save_prescription(null, rx);
 	}
     }

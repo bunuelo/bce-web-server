@@ -39,18 +39,18 @@ function stimrx_editor__set_meta_var(_self, path, name, value) {
 
 // EditorPrescription BEGIN
 
-function new_stimrx_editor_prescription(expression) {
+function new_stimrx_editor_prescription(user_id, expression) {
     return {
-	"type": "EditorPrescription",
-	"expression": expression,
-	"evaluations": [
-	],
-	"left_eye_blind_spots": [],
+	"type":                  "EditorPrescription",
+	"user_id":               user_id,
+	"expression":            expression,
+	"evaluations":           [],
+	"left_eye_blind_spots":  [],
 	"right_eye_blind_spots": [],
-	"enable_left_eye_from": false,
-	"enable_left_eye_to": false,
+	"enable_left_eye_from":  false,
+	"enable_left_eye_to":    false,
 	"enable_right_eye_from": false,
-	"enable_right_eye_to": false,
+	"enable_right_eye_to":   false,
     };
 }
 
@@ -58,12 +58,12 @@ function stimrx_editor_prescription__is_type(x) {
     return x && typeof x === "object" && x.hasOwnProperty("type") && x.type === "EditorPrescription";
 }
 
-function new_default_stimrx_editor_prescription() {
+function new_default_stimrx_editor_prescription(user_id) {
     let expression = stimrx.new_stimrx_sequence_expression([
         stimrx.new_stimrx_set_variable_expression(null, null, "left_eye_lens",  stimrx.new_default_stimrx_left_eye_light_projection()),
         stimrx.new_stimrx_set_variable_expression(null, null, "right_eye_lens", stimrx.new_default_stimrx_right_eye_light_projection()),
     ]);
-    return new_stimrx_editor_prescription(expression);
+    return new_stimrx_editor_prescription(user_id, expression);
 }
 
 // EditorPrescription END
