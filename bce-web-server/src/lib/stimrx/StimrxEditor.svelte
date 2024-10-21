@@ -147,7 +147,10 @@
     }
 
     async function on_click_add_prescription() {
-	if (editor !== null && patient_user_selected !== "") {
+	if (editor !== null) {
+	    if (patient_user_selected === "") {
+                $alert = bce_lang($user_language, "component_stimrx_expression_editor_alert_select_patient");
+	    }
 	    const rx = stimrx_editor.new_default_stimrx_editor_prescription(patient_user_selected);
 	    await save_prescription(null, rx);
 	}

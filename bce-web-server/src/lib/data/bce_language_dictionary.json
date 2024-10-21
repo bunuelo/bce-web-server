@@ -125,6 +125,7 @@
 	"component_stimrx_expression_editor_alert_upload_asset_in_progress": "Autosaving prescription...",
 	"component_stimrx_expression_editor_label_open_prescription": "open prescription",
 	"component_stimrx_expression_editor_label_patient_user": "patient",
+	"component_stimrx_expression_editor_alert_select_patient": "Please select the patient for whom to create new prescription.",
 
 	"page_home_title": "Home",
 	"page_login_title": "Login",
