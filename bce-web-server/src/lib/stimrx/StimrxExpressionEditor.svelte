@@ -35,6 +35,7 @@
     let selected_evaluation = null;
     
     let patient_user_list = [];
+    let patient_user_selected = ""
 
     $: (function () {
         if (editor && view_selected) {
