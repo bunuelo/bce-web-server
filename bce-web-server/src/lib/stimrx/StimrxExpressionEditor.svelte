@@ -247,7 +247,7 @@
         <table>
             <tr>
 	        <td>
-       	            <i>{bce_lang($user_language, "component_stimrx_expression_editor_label_patient")}</i>: {expression.user_id}
+       	            <i>{bce_lang($user_language, "component_stimrx_expression_editor_label_patient_user")}</i>: {expression.user_id}
 		</td>
             </tr>
             <tr>
