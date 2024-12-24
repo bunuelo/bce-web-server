@@ -132,7 +132,7 @@
 	    }
 	    bce_canvas_render.bce_canvas_render__light_projection(light_projection_canvas, $user_color_theme, light_projection, render_from, render_to);
 	}
-	if (editor !== null && editor_prescription !== null) {
+	if (editor !== null && editor_prescription !== null && light_projection_canvas !== null) {
 	    for (var i = 0; i < editor_prescription.evaluations.length; i ++) {
 		let editor_evaluation = editor_prescription.evaluations[i];
 		if (stimrx.stimrx_left_eye_light_projection__is_type(expression)) {
