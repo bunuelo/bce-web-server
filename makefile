@@ -49,6 +49,7 @@ SOURCE_FILES = \
     bce-http-redirect-server/start \
     bce-http-redirect-server/bce_http_redirect.py \
     README.md \
+    dockerfile \
     makefile
 
 
