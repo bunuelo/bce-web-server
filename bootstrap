@@ -7,7 +7,7 @@ echo "Running apt-get update"
 apt-get update
 
 echo "Running apt-get install -y npm"
-apt-get install -y npm dotenv
+apt-get install -y npm python3-dotenv-cli
 
 cd bce-web-server
 
