@@ -3,9 +3,9 @@
     "version": "0.0.1",
     "private": true,
     "scripts": {
-	"dev": "./start_dev.sh",
+	"dev": "dotenv -e ../.env -- ./start_dev.sh",
 	"build": "vite build",
-	"preview": "./start_preview.sh",
+	"preview": "dotenv -e ../.env -- ./start_preview.sh",
 	"check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
 	"check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch"
     },
