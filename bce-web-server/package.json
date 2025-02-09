@@ -3,9 +3,9 @@
     "version": "0.0.1",
     "private": true,
     "scripts": {
-	"dev": "source ../.env && vite dev --port $(BCE_WEB_SERVER_HTTPS_PORT)",
+	"dev": "./start_dev.sh",
 	"build": "vite build",
-	"preview": "source ../.env && vite preview --port $(BCE_WEB_SERVER_HTTPS_PORT)",
+	"preview": "./start_preview.sh,
 	"check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
 	"check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch"
     },
