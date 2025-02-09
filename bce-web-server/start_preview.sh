@@ -1,5 +1,5 @@
 #!/bin/bash
 
-source ../.env
+dotenv ../.env
 
 vite preview --port $(BCE_WEB_SERVER_HTTPS_PORT)"
