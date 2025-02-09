@@ -62,7 +62,7 @@ build-docker-image:
 #	docker build -t bce-web-server .
 
 start-docket-image:
-	docker run -d -p 127.0.0.1:3000:3000 bce-web-server
+	docker run -d -p 127.0.0.1:3030:3030 bce-web-server
 
 debug-docket-image:
 	docker run -p 127.0.0.1:3000:3000 bce-web-server
