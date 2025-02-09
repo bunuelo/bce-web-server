@@ -5,4 +5,4 @@ WORKDIR /app
 COPY . .
 RUN ./bootstrap
 CMD ["/app/start"]
-EXPOSE 3030
+EXPOSE 443
