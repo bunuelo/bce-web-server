@@ -58,6 +58,7 @@ start-editor:
 
 build-docker-image:
 	cp -f /home/bce-web-server/privkey.pem .
+	cp -f /home/bce-web-server/fullchain.pem .
 	docker build --no-cache --progress=plain -t bce-web-server . 2>&1 | tee docker_build.log
 #	docker build -t bce-web-server .
 
