@@ -55,3 +55,19 @@ SOURCE_FILES = \
 
 start-editor:
 	emacs -nw $(SOURCE_FILES)
+
+build-docker-image:
+	docker build --no-cache --progress=plain -t bce-web-server . 2>&1 | tee docker_build.log
+#	docker build -t bce-web-server .
+
+start-docket-image:
+	docker run -d -p 127.0.0.1:3000:3000 bce-web-server
+
+debug-docket-image:
+	docker run -p 127.0.0.1:3000:3000 bce-web-server
+
+prune-docker:
+	docker system prune
+
+docker-logs:
+	docker logs bce-web-server

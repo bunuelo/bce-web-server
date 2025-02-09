@@ -3,5 +3,14 @@
 echo "Bootstrapping BCE Web Server."
 #npm create svelte@latest bce-web-server
 
+echo "Running apt-get update"
+apt-get update
+
+echo "Running apt-get install -y npm"
+apt-get install -y npm
+
 cd bce-web-server
+
+echo "Running NPM install in $PWD"
 npm install
+

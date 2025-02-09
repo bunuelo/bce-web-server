@@ -4,5 +4,5 @@ FROM debian
 WORKDIR /app
 COPY . .
 RUN ./bootstrap
-CMD ["start"]
+CMD ["/app/start"]
 EXPOSE 3000
