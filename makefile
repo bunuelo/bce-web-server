@@ -64,10 +64,10 @@ build-docker-image:
 #	docker build -t bce-web-server .
 
 start-docket-image:
-	docker run -d -P bce-web-server
+	docker run -d -p $(BCE_WEB_SERVER_IP_ADDRESS):$(BCE_WEB_SERVER_HTTPS_PORT):$(BCE_WEB_SERVER_HTTPS_PORT) bce-web-server
 
 debug-docket-image:
-	docker run -P bce-web-server
+	docker run -p $(BCE_WEB_SERVER_IP_ADDRESS):$(BCE_WEB_SERVER_HTTPS_PORT):$(BCE_WEB_SERVER_HTTPS_PORT) bce-web-server
 
 prune-docker:
 	docker system prune
